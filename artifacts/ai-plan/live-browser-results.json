@@ -1,0 +1,18 @@
+{
+  "origin": "file",
+  "effort": [
+    "high",
+    "high"
+  ],
+  "tasks": 20,
+  "stages": 4,
+  "sources": 5,
+  "durationSeconds": 55,
+  "period": {
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-18",
+    "examDate": "2026-12-19",
+    "examSourceUrl": "http://www.moe.gov.cn/srcsite/A15/moe_778/s3261/202609/t20260923_1451734.html"
+  },
+  "pageErrors": []
+}

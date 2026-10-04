@@ -1,0 +1,14 @@
+# Development dependencies and local configuration
+node_modules/
+.codex-tools/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+*.log
+.DS_Store
+Thumbs.db
+artifacts/**/test-temp/
+
+# Keep existing reports, screenshots, local assets and teaching ZIPs.

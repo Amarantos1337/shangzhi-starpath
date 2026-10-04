@@ -1,0 +1,15 @@
+{
+  "original_project_files": 34,
+  "preserved_files": 27,
+  "modified_files": [
+    "project/index.html",
+    "project/assets/mark.svg",
+    "project/css/learning.css",
+    "project/css/styles.css",
+    "project/js/app.js",
+    "project/js/data.js",
+    "project/js/storage.js"
+  ],
+  "missing_files": [],
+  "reverse_compatibility": "Original data and learning content unchanged; original v1 store accepts new tribute backup."
+}

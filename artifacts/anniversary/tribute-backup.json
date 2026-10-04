@@ -1,0 +1,166 @@
+{
+  "app": "shangzhi-starpath",
+  "exportedAt": "2026-10-04T06:33:01.751Z",
+  "version": 1,
+  "favorites": [
+    "wang-zongyu"
+  ],
+  "plans": [
+    {
+      "id": "a9a68111-3870-41aa-bd09-ce9b9b1b7c4d",
+      "templateId": null,
+      "title": "我的九秩校庆献礼计划",
+      "goal": "回望校史，汲取校友故事的启发，完成一份实践作品，用自己的成长献礼母校。",
+      "createdAt": "2026-10-04T06:33:01.719Z",
+      "updatedAt": "2026-10-04T06:33:01.719Z",
+      "tasks": [
+        {
+          "id": "55bc93ba-097e-42fc-860e-d53775ccf325",
+          "title": "阅读校史，整理一条自己感兴趣的历史记录",
+          "stage": "回望校史",
+          "dueDate": "",
+          "completed": false
+        },
+        {
+          "id": "56db5736-495e-442d-b712-2632ca3d98f1",
+          "title": "阅读一位校友的故事，写下一条成长启发",
+          "stage": "走近校友",
+          "dueDate": "",
+          "completed": false
+        },
+        {
+          "id": "b56acedc-faa8-41c8-a43d-d8106dc10f08",
+          "title": "完成现有实践库中的一个案例，并记录成果与复盘",
+          "stage": "实践献礼",
+          "dueDate": "",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "a96aca10-168f-41c0-aee2-610471823a46",
+      "templateId": null,
+      "title": "我的献礼 <b>成长记录</b>",
+      "goal": "完成一份真实的小作品",
+      "createdAt": "2026-10-04T06:33:01.235Z",
+      "updatedAt": "2026-10-04T06:33:01.417Z",
+      "tasks": [
+        {
+          "id": "e4ffc362-17c3-4808-9fb8-4db31b6b970f",
+          "title": "记录1936年的办学起点",
+          "stage": "回望校史",
+          "dueDate": "2026-10-01",
+          "completed": true
+        },
+        {
+          "id": "8a638c72-6af8-43f3-8068-8dfd0a27637d",
+          "title": "阅读一位校友的故事，写下一条成长启发",
+          "stage": "走近校友",
+          "dueDate": "",
+          "completed": true
+        },
+        {
+          "id": "c2a2101b-59d0-469b-a5c7-67a409c64343",
+          "title": "完成现有实践库中的一个案例，并记录成果与复盘",
+          "stage": "实践献礼",
+          "dueDate": "",
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": "32d23e99-f64b-49e0-b2f5-9070a3fcd478",
+      "templateId": "competition",
+      "title": "旧版兼容性测试计划",
+      "goal": "保存原有任务和完成进度",
+      "createdAt": "2026-09-28T04:33:35.891Z",
+      "updatedAt": "2026-09-28T04:33:35.892Z",
+      "tasks": [
+        {
+          "id": "df95a372-770f-4da3-b2e4-f3a1a0b03c53",
+          "title": "填写一份任务书：用户、问题、3 项核心功能及不做的内容",
+          "stage": "读懂要求",
+          "dueDate": "",
+          "completed": true
+        },
+        {
+          "id": "17eb019c-2ae8-404b-b04f-26ec1d8dfcf3",
+          "title": "整理资格、交付格式与日期核对表；未知项写待核实",
+          "stage": "读懂要求",
+          "dueDate": "2026-10-01",
+          "completed": false
+        },
+        {
+          "id": "93d19f8e-d655-45cf-92a6-cfd6783f8bc2",
+          "title": "安排本周两次练习与一次检查，并写进自己的计划",
+          "stage": "读懂要求",
+          "dueDate": "",
+          "completed": false
+        },
+        {
+          "id": "d3edb12e-c25d-46d8-bf0e-f001358ce40f",
+          "title": "解压网页材料，修改 starter/index.html 的标题并在浏览器确认",
+          "stage": "完成基础练习",
+          "dueDate": "",
+          "completed": false
+        },
+        {
+          "id": "512634b3-8fb4-43ad-820b-1257e3dda438",
+          "title": "补齐 8 条问答并用 CSS 调整一处颜色或间距",
+          "stage": "完成基础练习",
+          "dueDate": "",
+          "completed": false
+        },
+        {
+          "id": "85ade940-36a5-40f4-979d-3d4b03617e12",
+          "title": "运行一次最小 JavaScript 搜索练习，记录输入和结果",
+          "stage": "完成基础练习",
+          "dueDate": "",
+          "completed": false
+        },
+        {
+          "id": "719b1c9f-f32f-4d54-890f-245ba30dd57f",
+          "title": "完成 8 条示例问答的分类与关键词组合筛选",
+          "stage": "制作小作品",
+          "dueDate": "",
+          "completed": false
+        },
+        {
+          "id": "ff32f615-5035-4058-af50-922a4ff36ae2",
+          "title": "添加结果数量、无结果提示，并检查手机宽度",
+          "stage": "制作小作品",
+          "dueDate": "",
+          "completed": false
+        },
+        {
+          "id": "ca63ca53-f88c-43d5-a68d-3a0db9d311e6",
+          "title": "请一位同学按指定输入试用，记录并修复一个问题",
+          "stage": "制作小作品",
+          "dueDate": "",
+          "completed": false
+        },
+        {
+          "id": "18245936-0484-49e7-9712-696e5546b5d8",
+          "title": "写下并执行正常搜索、无结果、清空恢复三条测试",
+          "stage": "测试与展示",
+          "dueDate": "",
+          "completed": false
+        },
+        {
+          "id": "b472277e-4690-40d4-865f-d611aa8fea35",
+          "title": "完成项目说明，写明运行方式、个人修改和示例数据",
+          "stage": "测试与展示",
+          "dueDate": "",
+          "completed": false
+        },
+        {
+          "id": "a9b8a1a1-0336-46f3-a0e6-fb7224219cb9",
+          "title": "按两分钟提纲演示作品，完成一次复盘",
+          "stage": "测试与展示",
+          "dueDate": "",
+          "completed": false
+        }
+      ]
+    }
+  ]
+}

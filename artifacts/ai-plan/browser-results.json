@@ -1,0 +1,9 @@
+[
+  "file 390px: form, preview, editing, regenerate, save, progress, refresh, import/cancel, escaping, failure/retry, duplicate submit, cancellation and template fallback passed",
+  "file 1042px: form, preview, editing, regenerate, save, progress, refresh, import/cancel, escaping, failure/retry, duplicate submit, cancellation and template fallback passed",
+  "file 1440px: form, preview, editing, regenerate, save, progress, refresh, import/cancel, escaping, failure/retry, duplicate submit, cancellation and template fallback passed",
+  "http 390px: form, preview, editing, regenerate, save, progress, refresh, import/cancel, escaping, failure/retry, duplicate submit, cancellation and template fallback passed",
+  "http 1042px: form, preview, editing, regenerate, save, progress, refresh, import/cancel, escaping, failure/retry, duplicate submit, cancellation and template fallback passed",
+  "http 1440px: form, preview, editing, regenerate, save, progress, refresh, import/cancel, escaping, failure/retry, duplicate submit, cancellation and template fallback passed",
+  "Unavailable localStorage: AI plan saved for the session and warning displayed"
+]

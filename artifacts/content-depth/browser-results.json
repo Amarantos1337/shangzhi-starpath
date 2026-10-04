@@ -1,0 +1,10 @@
+[
+  "15 pages checked at 1440px and 390px over HTTP and file://; no overflow, broken loaded images or duplicate IDs",
+  "Alumni → route → practice → plan; hash/history, keyboard details, ZIP download, 12-task creation/edit/persistence, escaping, export/import/cancel and legacy v1 verified",
+  "Empty plan shows six methods and still accepts custom tasks",
+  "Direct-file plan creation, progress and refresh persistence verified",
+  "Web reference checked: all categories, matched/empty/cleared/combined searches",
+  "Web starter completed using the exact lesson snippet and supplied questions",
+  "Unavailable storage: notice and session-only plan creation remain usable",
+  "No page or console errors during checked flows"
+]

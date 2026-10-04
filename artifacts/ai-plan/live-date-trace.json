@@ -1,0 +1,106 @@
+[
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "sources": [
+      {
+        "title": "教育部部署2027年全国硕士研究生考试招生工作",
+        "url": "https://www.neea.edu.cn/html1/report/2609/73-1.htm"
+      },
+      {
+        "title": "重磅通知！教育部发布2027考研时间：12月19日开考",
+        "url": "http://m.offcn.com/kaoyan/2026/0924/293107.html"
+      },
+      {
+        "title": "2027教育部部署全国硕士研究生考试招生工作进入阅读模式",
+        "url": "http://www.offcn.com/kaoyan/2026/0924/293114.html"
+      },
+      {
+        "title": "2027年考研初试时间定了！ - 2027年考研初试时间定了！",
+        "url": "https://www.163.com/dy/article/L7J83M6J0514CK0I.html#1"
+      },
+      {
+        "title": "2027考研，报名和初试时间定了",
+        "url": "http://xxt.ahnews.com.cn/news/2026/09/28/c_52944.htm"
+      },
+      {
+        "title": "甘肃教育新闻网 - 教育部部署2027年全国硕士研究生考试招生工作",
+        "url": "https://www.gsedunews.cn/content2-bcc230bec27f49b392d35ef368a6c801.htm"
+      },
+      {
+        "title": "【时间已定】2027考研预报名时间10月9日至12日9:00—22:00进入阅读模式",
+        "url": "http://www.offcn.com/kaoyan/2026/0924/293108.html"
+      },
+      {
+        "title": "2027年全国硕士研究生招生初试12月19日开考",
+        "url": "http://gxem.cn/?a/zhaokao/zhaobanlianxian/33291.html"
+      },
+      {
+        "title": "2027年考研時間確定：初試12月19日至20日舉行",
+        "url": "http://edu.people.com.cn/BIG5/n1/2026/0926/c1006-40805982.html"
+      },
+      {
+        "title": "成都理工大学工程技术学院-就业信息网",
+        "url": "https://jyb.cdutetc.cn/index/index/newsdetail.html?data=MDAwMDAwMDAwMJG6n3_Ed6imi4qQtLh4npWKutCXxoi3i7igr7-BZHxnkLZ9i8WGpNOaaKLSxKCalom6mNs"
+      },
+      {
+        "title": "2027年研考时间，定了！",
+        "url": "https://edu.iqilu.com/news/20260925/5947989.shtml"
+      },
+      {
+        "title": "2027年考研时间确定：初试12月19日至20日举行",
+        "url": "http://edu.people.com.cn/n1/2026/0926/c1006-40805982.html"
+      },
+      {
+        "title": "新疆维吾尔自治区2027年全国硕士研究生招生考试网上报名公告",
+        "url": "https://www.xjzk.gov.cn/c/2026-09-30/495994.shtml"
+      },
+      {
+        "title": "内蒙古大学报考点（1531）2027年全国硕士研究生招生考试网报公告",
+        "url": "https://gs.imu.edu.cn/info/1020/2355.htm"
+      },
+      {
+        "title": "湖北省2027年全国硕士研究生招生考试报名须知",
+        "url": "https://www.hbea.edu.cn/html/2026-09/16154.shtml"
+      },
+      {
+        "title": "教育部部署2027年全国硕士研究生考试招生工作",
+        "url": "https://e21.cn/info/1361/121292.htm?urltype=tree.TreeTempUrl&wbtreeid=1361"
+      },
+      {
+        "title": "2027年研考时间公布！",
+        "url": "https://jy.usx.edu.cn/news/view/aid/309056/tag/"
+      },
+      {
+        "title": "考试报名时间确定!",
+        "url": "http://www.shashi.gov.cn/bmtx/202609/t20260928_1137475.shtml"
+      }
+    ]
+  },
+  {
+    "stage": "generate",
+    "stopReason": "end_turn",
+    "sources": [],
+    "examDate": "2026-12-19",
+    "examSourceUrl": "https://www.neea.edu.cn/html1/report/2609/73-1.htm",
+    "sourceUrls": [
+      "https://www.neea.edu.cn/html1/report/2609/73-1.htm",
+      "http://edu.people.com.cn/n1/2026/0926/c1006-40805982.html",
+      "https://www.xjzk.gov.cn/c/2026-09-30/495994.shtml",
+      "https://www.hbea.edu.cn/html/2026-09/16154.shtml"
+    ]
+  },
+  {
+    "stage": "generate",
+    "stopReason": "end_turn",
+    "sources": [],
+    "examDate": "2026-12-19",
+    "examSourceUrl": "http://www.moe.gov.cn/jyb_xwfb/gzdt_gzdt/s5987/202609/t20260924_1451846.html",
+    "sourceUrls": [
+      "http://www.moe.gov.cn/jyb_xwfb/gzdt_gzdt/s5987/202609/t20260924_1451846.html",
+      "https://www.neea.edu.cn/html1/report/2609/73-1.htm",
+      "http://edu.people.com.cn/n1/2026/0926/c1006-40805982.html",
+      "https://www.xjzk.gov.cn/c/2026-09-30/495994.shtml"
+    ]
+  }
+]
