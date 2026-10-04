@@ -34,6 +34,7 @@ The server previews the site at `http://127.0.0.1:8765/`. Node commands check sy
 - Check: `node tools/dev.js check`. Regression: `node tools/dev.js test` (content/storage, mocked AI, Python practice cases).
 - Preview: `node tools/dev.js serve --host 0.0.0.0 --port 8765`; the server serves only `project/`. Run long-lived previews separately from setup.
 - Browser regression: `node tools/dev.js browser`. `tools/browser-runtime.js` uses Edge on Windows and Chromium on Linux/macOS; `PLAYWRIGHT_CHANNEL` overrides the choice. Dependencies in `.codex-tools/` are ignored by Git.
+- The current managed cloud environment blocks system Chromium `file://` access. Use its saved startup instructions for permitted HTTP browser checks; full browser regression still needs a permitted runtime. Do not bypass browser policy or report HTTP smoke checks as full regression. See `docs/codex-cloud.md` for the verified scope.
 - Keep the existing classic script order shown in `project/index.html` (data → learning → storage → ai-config → ai → app). The existing DeepSeek AI feature is the only runtime network exception; do not add other runtime dependencies.
 - Routine tests mock AI requests. Do not run `tools/deepseek-smoke.js` unless the task explicitly needs a real, billable API check. Never print the key in `project/js/ai-config.js` to logs, responses or screenshots. Keep the repository private while it contains this competition configuration.
 

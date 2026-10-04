@@ -55,6 +55,14 @@ node tools/dev.js browser
 
 已有 Playwright 时仍可使用原来的 `NODE_PATH`。开发依赖存放在忽略的 `.codex-tools/`，不改变网页运行方式。截图与报告继续写入 `artifacts/`，不要重新生成历史性能的 before 基线。
 
+### 本账号云端环境的实际验证
+
+2026-10-04 在本账号的云端环境中，Node.js 24、Python 3.12 已可用；25 项 Node 测试、4 项 Python 测试通过，首页及 10 个脚本/样式资源返回 HTTP 200。使用系统 Chromium 对 390px/1440px 的首页、校史、校友、成长传承、我的成长完成 HTTP 页面检查。
+
+这个托管环境禁止 Chromium 访问 `file://`（`ERR_BLOCKED_BY_ADMINISTRATOR`），Playwright 浏览器下载也受到网络策略限制。因此 `node tools/dev.js browser` 的完整回归尚未在该云端通过；直接文件及完整交互回归已在本机通过。不要绕过管理策略，或把 HTTP 页面检查等同于完整回归。
+
+本账号已保存的环境使用安装好的 `/usr/bin/chromium`。环境安装脚本在忽略的 `.codex-tools/system-chromium.cjs` 中准备运行辅助文件，HTTP 浏览器检查可使用 `node --require ./.codex-tools/system-chromium.cjs`。该辅助文件由云端环境生成，不上传到源码仓库。后续任务遵循环境中已保存的安装脚本和启动说明；基础回归及 HTTP 预览仍使用上面的统一命令。
+
 ## 网络与数据
 
 基础功能和模拟回归不需要 DeepSeek 或 OpenAI API Key。真实 AI 生成需要访问现有 DeepSeek 接口，普通开发不必开启模型联网或调用真实 smoke 命令。云端环境变量不会自动进入静态网页；只在环境中设置密钥不会替换 `ai-config.js`。如将来改为公开仓库，应先更换已经写入源码的密钥，并调整前端密钥交付方案。
