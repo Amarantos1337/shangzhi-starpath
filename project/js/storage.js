@@ -39,6 +39,12 @@
       return { title: str(source.title, '资料标题', 300), url };
     });
     const metadata = { model: value.model, generatedAt: timestamp(value.generatedAt), summary: str(value.summary, '资料摘要', 3000), sources };
+    if (value.constraints !== undefined) {
+      const constraints = value.constraints;
+      if (!object(constraints) || !object(constraints.location) || !['province', 'city', 'region'].includes(constraints.location.type) || !['', '一本', '二本'].includes(constraints.tier) || typeof constraints.needsRecommendations !== 'boolean') fail('AI 院校筛选条件无效。');
+      metadata.constraints = { location: { type: constraints.location.type, name: str(constraints.location.name, '目标地区', 80) }, tier: constraints.tier, needsRecommendations: constraints.needsRecommendations };
+    }
+    if (value.recommendationNotice !== undefined) metadata.recommendationNotice = str(value.recommendationNotice, '院校筛选说明', 500, true);
     if (value.durationSeconds !== undefined) {
       if (!Number.isInteger(value.durationSeconds) || value.durationSeconds < 0 || value.durationSeconds > 86400) fail('AI 生成用时无效。');
       metadata.durationSeconds = value.durationSeconds;
@@ -66,14 +72,35 @@
       }
     }
     if (value.recommendations !== undefined) {
-      if (!Array.isArray(value.recommendations) || value.recommendations.length > 3) fail('AI 推荐院校无效。');
+      if (!Array.isArray(value.recommendations) || value.recommendations.length > 5) fail('AI 推荐院校无效。');
       metadata.recommendations = value.recommendations.map(school => {
         if (!object(school)) fail('AI 推荐院校无效。');
         const sourceUrl = str(school.sourceUrl, '院校资料出处', 2048);
         if (!sources.some(source => source.url === sourceUrl) || !/^https?:\/\/(?:[^./\s@]+\.)*(?:edu\.cn|chsi\.com\.cn)(?:[/?#]|$)/.test(sourceUrl)) fail('AI 推荐院校出处无效。');
-        return { name: str(school.name, '院校名称', 120), reason: str(school.reason, '推荐理由', 500), sourceUrl };
+        const entry = { name: str(school.name, '院校名称', 120), reason: str(school.reason, '推荐理由', 500), sourceUrl };
+        if (school.location !== undefined) {
+          if (!object(school.location) || !sources.some(source => source.url === school.location.sourceUrl)) fail('AI 院校所在地出处无效。');
+          entry.location = { province: str(school.location.province, '院校所在省份', 40), city: str(school.location.city, '培养校区所在城市', 40), campus: str(school.location.campus, '专业培养校区', 120), sourceUrl: school.location.sourceUrl };
+        }
+        if (school.criteriaEvidence !== undefined) {
+          if (!Array.isArray(school.criteriaEvidence) || school.criteriaEvidence.length > 5) fail('AI 院校条件匹配依据无效。');
+          entry.criteriaEvidence = school.criteriaEvidence.map(item => {
+            if (!object(item) || !sources.some(source => source.url === item.sourceUrl)) fail('AI 院校条件匹配出处无效。');
+            return { criterion: str(item.criterion, '院校筛选条件', 80), explanation: str(item.explanation, '院校匹配依据', 500), sourceUrl: item.sourceUrl };
+          });
+        }
+        if (metadata.constraints) {
+          const required = metadata.constraints.location;
+          const normalize = place => place.replace(/(?:壮族|回族|维吾尔)?自治区$|[省市]$/g, '');
+          if (!entry.location || (required.type !== 'region' && normalize(required.type === 'province' ? entry.location.province : entry.location.city) !== required.name)) fail('AI 推荐院校不符合保存的地域要求。');
+          const tier = metadata.constraints.tier;
+          const batch = tier === '一本' ? /本科(?:第?一批|第一批)|历史.{0,24}一本/ : /本科(?:第?二批|第二批)|历史.{0,24}二本/;
+          if (tier && !(entry.criteriaEvidence || []).some(item => (item.criterion.includes(tier) || batch.test(item.criterion)) && !/^(?:历史)?(?:非|不符合|不满足|不属于)/.test(item.criterion) && batch.test(item.explanation) && !/(?:一本|二本|历史批次|历史招生口径).{0,12}(?:无法核实|未核实|待核实|不满足|不符合|未找到|不能确认)/.test(item.explanation))) fail('AI 推荐院校缺少层次匹配依据。');
+        }
+        return entry;
       });
     }
+    if (metadata.constraints && metadata.constraints.needsRecommendations && (metadata.recommendations || []).length < 2 && !metadata.recommendationNotice) fail('AI 推荐院校不足时必须保留筛选说明。');
     return metadata;
   }
   function validate(value) {

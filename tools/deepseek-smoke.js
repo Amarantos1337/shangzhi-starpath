@@ -7,6 +7,7 @@ const context = vm.createContext({ window: { StarPath: {} } });
 vm.runInContext(fs.readFileSync(path.join(__dirname, '../project/js/ai-config.js'), 'utf8'), context);
 const config = context.window.StarPath.aiConfig;
 const freshman = process.argv.includes('--freshman');
+const localSchools = process.argv.includes('--local');
 (async () => {
   if (process.argv.includes('--browser')) {
     const { chromium, browserOptions } = require('./browser-runtime');
@@ -69,21 +70,21 @@ const freshman = process.argv.includes('--freshman');
           try {
             const raw = value.content.filter(block => block.type === 'text').map(block => block.text).join('\n').trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '');
             const result = JSON.parse(raw);
-            planFields = { examDate: result.examDate, examSourceUrl: result.examSourceUrl, sourceUrls: result.sourceUrls };
+            planFields = { examDate: result.examDate, examSourceUrl: result.examSourceUrl, sourceUrls: result.sourceUrls, recommendations: result.recommendations, recommendationNotice: result.recommendationNotice };
           } catch (_) { planFields = { parseError: true }; }
         }
-        trace.push({ stage: requestBody.tools ? 'search' : 'generate', stopReason: value.stop_reason, sources: context.window.StarPath.ai.extractSources(value.content), ...planFields });
+        trace.push({ stage: requestBody.tools ? 'search' : 'generate', stopReason: value.stop_reason, searches: value.content.filter(block => block.type === 'server_tool_use' && block.name === 'web_search').length, sources: context.window.StarPath.ai.extractSources(value.content), research: requestBody.tools ? value.content.filter(block => block.type === 'text').map(block => block.text).join('\n') : undefined, ...planFields });
         const output = path.join(__dirname, '../artifacts/ai-plan');
         fs.mkdirSync(output, { recursive: true });
-        fs.writeFileSync(path.join(output, 'live-date-trace.json'), JSON.stringify(trace, null, 2));
+        fs.writeFileSync(path.join(output, localSchools ? 'live-local-trace.json' : 'live-date-trace.json'), JSON.stringify(trace, null, 2));
       }
       return response;
     }, URL, AbortController, DOMException, setTimeout, clearTimeout });
     vm.runInContext(fs.readFileSync(path.join(__dirname, '../project/js/ai.js'), 'utf8'), context);
-    const draft = await context.window.StarPath.ai.generate({ level: '本科', major: '计算机科学与技术', grade: '大四', baseline: '英语基础较弱，数学刚开始复习。', goal: '山东大学，计算机相关专业', region: '山东', startDate: '2026-10-01' }, { onStage: stage => console.log('Stage: ' + stage) });
+    const draft = await context.window.StarPath.ai.generate({ level: '本科', major: localSchools ? '计算机网络技术' : '计算机科学与技术', grade: localSchools || freshman ? '大一' : '大四', baseline: '英语基础较弱，数学刚开始复习。', goal: localSchools ? '济南本地一本院校，计算机相关专业' : freshman ? '' : '山东大学，计算机相关专业', region: '山东', startDate: localSchools ? '2026-10-07' : '2026-10-01' }, { onStage: stage => console.log('Stage: ' + stage) });
     const output = path.join(__dirname, '../artifacts/ai-plan');
     fs.mkdirSync(output, { recursive: true });
-    fs.writeFileSync(path.join(output, 'live-plan.json'), JSON.stringify(draft, null, 2));
+    fs.writeFileSync(path.join(output, localSchools ? 'live-local-plan.json' : 'live-plan.json'), JSON.stringify(draft, null, 2));
     console.log(JSON.stringify({ model: draft.generation.model, effort: config.reasoningEffort, tasks: draft.tasks.length, stages: new Set(draft.tasks.map(task => task.stage)).size, sources: draft.generation.sources }, null, 2));
     return;
   }

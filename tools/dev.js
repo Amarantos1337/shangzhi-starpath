@@ -40,7 +40,7 @@ function main() {
     return;
   }
   if (command === 'browser' && args.length === 0) {
-    for (const file of ['browser', 'ai-browser', 'history-title', 'history-motion']) run(process.execPath, ['tests/' + file + '.test.js']);
+    for (const file of ['alumni-motion', 'browser', 'ai-browser', 'history-title', 'history-motion']) run(process.execPath, ['tests/' + file + '.test.js']);
     return;
   }
   if (command === 'serve') {

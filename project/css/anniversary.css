@@ -100,58 +100,37 @@
 .history-next .template-note { font-size:12px; }
 .paths-intro {
   display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(260px,32%);
+  grid-template-columns:minmax(0,1fr) 280px;
   align-items:center;
-  gap:40px;
-  margin:8px 0 32px;
+  gap:32px;
+  margin:8px 0 28px;
 }
 .paths-intro-copy { min-width:0; }
-.paths-intro .page-heading { padding:0 0 22px; }
+.paths-intro .page-heading { padding:0; }
+.paths-intro .section-kicker { display:block; margin-top:20px; }
 .paths-intro .page-heading h1 { margin-top:12px; line-height:1.4; }
-.paths-intro .page-heading p { line-height:1.85; }
-.inheritance-intro { border-top:1px solid var(--line); padding-top:20px; }
-.inheritance-intro h2 { font-size:24px; margin:10px 0; }
-.inheritance-intro p { color:var(--muted); font-size:14px; line-height:1.85; }
+.paths-intro .page-heading p { font-size:14px; line-height:1.85; }
 .paths-intro-art { width:100%; height:auto; border-radius:14px; }
 /* 暂时隐藏成长传承页的入门引导与实践案例，保留内容及详情页入口。 */
 .paths-page>.beginner-section,.paths-page>#practice-library { display:none; }
+/* 暂时隐藏升学深造页的可选实践及目录入口，保留内容和案例详情。 */
+.route-page[data-route="education"]>#practice-library,
+.route-page[data-route="education"]>.reading-toc>[data-value="practice-library"] { display:none; }
 .paths-page .route-grid-large { margin-top:0; }
 .paths-page .route-link-label { color:var(--navy); }
-.growth-route-label { display:inline-block; color:#fff; }
-.growth-route-label,.growth-arrow-glint { --glint-base:#fff; }
-.growth-route-arrow { position:relative; display:inline-flex; width:18px; height:18px; flex-shrink:0; }
-.growth-route-arrow>.icon { width:100%; height:100%; }
-.growth-arrow-glint { display:none; }
-.paths-page .route-link-label,.growth-route-label,.growth-arrow-glint {
+.paths-page .route-link-label {
   --route-glint:linear-gradient(110deg,var(--glint-base,var(--navy)) 40%,#bc9360 47%,#efd5a9 50%,#bc9360 53%,var(--glint-base,var(--navy)) 60%);
 }
 @supports (background-clip:text) or (-webkit-background-clip:text) {
-  .paths-page .route-link-label,.growth-route-label {
+  .paths-page .route-link-label {
     background:var(--route-glint);
-    background-size:260% 100%;
+    background-size:var(--route-glint-size,260% 100%);
+    background-repeat:no-repeat;
     background-position:100% 0;
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
-    animation:route-text-glint 4.2s ease-in-out infinite;
-  }
-}
-@supports (mask-image:url("")) or (-webkit-mask-image:url("")) {
-  .growth-arrow-glint {
-    display:block;
-    position:absolute;
-    inset:0;
-    background:var(--route-glint);
-    background-size:260% 100%;
-    background-position:100% 0;
-    -webkit-mask-image:var(--arrow-mask);
-    mask-image:var(--arrow-mask);
-    -webkit-mask-size:100% 100%;
-    mask-size:100% 100%;
-    -webkit-mask-repeat:no-repeat;
-    mask-repeat:no-repeat;
-    animation:route-text-glint 4.2s ease-in-out infinite;
-    pointer-events:none;
+    animation:var(--route-glint-animation,route-text-glint 4.2s ease-in-out infinite);
   }
 }
 @keyframes route-text-glint {
@@ -178,7 +157,6 @@
   .tribute-section { padding:28px; }
   .tribute-grid { gap:20px; }
   .tribute-bottom { align-items:flex-start; }
-  .paths-intro { grid-template-columns:minmax(0,1fr) 30%; gap:24px; }
   .paths-intro .page-heading h1 { font-size:30px; }
   .history-intro { grid-template-columns:minmax(0,1fr) 280px; gap:20px; }
   .history-heading-art { padding:22px; }
@@ -225,13 +203,11 @@
   .commemoration h2 { font-size:24px; }
   .commemoration-year { font-size:42px; }
   .history-next h2 { font-size:26px; }
-  .paths-intro { grid-template-columns:1fr; gap:20px; margin:0 0 26px; }
-  .paths-intro .page-heading { padding-bottom:18px; }
+  .paths-intro { grid-template-columns:1fr; gap:20px; margin:0 0 20px; }
+  .paths-intro .section-kicker { margin-top:16px; }
   .paths-intro .page-heading h1 { font-size:27px; }
-  .inheritance-intro { padding-top:16px; }
-  .inheritance-intro h2 { font-size:22px; }
-  .inheritance-intro p { font-size:13px; }
-  .paths-intro-art { justify-self:center; max-width:260px; }
+  .paths-intro .page-heading p { font-size:13px; }
+  .paths-intro-art { justify-self:center; max-width:200px; }
 }
 @media(max-width:370px) {
   .main-nav a { font-size:10px; }
@@ -240,13 +216,9 @@
 }
 @media(prefers-reduced-motion:reduce) {
   .paths-page .route-link-label { animation:none; background:none; color:var(--navy); }
-  .growth-route-label { animation:none; background:none; color:#fff; }
-  .growth-arrow-glint { display:none; }
   .history-screen-fill { display:none; }
   .history-timeline .history-line-pending,.history-timeline .history-character-pending { opacity:1; transform:none; }
 }
 @media(forced-colors:active) {
   .paths-page .route-link-label { animation:none; background:none; color:LinkText; }
-  .growth-route-label { animation:none; background:none; color:inherit; }
-  .growth-arrow-glint { display:none; }
 }

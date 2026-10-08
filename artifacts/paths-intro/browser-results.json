@@ -1,0 +1,48 @@
+{
+  "checks": [
+    {
+      "protocol": "http",
+      "width": 390,
+      "introHeight": 342.140625,
+      "illustrationWidth": 200,
+      "cardTop": 539.328125
+    },
+    {
+      "protocol": "http",
+      "width": 1042,
+      "introHeight": 236.921875,
+      "illustrationWidth": 280,
+      "cardTop": 431.921875
+    },
+    {
+      "protocol": "http",
+      "width": 1440,
+      "introHeight": 236.921875,
+      "illustrationWidth": 280,
+      "cardTop": 431.921875
+    },
+    {
+      "protocol": "file",
+      "width": 390,
+      "introHeight": 342.140625,
+      "illustrationWidth": 200,
+      "cardTop": 539.328125
+    },
+    {
+      "protocol": "file",
+      "width": 1042,
+      "introHeight": 236.921875,
+      "illustrationWidth": 280,
+      "cardTop": 431.921875
+    },
+    {
+      "protocol": "file",
+      "width": 1440,
+      "introHeight": 236.921875,
+      "illustrationWidth": 280,
+      "cardTop": 431.921875
+    }
+  ],
+  "consoleErrors": [],
+  "navigation": "All three route links, back and forward passed at all viewports over HTTP and file."
+}

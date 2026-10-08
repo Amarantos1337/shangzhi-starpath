@@ -9,16 +9,20 @@ const { chromium, browserOptions } = require('../tools/browser-runtime');
 const root = path.resolve(__dirname, '../project');
 const output = path.resolve(__dirname, '../artifacts/ai-plan');
 const source = { title: '教育部研考通知 <img src=x onerror=alert(1)>', url: 'https://www.moe.gov.cn/notice' };
+const unofficialSource = { title: '培训机构预测', url: 'https://training.example.com/news' };
 const plan = { title: '我的升学计划 <img src=x onerror=alert(1)>', goal: '建立学习节奏，覆盖到考研初试前。', summary: '参考教育部研考日期；目标院校要求待核实，学习安排为 AI 建议。', examDate: '2026-12-19', examSourceUrl: source.url, sourceUrls: [source.url], tasks: Array.from({ length: 12 }, (_, index) => ({ title: '学习行动' + (index + 1), stage: ['核对信息', '盘点基础', '建立节奏', '自测调整'][Math.floor(index / 3)], dueDate: index === 11 ? '2026-12-18' : '2026-10-08' })) };
-const search = { stop_reason: 'end_turn', content: [{ type: 'server_tool_use', name: 'web_search' }, { type: 'web_search_tool_result', content: [{ type: 'web_search_result', ...source }] }, { type: 'text', text: '已找到官方资料，年度条件待核实。' }] };
+const search = { stop_reason: 'end_turn', content: [...Array.from({ length: 6 }, () => ({ type: 'server_tool_use', name: 'web_search' })), { type: 'web_search_tool_result', content: [source, unofficialSource].map(item => ({ type: 'web_search_result', ...item })) }, { type: 'text', text: '已找到官方资料，年度条件待核实。出处：' + source.url + '\n\n培训机构预测：' + unofficialSource.url }] };
 const schoolSources = [
   { title: '<table><tr><td>甲校招生目录</td></tr></table>', url: 'https://yz.school-a.edu.cn/catalog' },
-  { title: '乙校招生目录', url: 'https://yz.school-b.edu.cn/catalog' }
+  { title: '乙校招生目录', url: 'https://yz.school-b.edu.cn/catalog' },
+  { title: '丙校招生目录', url: 'https://yz.school-c.edu.cn/catalog' }
 ];
-const freshmanSearch = { stop_reason: 'end_turn', content: [{ type: 'web_search_tool_result', content: schoolSources.map(item => ({ type: 'web_search_result', ...item })) }, { type: 'text', text: '2029年初试日期未公布，提供候选院校与长期学习建议。' }] };
+const freshmanSearch = { stop_reason: 'end_turn', content: [...Array.from({ length: 15 }, () => ({ type: 'server_tool_use', name: 'web_search' })), { type: 'web_search_tool_result', content: schoolSources.map(item => ({ type: 'web_search_result', ...item })) }, { type: 'text', text: '2029年初试日期未公布，提供候选院校与长期学习建议。出处：' + schoolSources[0].url }] };
 const freshmanPlan = { ...plan, title: '大一至大四升学计划', dateStatus: 'estimated', examDate: '', examSourceUrl: '', sourceUrls: schoolSources.map(item => item.url),
-  recommendations: schoolSources.map((item, index) => ({ name: index ? '乙校' : '甲校', reason: '根据计算机专业、英语基础及山东地区偏好，建议比较招生方向与报考要求。', sourceUrl: item.url })),
+  recommendations: schoolSources.map((item, index) => ({ name: ['甲校', '乙校', '丙校'][index], reason: '根据计算机专业、英语基础及山东地区偏好，建议比较招生方向与报考要求。', sourceUrl: item.url, location: { province: '山东', city: '济南', campus: '模拟计算机专业培养校区', sourceUrl: item.url }, criteriaEvidence: [] })),
   tasks: Array.from({ length: 12 }, (_, index) => ({ title: '分学年学习任务' + index, stage: '阶段' + Math.floor(index / 3), dueDate: new Date(Date.parse('2026-10-01') + (Date.parse('2029-12-14') - Date.parse('2026-10-01')) * index / 11).toISOString().slice(0, 10) })) };
+const localPlan = { ...freshmanPlan, goal: '核对济南本地院校的计算机专业，按学年持续准备。', summary: '目标初试年份为2029年，正式日期尚未公布，学习安排暂定至2029年12月14日。院校及培养校区限定在济南，历史招生口径依据模拟官方资料核对。', recommendations: freshmanPlan.recommendations.map(school => ({ ...school, criteriaEvidence: [{ criterion: '一本', explanation: '模拟资料记录该校在山东历史本科一批招生，目标年度要求另行核对。', sourceUrl: school.sourceUrl }] })) };
+const wrongLocalPlan = { ...localPlan, summary: 'profile.targetExamYear=2029，dateStatus=estimated。', recommendations: localPlan.recommendations.map(school => ({ ...school, location: { ...school.location, city: '上海' } })) };
 const server = http.createServer((request, response) => {
   const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
   const file = path.join(root, pathname === '/' ? 'index.html' : pathname);
@@ -64,10 +68,17 @@ async function run() {
           requests++;
           const body = route.request().postDataJSON();
           efforts.push(body.output_config.effort);
+          if (body.tools) {
+            assert.equal(body.tools[0].max_uses, 6);
+            assert.deepEqual(body.tools[0].allowed_domains, ['gov.cn', 'edu.cn', 'chsi.com.cn', 'sdzk.cn']);
+          } else {
+            assert.ok(!body.messages[0].content.includes(unofficialSource.url));
+          }
           if (mode === 'pending' || mode === 'timed' && body.tools) await new Promise(resolve => { release = resolve; });
           try {
             const status = mode === 'error' ? 401 : 200;
-            const result = mode === 'text-only' ? { stop_reason: 'end_turn', content: [{ type: 'text', text: '自称已经检索，但没有真实工具结果。' }] } : body.tools ? (mode === 'freshman' ? freshmanSearch : search) : { stop_reason: 'end_turn', content: [{ type: 'text', text: JSON.stringify(mode === 'freshman' ? freshmanPlan : plan) }] };
+            const candidate = mode === 'local-repair' ? (body.messages.length > 1 ? localPlan : wrongLocalPlan) : mode === 'code-repair' ? (body.messages.length > 1 ? localPlan : { ...localPlan, summary: wrongLocalPlan.summary }) : mode === 'local-shortage' ? (body.messages.length > 1 ? localPlan : { ...localPlan, recommendations: [], recommendationNotice: '济南本地院校的历史招生依据不足，暂不推荐外地学校作为替代。' }) : mode === 'freshman' ? freshmanPlan : plan;
+            const result = mode === 'text-only' ? { stop_reason: 'end_turn', content: [{ type: 'text', text: '自称已经检索，但没有真实工具结果。' }] } : mode === 'unofficial-only' ? { stop_reason: 'end_turn', content: [{ type: 'web_search_tool_result', content: [{ type: 'web_search_result', ...unofficialSource }] }] } : body.tools ? (mode === 'freshman' || mode.startsWith('local-') || mode === 'code-repair' ? freshmanSearch : search) : { stop_reason: 'end_turn', content: [{ type: 'text', text: JSON.stringify(candidate) }] };
             await route.fulfill({ status, contentType: 'application/json', headers: { 'access-control-allow-origin': '*' }, body: JSON.stringify(result) });
           } catch (_) { /* Request was aborted by closing or navigation. */ }
         });
@@ -152,7 +163,11 @@ async function run() {
         assert.equal(await page.locator('[name="major"]').isEnabled(), true);
         mode = 'text-only';
         await page.getByRole('button', { name: '检索并生成计划', exact: true }).click();
-        await page.getByText('未取得有效联网检索结果，请重试或使用原始模板。', { exact: true }).waitFor();
+        await page.getByText('未取得有效联网检索结果（仅接受官方来源），请重试或使用原始模板。', { exact: true }).waitFor();
+        mode = 'unofficial-only';
+        await page.getByRole('button', { name: '检索并生成计划', exact: true }).click();
+        await page.getByText('未取得有效联网检索结果（仅接受官方来源），请重试或使用原始模板。', { exact: true }).waitFor();
+        assert.equal(await page.locator('[name="major"]').inputValue(), '计算机网络技术');
         assert.equal(await page.evaluate(() => window.StarPath.store.get().plans.length), 1);
         await page.getByRole('button', { name: '取消', exact: true }).click();
         assert.equal(await page.evaluate(() => document.activeElement.dataset.action), 'create-plan');
@@ -199,7 +214,7 @@ async function run() {
         await page.getByRole('button', { name: '检索并生成计划', exact: true }).click();
         await page.locator('[data-form="ai-save"]').waitFor();
         assert.match(await page.locator('.ai-period-summary').innerText(), /2029.*暂定安排/);
-        assert.equal(await page.locator('.ai-school-recommendations article').count(), 2);
+        assert.equal(await page.locator('.ai-school-recommendations article').count(), 3);
         assert.equal(await page.locator('.ai-source-list a').first().innerText(), '甲校招生目录');
         assert.equal(await page.locator('#modal').evaluate(dialog => dialog.scrollWidth <= dialog.clientWidth), true);
         const scrollbar = await page.locator('#modal').evaluate(dialog => ({ width: getComputedStyle(dialog, '::-webkit-scrollbar').width, thumb: getComputedStyle(dialog, '::-webkit-scrollbar-thumb').backgroundColor, radius: getComputedStyle(dialog, '::-webkit-scrollbar-thumb').borderRadius, buttons: getComputedStyle(dialog, '::-webkit-scrollbar-button').display }));
@@ -212,12 +227,46 @@ async function run() {
         await page.getByRole('button', { name: '保存到我的成长', exact: true }).click();
         await page.locator('#plan-title').waitFor();
         await page.reload();
-        assert.equal(await page.locator('.ai-school-recommendations article').count(), 2);
+        assert.equal(await page.locator('.ai-school-recommendations article').count(), 3);
         assert.equal(await page.evaluate(() => window.StarPath.store.get().plans[0].generation.period.targetExamYear), 2029);
         assert.equal(await page.evaluate(() => window.StarPath.store.get().plans[0].generation.period.examDate), '');
+        // City constraints and leaked internal fields trigger repair before preview.
+        for (const scenario of ['local-repair', 'code-repair', 'local-shortage']) {
+          mode = scenario;
+          await openForm(page, base);
+          await fillForm(page);
+          await page.locator('[name="grade"]').selectOption('大一');
+          await page.locator('[name="goal"]').fill('济南本地一本院校，计算机相关专业');
+          const before = requests;
+          await page.getByRole('button', { name: '检索并生成计划', exact: true }).click();
+          await page.locator('[data-form="ai-save"]').waitFor();
+          assert.equal(requests - before, 3);
+          const evidence = await page.locator('.ai-school-recommendations').innerText();
+          assert.match(evidence, /筛选要求：济南/);
+          assert.ok(!evidence.includes('上海'));
+          assert.ok(!/profile\.|dateStatus|targetExamYear/.test(await page.locator('.ai-research-summary').innerText()));
+          assert.equal(await page.locator('.ai-school-recommendations article').count(), 3);
+          assert.match(evidence, /专业培养地点：山东 · 济南/);
+          assert.equal(await page.locator('#modal').evaluate(dialog => dialog.scrollWidth <= dialog.clientWidth), true);
+          if (scenario === 'code-repair') {
+            await page.locator('#modal').evaluate(dialog => { document.querySelector('.ai-school-recommendations').scrollIntoView(); });
+            await page.screenshot({ path: path.join(output, name + '-local-recommendations-' + width + '.png') });
+            await page.getByRole('button', { name: '保存到我的成长', exact: true }).click();
+            await page.locator('#plan-title').waitFor();
+            await page.reload();
+            assert.match(await page.locator('.ai-school-recommendations').innerText(), /筛选要求：济南/);
+            assert.equal(await page.locator('.ai-school-recommendations article').count(), 3);
+            // Legacy saved summaries remain readable without rewriting stored facts.
+            await page.evaluate(() => window.StarPath.store.editPlan(window.StarPath.store.get().plans[0].id, item => { item.generation.summary = 'profile.targetExamYear=2029，按profile.planningBasis规划，dateStatus=estimated，截止为profile.estimatedExamDate的前一天2029-12-14。'; }));
+            await page.reload();
+            const readable = await page.locator('.ai-research-summary').innerText();
+            assert.match(readable, /目标初试年份为2029/);
+            assert.ok(!/profile\.|dateStatus|targetExamYear|estimatedExamDate/.test(readable));
+          } else await page.getByRole('button', { name: '取消', exact: true }).click();
+        }
         assert.ok(efforts.every(effort => effort === 'high'));
         assert.deepEqual(errors, []);
-        report.push(name + ' ' + width + 'px: form, preview, editing, regenerate, save, progress, refresh, import/cancel, escaping, failure/retry, duplicate submit, cancellation and template fallback passed');
+        report.push(name + ' ' + width + 'px: form, preview, editing, regenerate, save, progress, refresh, import/cancel, escaping, failure/retry, duplicate submit, cancellation, template fallback, city constraints, readable text repair, 3-school repair and legacy rendering passed');
         await context.close();
       }
     }

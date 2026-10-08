@@ -98,9 +98,30 @@
 .reading-links .text-link { font-size:14px; text-align:left; }
 .method-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; align-items:start; }
 .method-card { margin:0; }
+:is(.method-card,.stage-guide).is-animating { overflow:hidden; }
 .method-card summary { padding:24px; }
+:is(.method-card,.stage-guide)[open]>summary { border-bottom:0; }
+:is(.method-card,.stage-guide)>.reading-body { border-top:1px solid var(--line); }
+:is(.method-card,.stage-guide) summary::after {
+  content:'';
+  width:14px;
+  height:14px;
+  background:linear-gradient(currentColor,currentColor),linear-gradient(currentColor,currentColor);
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:100% 2px,2px 100%;
+  transition:background-size 320ms ease,transform 320ms ease;
+}
+:is(.method-card,.stage-guide)[open]:not(.is-collapsing)>summary::after {
+  content:'';
+  background-size:100% 2px,2px 0;
+  transform:rotate(180deg);
+}
 .method-card summary strong { font-size:18px; }
 .method-card summary small { margin-top:6px; }
+@media(prefers-reduced-motion:reduce) {
+  :is(.method-card,.stage-guide) summary::after { transition:none; }
+}
 .practice-hero { padding:44px; border:1px solid var(--line); border-radius:var(--radius); background:var(--blue-wash); display:grid; grid-template-columns:minmax(0,1.7fr) minmax(0,1fr); gap:48px; align-items:center; }
 .practice-hero h1 { font-size:40px; margin:16px 0; }
 .practice-hero p { line-height:1.9; }

@@ -5,6 +5,6 @@
     model: 'deepseek-flash',
     reasoningEffort: 'high',
     apiKey: 'sk-be5fcdfc499c42b794e6dfce488f0113',
-    timeoutMs: 180000
+    timeoutMs: 300000
   });
 })();

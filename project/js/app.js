@@ -7,6 +7,14 @@
   const fileInput = document.getElementById('backup-file');
   const filters = { query: '', field: 'all', direction: 'all', favorites: false };
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const readingAnimations = new Map();
+  const alumniMotionDuration = 440;
+  const alumniNavigationSession = Date.now().toString(36) + Math.random().toString(36).slice(2);
+  let alumniHistoryEntry = null;
+  let pendingAlumniNavigation = null;
+  let alumniTransition = null;
+  // The hash router owns scrolling, including restoration to a source card.
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   let current = { page: 'home' };
   let renderedRoute = null;
   let pageSnapshot = null;
@@ -57,6 +65,11 @@
   const tags = values => values.map(value => '<span class="tag">' + esc(value) + '</span>').join('');
   const eyebrow = text => '<div class="eyebrow"><span></span>' + text + '</div>';
   const sectionHead = (kicker, title, subtitle, link = '') => '<div class="section-heading"><div><div class="section-kicker">' + kicker + '</div><h2>' + title + '</h2>' + (subtitle ? '<p>' + subtitle + '</p>' : '') + '</div>' + link + '</div>';
+  function shineContent(label) {
+    const text = '<span>' + esc(label) + '</span>';
+    const arrow = icon('arrow');
+    return '<span class="button-shine-content">' + text + arrow + '<span class="button-shine-glow" aria-hidden="true"><span class="button-shine-overlay">' + text + arrow + '</span></span></span>';
+  }
   function toast(message) {
     const target = document.getElementById('toast');
     target.textContent = message;
@@ -91,7 +104,7 @@
     return '<p class="photo-credit">图片来源：<a href="' + esc(person.photo.source.url) + '" target="_blank" rel="noopener noreferrer">' + esc(person.photo.credit) + icon('upRight') + '</a><span>' + esc(person.photo.source.date) + ' · 原图呈现</span>' + (person.photo.note ? '<span>' + esc(person.photo.note) + '</span>' : '') + '</p>';
   }
   function personCard(person) {
-    return '<article class="person-card"><div class="person-cover"><a href="#/alumni/' + person.id + '" tabindex="-1" aria-hidden="true">' + portrait(person) + '</a>' + favoriteButton(person) + '</div><div class="person-content"><div class="person-name-row"><h3><a href="#/alumni/' + person.id + '">' + person.name + '</a></h3><span class="cohort">' + person.cohort + '</span></div><p class="person-role">' + person.role + '</p><div class="tags">' + tags(person.tags) + '</div><a class="card-link" href="#/alumni/' + person.id + '">阅读成长故事' + icon('upRight') + '</a></div></article>';
+    return '<article class="person-card" data-alumni-id="' + person.id + '"><div class="person-cover"><a href="#/alumni/' + person.id + '" tabindex="-1" aria-hidden="true">' + portrait(person) + '</a>' + favoriteButton(person) + '</div><div class="person-content"><div class="person-name-row"><h3><a href="#/alumni/' + person.id + '">' + person.name + '</a></h3><span class="cohort">' + person.cohort + '</span></div><p class="person-role">' + person.role + '</p><div class="tags">' + tags(person.tags) + '</div><a class="card-link" href="#/alumni/' + person.id + '">阅读成长故事' + icon('upRight') + '</a></div></article>';
   }
   function routeCard(route, number) {
     return '<article class="route-card route-' + route.color + '"><div class="route-card-top"><span class="route-icon">' + icon(route.icon) + '</span><span class="route-index">PATH / 0' + (number + 1) + '</span></div><h3><a href="#/paths/' + route.id + '">' + route.name + '</a></h3><p>' + route.subtitle + '</p><div class="route-meta"><span>' + route.stages.length + ' 个阶段 · ' + taskCount(route) + ' 项任务</span><span>·</span><span>' + route.duration + '</span></div><a href="#/paths/' + route.id + '" class="card-link"><span class="route-link-label">探索这条路线</span>' + icon('arrow') + '</a></article>';
@@ -106,18 +119,19 @@
     return entries.map(event => '<li class="history-entry"><span class="history-year">' + esc(event.year) + '</span><div><h3>' + esc(event.title) + '</h3><p>' + esc(event.text) + '</p>' + sourceLink(event.source) + '</div></li>').join('');
   }
   function tributeSection() {
-    return '<section class="section tribute-section" aria-labelledby="tribute-title"><div class="section-heading"><div><div class="eyebrow"><span></span>以成长，致母校</div><h2 id="tribute-title">把一份心意，变成三个行动。</h2><p>从了解母校，到认识榜样，再到完成自己的作品。</p></div></div><ol class="tribute-grid">' + data.anniversary.tribute.tasks.map((task, index) => '<li class="tribute-card"><div class="tribute-card-top">' + icon(task.icon) + '<span>0' + (index + 1) + '</span></div><h3>' + esc(task.stage) + '</h3><p>' + esc(task.description) + '</p><a class="card-link" href="' + esc(task.href) + '">' + esc(task.link) + icon('arrow') + '</a></li>').join('') + '</ol><div class="tribute-bottom"><div><strong>你的下一步，也是商职的新一页。</strong><p>行动为平台建议，完成情况由你自行记录；计划保存在本机。</p></div><button class="button primary" data-action="create-tribute">开启献礼计划' + icon('arrow') + '</button></div></section>';
+    return '<section class="section tribute-section" aria-labelledby="tribute-title" hidden><div class="section-heading"><div><div class="eyebrow"><span></span>以成长，致母校</div><h2 id="tribute-title">把一份心意，变成三个行动。</h2><p>从了解母校，到认识榜样，再到完成自己的作品。</p></div></div><ol class="tribute-grid">' + data.anniversary.tribute.tasks.map((task, index) => '<li class="tribute-card"><div class="tribute-card-top">' + icon(task.icon) + '<span>0' + (index + 1) + '</span></div><h3>' + esc(task.stage) + '</h3><p>' + esc(task.description) + '</p><a class="card-link" href="' + esc(task.href) + '">' + esc(task.link) + icon('arrow') + '</a></li>').join('') + '</ol><div class="tribute-bottom"><div><strong>你的下一步，也是商职的新一页。</strong><p>行动为平台建议，完成情况由你自行记录；计划保存在本机。</p></div><button class="button primary" data-action="create-tribute">开启献礼计划' + icon('arrow') + '</button></div></section>';
   }
   function home() {
     const anniversary = data.anniversary;
-    return '<div class="container home-page anniversary-home"><section class="anniversary-hero"><div class="anniversary-copy">' + eyebrow('商职星途 · 九秩校庆专题') + '<div class="anniversary-years">' + esc(anniversary.years) + '<span>薪火相传 · 共赴新程</span></div><h1>' + esc(anniversary.title) + '<br><span>' + esc(anniversary.subtitle) + '</span></h1><p class="anniversary-description">' + esc(anniversary.description) + '</p><div class="hero-actions"><a class="button primary" href="#/history" data-history-entry data-history-fill>回望校史' + icon('arrow') + '</a><button class="button secondary" data-action="create-tribute">开启献礼计划' + icon('spark') + '</button></div><p class="anniversary-signature"><span></span>回望来路，让每一份成长续写荣光。</p></div><figure class="anniversary-visual"><img src="assets/anniversary-90.svg" width="650" height="580" alt="金色数字90、年轮与向上生长的线条，纪念1936至2026九秩商职"><figcaption>九十载弦歌不辍，一代代向新而行。</figcaption></figure></section><div class="anniversary-index"><span>九秩回响 <small>A SHARED JOURNEY</small></span><a href="#/history" data-history-entry>01 回望校史' + icon('upRight') + '</a><a href="#/alumni">02 走近校友' + icon('upRight') + '</a><a href="#/paths">03 传承成长' + icon('upRight') + '</a></div>' +
+    const educationIndex = data.routes.findIndex(route => route.id === 'education');
+    return '<div class="container home-page anniversary-home"><section class="anniversary-hero"><div class="anniversary-copy">' + eyebrow('商职星途 · 九秩校庆专题') + '<div class="anniversary-years">' + esc(anniversary.years) + '<span>薪火相传 · 共赴新程</span></div><h1>' + esc(anniversary.title) + '<br><span>' + esc(anniversary.subtitle) + '</span></h1><p class="anniversary-description">' + esc(anniversary.description) + '</p><div class="hero-actions"><a class="button primary" href="#/history" data-history-entry data-history-fill aria-label="回望校史">' + shineContent('回望校史') + '</a><button class="button secondary" data-action="create-tribute">开启献礼计划' + icon('spark') + '</button></div><p class="anniversary-signature"><span></span>回望来路，让每一份成长续写荣光。</p></div><figure class="anniversary-visual"><img src="assets/anniversary-90.svg" width="650" height="580" alt="金色数字90、年轮与向上生长的线条，纪念1936至2026九秩商职"><figcaption>九十载弦歌不辍，一代代向新而行。</figcaption></figure></section><div class="anniversary-index"><span>九秩回响 <small>A SHARED JOURNEY</small></span><a href="#/history" data-history-entry>01 回望校史' + icon('upRight') + '</a><a href="#/alumni">02 走近校友' + icon('upRight') + '</a><a href="#/paths">03 传承成长' + icon('upRight') + '</a></div>' +
       '<section class="section history-preview">' + sectionHead('THE YEARS THAT SHAPED US', '循着年轮，读懂来路', '从商科起点到职业本科，回望九秩发展中的重要坐标。', '<a class="text-link" href="#/history">走进九秩校史' + icon('arrow') + '</a>') + '<ol class="history-grid">' + historyEntries(data.anniversary.history.filter(event => event.featured)) + '</ol></section>' +
       '<section class="section">' + sectionHead('OUR PEOPLE, OUR STORIES', '岁月有光，校友有故事', '走近真实的商职校友，在他们的足迹里看见成长的力量。', '<a class="text-link" href="#/alumni">探索全部校友' + icon('arrow') + '</a>') + '<div class="people-grid">' + data.alumni.map(personCard).join('') + '</div></section>' +
-      '<section class="section routes-section">' + sectionHead('CARRY THE SPIRIT FORWARD', '薪火相传，从你的下一步开始', '把榜样带来的启发，变成可以行动的成长路线。', '<a class="text-link" href="#/paths">进入成长传承' + icon('arrow') + '</a>') + '<div class="route-grid">' + data.routes.map(routeCard).join('') + '</div><p class="template-note">' + icon('info') + '路线为平台学习建议，可按自己的节奏调整，不代表校友本人经历或承诺。</p></section>' + tributeSection() + '</div>';
+      '<section class="section routes-section">' + sectionHead('CARRY THE SPIRIT FORWARD', '薪火相传，从你的下一步开始', '把榜样带来的启发，变成可以行动的成长路线。', '<a class="text-link" href="#/paths">进入成长传承' + icon('arrow') + '</a>') + '<div class="route-grid route-grid-large">' + pathsRouteCard(data.routes[educationIndex], educationIndex) + '</div><p class="template-note">' + icon('info') + '路线为平台学习建议，可按自己的节奏调整，不代表校友本人经历或承诺。</p></section>' + tributeSection() + '</div>';
   }
   function historyPage() {
     const anniversary = data.anniversary;
-    return '<div class="container inner-page history-page"><div class="history-intro"><div class="page-heading">' + eyebrow('九秩校史 · 回望来路') + '<h1>九秩薪火，照亮新的出发。</h1><p>沿着公开资料留下的坐标，认识母校的来路，也找到与自己有关的那一页。</p></div><div class="history-heading-art"><span>' + esc(anniversary.years) + '</span><p>历史有出处，成长有回响。</p></div></div><section class="section"><ol class="history-timeline">' + historyEntries() + '</ol></section><section class="commemoration"><div class="commemoration-year">' + esc(anniversary.theme.year) + '</div><div><h2>' + esc(anniversary.theme.title) + '</h2><p>' + esc(anniversary.theme.text) + '</p></div></section><section class="history-next"><div><span class="section-kicker">从母校的来路，走向自己的星途</span><h2>故事仍在继续，下一页有你。</h2><p>读一段校友经历，完成一份实践作品，让心意落在今天的行动里。</p></div><div class="hero-actions"><a class="button secondary" href="#/alumni">走近校友故事' + icon('arrow') + '</a><button class="button primary" data-action="create-tribute">开启献礼计划' + icon('spark') + '</button></div><p class="template-note">献礼行动为平台建议，完成情况由用户自行记录。</p></section></div>';
+    return '<div class="container inner-page history-page"><div class="history-intro"><div class="page-heading">' + eyebrow('九秩校史 · 回望来路') + '<h1>九秩薪火，照亮新的出发。</h1><p>沿着公开资料留下的坐标，认识母校的来路，也找到与自己有关的那一页。</p></div><div class="history-heading-art"><span>' + esc(anniversary.years) + '</span><p>历史有出处，成长有回响。</p></div></div><section class="section"><ol class="history-timeline">' + historyEntries() + '</ol></section><section class="commemoration"><div class="commemoration-year">' + esc(anniversary.theme.year) + '</div><div><h2>' + esc(anniversary.theme.title) + '</h2><p>' + esc(anniversary.theme.text) + '</p></div></section><section class="history-next"><div><span class="section-kicker">从母校的来路，走向自己的星途</span><h2>故事仍在继续，下一页有你。</h2><p>读一段校友经历，完成一份实践作品，让心意落在今天的行动里。</p></div><div class="hero-actions"><a class="button secondary" href="#/alumni" aria-label="走近校友故事">' + shineContent('走近校友故事') + '</a><button class="button primary" data-action="create-tribute">开启献礼计划' + icon('spark') + '</button></div><p class="template-note">献礼行动为平台建议，完成情况由用户自行记录。</p></section></div>';
   }
   function alumniPage() {
     const fields = [...new Set(data.alumni.map(person => person.field))];
@@ -180,6 +194,53 @@
       return '<details class="reading-details method-card" id="method-' + method.id + '"><summary><span><strong>' + esc(method.title) + '</strong><small>' + esc(method.subtitle) + '</small></span></summary><div class="reading-body">' + textList(method.steps, true) + exampleBlock(method.example) + '<h4>检查清单</h4>' + textList(method.checklist) + '</div></details>';
     }).join('') + '</div></section>';
   }
+  function finishReadingAnimation(card) {
+    const state = readingAnimations.get(card);
+    if (!state) return;
+    readingAnimations.delete(card);
+    card.open = state.expanded;
+    card.classList.remove('is-animating', 'is-collapsing');
+    card.querySelector('summary').removeAttribute('aria-expanded');
+    card.querySelector('.reading-body').inert = false;
+    state.animations.forEach(animation => animation.cancel());
+  }
+  function clearReadingAnimations() {
+    [...readingAnimations.keys()].forEach(finishReadingAnimation);
+  }
+  function setReadingExpanded(card, expanded) {
+    const summary = card.querySelector('summary');
+    const body = card.querySelector('.reading-body');
+    const previous = readingAnimations.get(card);
+    if (reducedMotion.matches || typeof card.animate !== 'function') {
+      finishReadingAnimation(card);
+      card.open = expanded;
+      return;
+    }
+    if (!previous && card.open === expanded) return;
+    // Read the current frame before cancelling so rapid clicks reverse smoothly.
+    const startHeight = card.getBoundingClientRect().height;
+    const startOpacity = card.open ? Number(getComputedStyle(body).opacity) : 0;
+    if (previous) previous.animations.forEach(animation => animation.cancel());
+    card.open = true;
+    card.classList.add('is-animating');
+    card.classList.toggle('is-collapsing', !expanded);
+    summary.setAttribute('aria-expanded', String(expanded));
+    if (!expanded && body.contains(document.activeElement)) summary.focus({ preventScroll: true });
+    body.inert = !expanded;
+    const styles = getComputedStyle(card);
+    const closedHeight = summary.getBoundingClientRect().height + parseFloat(styles.borderTopWidth) + parseFloat(styles.borderBottomWidth);
+    const openHeight = card.getBoundingClientRect().height;
+    const endHeight = expanded ? openHeight : closedHeight;
+    const duration = Math.max(100, 320 * Math.min(1, Math.abs(endHeight - startHeight) / Math.max(1, openHeight - closedHeight)));
+    const timing = { duration, easing: 'cubic-bezier(.22,.61,.36,1)', fill: 'both' };
+    const height = card.animate([{ height: startHeight + 'px' }, { height: endHeight + 'px' }], timing);
+    const fade = body.animate([{ opacity: startOpacity }, { opacity: expanded ? 1 : 0 }], timing);
+    const state = { expanded, animations: [height, fade] };
+    readingAnimations.set(card, state);
+    height.onfinish = () => {
+      if (readingAnimations.get(card) === state) finishReadingAnimation(card);
+    };
+  }
   function methodLinks(ids) {
     return '<div class="reading-links">' + ids.map(id => {
       const method = data.methodCards.find(item => item.id === id);
@@ -201,7 +262,8 @@
   function personPage(person) {
     const learning = person.learning;
     const project = projectById(learning.projectId);
-    return '<div class="container inner-page"><a class="back-link" href="#/alumni">' + icon('back') + '返回校友探索</a><section class="profile-hero"><div class="profile-portrait">' + portrait(person, true) + photoCredit(person) + '</div><div class="profile-intro">' + eyebrow('ALUMNI STORY / ' + person.number) + '<div class="profile-title"><h1>' + esc(person.name) + '</h1>' + favoriteButton(person) + '</div><div class="profile-meta">' + esc(person.cohort) + '<span>·</span>' + esc(person.major) + '</div><h2>' + esc(person.role) + '</h2><p>' + esc(person.summary) + '</p><div class="tags">' + tags(person.tags) + '</div></div></section>' +
+    const fromHome = alumniHistoryEntry?.origin?.route === 'home';
+    return '<div class="container inner-page" data-alumni-profile="' + person.id + '"><a class="back-link" href="' + (fromHome ? '#/' : '#/alumni') + '">' + icon('back') + (fromHome ? '返回校庆首页' : '返回校友探索') + '</a><section class="profile-hero"><div class="profile-portrait">' + portrait(person, true) + photoCredit(person) + '</div><div class="profile-intro">' + eyebrow('ALUMNI STORY / ' + person.number) + '<div class="profile-title"><h1>' + esc(person.name) + '</h1>' + favoriteButton(person) + '</div><div class="profile-meta">' + esc(person.cohort) + '<span>·</span>' + esc(person.major) + '</div><h2>' + esc(person.role) + '</h2><p>' + esc(person.summary) + '</p><div class="tags">' + tags(person.tags) + '</div></div></section>' +
       '<div class="profile-columns"><article><section class="story-intro"><div class="section-kicker">DOCUMENTED EXPERIENCE / 公开经历</div><h2>从公开记录认识这段经历</h2><p>' + esc(person.biography) + '</p><div class="reading-links">' + person.sources.map(sourceLink).join('') + '</div></section><section class="timeline-section"><h2>成长的关键坐标</h2><ol class="timeline">' + person.timeline.map((event, index) => '<li><span class="timeline-marker">' + (index === person.timeline.length - 1 ? '✦' : '') + '</span><span class="timeline-time">' + esc(event.time) + '</span><div><h3>' + esc(event.title) + '</h3><p>' + esc(event.text) + '</p>' + sourceLink(event.source) + '</div></li>').join('') + '</ol></section><section class="editor-analysis"><span class="section-kicker">EDITOR’S NOTES / 平台编辑分析</span><h2>' + esc(learning.label) + '</h2><p>' + esc(learning.analysis) + '</p><h3>理解这份资料的边界</h3><p>' + esc(learning.limits) + '</p><p class="editor-note">以下练习由平台设计，不是校友原话或本人建议。</p><h3>新生可以尝试的一步</h3><p>' + esc(learning.next) + '</p><a class="button secondary" href="#/practice/' + project.id + '">开始：' + esc(project.name) + icon('arrow') + '</a></section><div class="source-box"><div>' + icon('shield') + '<strong>来源与核对说明</strong></div><p>' + esc(person.verificationNote) + '</p></div></article><aside class="profile-aside"><div class="takeaway-card"><span class="section-kicker">TAKE A LITTLE INSPIRATION</span><h3>把启发变成一个行动</h3><p>' + esc(person.takeaway) + '</p><span class="editor-note">平台编辑提炼，非校友原话</span></div><div class="related-routes"><h3>选择自己的成长路线</h3>' + person.routes.map(id => { const route = routeById(id); return '<a href="#/paths/' + route.id + '"><span class="related-icon">' + icon(route.icon) + '</span><span>' + esc(route.name) + '<small>' + esc(route.duration) + ' · 可调整</small></span>' + icon('chevron') + '</a>'; }).join('') + '</div></aside></div>' + methodSection(learning.methodIds, '把这份启发用到今天') + '</div>';
   }
   function routeComparisonRow(route) {
@@ -210,7 +272,7 @@
     return '<tr class="comparison-route route-' + esc(route.color) + '" role="row"><th scope="row" role="rowheader"><a class="comparison-route-title" href="#/paths/' + esc(route.id) + '"><span class="route-icon">' + icon(route.icon) + '</span><span>' + esc(route.name) + icon('upRight') + '</span></a><small>' + esc(route.audience) + '</small><span class="comparison-duration">' + icon('calendar') + esc(route.duration) + '</span></th><td role="cell"><span class="comparison-cell-label" aria-hidden="true">行动顺序</span><ol class="comparison-steps" role="list">' + steps + '</ol></td><td role="cell"><span class="comparison-cell-label" aria-hidden="true">最终留下</span><ul class="comparison-outcomes" role="list">' + outcomes + '</ul></td></tr>';
   }
   function pathsPage() {
-    return '<div class="container inner-page paths-page"><div class="paths-intro"><div class="paths-intro-copy"><div class="page-heading">' + eyebrow('PASS IT FORWARD / 成长传承') + '<h1>传承向前的力量，写下自己的成长。</h1><p>为零基础新生准备：先比较方向，再按步骤完成第一轮探索。用一份自己的作品，为母校献礼。</p></div><section class="inheritance-intro"><div><span class="section-kicker">从商职出发，向自己的光前行</span><h2>每一种成长，都值得被看见。</h2><p>校友故事带来启发，学习与实践留下积累。方向由你选择，每一步都可以从小处开始。</p></div></section></div><img class="paths-intro-art" src="assets/starpath.svg" width="650" height="550" alt="商职星途原创插画：从学习、实践走向成长"></div>' + beginnerSection() + '<div class="route-grid route-grid-large">' + data.routes.map(pathsRouteCard).join('') + '</div><section class="section">' + sectionHead('CHOOSE YOUR FIRST STEP', '这三条路线，分别适合什么时候？', '可以从一个目标开始，之后再调整。') + '<div class="comparison-wrap"><table class="route-comparison" role="table"><caption class="sr-only">成长路线的目标、阶段与成果比较</caption><thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader"><span aria-hidden="true">01</span>当前目标</th><th scope="col" role="columnheader"><span aria-hidden="true">02</span>行动顺序</th><th scope="col" role="columnheader"><span aria-hidden="true">03</span>最终留下</th></tr></thead><tbody role="rowgroup">' + data.routes.map(routeComparisonRow).join('') + '</tbody></table></div></section>' + practiceSection() + methodSection(data.methodCards.map(method => method.id)) + '<div class="source-note">' + icon('info') + '<div><strong>第一轮探索，按自己的节奏来</strong><p>模板为平台建议，不代表校友本人路径，也不承诺获奖、录取或就业。核心内容可离线阅读，打开外部官方资料需要联网；Python 案例需要先准备本地工具。</p></div></div></div>';
+    return '<div class="container inner-page paths-page"><div class="paths-intro"><div class="paths-intro-copy page-heading">' + eyebrow('PASS IT FORWARD / 成长传承') + '<span class="section-kicker">从商职出发，向自己的光前行</span><h1>每一种成长，都值得被看见。</h1><p>校友故事带来启发，学习与实践留下积累。方向由你选择，每一步都可以从小处开始。</p></div><img class="paths-intro-art" src="assets/starpath.svg" width="650" height="550" alt="商职星途原创插画：从学习、实践走向成长"></div>' + beginnerSection() + '<div class="route-grid route-grid-large">' + data.routes.map(pathsRouteCard).join('') + '</div><section class="section">' + sectionHead('CHOOSE YOUR FIRST STEP', '这三条路线，分别适合什么时候？', '可以从一个目标开始，之后再调整。') + '<div class="comparison-wrap"><table class="route-comparison" role="table"><caption class="sr-only">成长路线的目标、阶段与成果比较</caption><thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader"><span aria-hidden="true">01</span>当前目标</th><th scope="col" role="columnheader"><span aria-hidden="true">02</span>行动顺序</th><th scope="col" role="columnheader"><span aria-hidden="true">03</span>最终留下</th></tr></thead><tbody role="rowgroup">' + data.routes.map(routeComparisonRow).join('') + '</tbody></table></div></section>' + practiceSection() + methodSection(data.methodCards.map(method => method.id)) + '<div class="source-note" hidden>' + icon('info') + '<div><strong>第一轮探索，按自己的节奏来</strong><p>模板为平台建议，不代表校友本人路径，也不承诺获奖、录取或就业。核心内容可离线阅读，打开外部官方资料需要联网；Python 案例需要先准备本地工具。</p></div></div></div>';
   }
   function stageGuide(stage, index) {
     return '<details class="reading-details stage-guide" id="stage-' + index + '"' + (index === 0 ? ' open' : '') + '><summary><span class="stage-guide-number">0' + (index + 1) + '</span><span><small>' + esc(stage.period) + '</small><strong>' + esc(stage.title) + '</strong></span><span class="stage-task-count">' + stage.tasks.length + ' 项任务</span></summary><div class="reading-body"><p class="stage-purpose">' + esc(stage.why) + '</p><h3>开始前，认识这些基础</h3><p>' + esc(stage.preparation) + '</p><h3>这阶段的三个动作</h3>' + textList(stage.tasks, true) + '<h3>一步步怎么做</h3>' + textList(stage.steps, true) + exampleBlock(stage.example, '成果样例 · 平台示例') + '<div class="guide-check-grid"><div><h3>做到什么程度</h3>' + textList(stage.checklist) + '</div><div><h3>遇到困难怎么办</h3>' + textList(stage.pitfalls) + '</div></div><h3>对应资料与方法</h3>' + resourceCards(stage.resourceIds) + methodLinks(stage.methodIds) + '</div></details>';
@@ -218,19 +280,15 @@
   function routePage(route) {
     const people = data.alumni.filter(person => person.routes.includes(route.id));
     const methods = [...new Set([...route.methodIds, ...route.stages.flatMap(stage => stage.methodIds)])];
-    return '<div class="container inner-page"><a class="back-link" href="#/paths">' + icon('back') + '返回成长路线</a><section class="path-hero route-' + route.color + '"><div><span class="route-icon">' + icon(route.icon) + '</span><div class="eyebrow">零基础指南 · 平台建议</div><h1>' + esc(route.name) + '</h1><h2>' + esc(route.subtitle) + '</h2><p>' + esc(route.description) + '</p><div class="path-hero-meta"><span>' + icon('calendar') + esc(route.duration) + '</span><span>' + route.stages.length + ' 个阶段 · ' + taskCount(route) + ' 项初始任务</span></div></div><div class="path-create-card"><h3>让这条路线，为你而行</h3><p>' + esc(route.audience) + '</p><button class="button primary" data-action="create-plan" data-template="' + route.id + '">使用这条路线' + icon('arrow') + '</button><span>保存在本机 · 任务与日期均可修改</span></div></section><div class="route-outcome"><div><span class="section-kicker">这一轮，你会留下</span><strong>' + esc(route.outcome) + '</strong></div><p>' + esc(route.effort) + '。建议时长不会自动设置任务日期。</p></div><nav class="reading-toc" aria-label="路线阅读目录">' + route.stages.map((stage, index) => '<button data-action="scroll-to" data-value="stage-' + index + '">0' + (index + 1) + ' ' + esc(stage.title) + '</button>').join('') + '<button data-action="scroll-to" data-value="practice-library">实践案例</button><button data-action="scroll-to" data-value="methods">学习方法</button></nav><section class="section">' + sectionHead('ONE STEP AT A TIME', '走稳每一个阶段', '展开阅读具体步骤，完成后回到个人计划记录进度。') + '<div class="stage-guides">' + route.stages.map(stageGuide).join('') + '</div></section>' + practiceSection(route.projectIds, route.id === 'education' ? '可选体验：用程序整理模拟学习记录' : '与这条路线配套的实践案例') + methodSection(methods) + '<section class="section">' + sectionHead('STORIES TO INSPIRE', '也读读这些公开经历', '成长路线是平台设计，相关校友未必使用过这些方法或案例。') + '<div class="related-people">' + people.map(person => '<a href="#/alumni/' + person.id + '" class="related-person">' + personThumbnail(person) + '<span><strong>' + esc(person.name) + '</strong><small>' + esc(person.role) + '</small></span>' + icon('upRight') + '</a>').join('') + '</div></section></div>';
+    return '<div class="container inner-page route-page" data-route="' + esc(route.id) + '"><a class="back-link" href="#/paths">' + icon('back') + '返回成长路线</a><section class="path-hero route-' + route.color + '"><div><span class="route-icon">' + icon(route.icon) + '</span><div class="eyebrow">零基础指南 · 平台建议</div><h1>' + esc(route.name) + '</h1><h2>' + esc(route.subtitle) + '</h2><p>' + esc(route.description) + '</p><div class="path-hero-meta"><span>' + icon('calendar') + esc(route.duration) + '</span><span>' + route.stages.length + ' 个阶段 · ' + taskCount(route) + ' 项初始任务</span></div></div><div class="path-create-card"><h3>让这条路线，为你而行</h3><p>' + esc(route.audience) + '</p><button class="button primary" data-action="create-plan" data-template="' + route.id + '">使用这条路线' + icon('arrow') + '</button><span>保存在本机 · 任务与日期均可修改</span></div></section><div class="route-outcome"><div><span class="section-kicker">这一轮，你会留下</span><strong>' + esc(route.outcome) + '</strong></div><p>' + esc(route.effort) + '。建议时长不会自动设置任务日期。</p></div><nav class="reading-toc" aria-label="路线阅读目录">' + route.stages.map((stage, index) => '<button data-action="scroll-to" data-value="stage-' + index + '">0' + (index + 1) + ' ' + esc(stage.title) + '</button>').join('') + '<button data-action="scroll-to" data-value="practice-library">实践案例</button><button data-action="scroll-to" data-value="methods">学习方法</button></nav><section class="section">' + sectionHead('ONE STEP AT A TIME', '走稳每一个阶段', '展开阅读具体步骤，完成后回到个人计划记录进度。') + '<div class="stage-guides">' + route.stages.map(stageGuide).join('') + '</div></section>' + practiceSection(route.projectIds, route.id === 'education' ? '可选体验：用程序整理模拟学习记录' : '与这条路线配套的实践案例') + methodSection(methods) + '<section class="section">' + sectionHead('STORIES TO INSPIRE', '也读读这些公开经历', '成长路线是平台设计，相关校友未必使用过这些方法或案例。') + '<div class="related-people">' + people.map(person => '<a href="#/alumni/' + person.id + '" class="related-person">' + personThumbnail(person) + '<span><strong>' + esc(person.name) + '</strong><small>' + esc(person.role) + '</small></span>' + icon('upRight') + '</a>').join('') + '</div></section></div>';
   }
   function practicePage(project) {
     return '<div class="container inner-page practice-page"><a class="back-link" href="#/paths">' + icon('back') + '返回成长路线</a><section class="practice-hero route-' + project.color + '"><div><span class="section-kicker">' + esc(project.category) + ' · 原创教学示例</span><h1>' + esc(project.name) + '</h1><p>' + esc(project.scenario) + '</p><div class="path-hero-meta"><span>' + esc(project.duration) + '</span></div><div class="practice-actions"><a class="button primary" href="' + esc(project.download) + '" download>' + icon('download') + '下载起始材料与成品</a><a class="button secondary" href="' + esc(project.preview) + '" target="_blank" rel="noopener">查看参考' + icon('upRight') + '</a></div></div><div class="practice-hero-result"><span>跟着做，得到一份自己的成果</span><strong>' + esc(project.outcome) + '</strong><p>先尝试，再对照；记录自己的修改和验证过程。</p></div></section><nav class="reading-toc" aria-label="案例阅读目录"><button data-action="scroll-to" data-value="practice-setup">准备环境</button><button data-action="scroll-to" data-value="practice-steps">分步练习</button><button data-action="scroll-to" data-value="practice-checks">排障与验收</button><button data-action="scroll-to" data-value="practice-resources">延伸资料</button></nav><div class="practice-reading"><section class="section" id="practice-setup">' + sectionHead('BEFORE YOU START', '先准备好，再动手', '首次安装工具需要联网；材料解压后可以保留在本地反复练习。') + '<div class="setup-card"><h3>Windows 操作准备</h3>' + textList(project.setup, true) + '</div><dl class="term-grid">' + project.terms.map(term => '<div><dt>' + esc(term[0]) + '</dt><dd>' + esc(term[1]) + '</dd></div>').join('') + '</dl></section><section class="section" id="practice-steps">' + sectionHead('MAKE SOMETHING REAL', '一步一步，看到结果', '每一步都先保存、运行和观察，再继续。') + project.steps.map((step, index) => '<details class="reading-details practice-step"' + (index === 0 ? ' open' : '') + '><summary><span class="stage-guide-number">0' + (index + 1) + '</span><strong>' + esc(step.title) + '</strong></summary><div class="reading-body"><p>' + esc(step.text) + '</p>' + (step.code ? exampleBlock(step.code, '代码或命令 · 可按教程使用') : '') + '<div class="expected-result"><strong>你应该看到</strong><p>' + esc(step.expected) + '</p></div></div></details>').join('') + '</section><section class="section" id="practice-checks">' + sectionHead('CHECK YOUR WORK', '做完，还要能验证', '逐项实际操作，记录预期和结果。') + '<div class="guide-check-grid"><div class="setup-card"><h3>验收清单</h3>' + textList(project.checks, true) + '</div><div class="setup-card"><h3>常见问题</h3><dl class="error-list">' + project.errors.map(error => '<dt>' + esc(error[0]) + '</dt><dd>' + esc(error[1]) + '</dd>').join('') + '</dl></div></div><div class="extension-card"><h3>完成后，再试一点变化</h3>' + textList(project.extensions) + '</div></section><section class="section" id="practice-resources">' + sectionHead('GO A LITTLE FURTHER', '延伸阅读，按需打开', '核心步骤已保存在本站，以下链接提供更完整的官方说明。') + resourceCards(project.resourceIds) + '</section></div>' + methodSection(project.methodIds) + '<section class="practice-next"><span class="section-kicker">KEEP GOING</span><h2>让这次练习，成为计划中的一步</h2><p>创建整条路线的计划后，可以编辑任务、目标与日期。案例不会自动判定任务完成。</p><div class="practice-actions">' + project.routeIds.map(id => '<button class="button secondary" data-action="create-plan" data-template="' + id + '">创建' + esc(routeById(id).name) + '计划</button>').join('') + '</div></section></div>';
   }
-  function growthRouteArrow() {
-    const mask = 'data:image/svg+xml,' + encodeURIComponent(icon('arrow').replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ').replace('stroke="currentColor"', 'stroke="#fff"'));
-    return '<span class="growth-route-arrow" aria-hidden="true">' + icon('arrow') + '<span class="growth-arrow-glint" style="--arrow-mask:url(' + esc(mask) + ')"></span></span>';
-  }
   function growthLearning(plan) {
     const route = plan && routeById(plan.templateId);
     const ids = route ? [...route.methodIds, 'project-readme', 'weekly-review'] : data.methodCards.map(method => method.id);
-    return '<section class="growth-learning"><div class="growth-reading-entry"><div><span class="section-kicker">FROM CHECKLIST TO LEARNING</span><h2>完成之后，留下看得见的证据。</h2><p>参考项目说明与复盘模板，把文件、测试和下一步整理清楚。模板中的示例不会自动保存为个人记录。</p></div>' + (route ? '<a class="button secondary" href="#/paths/' + route.id + '">返回' + esc(route.name) + '学习指导' + icon('arrow') + '</a>' : '<a class="button secondary" href="#/practice/campus-guide">从网页案例开始' + icon('arrow') + '</a>') + '</div>' + methodSection(ids, '项目说明与复盘工具箱') + '</section>';
+    return '<section class="growth-learning" hidden><div class="growth-reading-entry"><div><span class="section-kicker">FROM CHECKLIST TO LEARNING</span><h2>完成之后，留下看得见的证据。</h2><p>参考项目说明与复盘模板，把文件、测试和下一步整理清楚。模板中的示例不会自动保存为个人记录。</p></div>' + (route ? '<a class="button secondary" href="#/paths/' + route.id + '">返回' + esc(route.name) + '学习指导' + icon('arrow') + '</a>' : '<a class="button secondary" href="#/practice/campus-guide">从网页案例开始' + icon('arrow') + '</a>') + '</div>' + methodSection(ids, '项目说明与复盘工具箱') + '</section>';
   }
   function localDate() {
     const now = new Date();
@@ -250,7 +308,7 @@
     const toolbar = '<div class="growth-tools"><button class="button secondary small" data-action="export">' + icon('download') + '导出备份</button><button class="button secondary small" data-action="import">' + icon('upload') + '导入备份</button></div>';
     let html = '<div class="container inner-page growth-page"><div class="page-heading growth-heading"><div>' + eyebrow('MY JOURNEY / 我的成长') + '<h1>每一个小小的完成，都算数。</h1><p>按照自己的节奏，把今天的行动连成明天的星途。</p></div>' + toolbar + '</div><div class="stats-grid"><div><span class="stat-label">我的成长计划</span><strong>' + state.plans.length + '<small>份</small></strong></div><div><span class="stat-label">已完成任务</span><strong>' + completed + '<small>/ ' + allTasks.length + '</small></strong></div><div><span class="stat-label">整体完成度</span><strong>' + overall + '<small>%</small></strong></div><div><span class="stat-label">收藏的校友</span><strong>' + state.favorites.length + '<small>位</small></strong></div></div>';
     if (!plan) {
-      html += '<section class="empty-growth"><div class="empty-growth-art" aria-hidden="true"><div class="empty-orbit"></div>✦<span>YOUR NEXT STEP</span></div><div><span class="section-kicker">从一个小目标开始</span><h2>你的成长故事，等你写下第一笔。</h2><p>选择一条路线，或从空白计划开始。目标、任务与节奏，都由你决定。</p><div class="hero-actions"><a class="button primary" href="#/paths"><span class="growth-route-label">选择成长路线</span>' + growthRouteArrow() + '</a><button class="button secondary" data-action="create-plan" data-template="">创建空白计划</button></div></div></section>';
+      html += '<section class="empty-growth"><div class="empty-growth-art" aria-hidden="true"><div class="empty-orbit"></div>✦<span>YOUR NEXT STEP</span></div><div><span class="section-kicker">从一个小目标开始</span><h2>你的成长故事，等你写下第一笔。</h2><p>选择一条路线，或从空白计划开始。目标、任务与节奏，都由你决定。</p><div class="hero-actions"><a class="button primary" href="#/paths" aria-label="选择成长路线">' + shineContent('选择成长路线') + '</a><button class="button secondary" data-action="create-plan" data-template="">创建空白计划</button></div></div></section>';
     } else {
       const progress = store.progress(plan);
       const template = routeById(plan.templateId);
@@ -411,6 +469,175 @@
       historyRevealObserver.observe(line);
     });
   }
+  function writeAlumniHistory(entry) {
+    alumniHistoryEntry = entry;
+    try { history.replaceState({ ...history.state, starPathAlumni: entry }, ''); }
+    catch (_) { /* Navigation remains available when history state cannot be saved. */ }
+  }
+  function alumniCard(id) {
+    return main.querySelector('.people-grid [data-alumni-id="' + id + '"]');
+  }
+  function alumniCardVisible(card) {
+    if (!card) return false;
+    const bounds = card.getBoundingClientRect();
+    return bounds.width > 0 && bounds.height > 0 && bounds.bottom > document.querySelector('.site-header').getBoundingClientRect().bottom && bounds.top < window.innerHeight;
+  }
+  function cloneAlumniContent(node) {
+    const copy = node.cloneNode(true);
+    [copy, ...copy.querySelectorAll('*')].forEach(element => {
+      element.removeAttribute('id');
+      element.classList.remove('page-enter', 'alumni-result-enter', 'alumni-motion-hidden');
+      if (element.matches('a,button,input,select,textarea,[tabindex]')) element.setAttribute('tabindex', '-1');
+    });
+    return copy;
+  }
+  function alumniLayer(bounds, className) {
+    const node = document.createElement('div');
+    node.className = 'alumni-motion-layer ' + className;
+    node.setAttribute('aria-hidden', 'true');
+    node.setAttribute('inert', '');
+    Object.assign(node.style, { left: bounds.left + 'px', top: bounds.top + 'px', width: bounds.width + 'px', height: bounds.height + 'px' });
+    return { node, bounds };
+  }
+  function measureAlumniPhoto(portrait, source = null) {
+    const image = portrait?.querySelector('img');
+    if (!image) return null;
+    const naturalWidth = image.naturalWidth || source?.naturalWidth;
+    const naturalHeight = image.naturalHeight || source?.naturalHeight;
+    const bounds = portrait.getBoundingClientRect();
+    if (!naturalWidth || !naturalHeight || !bounds.width || !bounds.height) return null;
+    const frameStyle = getComputedStyle(portrait);
+    const imageStyle = getComputedStyle(image);
+    const fit = imageStyle.objectFit === 'contain' ? Math.min : Math.max;
+    const scale = fit(bounds.width / naturalWidth, bounds.height / naturalHeight);
+    const position = imageStyle.objectPosition.split(' ');
+    const offset = (value, space) => value.endsWith('%') ? parseFloat(value) / 100 * space : parseFloat(value) || 0;
+    const x = offset(position[0], bounds.width - naturalWidth * scale);
+    const y = offset(position[1] || '50%', bounds.height - naturalHeight * scale);
+    return {
+      element: portrait, image, bounds, naturalWidth, naturalHeight,
+      imageTransform: 'translate(' + x + 'px,' + y + 'px) scale(' + scale + ')',
+      radius: frameStyle.borderRadius, background: frameStyle.backgroundColor,
+      color: frameStyle.color, blend: imageStyle.mixBlendMode
+    };
+  }
+  function captureAlumniPhoto(photo) {
+    const layer = alumniLayer(photo.bounds, 'alumni-motion-photo');
+    const image = photo.image.cloneNode(true);
+    image.removeAttribute('loading');
+    image.alt = '';
+    Object.assign(image.style, { width: photo.naturalWidth + 'px', height: photo.naturalHeight + 'px', mixBlendMode: photo.blend });
+    Object.assign(layer.node.style, { left: '0px', top: '0px', backgroundColor: photo.background, color: photo.color });
+    layer.node.appendChild(image);
+    const caption = photo.element.querySelector('.photo-caption');
+    if (caption) layer.node.appendChild(caption.cloneNode(true));
+    return layer;
+  }
+  function captureAlumniBackdrop() {
+    const mainBounds = main.getBoundingClientRect();
+    const top = Math.max(0, mainBounds.top, document.querySelector('.site-header').getBoundingClientRect().bottom);
+    const bottom = Math.min(window.innerHeight, mainBounds.bottom);
+    if (!main.firstElementChild || bottom <= top) return null;
+    const layer = alumniLayer({ left: mainBounds.left, top, width: mainBounds.width, height: bottom - top }, 'alumni-motion-backdrop');
+    const position = document.createElement('div');
+    position.className = 'alumni-motion-position';
+    position.style.top = (mainBounds.top - top) + 'px';
+    position.appendChild(cloneAlumniContent(main.firstElementChild));
+    layer.node.appendChild(position);
+    return layer;
+  }
+  function clearAlumniTransition(restoreFocus = false) {
+    const transition = alumniTransition;
+    if (!transition) return;
+    alumniTransition = null;
+    clearTimeout(transition.timer);
+    transition.animations.forEach(animation => animation.cancel());
+    transition.layers.forEach(layer => layer.node.remove());
+    transition.hidden.classList.remove('alumni-motion-hidden');
+    transition.anchor?.classList.remove('alumni-motion-anchor');
+    if (restoreFocus && transition.focus.isConnected) transition.focus.focus({ preventScroll: true });
+  }
+  function prepareAlumniNavigation(route, options) {
+    const pending = pendingAlumniNavigation;
+    pendingAlumniNavigation = null;
+    const saved = history.state?.starPathAlumni;
+    const entry = pending?.route === route && pending.from === renderedRoute
+      ? { session: alumniNavigationSession, route, origin: pending.origin }
+      : saved?.session === alumniNavigationSession && saved.route === route ? saved : null;
+    const origin = entry?.origin;
+    const changing = options.routeChange && renderedRoute !== null && route !== renderedRoute;
+    const originRoute = origin?.route || 'alumni';
+    const returning = changing && route === originRoute && origin;
+    const entering = changing && renderedRoute === originRoute && origin && route === 'alumni/' + origin.personId;
+    const navigation = { origin: returning ? origin : null, motion: null };
+    if (returning && originRoute === 'alumni') Object.assign(filters, origin.filters);
+    if (!reducedMotion.matches && typeof main.animate === 'function' && (entering || (returning && renderedRoute === 'alumni/' + origin.personId && alumniHistoryEntry?.origin))) {
+      const selector = entering ? '[data-alumni-id="' + origin.personId + '"] .portrait' : '[data-alumni-profile] .profile-portrait .portrait';
+      const portrait = main.querySelector(selector);
+      // An offscreen photograph should not suddenly fly in from outside the viewport.
+      const photo = alumniCardVisible(portrait) ? measureAlumniPhoto(portrait) : null;
+      const backdrop = photo ? captureAlumniBackdrop() : null;
+      if (backdrop) {
+        backdrop.node.querySelector(selector).style.visibility = 'hidden';
+        navigation.motion = { direction: entering ? 'enter' : 'return', photo, backdrop };
+      }
+    }
+    alumniHistoryEntry = entry;
+    if (entry) writeAlumniHistory(entry);
+    return navigation;
+  }
+  function restoreAlumniList(origin) {
+    window.scrollTo({ left: origin.scrollX, top: origin.scrollY, behavior: 'instant' });
+    const card = alumniCard(origin.personId);
+    // A different viewport may put the source photograph outside the restored viewport.
+    const portrait = card?.querySelector('.portrait');
+    const resized = origin.viewport && (origin.viewport.width !== window.innerWidth || origin.viewport.height !== window.innerHeight);
+    const anchor = resized ? portrait : card;
+    if (anchor && !alumniCardVisible(anchor)) anchor.scrollIntoView({ block: 'center', behavior: 'instant' });
+    const selectors = { photo: '.person-cover > a', name: '.person-name-row a', story: '.card-link' };
+    return card?.querySelector(selectors[origin.trigger] || selectors.story) || document.getElementById('alumni-query') || main;
+  }
+  function animateAlumniNavigation(navigation, focus) {
+    const motion = navigation.motion;
+    if (!motion) return false;
+    const entering = motion.direction === 'enter';
+    const targetCard = entering ? null : alumniCard(navigation.origin.personId);
+    if (!entering && !alumniCardVisible(targetCard)) return false;
+    targetCard?.classList.add('alumni-motion-anchor');
+    const target = measureAlumniPhoto(entering ? main.querySelector('.profile-portrait .portrait') : targetCard.querySelector('.portrait'), motion.photo);
+    if (!target || !alumniCardVisible(target.element)) {
+      targetCard?.classList.remove('alumni-motion-anchor');
+      return false;
+    }
+    const photo = captureAlumniPhoto(motion.photo);
+    const layers = [motion.backdrop, photo];
+    const hidden = target.element;
+    const transition = { layers, hidden, anchor: targetCard, focus, animations: [], timer: null, scrollX: window.scrollX, scrollY: window.scrollY };
+    alumniTransition = transition;
+    hidden.classList.add('alumni-motion-hidden');
+    layers.forEach(layer => {
+      layer.node.dataset.direction = motion.direction;
+      document.body.appendChild(layer.node);
+    });
+    const animate = (node, frames, easing = 'cubic-bezier(.22,1,.36,1)') => {
+      const animation = node.animate(frames, { duration: alumniMotionDuration, easing, fill: 'both' });
+      transition.animations.push(animation);
+    };
+    const frame = photo => ({
+      transform: 'translate(' + photo.bounds.left + 'px,' + photo.bounds.top + 'px)',
+      width: photo.bounds.width + 'px', height: photo.bounds.height + 'px', borderRadius: photo.radius
+    });
+    // Animate the crop independently from the bitmap: one opaque, undistorted photo travels
+    // between the actual two image frames, including their object-fit/object-position.
+    animate(photo.node, [frame(motion.photo), frame(target)]);
+    animate(photo.node.firstElementChild, [{ transform: motion.photo.imageTransform }, { transform: target.imageTransform }]);
+    animate(motion.backdrop.node, [{ opacity: 1 }, { opacity: 0, offset: .24 }, { opacity: 0 }], 'linear');
+    animate(main.firstElementChild, [{ opacity: 0 }, { opacity: 0, offset: .24 }, { opacity: 1, offset: .85 }, { opacity: 1 }], 'linear');
+    const finish = () => { if (alumniTransition === transition) clearAlumniTransition(true); };
+    Promise.all(transition.animations.map(animation => animation.finished)).then(finish, finish);
+    transition.timer = setTimeout(finish, alumniMotionDuration + 150);
+    return true;
+  }
   function captureOutgoingPage(historyTransition = false) {
     const bounds = main.getBoundingClientRect();
     const headerBottom = document.querySelector('.site-header').getBoundingClientRect().bottom;
@@ -447,6 +674,8 @@
   }
   function render(options = {}) {
     if (location.hash === '#main') { main.focus(); return; }
+    clearReadingAnimations();
+    clearAlumniTransition();
     clearHistoryNavigation();
     clearHistoryReveal();
     clearHistoryTitleAnimation();
@@ -457,6 +686,7 @@
     const page = parts[0] || 'home';
     const id = parts[1];
     const route = parts.length ? parts.join('/') : 'home';
+    const alumniNavigation = prepareAlumniNavigation(route, options);
     const historyFill = Boolean(historyScreenFill && !historyScreenFill.classList.contains('is-revealing') && page === 'history' && !id && parts.length === 1 && !reducedMotion.matches);
     if (!historyFill) clearHistoryScreenFill();
     const animatePage = options.routeChange && renderedRoute !== null && route !== renderedRoute && !reducedMotion.matches && !historyFill;
@@ -476,7 +706,7 @@
     else if (page === 'about' && !id) { title = '内容来源与使用说明'; content = aboutPage(); }
     else content = notFound();
     if (modal.open && !options.keepModal) modal.close();
-    if (animatePage) captureOutgoingPage(historyTransition);
+    if (animatePage && !alumniNavigation.motion) captureOutgoingPage(historyTransition);
     main.innerHTML = content;
     if (historyFill) {
       const fill = historyScreenFill;
@@ -487,7 +717,7 @@
       historyScreenFillTimer = setTimeout(clearHistoryScreenFill, 440);
     }
     if (page === 'alumni' && !id) updateAlumniResults();
-    if (animatePage) main.firstElementChild.classList.add(page === 'history' ? 'history-page-enter' : 'page-enter');
+    if (animatePage && !alumniNavigation.motion) main.firstElementChild.classList.add(page === 'history' ? 'history-page-enter' : 'page-enter');
     if (page === 'history' && !id) {
       if (animateTitle) animateHistoryTitle(historyFill ? 440 : 320);
       observeHistoryTimeline();
@@ -498,11 +728,16 @@
       if (link.dataset.nav === (page === 'practice' ? 'paths' : page)) link.setAttribute('aria-current', 'page');
       else link.removeAttribute('aria-current');
     });
-    if (!options.keepScroll) window.scrollTo({ top: 0, behavior: 'instant' });
-    if (options.focusSelector) { const node = main.querySelector(options.focusSelector); if (node) node.focus({ preventScroll: true }); }
+    notice();
+    let alumniFocus = main;
+    if (alumniNavigation.origin) alumniFocus = restoreAlumniList(alumniNavigation.origin);
+    else if (!options.keepScroll) window.scrollTo({ top: 0, behavior: 'instant' });
+    if (animateAlumniNavigation(alumniNavigation, alumniFocus)) return;
+    if (animatePage && alumniNavigation.motion) main.firstElementChild.classList.add('page-enter');
+    if (alumniNavigation.origin) alumniFocus.focus({ preventScroll: true });
+    else if (options.focusSelector) { const node = main.querySelector(options.focusSelector); if (node) node.focus({ preventScroll: true }); }
     else if (options.focusId) { const node = document.getElementById(options.focusId); if (node) node.focus({ preventScroll: true }); }
     else if (options.routeChange) main.focus({ preventScroll: true });
-    notice();
   }
   function celebrateTask(bounds) {
     if (reducedMotion.matches) return;
@@ -553,8 +788,17 @@
     aiProfile = null;
   }
   function aiEvidence(generation) {
-    const recommendations = generation.recommendations && generation.recommendations.length ? '<section class="ai-school-recommendations"><h3>推荐了解的院校</h3><p class="ai-school-note">依据专业、基础和地区提供的候选方向。报考资格、招生专业及考试要求仍需核实。</p>' + generation.recommendations.map(school => '<article><h4>' + esc(school.name) + '</h4><p>' + esc(school.reason) + '</p><a href="' + esc(school.sourceUrl) + '" target="_blank" rel="noopener noreferrer">院校招生参考资料' + icon('upRight') + '</a></article>').join('') + '</section>' : '';
-    return recommendations + '<div class="ai-evidence"><span class="section-kicker">联网检索资料 · AI 摘要</span><p class="ai-research-summary">' + esc(generation.summary) + '</p><p class="ai-source-time">检索与生成时间：' + esc(new Date(generation.generatedAt).toLocaleString('zh-CN', { hour12: false })) + ' · DeepSeek V4.1 Flash' + (generation.durationSeconds !== undefined ? ' · ' + aiDuration(generation.durationSeconds) : '') + '</p><ul class="ai-source-list">' + generation.sources.map(source => '<li><a href="' + esc(source.url) + '" target="_blank" rel="noopener noreferrer">' + esc(window.StarPath.ai.sourceTitle(source.title)) + icon('upRight') + '</a><small>' + esc(source.url) + '</small></li>').join('') + '</ul><p class="inline-note">摘要由 AI 根据联网结果整理，未经过人工核实。报名条件、科目和时间请以对应年度官方通知为准。</p></div>';
+    const readable = value => esc(window.StarPath.ai.displayText(value));
+    const schools = generation.recommendations || [];
+    const constraints = generation.constraints;
+    const requirement = constraints ? '筛选要求：' + readable(constraints.location.name) + (constraints.tier ? ' · ' + readable(constraints.tier) + '（按历史招生层次参考）' : '') + '。' : '';
+    const notice = generation.recommendationNotice ? '<p class="inline-note">' + readable(generation.recommendationNotice) + '</p>' : '';
+    const recommendations = schools.length || notice ? '<section class="ai-school-recommendations"><h3>推荐了解的院校</h3><p class="ai-school-note">' + requirement + '报考资格、招生专业及考试要求以对应年度官方资料为准。</p>' + notice + schools.map(school => {
+      const location = school.location ? '<p class="ai-school-note">专业培养地点：' + readable(school.location.province) + ' · ' + readable(school.location.city) + ' · ' + readable(school.location.campus) + '。<a href="' + esc(school.location.sourceUrl) + '" target="_blank" rel="noopener noreferrer">查看所在地依据' + icon('upRight') + '</a></p>' : '';
+      const evidence = (school.criteriaEvidence || []).map(item => '<p class="ai-school-note">' + readable(item.criterion) + '匹配依据：' + readable(item.explanation) + ' <a href="' + esc(item.sourceUrl) + '" target="_blank" rel="noopener noreferrer">查看匹配依据' + icon('upRight') + '</a></p>').join('');
+      return '<article><h4>' + readable(school.name) + '</h4><p>' + readable(school.reason) + '</p>' + location + evidence + '<a href="' + esc(school.sourceUrl) + '" target="_blank" rel="noopener noreferrer">院校招生参考资料' + icon('upRight') + '</a></article>';
+    }).join('') + '</section>' : '';
+    return recommendations + '<div class="ai-evidence"><span class="section-kicker">联网检索资料 · AI 摘要</span><p class="ai-research-summary">' + readable(generation.summary) + '</p><p class="ai-source-time">检索与生成时间：' + esc(new Date(generation.generatedAt).toLocaleString('zh-CN', { hour12: false })) + ' · DeepSeek V4.1 Flash' + (generation.durationSeconds !== undefined ? ' · ' + aiDuration(generation.durationSeconds) : '') + '</p><ul class="ai-source-list">' + generation.sources.map(source => '<li><a href="' + esc(source.url) + '" target="_blank" rel="noopener noreferrer">' + esc(window.StarPath.ai.sourceTitle(source.title)) + icon('upRight') + '</a><small>' + esc(source.url) + '</small></li>').join('') + '</ul><p class="inline-note">摘要由 AI 根据联网结果整理，未经过人工核实。报名条件、科目和时间请以对应年度官方通知为准。</p></div>';
   }
   function aiGradeOptions(level, selected) {
     return '<option value="">请选择年级</option>' + window.StarPath.ai.grades(level).map(grade => '<option' + (grade === selected ? ' selected' : '') + '>' + grade + '</option>').join('');
@@ -568,12 +812,12 @@
     const textarea = (label, name, placeholder) => '<label class="form-field">' + label + '<textarea name="' + name + '" rows="3" maxlength="1000"' + (name === 'goal' ? '' : ' required') + ' placeholder="' + esc(placeholder) + '">' + esc(values[name]) + '</textarea></label>';
     const status = '<div class="ai-status" role="status" aria-live="polite" hidden><ol class="ai-progress"><li data-ai-step="search"><span class="ai-progress-dot" aria-hidden="true"></span><div><strong>AI 搜索资料</strong><p>等待开始</p></div></li><li data-ai-step="generate"><span class="ai-progress-dot" aria-hidden="true"></span><div><strong>AI 思考并生成计划</strong><p>等待检索完成</p></div></li></ol><p class="ai-elapsed" role="timer" aria-live="off"></p></div>';
     const body = '<form data-form="ai-profile"><div class="ai-step-label"><span class="is-current">01 填写情况</span><span>02 联网生成</span><span>03 预览保存</span></div>' +
-      '<p class="modal-description">告诉我们你的目标与基础，AI 会检索相关资料，生成可以修改的阶段计划。填写内容将发送给 AI。</p>' +
+      '<p class="modal-description">告诉我们你的目标与基础，AI 会多次检索官方资料，生成可以修改的阶段计划。填写内容将发送给 AI。</p>' +
       '<fieldset class="ai-fields"><div class="form-row"><label class="form-field">当前学历层次<select name="level" required autofocus><option value="">请选择</option>' +
       ['专科', '本科'].map(level => '<option' + (values.level === level ? ' selected' : '') + '>' + level + '</option>').join('') +
       '</select></label>' + input('专业', 'major', 120, '例如：计算机网络技术') + '</div><div class="form-row"><label class="form-field">年级<select name="grade" required' + (values.level ? '' : ' disabled') + '>' +
       aiGradeOptions(values.level, values.grade) + '</select></label>' + input('目标地区', 'region', 80, '例如：山东') + '</div>' +
-      textarea('当前学习基础', 'baseline', '例如：英语基础较弱，数学刚开始复习') + textarea('目标院校与专业', 'goal', '请输入心仪院校和专业') + '<p class="ai-school-note">暂时没有目标院校也可以留空，AI 会结合专业、学习基础和目标地区推荐院校。</p>' +
+      textarea('当前学习基础', 'baseline', '例如：英语基础较弱，数学刚开始复习') + textarea('目标院校与专业', 'goal', '请输入心仪院校和专业') + '<p class="ai-school-note">可以写具体院校，也可以写筛选条件，例如“济南本地一本院校，计算机相关专业”。未指定具体学校时会推荐3–5所院校；一本/二本按批次取消前的历史招生层次参考。目标里的具体地点优先于目标地区，暂时没有目标院校也可以留空。</p>' +
       '<label class="form-field">开始日期<input name="startDate" type="date" min="1900-01-01" max="9999-12-31" required value="' + esc(values.startDate) + '"></label>' +
       '<p class="inline-note ai-period-note">本科按开始日期所在学年、四年制推算至大四考研；专科暂按三年专科衔接两年本科推算，路径与资格待核实。对应年度考试日期未公布时，日期仅为考试季暂定安排，公布后请调整。</p></fieldset>' +
       status + modalError + modalActions('检索并生成计划', '<button type="button" class="text-button" data-action="ai-template">使用原始模板</button>') + '</form>';
@@ -626,7 +870,7 @@
         search.classList.toggle('is-active', searching);
         search.classList.toggle('is-complete', !searching);
         thinking.classList.toggle('is-active', !searching);
-        search.querySelector('p').textContent = searching ? '正在搜索考试日期和目标院校资料…' : '资料检索完成';
+        search.querySelector('p').textContent = searching ? '正在多次核对官方考试政策和院校招生资料…' : '官方资料检索完成';
         thinking.querySelector('p').textContent = searching ? '等待检索完成' : '正在分析你的情况，生成考前学习计划…';
       } });
       if (aiRequest !== controller || controller.signal.aborted || !modal.open || !form.isConnected) return;
@@ -713,6 +957,30 @@
     else toast(error.message || '操作未完成，请重试。');
   }
   document.addEventListener('click', event => {
+    const link = event.target.closest('a');
+    if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.target || link.hasAttribute('download')) return;
+    const href = link.getAttribute('href');
+    const card = link.closest('.people-grid [data-alumni-id]');
+    if ((renderedRoute === 'home' || renderedRoute === 'alumni') && card && href === '#/alumni/' + card.dataset.alumniId) {
+      const origin = {
+        route: renderedRoute,
+        personId: card.dataset.alumniId,
+        filters: { ...filters },
+        scrollX: window.scrollX,
+        scrollY: window.scrollY,
+        viewport: { width: window.innerWidth, height: window.innerHeight },
+        trigger: link.classList.contains('card-link') ? 'story' : link.closest('.person-cover') ? 'photo' : 'name'
+      };
+      writeAlumniHistory({ session: alumniNavigationSession, route: renderedRoute, origin });
+      pendingAlumniNavigation = { from: renderedRoute, route: 'alumni/' + origin.personId, origin };
+    } else if (current.page === 'alumni' && current.id && alumniHistoryEntry?.origin) {
+      const originRoute = alumniHistoryEntry.origin.route || 'alumni';
+      if (href === (originRoute === 'home' ? '#/' : '#/alumni')) {
+        pendingAlumniNavigation = { from: renderedRoute, route: originRoute, origin: alumniHistoryEntry.origin };
+      }
+    }
+  });
+  document.addEventListener('click', event => {
     const link = event.target.closest('a[data-history-entry]');
     if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.target || link.hasAttribute('download') || reducedMotion.matches) return;
     event.preventDefault();
@@ -753,6 +1021,14 @@
     }
     historyNavigationTimer = setTimeout(navigate, link.hasAttribute('data-history-fill') ? 480 : 160);
   });
+  main.addEventListener('click', event => {
+    const summary = event.target.closest('.method-card>summary, .stage-guide>summary');
+    if (!summary || event.defaultPrevented) return;
+    event.preventDefault();
+    const card = summary.parentElement;
+    const state = readingAnimations.get(card);
+    setReadingExpanded(card, !(state ? state.expanded : card.open));
+  });
   document.addEventListener('click', event => {
     const button = event.target.closest('[data-action]');
     if (!button) return;
@@ -761,7 +1037,8 @@
       if (action === 'scroll-to') {
         const target = document.getElementById(value);
         if (target) {
-          if (target.tagName === 'DETAILS') target.open = true;
+          if (target.matches('.method-card, .stage-guide')) setReadingExpanded(target, true);
+          else if (target.tagName === 'DETAILS') target.open = true;
           const focusTarget = target.tagName === 'DETAILS' ? target.querySelector('summary') : target;
           if (focusTarget === target) target.setAttribute('tabindex', '-1');
           focusTarget.focus({ preventScroll: true });
@@ -903,8 +1180,14 @@
   window.addEventListener('starpath:change', notice);
   modal.addEventListener('cancel', resetAi);
   window.addEventListener('hashchange', () => { resetAi(); render({ routeChange: true }); });
+  window.addEventListener('resize', () => { clearAlumniTransition(true); clearReadingAnimations(); });
+  window.addEventListener('scroll', () => {
+    if (alumniTransition && (Math.abs(window.scrollX - alumniTransition.scrollX) > 1 || Math.abs(window.scrollY - alumniTransition.scrollY) > 1)) clearAlumniTransition(true);
+  }, { passive: true });
   reducedMotion.addEventListener('change', () => {
     if (!reducedMotion.matches) return;
+    clearReadingAnimations();
+    clearAlumniTransition(true);
     if (historyNavigationTimer && historyNavigationLink) {
       const hash = historyNavigationLink.hash;
       clearHistoryNavigation();

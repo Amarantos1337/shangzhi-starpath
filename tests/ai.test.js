@@ -8,7 +8,7 @@ const root = path.resolve(__dirname, '../project/js');
 const profile = { level: '本科', major: '计算机网络技术', grade: '大四', baseline: '英语需要加强', goal: '山东大学，计算机相关专业', region: '山东', startDate: '2026-10-01' };
 const sources = [{ title: '教育部研考通知', url: 'https://www.moe.gov.cn/notice' }];
 const generated = () => ({ title: '我的升学学习计划', goal: '建立基础学习节奏', summary: '官方通知提供信息线索；目标院校要求待核实。', examDate: '2026-12-19', examSourceUrl: sources[0].url, sourceUrls: [sources[0].url], tasks: Array.from({ length: 12 }, (_, index) => ({ title: '完成学习行动' + index, stage: '阶段' + Math.floor(index / 3), dueDate: index === 11 ? '2026-12-18' : '2026-10-08' })) });
-const search = (extra = {}) => ({ stop_reason: 'end_turn', content: [{ type: 'server_tool_use', name: 'web_search' }, { type: 'web_search_tool_result', content: sources.map(source => ({ type: 'web_search_result', ...source })) }, { type: 'text', text: '当年要求待核实。' }], ...extra });
+const search = (extra = {}, count = 15) => ({ stop_reason: 'end_turn', content: [...Array.from({ length: count }, () => ({ type: 'server_tool_use', name: 'web_search' })), { type: 'web_search_tool_result', content: sources.map(source => ({ type: 'web_search_result', ...source })) }, { type: 'text', text: '当年要求待核实。出处：' + sources[0].url }], ...extra });
 const answer = (value = generated()) => ({ stop_reason: 'end_turn', content: [{ type: 'text', text: JSON.stringify(value) }] });
 const plain = value => JSON.parse(JSON.stringify(value));
 function load(responses = [], options = {}) {
@@ -40,7 +40,8 @@ test('profiles accept the simplified form and validate degree-linked grades and 
   assert.equal(ai.validateProfile({ ...profile, goal: '  ' }).goal, '');
   for (const fields of [{ level: '其他' }, { grade: '大五' }, { level: '专科', grade: '大四' }, { startDate: '2026-02-30' }, { baseline: 'x'.repeat(1001) }]) assert.throws(() => ai.validateProfile({ ...profile, ...fields }));
   const validated = ai.validateProfile({ ...profile, weeks: 12, hours: 4, constraints: '旧字段' });
-  for (const removed of ['weeks', 'hours', 'constraints']) assert.equal(validated[removed], undefined);
+  for (const removed of ['weeks', 'hours']) assert.equal(validated[removed], undefined);
+  assert.deepEqual(plain(validated.constraints), { location: { type: 'province', name: '山东' }, tier: '', needsRecommendations: false });
 });
 test('real tool evidence is required; text-only and unsafe search links are excluded', async () => {
   const { ai } = load([search({ content: [{ type: 'text', text: '我已搜索：' + sources[0].url }] })]);
@@ -54,7 +55,9 @@ test('high effort generation uses search then structured planning without persis
   assert.deepEqual(stages, ['search', 'generate']);
   assert.equal(requests.length, 2);
   for (const request of requests) { assert.equal(request.body.output_config.effort, 'high'); assert.equal(request.body.thinking.type, 'enabled'); assert.equal(request.body.model, 'deepseek-flash'); }
-  assert.equal(requests[0].body.tools[0].max_uses, 3);
+  assert.equal(requests[0].body.tools[0].max_uses, 6);
+  assert.deepEqual(requests[0].body.tools[0].allowed_domains, ['gov.cn', 'edu.cn', 'chsi.com.cn', 'sdzk.cn']);
+  assert.match(requests[0].body.messages[0].content, /至少6次、最多18次/);
   assert.equal(requests[1].body.tools, undefined);
   assert.equal(store.get().plans.length, 0);
   const created = store.createAiPlan(draft);
@@ -105,11 +108,11 @@ test('JSON repair happens once; exhausted repair leaves storage unchanged', asyn
   assert.equal(failed.store.get().plans.length, 0);
 });
 test('pause_turn is resumed with original blocks, remaining search budget and bounded continuations', async () => {
-  const success = load([search({ stop_reason: 'pause_turn' }), search(), answer()]);
+  const success = load([search({ stop_reason: 'pause_turn' }, 2), search({}, 4), answer()]);
   await success.ai.generate(profile);
-  assert.equal(success.requests[1].body.tools[0].max_uses, 2);
+  assert.equal(success.requests[1].body.tools[0].max_uses, 6);
   assert.equal(success.requests[1].body.messages[1].role, 'assistant');
-  const failed = load([search({ stop_reason: 'pause_turn' }), search({ stop_reason: 'pause_turn' }), search({ stop_reason: 'pause_turn' })]);
+  const failed = load([search({ stop_reason: 'pause_turn' }, 6), search({ stop_reason: 'pause_turn' }, 6), search({ stop_reason: 'pause_turn' }, 6)]);
   await assert.rejects(failed.ai.generate(profile), /限定次数/);
   assert.equal(failed.requests.length, 3);
 });
@@ -129,7 +132,7 @@ test('caller cancellation and overall timeout abort fetch and cannot create a pl
   await assert.rejects(promise, { name: 'AbortError' });
   assert.equal(cancelled.store.get().plans.length, 0);
   const timeout = load([], { fetch, timeoutMs: 10 });
-  await assert.rejects(timeout.ai.generate(profile), /超过180秒/);
+  await assert.rejects(timeout.ai.generate(profile), /超过1秒/);
 });
 test('network failures and already-cancelled requests have safe errors and no saved records', async () => {
   const network = load([new TypeError('fetch failed')]);
@@ -173,7 +176,8 @@ test('AI plans remain usable in session storage and respect the 20-plan limit', 
 
 const schoolSources = [
   { title: '甲校招生专业目录', url: 'https://yz.school-a.edu.cn/catalog' },
-  { title: '乙校招生说明', url: 'https://yz.school-b.edu.cn/catalog' }
+  { title: '乙校招生说明', url: 'https://yz.school-b.edu.cn/catalog' },
+  { title: '丙校招生说明', url: 'https://yz.school-c.edu.cn/catalog' }
 ];
 function freshmanPlan(ai) {
   const normalized = ai.validateProfile({ ...profile, grade: '大一', goal: '' });
@@ -183,7 +187,7 @@ function freshmanPlan(ai) {
   const start = Date.parse(normalized.startDate);
   const end = Date.parse(endDate);
   const value = { ...generated(), dateStatus: 'estimated', examDate: '', examSourceUrl: '', sourceUrls: schoolSources.map(source => source.url),
-    recommendations: schoolSources.map((source, index) => ({ name: ['甲校', '乙校'][index], reason: '结合计算机专业方向、英语基础与山东地区偏好，建议核对招生方向和报考条件。', sourceUrl: source.url })),
+    recommendations: schoolSources.map((source, index) => ({ name: ['甲校', '乙校', '丙校'][index], reason: '结合计算机专业方向、英语基础与山东地区偏好，建议核对招生方向和报考条件。', sourceUrl: source.url, location: { province: '山东', city: '济南', campus: '模拟计算机专业培养校区', sourceUrl: source.url }, criteriaEvidence: [] })),
     tasks: Array.from({ length: 12 }, (_, index) => ({ title: '分学年学习行动' + index, stage: '阶段' + Math.floor(index / 3), dueDate: new Date(start + (end - start) * index / 11).toISOString().slice(0, 10) })) };
   return { normalized, value, endDate };
 }
@@ -231,14 +235,14 @@ test('blank university goals require distinct recommendations grounded in actual
     const invalid = plain(value); mutate(invalid);
     assert.throws(() => loaded.ai.parsePlan(JSON.stringify(invalid), normalized, schoolSources));
   }
-  const searchResult = search({ content: [{ type: 'web_search_tool_result', content: schoolSources.map(source => ({ type: 'web_search_result', ...source })) }, { type: 'text', text: '目标年度日期未公布，院校信息作为参考。' }] });
+  const searchResult = search({ content: [...Array.from({ length: 15 }, () => ({ type: 'server_tool_use', name: 'web_search' })), { type: 'web_search_tool_result', content: schoolSources.map(source => ({ type: 'web_search_result', ...source })) }, { type: 'text', text: '目标年度日期未公布，院校信息作为参考。出处：' + schoolSources[0].url }] });
   const live = load([searchResult, answer(value)]);
   const result = await live.ai.generate({ ...profile, grade: '大一', goal: '' });
-  assert.equal(result.generation.recommendations.length, 2);
+  assert.equal(result.generation.recommendations.length, 3);
   const submitted = JSON.parse(live.requests[1].body.messages[0].content);
   assert.equal(submitted.profile.targetExamYear, 2029);
   assert.equal(submitted.profile.goal, '');
-  assert.match(live.requests[0].body.messages[0].content, /推荐2–3所/);
+  assert.match(live.requests[0].body.messages[0].content, /推荐3–5所/);
 });
 
 test('source titles remove HTML fragments and encoded tags while remaining escaped by the UI', () => {
@@ -248,4 +252,277 @@ test('source titles remove HTML fragments and encoded tags while remaining escap
   assert.equal(ai.sourceTitle('<script>alert(1)</script><style>x</style>官方 &amp; 说明'), '官方 & 说明');
   assert.equal(ai.sourceTitle('<img src=x onerror=alert(1)>'), '参考资料');
   assert.equal(ai.sourceTitle('招生目录 <td...'), '招生目录');
+});
+
+test('official sources exclude commercial pages, credentials and lookalike domains', () => {
+  const { ai } = load();
+  const urls = ['https://www.moe.gov.cn/notice', 'https://www.sdzk.cn/notice', 'https://yz.sdu.edu.cn/catalog', 'https://yz.chsi.com.cn/notice', 'https://www.example.com/news', 'https://moe.gov.cn.example.com/notice', 'https://fakeedu.cn/catalog', 'https://fakechsi.com.cn/notice', 'https://user:pass@yz.sdu.edu.cn/catalog'];
+  const extracted = ai.extractSources([{ type: 'web_search_tool_result', content: urls.map(url => ({ type: 'web_search_result', title: '资料', url })) }]);
+  assert.deepEqual(plain(extracted.map(source => source.url)), [urls[0], urls[1], urls[2], urls[3]]);
+});
+
+test('unofficial links are rejected even when included in the supplied source list', () => {
+  const { ai } = load();
+  const value = generated();
+  const unofficial = { title: '机构转载', url: 'https://training.example.com/policy' };
+  value.sourceUrls.push(unofficial.url);
+  assert.throws(() => ai.parsePlan(JSON.stringify(value), ai.validateProfile(profile), [...sources, unofficial]), /只能引用/);
+});
+
+test('early search completion triggers more searches with the remaining global budget', async () => {
+  const { ai, requests } = load([search({}, 2), search({}, 4), answer()]);
+  await ai.generate(profile);
+  assert.equal(requests.length, 3);
+  assert.equal(requests[1].body.tools[0].max_uses, 6);
+  assert.deepEqual(requests[1].body.tools[0].allowed_domains, ['gov.cn', 'edu.cn', 'chsi.com.cn', 'sdzk.cn']);
+  assert.match(requests[1].body.messages.at(-1).content, /至少还需4次/);
+  assert.equal(requests[2].body.tools, undefined);
+});
+
+test('search budget violations and repeated responses without searches cannot generate a plan', async () => {
+  const exceeded = load([search({}, 19)]);
+  await assert.rejects(exceeded.ai.generate(profile), /超过限定次数/);
+  const stalled = load(Array.from({ length: 20 }, () => search({}, 0)));
+  await assert.rejects(stalled.ai.generate(profile), /限定次数/);
+  assert.equal(stalled.requests.length, 20);
+  assert.equal(stalled.store.get().plans.length, 0);
+});
+
+test('descriptive goals continue past a six-search server turn and use the final consolidated research', async () => {
+  const loaded = load();
+  const { value } = localSchoolPlan(loaded.ai);
+  const completed = count => search({ content: [...Array.from({ length: count }, () => ({ type: 'server_tool_use', name: 'web_search' })), { type: 'web_search_tool_result', content: schoolSources.map(source => ({ type: 'web_search_result', ...source })) }, { type: 'text', text: (count === 3 ? '最终合并核对三所院校。' : '中间轮尚未查完。') + '出处：' + schoolSources[0].url }] });
+  const live = load([completed(6), completed(6), completed(3), answer(value)]);
+  const draft = await live.ai.generate({ ...profile, grade: '大一', goal: '济南本地一本院校' });
+  assert.equal(draft.generation.recommendations.length, 3);
+  assert.equal(live.requests.length, 4);
+  assert.deepEqual(live.requests.slice(0, 3).map(request => request.body.tools[0].max_uses), [6, 6, 6]);
+  assert.match(live.requests[0].body.messages[0].content, /至少15次、最多18次/);
+  assert.match(live.requests[1].body.messages.at(-1).content, /至少还需9次/);
+  assert.match(live.requests[2].body.messages.at(-1).content, /至少还需3次/);
+  const research = JSON.parse(live.requests[3].body.messages[0].content).research;
+  assert.match(research, /最终合并/);
+  assert.ok(!research.includes('中间轮尚未查完'));
+});
+
+test('research passed to planning includes only paragraphs with known official evidence', async () => {
+  const official = '官方政策待核实。出处：' + sources[0].url;
+  const unofficial = '机构声称包录取 https://training.example.com/news';
+  const unsupported = '没有出处的分数预测';
+  const { ai, requests } = load([search({ content: [...search().content.slice(0, -1), { type: 'text', text: [official, unofficial, unsupported].join('\n\n') }] }), answer()]);
+  await ai.generate(profile);
+  const evidence = JSON.parse(requests[1].body.messages[0].content);
+  assert.equal(evidence.research, official);
+  assert.ok(!JSON.stringify(evidence).includes('training.example.com'));
+  const cited = ai.extractResearch([
+    { type: 'text', text: '有官方引用的政策', citations: [{ url: sources[0].url }] },
+    { type: 'text', text: '有非官方引用的预测', citations: [{ url: 'https://training.example.com/news' }] },
+    { type: 'text', text: '未经检索的官方链接 https://www.moe.gov.cn/unknown' }
+  ], sources);
+  assert.match(cited, /有官方引用的政策/);
+  assert.ok(!cited.includes('预测') && !cited.includes('/unknown'));
+});
+
+test('unofficial-only results and summaries without official attribution fail safely', async () => {
+  const unofficial = load([search({ content: [{ type: 'web_search_tool_result', content: [{ type: 'web_search_result', title: '培训机构', url: 'https://training.example.com/news' }] }] })]);
+  await assert.rejects(unofficial.ai.generate(profile), /仅接受官方来源/);
+  const unsupported = load([search({ content: [...search().content.slice(0, -1), { type: 'text', text: '没有来源的政策摘要' }] })]);
+  await assert.rejects(unsupported.ai.generate(profile), /未取得附官方出处/);
+  assert.equal(unsupported.store.get().plans.length, 0);
+  assert.equal(unsupported.requests.length, 1);
+});
+
+function localSchoolPlan(ai) {
+  const { value } = freshmanPlan(ai);
+  const normalized = ai.validateProfile({ ...profile, grade: '大一', goal: '济南本地一本院校，计算机相关专业' });
+  value.summary = '目标初试年份为2029年，正式日期尚未公布，学习安排暂定至2029年12月14日。推荐范围限定在济南，院校条件按历史招生资料核对。';
+  value.recommendations.forEach(school => { school.criteriaEvidence = [{ criterion: '一本', explanation: '模拟测试资料记载该校在山东历史本科一批招生，现行批次与目标年度招生要求须另行核对。', sourceUrl: school.sourceUrl }]; });
+  return { normalized, value };
+}
+
+test('a city in a descriptive goal overrides a broad region and still requires recommendations', () => {
+  const { ai } = load();
+  for (const goal of ['济南本地一本院校', '济南的一本院校', '济南市内一本大学', '想去济南本地一本院校']) {
+    const constraints = ai.validateProfile({ ...profile, goal }).constraints;
+    assert.deepEqual(plain(constraints), { location: { type: 'city', name: '济南' }, tier: '一本', needsRecommendations: true });
+  }
+  assert.equal(ai.validateProfile({ ...profile, goal: '只考虑济南' }).constraints.location.name, '济南');
+  assert.equal(ai.validateProfile({ ...profile, goal: '山东大学，计算机专业' }).constraints.needsRecommendations, false);
+  assert.equal(ai.validateProfile({ ...profile, goal: '济南大学' }).constraints.needsRecommendations, false);
+  assert.equal(ai.validateProfile({ ...profile, goal: '山东本地一本院校' }).constraints.location.type, 'province');
+});
+
+test('local recommendations reject out-of-city campuses and require actual official location evidence', () => {
+  const { ai } = load();
+  const { normalized, value } = localSchoolPlan(ai);
+  assert.equal(ai.parsePlan(JSON.stringify(value), normalized, schoolSources).generation.recommendations.length, 3);
+  for (const city of ['上海', '北京', '沈阳', '青岛']) {
+    const wrong = plain(value);
+    wrong.recommendations[0].location.city = city;
+    wrong.recommendations[0].reason = '仅作对标，此校不在济南。';
+    assert.throws(() => ai.parsePlan(JSON.stringify(wrong), normalized, schoolSources), /不符合济南/);
+  }
+  for (const mutate of [school => { delete school.location; }, school => { school.location.sourceUrl = 'https://unsearched.edu.cn/location'; }]) {
+    const invalid = plain(value); mutate(invalid.recommendations[0]);
+    assert.throws(() => ai.parsePlan(JSON.stringify(invalid), normalized, schoolSources), /所在地|官方来源/);
+  }
+});
+
+test('requested school tier needs official matching evidence and cannot be silently relaxed', () => {
+  const { ai } = load();
+  const { normalized, value } = localSchoolPlan(ai);
+  for (const mutate of [school => { school.criteriaEvidence = []; }, school => { school.criteriaEvidence[0].criterion = '本科'; }, school => { school.criteriaEvidence[0].explanation = '一本要求无法核实。'; }, school => { school.criteriaEvidence[0].explanation = '这是985学校，所以满足一本条件。'; }, school => { school.criteriaEvidence[0].sourceUrl = 'https://unsearched.edu.cn/history'; }]) {
+    const invalid = plain(value); mutate(invalid.recommendations[0]);
+    assert.throws(() => ai.parsePlan(JSON.stringify(invalid), normalized, schoolSources), /一本|官方资料/);
+  }
+  const qualified = plain(value);
+  qualified.recommendations[0].criteriaEvidence[0].explanation = '模拟资料显示该校2016年在山东本科一批招生；一本不等于硕士招生等级，目标年度科目待核实。';
+  assert.equal(ai.parsePlan(JSON.stringify(qualified), normalized, schoolSources).generation.recommendations.length, 3);
+  for (const count of [0, 1, 2]) {
+    const partial = plain(value);
+    partial.recommendations.length = count;
+    assert.throws(() => ai.parsePlan(JSON.stringify(partial), normalized, schoolSources), /不能用外地院校凑数/);
+    partial.recommendationNotice = '尚未取得足够的济南本地院校历史招生依据，请确认希望采用的院校范围后继续核对。';
+    assert.throws(() => ai.parsePlan(JSON.stringify(partial), normalized, schoolSources), /筛选说明不能代替/);
+  }
+});
+
+test('three to five historical-tier candidates save and roundtrip, while six and empty repaired lists fail', async () => {
+  const { ai, store } = load();
+  const { normalized, value } = localSchoolPlan(ai);
+  const extendedSources = [...schoolSources, { title: '丁校模拟招生', url: 'https://yz.school-d.edu.cn/catalog' }, { title: '戊校模拟招生', url: 'https://yz.school-e.edu.cn/catalog' }, { title: '己校模拟招生', url: 'https://yz.school-f.edu.cn/catalog' }];
+  for (const count of [3, 4, 5, 6]) {
+    const candidate = plain(value);
+    candidate.sourceUrls = extendedSources.slice(0, count).map(source => source.url);
+    candidate.recommendations = extendedSources.slice(0, count).map((source, index) => ({ ...plain(value.recommendations[0]), name: '模拟院校' + index, sourceUrl: source.url, location: { ...value.recommendations[0].location, sourceUrl: source.url }, criteriaEvidence: [{ criterion: '一本', explanation: '模拟官方2016年山东普通本科一批招生记录，作为取消批次前的历史层次参考；未来硕士科目另行核实。', sourceUrl: source.url }] }));
+    if (count === 6) assert.throws(() => ai.parsePlan(JSON.stringify(candidate), normalized, extendedSources), /3–5所/);
+    else {
+      const draft = ai.parsePlan(JSON.stringify(candidate), normalized, extendedSources);
+      store.createAiPlan(draft);
+      assert.equal(store.parseBackup(store.exportBackup()).plans[0].generation.recommendations.length, count);
+    }
+  }
+  const empty = { ...value, recommendations: [], recommendationNotice: '尚未核实足够候选。' };
+  const evidence = search({ content: [...search().content.slice(0, 15), { type: 'web_search_tool_result', content: schoolSources.map(source => ({ type: 'web_search_result', ...source })) }, { type: 'text', text: '模拟官方资料：' + schoolSources[0].url }] });
+  const repaired = load([evidence, answer(empty), answer(value)]);
+  assert.equal((await repaired.ai.generate({ ...profile, grade: '大一', goal: '济南本地一本院校' })).generation.recommendations.length, 3);
+  assert.equal(repaired.requests.length, 3);
+  const failed = load([evidence, answer(empty), answer(empty)]);
+  await assert.rejects(failed.ai.generate({ ...profile, grade: '大一', goal: '济南本地一本院校' }), /3–5所/);
+  assert.equal(failed.store.get().plans.length, 0);
+});
+
+test('internal fields or code in public text are rejected and repaired into Chinese', async () => {
+  const { ai } = load();
+  const { normalized, value } = localSchoolPlan(ai);
+  for (const leaked of ['profile.targetExamYear=2029', '按profile.planningBasis安排', 'dateStatus=estimated，examDate与examSourceUrl留空', '截止为profile.estimatedExamDate的前一天', '```json\n{}\n```', '{"summary":"这里是JSON片段"}', 'const deadline = 2029;']) {
+    const invalid = plain(value); invalid.summary = leaked;
+    assert.throws(() => ai.parsePlan(JSON.stringify(invalid), normalized, schoolSources), /内部字段或代码/);
+  }
+  for (const mutate of [item => { item.goal = 'profile.targetExamYear'; }, item => { item.tasks[0].title = '检查examDate'; }, item => { item.recommendations[0].reason = '根据profile.major推荐'; }]) {
+    const invalid = plain(value); mutate(invalid);
+    assert.throws(() => ai.parsePlan(JSON.stringify(invalid), normalized, schoolSources), /内部字段或代码/);
+  }
+  const withCode = plain(value); withCode.summary = 'profile.targetExamYear=2029，dateStatus=estimated。';
+  const evidence = search({ content: [...search().content.slice(0, 15), { type: 'web_search_tool_result', content: schoolSources.map(source => ({ type: 'web_search_result', ...source })) }, { type: 'text', text: '官方资料待核实。出处：' + schoolSources[0].url }] });
+  const repaired = load([evidence, answer(withCode), answer(value)]);
+  const draft = await repaired.ai.generate({ ...profile, grade: '大一', goal: '济南本地一本院校，计算机相关专业' });
+  assert.match(draft.generation.summary, /目标初试年份为2029年/);
+  assert.equal(repaired.requests.length, 3);
+  assert.match(repaired.requests[2].body.messages.at(-1).content, /自然中文/);
+  assert.match(repaired.requests[0].body.messages[0].content, /不得推荐外地学校/);
+});
+
+test('legacy summaries render in Chinese without changing the saved content', () => {
+  const { ai } = load();
+  const old = '目标年度：profile.targetExamYear=2029，招生入学年度为2030；按profile.planningBasis规划。因此dateStatus=estimated，examDate与examSourceUrl留空，计划截止为profile.estimatedExamDate（2029-12-15）的前一天2029-12-14。';
+  const rendered = ai.displayText(old);
+  assert.ok(!/profile\.|targetExamYear|planningBasis|dateStatus|examDate|examSourceUrl|estimatedExamDate/.test(rendered));
+  assert.match(rendered, /目标初试年份为2029/);
+  assert.match(rendered, /尚未正式公布/);
+  assert.match(rendered, /2029-12-14/);
+});
+
+test('recommendation constraints, evidence and shortage notice persist and imports fail atomically', () => {
+  const { ai, store } = load();
+  const { normalized, value } = localSchoolPlan(ai);
+  const draft = ai.parsePlan(JSON.stringify(value), normalized, schoolSources);
+  store.createAiPlan(draft);
+  const restored = store.parseBackup(store.exportBackup()).plans[0];
+  assert.deepEqual(plain(restored.generation), plain(store.get().plans[0].generation));
+  const before = store.exportBackup();
+  const unchanged = plain(store.get());
+  for (const mutate of [item => { item.constraints.location.type = 'unknown'; }, item => { item.recommendations[0].location.city = '上海'; }, item => { item.recommendations[0].location.sourceUrl = 'https://unknown.edu.cn/location'; }, item => { item.recommendations[0].criteriaEvidence[0].sourceUrl = 'https://unknown.edu.cn/history'; }]) {
+    const invalid = JSON.parse(before); mutate(invalid.plans[0].generation);
+    assert.throws(() => store.parseBackup(JSON.stringify(invalid)));
+    assert.deepEqual(plain(store.get()), unchanged);
+  }
+  // Previously saved shortage records remain importable, but new AI output cannot use this escape hatch.
+  const legacy = JSON.parse(before);
+  legacy.plans[0].generation.recommendations = [];
+  legacy.plans[0].generation.recommendationNotice = '符合济南地域和院校条件的官方证据不足，暂不推荐。';
+  assert.match(store.parseBackup(JSON.stringify(legacy)).plans[0].generation.recommendationNotice, /济南/);
+});
+
+test('official source anchors match the same page while different paths and queries remain distinct', () => {
+  const { ai } = load();
+  const anchoredSources = schoolSources.map(source => ({ ...source, url: source.url + '#1#1' }));
+  const paragraph = '模拟官方招生资料出处：' + schoolSources[0].url;
+  assert.equal(ai.extractResearch([{ type: 'text', text: paragraph }], anchoredSources), paragraph);
+  assert.equal(ai.extractResearch([{ type: 'text', text: '其他年度 ' + schoolSources[0].url + '?year=2025' }], anchoredSources), '');
+  assert.equal(ai.extractSources([{ type: 'web_search_tool_result', content: [...schoolSources, ...anchoredSources].map(source => ({ type: 'web_search_result', ...source })) }]).length, 3);
+  const { normalized, value } = localSchoolPlan(ai);
+  const draft = ai.parsePlan(JSON.stringify(value), normalized, anchoredSources);
+  assert.equal(draft.generation.recommendations[0].sourceUrl, anchoredSources[0].url);
+  assert.equal(draft.generation.recommendations[0].location.sourceUrl, anchoredSources[0].url);
+  assert.equal(draft.generation.recommendations[0].criteriaEvidence[0].sourceUrl, anchoredSources[0].url);
+  const altered = plain(value);
+  altered.sourceUrls[0] += '?year=2025';
+  assert.throws(() => ai.parsePlan(JSON.stringify(altered), normalized, anchoredSources), /未经检索/);
+});
+
+test('referenced official school evidence omitted from the top-level list is retained and late search results are available', () => {
+  const { ai, store } = load();
+  const { normalized, value } = localSchoolPlan(ai);
+  value.sourceUrls = [schoolSources[0].url];
+  const draft = ai.parsePlan(JSON.stringify(value), normalized, schoolSources);
+  assert.equal(draft.generation.sources.length, 3);
+  store.createAiPlan(draft);
+  assert.equal(store.parseBackup(store.exportBackup()).plans[0].generation.recommendations.length, 3);
+  const early = Array.from({ length: 65 }, (_, index) => ({ title: '模拟政策' + index, url: 'https://www.moe.gov.cn/policy/' + index }));
+  const retrieved = ai.extractSources([{ type: 'web_search_tool_result', content: [...early, ...schoolSources].map(source => ({ type: 'web_search_result', ...source })) }]);
+  assert.ok(retrieved.some(source => source.url === schoolSources[2].url));
+});
+
+test('verified official historical records support reference tiers without fabricating future admission facts', async () => {
+  const loaded = load();
+  const { normalized, value } = localSchoolPlan(loaded.ai);
+  const names = ['济南大学', '山东师范大学', '山东财经大学'];
+  value.recommendations.forEach((school, index) => { school.name = names[index]; school.criteriaEvidence = []; });
+  const evidence = search({ content: [...search().content.slice(0, 15), { type: 'web_search_tool_result', content: schoolSources.map(source => ({ type: 'web_search_result', ...source })) }, { type: 'text', text: '模拟本轮专业与所在地资料：' + schoolSources[0].url }] });
+  const live = load([evidence, answer(value)]);
+  const draft = await live.ai.generate({ ...profile, grade: '大一', goal: '济南本地一本院校' });
+  for (const school of draft.generation.recommendations) {
+    assert.match(school.criteriaEvidence[0].explanation, /2016|2026年10月7日/);
+    assert.match(school.criteriaEvidence[0].explanation, /本科一批/);
+    assert.ok(draft.generation.sources.some(source => source.url === school.criteriaEvidence[0].sourceUrl));
+  }
+  assert.match(draft.generation.recommendations[1].criteriaEvidence[0].explanation, /河北|天津/);
+  assert.ok(draft.generation.sources.some(source => /核验2026-10-07/.test(source.title)));
+  live.store.createAiPlan(draft);
+  assert.equal(live.store.parseBackup(live.store.exportBackup()).plans[0].generation.recommendations.length, 3);
+  assert.throws(() => loaded.ai.parsePlan(JSON.stringify(value), normalized, schoolSources), /历史招生依据/);
+});
+
+test('historical tier labels and current-policy caveats remain usable while negative classifications fail', () => {
+  const { ai, store } = load();
+  const { normalized, value } = localSchoolPlan(ai);
+  for (const label of ['历史一本', '历史本科一批', '一本（非现行认定）']) {
+    value.recommendations[0].criteriaEvidence[0].criterion = label;
+    const draft = ai.parsePlan(JSON.stringify(value), normalized, schoolSources);
+    store.createAiPlan(draft);
+    assert.equal(store.parseBackup(store.exportBackup()).plans[0].generation.recommendations.length, 3);
+  }
+  value.recommendations[0].criteriaEvidence[0].criterion = '非一本';
+  assert.throws(() => ai.parsePlan(JSON.stringify(value), normalized, schoolSources), /历史招生依据/);
 });
