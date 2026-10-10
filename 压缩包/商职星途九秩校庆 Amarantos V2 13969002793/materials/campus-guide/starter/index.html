@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><link rel="icon" href="data:,">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>新生指南 · 起始练习</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { max-width: 800px; margin: 32px auto; padding: 0 20px; font: 16px/1.7 sans-serif; color: #223a52; background: #faf9f6; }
+    h1 { font-size: 28px; }
+    label { display: block; margin: 16px 0; }
+    input, select { font: inherit; padding: 10px; width: 100%; max-width: 100%; }
+    article { background: white; border: 1px solid #dbe3e8; padding: 18px; margin: 16px 0; border-radius: 12px; }
+    h2 { font-size: 20px; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <h1>把这里改成你的标题</h1>
+  <p>教学模拟资料，不是学校正式办事指引。起始页只有 2 条，请按 questions.txt 补齐 8 条，再实现筛选。</p>
+  <label>关键词 <input id="search" type="search" placeholder="例如：借阅"></label>
+  <label>分类 <select id="category"><option>全部</option><option>学习</option><option>生活</option><option>服务</option></select></label>
+  <p id="result" role="status">起始状态：2 条；筛选尚未实现。</p>
+  <p id="empty" hidden>没有匹配结果。试试清空关键词或选择全部分类。</p>
+  <div id="questions">
+    <article data-category="学习"><h2>如何安排第一周练习？</h2><p>先安排两次短练习，再留一次检查时间。</p></article>
+    <article data-category="学习"><h2>遇到代码报错怎么办？</h2><p>记下操作、错误末尾和已经尝试的方法。</p></article>
+    <!-- TODO：从 questions.txt 补齐其余六条 article。 -->
+  </div>
+  <script>
+    'use strict';
+    const search = document.getElementById('search');
+    const category = document.getElementById('category');
+    const result = document.getElementById('result');
+    const empty = document.getElementById('empty');
+    const cards = [...document.querySelectorAll('#questions article')];
+    // TODO：把案例中的 render 函数和事件监听放在这里。
+  </script>
+</body>
+</html>

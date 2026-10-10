@@ -1,0 +1,16 @@
+{
+  "idle": "Two full cycles; variable opacity and stable layout",
+  "hover": "Steady glow and existing arrow animation",
+  "mouseLeave": "Breathing resumes; arrow finishes",
+  "keyboard": "Focus outline retained",
+  "click": "Paths navigation and current state passed",
+  "reducedMotion": "Disabled",
+  "forcedColors": "Disabled",
+  "mobile": "Hidden; no overflow",
+  "fileProtocol": "Passed",
+  "errors": [],
+  "opacityRange": [
+    0.18,
+    0.790989
+  ]
+}

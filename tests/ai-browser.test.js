@@ -104,6 +104,7 @@ async function run() {
         assert.deepEqual(await page.locator('[name="level"] option').allTextContents(), ['请选择', '专科', '本科']);
         assert.equal(await page.locator('[name="goal"]').getAttribute('placeholder'), '请输入心仪院校和专业');
         assert.equal(await page.locator('[name="goal"]').getAttribute('required'), null);
+        assert.equal(await page.getByRole('button', { name: '使用原始模板', exact: true }).isVisible(), true);
         assert.equal(await page.locator('[name="grade"]').isDisabled(), true);
         await page.locator('[name="level"]').selectOption('本科');
         assert.deepEqual(await page.locator('[name="grade"] option').allTextContents(), ['请选择年级', '大一', '大二', '大三', '大四']);
@@ -142,6 +143,7 @@ async function run() {
         assert.equal(await page.locator('[data-ai-step="search"]').evaluate(node => node.classList.contains('is-active')), true);
         assert.equal(await page.getByText('AI 思考并生成计划', { exact: true }).isVisible(), true);
         assert.equal(await page.locator('fieldset').isVisible(), false);
+        assert.equal(await page.locator('[data-action="ai-template"]').isVisible(), false);
         await page.clock.fastForward(65000);
         assert.match(await page.locator('.ai-elapsed').innerText(), /已用时1分钟5秒/);
         await page.screenshot({ path: path.join(output, name + '-progress-' + width + '.png') });
@@ -195,6 +197,7 @@ async function run() {
         assert.match(await page.locator('#modal-error').innerText(), /密钥无效/);
         assert.equal(await page.locator('[name="major"]').inputValue(), '计算机网络技术');
         assert.equal(await page.locator('[name="major"]').isEnabled(), true);
+        assert.equal(await page.getByRole('button', { name: '使用原始模板', exact: true }).isVisible(), true);
         mode = 'text-only';
         await page.getByRole('button', { name: '检索并生成计划', exact: true }).click();
         await page.getByText('未取得有效联网检索结果（仅接受官方来源），请重试或使用原始模板。', { exact: true }).waitFor();

@@ -360,12 +360,6 @@ main:focus {
   display:none;
 }
 
-.header-action[aria-current] {
-  background:var(--blue-wash);
-  color:var(--navy);
-  border-color:var(--navy);
-}
-
 .nav-dot {
   display:inline-block;
   width:5px;
@@ -378,22 +372,22 @@ main:focus {
 
 .header-action {
   font-size:12px;
+  font-weight:600;
+  min-height:44px;
   display:flex;
   align-items:center;
   gap:18px;
   border:1px solid var(--line);
-  padding:9px 14px;
+  /* 文字比箭头更显眼，整组略向右移以平衡视觉重心。 */
+  padding:9px 11px 9px 17px;
   border-radius:7px;
   white-space:nowrap;
 }
 
-.header-action:hover {
-  border-color:var(--navy);
-}
-
-.header-action span {
+.header-action > span {
   font-size:19px;
   line-height:1;
+  transform:translateY(-2px);
 }
 
 .button {
@@ -806,6 +800,8 @@ main:focus {
 }
 
 .person-card {
+  position:relative;
+  isolation:isolate;
   border:1px solid var(--line);
   background:#fff;
   border-radius:12px;
@@ -1088,6 +1084,19 @@ main:focus {
 
 .card-link:hover {
   color:var(--muted);
+}
+
+.person-card .card-link::after {
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:1;
+  border-radius:inherit;
+}
+
+.person-card .card-link:focus-visible::after {
+  outline:3px solid #a7833f;
+  outline-offset:-3px;
 }
 
 .route-grid {

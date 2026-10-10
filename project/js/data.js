@@ -20,7 +20,7 @@
       years: '1936 — 2026',
       title: '九秩商职，',
       subtitle: '向新而行。',
-      description: '回望九秩来路，读懂一代代商职人的成长。把故事里的启发，写成今天的行动，让自己的成长成为献给母校的一份心意。',
+      description: '回望九秩来路，读懂一代代商职人的成长。从有出处的校友故事出发，用 AI 检索官方资料辅助升学规划，把目标落实为可编辑、可保存的行动。',
       source: historySources.overview,
       history: [
         { year: '1936', title: '商科教育，薪火初燃', text: '学校将办学源头追溯至1936年创办的济南私立惠鲁工商职业学校。九秩商职的故事，从这段工商职业教育的早期探索讲起。', source: historySources.overview, featured: true },

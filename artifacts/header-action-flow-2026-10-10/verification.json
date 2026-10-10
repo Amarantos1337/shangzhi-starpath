@@ -1,0 +1,19 @@
+{
+  "fileProtocol": "Passed",
+  "cycles": 2,
+  "clockwise": "Passed",
+  "stableLayout": "Passed",
+  "edgeDuration": "4.8s",
+  "glowDuration": "3.6s",
+  "edgeMask": "Transparent content; 1px edge",
+  "hover": "Orbit continues; steady stronger glow; existing arrows",
+  "mouseLeave": "Breathing resumes; arrow settles",
+  "keyboard": "Outline retained; orbit continues",
+  "press": "Original feedback retained",
+  "navigation": "Paths and current state",
+  "reducedMotion": "Both layers disabled",
+  "forcedColors": "Both layers disabled",
+  "fallback": "Static 1px edge and breathing glow",
+  "mobile": "Hidden; no overflow; home screenshot",
+  "errors": []
+}

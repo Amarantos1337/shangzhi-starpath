@@ -7,6 +7,13 @@
   const fileInput = document.getElementById('backup-file');
   const filters = { query: '', field: 'all', direction: 'all', favorites: false };
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const arrowAnimationStates = new WeakMap();
+  const arrowActionSelector = '.header-action,[data-arrow-action]';
+  const arrowDirections = {
+    arrow: [95, 0, '1.14s'], chevron: [95, 0, '1.14s'], back: [-95, 0, '1.14s'],
+    upRight: [85, -85, '1.02s'], down: [0, 95, '1.14s'],
+    download: [0, 95, '1.14s'], upload: [0, -95, '1.14s']
+  };
   const readingAnimations = new Map();
   const alumniMotionDuration = 440;
   const alumniNavigationSession = Date.now().toString(36) + Math.random().toString(36).slice(2);
@@ -47,6 +54,7 @@
     check: '<path d="m5 12 4 4L19 6"/>',
     close: '<path d="m6 6 12 12M6 18 18 6"/>',
     chevron: '<path d="m9 5 7 7-7 7"/>',
+    down: '<path d="m5 9 7 7 7-7"/>',
     back: '<path d="m12 5-7 7 7 7M5 12h14"/>',
     download: '<path d="M12 3v12m-5-5 5 5 5-5M4 15v5h16v-5"/>',
     upload: '<path d="M12 16V4m-5 5 5-5 5 5M4 15v5h16v-5"/>',
@@ -58,7 +66,7 @@
     info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v1"/>',
     spark: '<path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Z"/>'
   };
-  const icon = (name, extra = '') => '<svg class="icon ' + extra + '" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (icons[name] || icons.spark) + '</svg>';
+  const icon = (name, extra = '') => '<svg class="icon ' + extra + '"' + (arrowDirections[name] ? ' data-arrow-kind="' + name + '"' : '') + ' width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (icons[name] || icons.spark) + '</svg>';
   const esc = value => String(value == null ? '' : value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const personById = id => data.alumni.find(item => item.id === id);
   const routeById = id => data.routes.find(item => item.id === id);
@@ -224,6 +232,7 @@
     const animateResults = target.hasChildNodes() && !reducedMotion.matches;
     target.dataset.resultKey = resultKey;
     target.innerHTML = results.length ? results.map(personCard).join('') : '<div class="empty-state full-width"><span class="empty-icon">' + icon(filters.favorites ? 'star' : 'search') + '</span><h2>' + (filters.favorites ? '这里还没有匹配的收藏' : '暂时没有找到匹配的校友') + '</h2><p>试试其他关键词，或清除筛选看看全部故事。</p><button class="button secondary" data-action="reset-filters">查看全部校友</button></div>';
+    prepareArrowAnimations(target);
     if (animateResults) {
       Array.from(target.children).forEach((card, index) => {
         card.style.setProperty('--result-delay', index * 45 + 'ms');
@@ -768,6 +777,7 @@
     if (modal.open && !options.keepModal) modal.close();
     if (animatePage && !alumniNavigation.motion) captureOutgoingPage(historyTransition);
     main.innerHTML = content;
+    prepareArrowAnimations(main);
     prepareCodeBlocks();
     if (historyFill) {
       const fill = historyScreenFill;
@@ -832,6 +842,7 @@
     modal.classList.remove('ai-modal');
     modalContent.innerHTML = '<div class="modal-heading"><h2 id="modal-title">' + title + '</h2><button class="icon-button" data-action="close-modal" aria-label="关闭对话框">' + icon('close') + '</button></div>' + body;
     modal.showModal();
+    prepareArrowAnimations(modalContent);
     document.body.classList.add('modal-open');
     const field = modal.querySelector('[autofocus]');
     if (field) field.focus({ preventScroll: true });
@@ -930,7 +941,7 @@
       ['专科', '本科'].map(level => '<option' + (values.level === level ? ' selected' : '') + '>' + level + '</option>').join('') +
       '</select></label>' + input('专业', 'major', 120, '例如：计算机网络技术') + '</div><div class="form-row"><label class="form-field">年级 *<select name="grade" required' + (values.level ? '' : ' disabled') + '>' +
       aiGradeOptions(values.level, values.grade) + '</select></label>' + input('目标地区', 'region', 80, '例如：山东') + '</div>' +
-      textarea('当前学习基础', 'baseline', '例如：英语基础较弱，数学刚开始复习') + textarea('目标院校与专业', 'goal', '请输入心仪院校和专业') + '<p class="ai-school-note">可以写具体院校，也可以写筛选条件，例如“济南本地一本院校，计算机相关专业”。未指定具体学校时会推荐3–5所院校；由于需要先筛选并核实多所院校，生成计划可能需要更长时间。一本/二本按批次取消前的历史招生层次参考。目标里的具体地点优先于目标地区，暂时没有目标院校也可以留空。</p>' +
+      textarea('当前学习基础', 'baseline', '例如：英语基础较弱，数学刚开始复习') + textarea('目标院校与专业', 'goal', '请输入心仪院校和专业') + '<p class="ai-school-note">可以写具体院校，也可以写筛选条件，例如“济南本地一本院校，计算机相关专业”。未指定具体学校时会推荐三所院校；由于需要先筛选并核实多所院校，生成计划可能需要更长时间。一本/二本按批次取消前的历史招生层次参考。目标里的具体地点优先于目标地区，暂时没有目标院校也可以留空。</p>' +
       '<label class="form-field">开始日期 *<input name="startDate" type="date" min="1900-01-01" max="9999-12-31" required value="' + esc(values.startDate) + '"></label>' +
       '<p class="inline-note ai-period-note">本科按开始日期所在学年、四年制推算至大四考研；专科暂按三年专科衔接两年本科推算，路径与资格待核实。对应年度考试日期未公布时，日期仅为考试季暂定安排，公布后请调整。</p></fieldset>' +
       status + modalError + modalActions('检索并生成计划', '<button type="button" class="text-button" data-action="ai-template">使用原始模板</button>') + '</form>';
@@ -962,7 +973,7 @@
       form.querySelector('fieldset').disabled = true;
       form.querySelector('fieldset').hidden = true;
       form.querySelector('[type="submit"]').disabled = true;
-      form.querySelector('[data-action="ai-template"]').disabled = true;
+      form.querySelector('[data-action="ai-template"]').hidden = true;
       form.setAttribute('aria-busy', 'true');
       const status = form.querySelector('.ai-status');
       status.hidden = false;
@@ -1025,7 +1036,7 @@
           form.querySelector('fieldset').disabled = false;
           form.querySelector('fieldset').hidden = false;
           form.querySelector('[type="submit"]').disabled = false;
-          form.querySelector('[data-action="ai-template"]').disabled = false;
+          form.querySelector('[data-action="ai-template"]').hidden = false;
           form.removeAttribute('aria-busy');
           form.querySelector('.ai-status').hidden = !form.querySelector('.ai-live-source-list').children.length;
           form.querySelectorAll('.ai-step-label span')[0].classList.add('is-current');
@@ -1091,6 +1102,106 @@
     const target = modal.open && document.getElementById('modal-error');
     if (target) { target.hidden = false; target.textContent = error.message || '操作未完成，请重试。'; }
     else toast(error.message || '操作未完成，请重试。');
+  }
+  function prepareArrowAnimations(root) {
+    root.querySelectorAll('select:not([data-arrow-select])').forEach(select => {
+      const wrapper = document.createElement('span');
+      wrapper.className = 'loop-select';
+      wrapper.setAttribute('data-arrow-action', '');
+      const marginTop = parseFloat(getComputedStyle(select).marginTop) || 0;
+      wrapper.style.setProperty('--select-arrow-shift', marginTop / 2 + 'px');
+      select.setAttribute('data-arrow-select', '');
+      select.before(wrapper);
+      wrapper.append(select);
+      wrapper.insertAdjacentHTML('beforeend', icon('down'));
+    });
+    root.querySelectorAll('.ai-live-more summary:not([data-arrow-action])').forEach(summary => {
+      summary.setAttribute('data-arrow-action', '');
+      summary.insertAdjacentHTML('afterbegin', icon('chevron', 'loop-disclosure-arrow'));
+    });
+    root.querySelectorAll('[data-arrow-kind]').forEach(source => {
+      const kind = source.getAttribute('data-arrow-kind');
+      const direction = arrowDirections[kind];
+      if (!direction) return;
+      const action = source.closest('a,button,summary,.loop-select') || source.parentElement;
+      action.setAttribute('data-arrow-action', '');
+      const computed = getComputedStyle(source);
+      const wrapper = document.createElement('span');
+      wrapper.className = 'icon loop-arrow' + (source.classList.contains('loop-disclosure-arrow') ? ' loop-disclosure-arrow' : '');
+      wrapper.setAttribute('aria-hidden', 'true');
+      wrapper.style.width = computed.width !== 'auto' ? computed.width : computed.fontSize;
+      wrapper.style.height = computed.height !== 'auto' ? computed.height : computed.fontSize;
+      wrapper.style.margin = computed.margin;
+      wrapper.style.fontSize = computed.fontSize;
+      wrapper.style.setProperty('--loop-arrow-step-x', direction[0] + '%');
+      wrapper.style.setProperty('--loop-arrow-step-y', direction[1] + '%');
+      wrapper.style.setProperty('--loop-arrow-duration', direction[2]);
+      const track = document.createElement('span');
+      track.className = 'loop-arrow-track';
+      const transfer = kind === 'download' || kind === 'upload';
+      [-2, -1, 0, 1].forEach(index => {
+        const copy = source.cloneNode(true);
+        copy.removeAttribute('data-arrow-kind');
+        copy.setAttribute('class', 'loop-arrow-copy');
+        copy.style.setProperty('--loop-arrow-copy-x', index * direction[0] + '%');
+        copy.style.setProperty('--loop-arrow-copy-y', index * direction[1] + '%');
+        if (transfer) {
+          copy.setAttribute('viewBox', '0 0 24 16');
+          copy.querySelector('path').setAttribute('d', kind === 'download' ? 'M12 3v12m-5-5 5 5 5-5' : 'M12 16V4m-5 5 5-5 5 5');
+        }
+        track.append(copy);
+      });
+      if (transfer) {
+        const base = source.cloneNode(true);
+        base.removeAttribute('data-arrow-kind');
+        base.setAttribute('class', 'loop-arrow-base');
+        base.querySelector('path').setAttribute('d', 'M4 15v5h16v-5');
+        wrapper.append(base);
+        const window = document.createElement('span');
+        window.className = 'loop-arrow-window';
+        window.append(track);
+        wrapper.append(window);
+      } else wrapper.append(track);
+      source.replaceWith(wrapper);
+    });
+    root.querySelectorAll(arrowActionSelector).forEach(action => {
+      if (arrowAnimationStates.has(action)) return;
+      const isHeader = action.matches('.header-action');
+      const glyph = action.querySelector(isHeader ? '.header-arrow-glyph' : '.loop-arrow-track');
+      if (!glyph) return;
+      const animationName = isHeader ? 'header-arrow-out' : 'loop-arrow-travel';
+      let hovered = false;
+      const isActive = () => hovered || action.matches(':focus-visible') || Boolean(action.querySelector(':focus-visible'));
+      const stop = () => {
+        action.classList.remove('is-arrow-running');
+        action.style.removeProperty('--arrow-iterations');
+      };
+      const update = () => {
+        if (reducedMotion.matches || action.matches(':disabled') || action.querySelector('select:disabled')) { stop(); return; }
+        if (isActive()) {
+          action.style.removeProperty('--arrow-iterations');
+          action.classList.add('is-arrow-running');
+          return;
+        }
+        if (!action.classList.contains('is-arrow-running')) return;
+        const animation = glyph.getAnimations().find(item => item.animationName === animationName);
+        if (!animation) { stop(); return; }
+        const duration = animation.effect.getComputedTiming().duration;
+        // 保留已播放的轮数，仅让当前轮完成；改变轮数不会重置播放进度。
+        const iterations = Math.max(1, Math.ceil(Number(animation.currentTime) / duration));
+        action.style.setProperty('--arrow-iterations', String(iterations));
+      };
+      arrowAnimationStates.set(action, update);
+      action.addEventListener('mouseenter', () => { hovered = true; update(); });
+      action.addEventListener('mouseleave', () => { hovered = false; update(); });
+      action.addEventListener('focusin', update);
+      action.addEventListener('focusout', () => queueMicrotask(update));
+      glyph.addEventListener('animationend', event => {
+        if (event.target === glyph && event.animationName === animationName && !isActive()) stop();
+      });
+      if (action.matches(':hover')) hovered = true;
+      update();
+    });
   }
   document.addEventListener('click', event => {
     const link = event.target.closest('a');
@@ -1217,6 +1328,7 @@
     const grade = event.target.closest('form').querySelector('[name="grade"]');
     grade.innerHTML = aiGradeOptions(event.target.value, grade.value);
     grade.disabled = !event.target.value;
+    arrowAnimationStates.get(grade.parentElement)?.();
   });
   main.addEventListener('change', event => {
     const target = event.target;
@@ -1344,6 +1456,7 @@
     if (alumniTransition && (Math.abs(window.scrollX - alumniTransition.scrollX) > 1 || Math.abs(window.scrollY - alumniTransition.scrollY) > 1)) clearAlumniTransition(true);
   }, { passive: true });
   reducedMotion.addEventListener('change', () => {
+    document.querySelectorAll(arrowActionSelector).forEach(action => arrowAnimationStates.get(action)?.());
     if (!reducedMotion.matches) return;
     clearReadingAnimations();
     clearAlumniTransition(true);
@@ -1364,5 +1477,6 @@
     });
   });
   document.querySelector('.skip-link').addEventListener('click', event => { event.preventDefault(); main.focus(); main.scrollIntoView(); });
+  prepareArrowAnimations(document);
   render();
 })();
