@@ -8,6 +8,7 @@ const root = path.resolve(__dirname, '../project');
 function load(raw, blocked = false) {
   const saved = new Map(raw === undefined ? [] : [['shangzhi-starpath:v1', raw]]);
   const context = vm.createContext({
+    TextEncoder,
     window: { dispatchEvent() {} },
     CustomEvent: class { constructor(type, detail) { this.type = type; this.detail = detail; } },
     localStorage: {
@@ -92,6 +93,40 @@ test('invalid backup and invalid edits leave state unchanged', () => {
     assert.deepEqual(plain(store.get()), before);
   }
   assert.throws(() => store.editPlan('old-plan', plan => { plan.tasks[0].dueDate = '2026-02-30'; }));
+  assert.deepEqual(plain(store.get()), before);
+});
+
+test('full Chinese backups including AI metadata export and restore within the shared byte limit', () => {
+  const { store } = load();
+  const sources = Array.from({ length: 30 }, (_, index) => ({ title: '资'.repeat(300), url: 'https://school.edu.cn/' + '中'.repeat(2000) + index }));
+  const state = { version: 1, favorites: ['wang-zongyu'], plans: Array.from({ length: 20 }, (_, index) => ({
+    id: 'plan-' + index, templateId: null, title: '计'.repeat(120), goal: '标'.repeat(1000),
+    createdAt: '2026-10-10T00:00:00.000Z', updatedAt: '2026-10-10T00:00:00.000Z',
+    tasks: Array.from({ length: 100 }, (_, task) => ({ id: 'task-' + task, title: '学'.repeat(180), stage: '阶'.repeat(80), dueDate: '', completed: task % 2 === 0 })),
+    generation: { model: 'deepseek-flash', generatedAt: '2026-10-10T00:00:00.000Z', summary: '摘'.repeat(3000), sources,
+      recommendations: Array.from({ length: 5 }, (_, school) => ({ name: '校'.repeat(120), reason: '理'.repeat(500), sourceUrl: sources[school].url,
+        location: { province: '省'.repeat(40), city: '市'.repeat(40), campus: '区'.repeat(120), sourceUrl: sources[school].url },
+        criteriaEvidence: Array.from({ length: 5 }, () => ({ criterion: '条'.repeat(80), explanation: '据'.repeat(500), sourceUrl: sources[school].url }))
+      })) }
+  })) };
+  store.replace(state);
+  const backup = store.exportBackup();
+  assert.equal(store.backupMaxBytes, 32 * 1024 * 1024);
+  assert.ok(Buffer.byteLength(backup, 'utf8') > 1024 * 1024);
+  assert.ok(Buffer.byteLength(backup, 'utf8') < store.backupMaxBytes);
+  const restored = load().store;
+  restored.replace(restored.parseBackup(backup));
+  assert.deepEqual(plain(restored.get()), plain(store.get()));
+  assert.equal(restored.progress(restored.get().plans[0]).percent, 50);
+});
+
+test('backup size is measured in UTF-8 bytes and oversized or invalid input leaves records unchanged', () => {
+  const { store } = load(JSON.stringify(oldState()));
+  const before = plain(store.get());
+  const oversized = JSON.stringify({ app: 'shangzhi-starpath', version: 1, favorites: [], plans: [], padding: '中'.repeat(Math.ceil(store.backupMaxBytes / 3)) });
+  assert.ok(oversized.length < store.backupMaxBytes);
+  assert.throws(() => store.parseBackup(oversized), /32 MiB/);
+  assert.throws(() => store.parseBackup(null), /32 MiB/);
   assert.deepEqual(plain(store.get()), before);
 });
 test('unavailable and damaged storage preserve the recovery behavior', () => {

@@ -1,0 +1,301 @@
+{
+  "passed": true,
+  "temporaryRoot": "C:\\Users\\AMARAN~1\\AppData\\Local\\Temp\\starpath-clean-delivery-RmYLIj",
+  "sourceFilesCopied": 48,
+  "sourceHashesUnchanged": true,
+  "copiedFilesMatch": true,
+  "originalGitStatusUnchanged": true,
+  "pageVisits": 32,
+  "downloads": [
+    {
+      "name": "campus-guide.zip",
+      "sha256Matches": true
+    },
+    {
+      "name": "study-stats.zip",
+      "sha256Matches": true
+    },
+    {
+      "name": "local-server.zip",
+      "sha256Matches": true
+    }
+  ],
+  "basicNavigationAndHistory": true,
+  "search": true,
+  "referencePopup": true,
+  "errors": [],
+  "unexpectedRequestFailures": [],
+  "expectedDownloadNavigationAborts": [
+    {
+      "path": "campus-guide.zip",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "path": "study-stats.zip",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "path": "local-server.zip",
+      "failure": "net::ERR_ABORTED"
+    }
+  ],
+  "blockedExternalRequests": [],
+  "pages": [
+    {
+      "hash": "#/",
+      "width": 1440,
+      "title": "九秩商职，向新而行。",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/history",
+      "width": 1440,
+      "title": "九秩薪火，照亮新的出发。",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/alumni",
+      "width": 1440,
+      "title": "商职走出的身影，照亮新的星途。",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/alumni/wang-zongyu",
+      "width": 1440,
+      "title": "王宗宇",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/alumni/shi-zhenbang",
+      "width": 1440,
+      "title": "石振邦",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/alumni/wang-gongming",
+      "width": 1440,
+      "title": "王功明",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/alumni/chen-liang",
+      "width": 1440,
+      "title": "陈亮",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/paths",
+      "width": 1440,
+      "title": "每一种成长，都值得被看见。",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/paths/competition",
+      "width": 1440,
+      "title": "技能竞赛",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/paths/education",
+      "width": 1440,
+      "title": "升学深造",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/paths/career",
+      "width": 1440,
+      "title": "技术就业",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/practice/campus-guide",
+      "width": 1440,
+      "title": "新生校园指南网页",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/practice/study-stats",
+      "width": 1440,
+      "title": "学习时间统计工具",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/practice/local-server",
+      "width": 1440,
+      "title": "本地网站运行与排障",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/growth",
+      "width": 1440,
+      "title": "每一个小小的完成，都算数。",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/about",
+      "width": 1440,
+      "title": "每一个故事，都有真实的出处。",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/",
+      "width": 390,
+      "title": "九秩商职，向新而行。",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/history",
+      "width": 390,
+      "title": "九秩薪火，照亮新的出发。",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/alumni",
+      "width": 390,
+      "title": "商职走出的身影，照亮新的星途。",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/alumni/wang-zongyu",
+      "width": 390,
+      "title": "王宗宇",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/alumni/shi-zhenbang",
+      "width": 390,
+      "title": "石振邦",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/alumni/wang-gongming",
+      "width": 390,
+      "title": "王功明",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/alumni/chen-liang",
+      "width": 390,
+      "title": "陈亮",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/paths",
+      "width": 390,
+      "title": "每一种成长，都值得被看见。",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/paths/competition",
+      "width": 390,
+      "title": "技能竞赛",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/paths/education",
+      "width": 390,
+      "title": "升学深造",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/paths/career",
+      "width": 390,
+      "title": "技术就业",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/practice/campus-guide",
+      "width": 390,
+      "title": "新生校园指南网页",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/practice/study-stats",
+      "width": 390,
+      "title": "学习时间统计工具",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/practice/local-server",
+      "width": 390,
+      "title": "本地网站运行与排障",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/growth",
+      "width": 390,
+      "title": "每一个小小的完成，都算数。",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    },
+    {
+      "hash": "#/about",
+      "width": 390,
+      "title": "每一个故事，都有真实的出处。",
+      "overflow": false,
+      "brokenImages": [],
+      "duplicateIds": []
+    }
+  ]
+}

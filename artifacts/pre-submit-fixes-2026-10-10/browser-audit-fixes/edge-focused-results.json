@@ -1,0 +1,1665 @@
+{
+  "report": [
+    "http: new plan/favorites retained; delayed storage events preserve distinct task edits; live UI synchronization retains modal input/focus; external task deletion rejects stale save without resurrection",
+    {
+      "origin": "http",
+      "width": 320,
+      "hash": "#/",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 12,
+          "height": 44
+        }
+      ],
+      "current": [
+        "home"
+      ],
+      "sources": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "http",
+      "width": 320,
+      "hash": "#/history",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 12,
+          "height": 44
+        }
+      ],
+      "current": [
+        "history"
+      ],
+      "sources": [
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13
+      ],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "http",
+      "width": 320,
+      "hash": "#/alumni/wang-zongyu",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 12,
+          "height": 44
+        }
+      ],
+      "current": [
+        "alumni"
+      ],
+      "sources": [
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13
+      ],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "http",
+      "width": 320,
+      "hash": "#/paths",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 12,
+          "height": 44
+        }
+      ],
+      "current": [
+        "paths"
+      ],
+      "sources": [],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "http",
+      "width": 320,
+      "hash": "#/practice/campus-guide",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 12,
+          "height": 44
+        }
+      ],
+      "current": [
+        "paths"
+      ],
+      "sources": [],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "http",
+      "width": 320,
+      "hash": "#/growth",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 12,
+          "height": 44
+        }
+      ],
+      "current": [
+        "growth"
+      ],
+      "sources": [],
+      "hiddenGuide": true,
+      "hiddenMethods": true
+    },
+    {
+      "origin": "http",
+      "width": 320,
+      "hash": "#/about",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 12,
+          "height": 44
+        }
+      ],
+      "current": [],
+      "sources": [],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "http",
+      "width": 390,
+      "hash": "#/",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 13,
+          "height": 44
+        }
+      ],
+      "current": [
+        "home"
+      ],
+      "sources": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "http",
+      "width": 390,
+      "hash": "#/history",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 13,
+          "height": 44
+        }
+      ],
+      "current": [
+        "history"
+      ],
+      "sources": [
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13
+      ],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "http",
+      "width": 390,
+      "hash": "#/alumni/wang-zongyu",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 13,
+          "height": 44
+        }
+      ],
+      "current": [
+        "alumni"
+      ],
+      "sources": [
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13
+      ],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "http",
+      "width": 390,
+      "hash": "#/paths",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 13,
+          "height": 44
+        }
+      ],
+      "current": [
+        "paths"
+      ],
+      "sources": [],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "http",
+      "width": 390,
+      "hash": "#/practice/campus-guide",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 13,
+          "height": 44
+        }
+      ],
+      "current": [
+        "paths"
+      ],
+      "sources": [],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "http",
+      "width": 390,
+      "hash": "#/growth",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 13,
+          "height": 44
+        }
+      ],
+      "current": [
+        "growth"
+      ],
+      "sources": [],
+      "hiddenGuide": true,
+      "hiddenMethods": true
+    },
+    {
+      "origin": "http",
+      "width": 390,
+      "hash": "#/about",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 13,
+          "height": 44
+        }
+      ],
+      "current": [],
+      "sources": [],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "http",
+      "width": 1440,
+      "hash": "#/",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "九秩校史",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "校友风采",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "我的成长",
+          "font": 14,
+          "height": 43.09375
+        }
+      ],
+      "current": [
+        "home"
+      ],
+      "sources": [
+        11,
+        11,
+        11,
+        11
+      ],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "http",
+      "width": 1440,
+      "hash": "#/history",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "九秩校史",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "校友风采",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "我的成长",
+          "font": 14,
+          "height": 43.09375
+        }
+      ],
+      "current": [
+        "history"
+      ],
+      "sources": [
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11
+      ],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "http",
+      "width": 1440,
+      "hash": "#/alumni/wang-zongyu",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "九秩校史",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "校友风采",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "我的成长",
+          "font": 14,
+          "height": 43.09375
+        }
+      ],
+      "current": [
+        "alumni"
+      ],
+      "sources": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "http",
+      "width": 1440,
+      "hash": "#/paths",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "九秩校史",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "校友风采",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "我的成长",
+          "font": 14,
+          "height": 43.09375
+        }
+      ],
+      "current": [
+        "paths"
+      ],
+      "sources": [],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "http",
+      "width": 1440,
+      "hash": "#/practice/campus-guide",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "九秩校史",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "校友风采",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "我的成长",
+          "font": 14,
+          "height": 43.09375
+        }
+      ],
+      "current": [
+        "paths"
+      ],
+      "sources": [],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "http",
+      "width": 1440,
+      "hash": "#/growth",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "九秩校史",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "校友风采",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "我的成长",
+          "font": 14,
+          "height": 43.09375
+        }
+      ],
+      "current": [
+        "growth"
+      ],
+      "sources": [],
+      "hiddenGuide": true,
+      "hiddenMethods": true
+    },
+    {
+      "origin": "http",
+      "width": 1440,
+      "hash": "#/about",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "九秩校史",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "校友风采",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "我的成长",
+          "font": 14,
+          "height": 43.09375
+        }
+      ],
+      "current": [],
+      "sources": [],
+      "hiddenMethods": false
+    },
+    "file: new plan/favorites retained; delayed storage events preserve distinct task edits; live UI synchronization retains modal input/focus; external task deletion rejects stale save without resurrection",
+    {
+      "origin": "file",
+      "width": 320,
+      "hash": "#/",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 12,
+          "height": 44
+        }
+      ],
+      "current": [
+        "home"
+      ],
+      "sources": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "file",
+      "width": 320,
+      "hash": "#/history",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 12,
+          "height": 44
+        }
+      ],
+      "current": [
+        "history"
+      ],
+      "sources": [
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13
+      ],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "file",
+      "width": 320,
+      "hash": "#/alumni/wang-zongyu",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 12,
+          "height": 44
+        }
+      ],
+      "current": [
+        "alumni"
+      ],
+      "sources": [
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13
+      ],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "file",
+      "width": 320,
+      "hash": "#/paths",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 12,
+          "height": 44
+        }
+      ],
+      "current": [
+        "paths"
+      ],
+      "sources": [],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "file",
+      "width": 320,
+      "hash": "#/practice/campus-guide",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 12,
+          "height": 44
+        }
+      ],
+      "current": [
+        "paths"
+      ],
+      "sources": [],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "file",
+      "width": 320,
+      "hash": "#/growth",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 12,
+          "height": 44
+        }
+      ],
+      "current": [
+        "growth"
+      ],
+      "sources": [],
+      "hiddenGuide": true,
+      "hiddenMethods": true
+    },
+    {
+      "origin": "file",
+      "width": 320,
+      "hash": "#/about",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 12,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 12,
+          "height": 44
+        }
+      ],
+      "current": [],
+      "sources": [],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "file",
+      "width": 390,
+      "hash": "#/",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 13,
+          "height": 44
+        }
+      ],
+      "current": [
+        "home"
+      ],
+      "sources": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "file",
+      "width": 390,
+      "hash": "#/history",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 13,
+          "height": 44
+        }
+      ],
+      "current": [
+        "history"
+      ],
+      "sources": [
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13
+      ],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "file",
+      "width": 390,
+      "hash": "#/alumni/wang-zongyu",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 13,
+          "height": 44
+        }
+      ],
+      "current": [
+        "alumni"
+      ],
+      "sources": [
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13
+      ],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "file",
+      "width": 390,
+      "hash": "#/paths",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 13,
+          "height": 44
+        }
+      ],
+      "current": [
+        "paths"
+      ],
+      "sources": [],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "file",
+      "width": 390,
+      "hash": "#/practice/campus-guide",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 13,
+          "height": 44
+        }
+      ],
+      "current": [
+        "paths"
+      ],
+      "sources": [],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "file",
+      "width": 390,
+      "hash": "#/growth",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 13,
+          "height": 44
+        }
+      ],
+      "current": [
+        "growth"
+      ],
+      "sources": [],
+      "hiddenGuide": true,
+      "hiddenMethods": true
+    },
+    {
+      "origin": "file",
+      "width": 390,
+      "hash": "#/about",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "九秩校史",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "校友风采",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "成长传承",
+          "font": 13,
+          "height": 44
+        },
+        {
+          "text": "我的成长",
+          "font": 13,
+          "height": 44
+        }
+      ],
+      "current": [],
+      "sources": [],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "file",
+      "width": 1440,
+      "hash": "#/",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "九秩校史",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "校友风采",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "我的成长",
+          "font": 14,
+          "height": 43.09375
+        }
+      ],
+      "current": [
+        "home"
+      ],
+      "sources": [
+        11,
+        11,
+        11,
+        11
+      ],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "file",
+      "width": 1440,
+      "hash": "#/history",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "九秩校史",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "校友风采",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "我的成长",
+          "font": 14,
+          "height": 43.09375
+        }
+      ],
+      "current": [
+        "history"
+      ],
+      "sources": [
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11
+      ],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "file",
+      "width": 1440,
+      "hash": "#/alumni/wang-zongyu",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "九秩校史",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "校友风采",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "我的成长",
+          "font": 14,
+          "height": 43.09375
+        }
+      ],
+      "current": [
+        "alumni"
+      ],
+      "sources": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "file",
+      "width": 1440,
+      "hash": "#/paths",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "九秩校史",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "校友风采",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "我的成长",
+          "font": 14,
+          "height": 43.09375
+        }
+      ],
+      "current": [
+        "paths"
+      ],
+      "sources": [],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "file",
+      "width": 1440,
+      "hash": "#/practice/campus-guide",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "九秩校史",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "校友风采",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "我的成长",
+          "font": 14,
+          "height": 43.09375
+        }
+      ],
+      "current": [
+        "paths"
+      ],
+      "sources": [],
+      "hiddenMethods": false
+    },
+    {
+      "origin": "file",
+      "width": 1440,
+      "hash": "#/growth",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "九秩校史",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "校友风采",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "我的成长",
+          "font": 14,
+          "height": 43.09375
+        }
+      ],
+      "current": [
+        "growth"
+      ],
+      "sources": [],
+      "hiddenGuide": true,
+      "hiddenMethods": true
+    },
+    {
+      "origin": "file",
+      "width": 1440,
+      "hash": "#/about",
+      "overflow": false,
+      "nav": [
+        {
+          "text": "校庆首页",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "九秩校史",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "校友风采",
+          "font": 14,
+          "height": 43.09375
+        },
+        {
+          "text": "我的成长",
+          "font": 14,
+          "height": 43.09375
+        }
+      ],
+      "current": [],
+      "sources": [],
+      "hiddenMethods": false
+    }
+  ],
+  "errors": []
+}

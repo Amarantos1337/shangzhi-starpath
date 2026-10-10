@@ -1,0 +1,258 @@
+{
+  "checks": [
+    {
+      "protocol": "http",
+      "width": 390,
+      "closedHeight": 102.125,
+      "openHeight": 842.578125,
+      "opening": [
+        102.125,
+        542.125,
+        748.453125,
+        842.578125
+      ],
+      "closing": [
+        842.578125,
+        402.5625,
+        196.234375,
+        102.125
+      ],
+      "rapidReversal": "passed",
+      "keyboard": "passed"
+    },
+    {
+      "protocol": "http",
+      "width": 1042,
+      "closedHeight": 110.125,
+      "openHeight": 792.890625,
+      "opening": [
+        110.125,
+        515.84375,
+        706.09375,
+        792.890625
+      ],
+      "closing": [
+        792.890625,
+        387.15625,
+        196.90625,
+        110.125
+      ],
+      "rapidReversal": "passed",
+      "keyboard": "passed"
+    },
+    {
+      "protocol": "http",
+      "width": 1440,
+      "closedHeight": 110.125,
+      "openHeight": 680.796875,
+      "opening": [
+        110.125,
+        449.234375,
+        608.25,
+        680.796875
+      ],
+      "closing": [
+        680.796875,
+        341.671875,
+        182.65625,
+        110.125
+      ],
+      "rapidReversal": "passed",
+      "keyboard": "passed"
+    },
+    {
+      "protocol": "file",
+      "width": 390,
+      "closedHeight": 102.125,
+      "openHeight": 842.578125,
+      "opening": [
+        102.125,
+        542.125,
+        748.453125,
+        842.578125
+      ],
+      "closing": [
+        842.578125,
+        402.5625,
+        196.234375,
+        102.125
+      ],
+      "rapidReversal": "passed",
+      "keyboard": "passed"
+    },
+    {
+      "protocol": "file",
+      "width": 1042,
+      "closedHeight": 110.125,
+      "openHeight": 792.890625,
+      "opening": [
+        110.125,
+        515.84375,
+        706.09375,
+        792.890625
+      ],
+      "closing": [
+        792.890625,
+        387.15625,
+        196.90625,
+        110.125
+      ],
+      "rapidReversal": "passed",
+      "keyboard": "passed"
+    },
+    {
+      "protocol": "file",
+      "width": 1440,
+      "closedHeight": 110.125,
+      "openHeight": 680.796875,
+      "opening": [
+        110.125,
+        449.234375,
+        608.25,
+        680.796875
+      ],
+      "closing": [
+        680.796875,
+        341.671875,
+        182.65625,
+        110.125
+      ],
+      "rapidReversal": "passed",
+      "keyboard": "passed"
+    }
+  ],
+  "stages": [
+    {
+      "protocol": "http",
+      "width": 390,
+      "openHeight": 1712.9375,
+      "closedHeight": 99.125,
+      "opening": [
+        99.125,
+        1058.125,
+        1507.796875,
+        1712.9375
+      ],
+      "closing": [
+        1712.9375,
+        753.921875,
+        304.25,
+        99.125
+      ],
+      "rapidReversal": "passed",
+      "keyboard": "passed",
+      "directory": "passed"
+    },
+    {
+      "protocol": "http",
+      "width": 1042,
+      "openHeight": 1184.6875,
+      "closedHeight": 110.4375,
+      "opening": [
+        110.4375,
+        748.796875,
+        1048.140625,
+        1184.6875
+      ],
+      "closing": [
+        1184.6875,
+        546.3125,
+        246.96875,
+        110.4375
+      ],
+      "rapidReversal": "passed",
+      "keyboard": "passed",
+      "directory": "passed"
+    },
+    {
+      "protocol": "http",
+      "width": 1440,
+      "openHeight": 1171.5,
+      "closedHeight": 110.4375,
+      "opening": [
+        110.4375,
+        740.96875,
+        1036.625,
+        1171.5
+      ],
+      "closing": [
+        1171.5,
+        540.953125,
+        245.296875,
+        110.4375
+      ],
+      "rapidReversal": "passed",
+      "keyboard": "passed",
+      "directory": "passed"
+    },
+    {
+      "protocol": "file",
+      "width": 390,
+      "openHeight": 1712.9375,
+      "closedHeight": 99.125,
+      "opening": [
+        99.125,
+        1058.125,
+        1507.796875,
+        1712.9375
+      ],
+      "closing": [
+        1712.9375,
+        753.921875,
+        304.25,
+        99.125
+      ],
+      "rapidReversal": "passed",
+      "keyboard": "passed",
+      "directory": "passed"
+    },
+    {
+      "protocol": "file",
+      "width": 1042,
+      "openHeight": 1184.6875,
+      "closedHeight": 110.4375,
+      "opening": [
+        110.4375,
+        748.796875,
+        1048.140625,
+        1184.6875
+      ],
+      "closing": [
+        1184.6875,
+        546.3125,
+        246.96875,
+        110.4375
+      ],
+      "rapidReversal": "passed",
+      "keyboard": "passed",
+      "directory": "passed"
+    },
+    {
+      "protocol": "file",
+      "width": 1440,
+      "openHeight": 1171.5,
+      "closedHeight": 110.4375,
+      "opening": [
+        110.4375,
+        740.96875,
+        1036.625,
+        1171.5
+      ],
+      "closing": [
+        1171.5,
+        540.953125,
+        245.296875,
+        110.4375
+      ],
+      "rapidReversal": "passed",
+      "keyboard": "passed",
+      "directory": "passed"
+    }
+  ],
+  "resize": "passed",
+  "reducedMotion": "passed",
+  "navigationCleanup": "passed",
+  "methodLinks": "passed",
+  "fallback": "passed",
+  "consoleErrors": []
+}

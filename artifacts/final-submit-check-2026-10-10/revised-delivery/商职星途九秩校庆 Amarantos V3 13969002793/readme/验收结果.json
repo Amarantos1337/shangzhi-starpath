@@ -1,0 +1,449 @@
+{
+  "verifiedAtUtc": "2026-10-10T12:47:29.764368+00:00",
+  "fiveCategories": "已完成",
+  "video": {
+    "seconds": 175.06,
+    "width": 1920,
+    "height": 1080,
+    "videoCodec": "H.264",
+    "audioCodec": "AAC",
+    "voice": "Microsoft Kangkang（中文男声）",
+    "subtitleCues": 53,
+    "completeDecode": "通过",
+    "directoryContents": [
+      "商职星途功能演示.mp4",
+      "演示成长备份.json"
+    ],
+    "productionMaterialsDirectory": "readme/视频制作资料"
+  },
+  "browser": {
+    "schemes": [
+      "file",
+      "HTTP"
+    ],
+    "viewportWidths": [
+      1440,
+      390
+    ],
+    "routes": 16,
+    "layoutAndImageCasesPassed": 64,
+    "interactionsPassed": [
+      "无效JSON导入保持已有计划与收藏",
+      "取消有效备份恢复保持原数据",
+      "搜索、方向筛选、键盘焦点、前进后退"
+    ],
+    "consoleErrors": []
+  },
+  "mockedAi": {
+    "tests": 34,
+    "passed": 34,
+    "billableRequests": 0
+  },
+  "realAi": {
+    "attempted": true,
+    "startedAt": "2026-10-10T12:16:45.820Z",
+    "elapsedSeconds": 30,
+    "success": true,
+    "completedAt": "2026-10-10T12:17:27.863Z"
+  },
+  "sourcePreservation": {
+    "businessFilesUnchanged": false,
+    "changedOriginalProjectFiles": [
+      "project/README.md",
+      "project/docs/codex-cloud.md",
+      "project/js/app.js"
+    ],
+    "latestBusinessChange": "手机收藏卡片调整宽度后的外边距来源修正；其他业务HTML/CSS/JS、照片及实践材料保持原样"
+  },
+  "proof": "网站核心开发由本人亲手使用华为云码道完成；现存IDE、Prompt、回答、代码差异、检查输出及账户用量截图覆盖本次交付补充阶段，详细范围见证据索引",
+  "files": [
+    {
+      "path": "codearts_proof/01-集成开发环境提示词.png",
+      "bytes": 178580,
+      "sha256": "631fe197d42d9ada7c96855642396b281dbf72ecdac19a5ed0e77c8745ff32ed"
+    },
+    {
+      "path": "codearts_proof/01-提示词.txt",
+      "bytes": 961,
+      "sha256": "39642119d8a7d5b47b0ac771032325ed291db35e6a473826446288fdfeca0d46"
+    },
+    {
+      "path": "codearts_proof/02-分析进度.png",
+      "bytes": 178580,
+      "sha256": "631fe197d42d9ada7c96855642396b281dbf72ecdac19a5ed0e77c8745ff32ed"
+    },
+    {
+      "path": "codearts_proof/03-代码生成.png",
+      "bytes": 101699,
+      "sha256": "361f5cb2fd82e54f98e3b9548409395dc170ac7aeb636f03eb22c82fad26e2e7"
+    },
+    {
+      "path": "codearts_proof/04-分析回复.txt",
+      "bytes": 5984,
+      "sha256": "6bcce21d6a159efae57c006e52dea4b881f1493d17c2e2ec1804f1a47d1c1a9e"
+    },
+    {
+      "path": "codearts_proof/04-分析结果.png",
+      "bytes": 178580,
+      "sha256": "631fe197d42d9ada7c96855642396b281dbf72ecdac19a5ed0e77c8745ff32ed"
+    },
+    {
+      "path": "codearts_proof/04-首次检查.txt",
+      "bytes": 1396,
+      "sha256": "737258b8c4774a7b1ac06f220ca68960e0e4653ea5117c9c91e896b70ca0fbdd"
+    },
+    {
+      "path": "codearts_proof/05-审查提示词.png",
+      "bytes": 167275,
+      "sha256": "ced835b3ff86bbcce36fce20b4403fed2b4cbb15edb3c4d7850d3c99dca9f51f"
+    },
+    {
+      "path": "codearts_proof/05-审查提示词.txt",
+      "bytes": 1050,
+      "sha256": "9828b7d6ac0b7cd6ac3dd439661d5d52271f6c4b3d522b873cb8cb36837efb43"
+    },
+    {
+      "path": "codearts_proof/06-代码差异.patch",
+      "bytes": 11661,
+      "sha256": "ecaa4c7d4bc59b35b8d747c6a56ceda53485cd297376f1c56f3d643063c997a4"
+    },
+    {
+      "path": "codearts_proof/06-修订回复.txt",
+      "bytes": 1754,
+      "sha256": "b7fb1d9de7b84af8da718f30a1cb378e4ffb50b793120c253235292416990410"
+    },
+    {
+      "path": "codearts_proof/06-修订结果.png",
+      "bytes": 149082,
+      "sha256": "dc3c4b305f353ce8fe9ad08f62783c936bc8e5115912f9909bf6c84e99d75316"
+    },
+    {
+      "path": "codearts_proof/06-修订生成.png",
+      "bytes": 149082,
+      "sha256": "dc3c4b305f353ce8fe9ad08f62783c936bc8e5115912f9909bf6c84e99d75316"
+    },
+    {
+      "path": "codearts_proof/07-控制台概览.png",
+      "bytes": 94206,
+      "sha256": "69e9c35b9adfe124b551b47b20eb8bed1ae1c2b6816987fe47033055e32e3ce7"
+    },
+    {
+      "path": "codearts_proof/07-控制台概览无障碍信息.txt",
+      "bytes": 3247,
+      "sha256": "9fd0dd5d4fe5191c3178eac7e22ce0102fb8ccece8a685b7b538eec2696d49fe"
+    },
+    {
+      "path": "codearts_proof/08-控制台记录.txt",
+      "bytes": 1149,
+      "sha256": "2402274f96640f9cde52b325b1598faf9b7af061555861ca3928dfa3b4ed30f3"
+    },
+    {
+      "path": "codearts_proof/08-控制台详情.png",
+      "bytes": 106091,
+      "sha256": "1b34d8da3449966b8f279484f13b6929118d1b6870d9e1296ee34fa01b06720b"
+    },
+    {
+      "path": "codearts_proof/08-控制台详情无障碍信息.txt",
+      "bytes": 3481,
+      "sha256": "96330d65be2f82567b2c25a863636ddb96e0d22afcc232c99e9b4eed73c75691"
+    },
+    {
+      "path": "codearts_proof/09-最终检查.txt",
+      "bytes": 1321,
+      "sha256": "448cad6497d38a573e31485f71877b47d9e523ed9ce7c75a2387c7a1c1045485"
+    },
+    {
+      "path": "codearts_proof/10-修订检查.txt",
+      "bytes": 1602,
+      "sha256": "7bf624457c2183fffbc4995d7c1a955fa1ff75079f5c7abccc7add87fb1f4707"
+    },
+    {
+      "path": "codearts_proof/11-故障排查提示词.png",
+      "bytes": 149347,
+      "sha256": "8cb247cb425732d1871bfc5b63aafdafc3f377d8c235c671cb0be4aad3d935a9"
+    },
+    {
+      "path": "codearts_proof/11-故障排查提示词.txt",
+      "bytes": 640,
+      "sha256": "6eacf01c3f1b8513c47d0e6d913188b85e2d6621826a1c313ad24fc1c5375a68"
+    },
+    {
+      "path": "codearts_proof/12-故障排查代码差异.patch",
+      "bytes": 502,
+      "sha256": "5a369528b41cab27114b23c0d0b6969ac2b380b11b96d00755ee962735b74993"
+    },
+    {
+      "path": "codearts_proof/12-故障排查代码差异.png",
+      "bytes": 77149,
+      "sha256": "87cb2f9c4f676b26b41ce1f8522d6cb3f4ca2fb739401c2facff911b14f5775c"
+    },
+    {
+      "path": "codearts_proof/12-故障排查回复.txt",
+      "bytes": 717,
+      "sha256": "85a92c290efc5ba37c9612da1740f9bae13c4e86f1d41777846260b3fc8f7580"
+    },
+    {
+      "path": "codearts_proof/12-故障排查结果.png",
+      "bytes": 149347,
+      "sha256": "8cb247cb425732d1871bfc5b63aafdafc3f377d8c235c671cb0be4aad3d935a9"
+    },
+    {
+      "path": "codearts_proof/13-控制台最终概览.png",
+      "bytes": 94697,
+      "sha256": "913689aa462182968c81710844b63f123974933ccf002282614bef255954b4d9"
+    },
+    {
+      "path": "codearts_proof/13-控制台最终记录.txt",
+      "bytes": 1054,
+      "sha256": "966d3d4c7b9166cc34094eebeea027a1adf946f7b7a09adc91492fa1ccdfed5f"
+    },
+    {
+      "path": "codearts_proof/13-控制台最终详情.png",
+      "bytes": 105560,
+      "sha256": "a6865b01f47876dc556160705e790d54b8c7dfce91c762b8ff7a06604b9df301"
+    },
+    {
+      "path": "codearts_proof/13-控制台最终详情无障碍信息.txt",
+      "bytes": 6570,
+      "sha256": "d3841264b33f8243df3e37ed5d3ef80d51ff8ad8c246f1c95a3005942224bdf9"
+    },
+    {
+      "path": "codearts_proof/14-控制台最终详情下半部分.png",
+      "bytes": 105091,
+      "sha256": "40184b5e28982316e9dcf2129796f9005e789c4c668fb3529b9102f96298011b"
+    },
+    {
+      "path": "codearts_proof/15-集成开发环境最终检查.png",
+      "bytes": 111625,
+      "sha256": "b9d37dceb2d0d5c595aa7357bad6f4dbf64ec1de190b86a48dd68a09e1a3f846"
+    },
+    {
+      "path": "codearts_proof/16-最终退出码.png",
+      "bytes": 92343,
+      "sha256": "5f62835a1bbb915fa50c0b9111465f8ae02f98b0a9dbf89c2958f7d49de9d487"
+    },
+    {
+      "path": "codearts_proof/17-完整提示词.png",
+      "bytes": 178580,
+      "sha256": "631fe197d42d9ada7c96855642396b281dbf72ecdac19a5ed0e77c8745ff32ed"
+    },
+    {
+      "path": "codearts_proof/18-搜索分析.png",
+      "bytes": 178580,
+      "sha256": "631fe197d42d9ada7c96855642396b281dbf72ecdac19a5ed0e77c8745ff32ed"
+    },
+    {
+      "path": "codearts_proof/19-校验分析.png",
+      "bytes": 182695,
+      "sha256": "82e398fc6c8989c61f63b37541c251c0ca24c8dec8a798345c19d9092270343a"
+    },
+    {
+      "path": "codearts_proof/19补充-校验与取消分析.png",
+      "bytes": 177531,
+      "sha256": "99939160cb281f177a72d583e47885d3599204a6d3ceaae955a94d8b177203f4"
+    },
+    {
+      "path": "codearts_proof/20-取消与保存分析.png",
+      "bytes": 177531,
+      "sha256": "99939160cb281f177a72d583e47885d3599204a6d3ceaae955a94d8b177203f4"
+    },
+    {
+      "path": "codearts_proof/21-边界分析.png",
+      "bytes": 180828,
+      "sha256": "9b24d2f9ec9d92f8d44b82fcbffe37117917a1ebe2bd76c4d6a521cf62a55f89"
+    },
+    {
+      "path": "codearts_proof/22-设计分析.png",
+      "bytes": 160600,
+      "sha256": "dabd1e008ff60361264fc3f976f31c02b6127c85803fff69298dc3cae086222f"
+    },
+    {
+      "path": "codearts_proof/23-完整审查提示词.png",
+      "bytes": 167275,
+      "sha256": "ced835b3ff86bbcce36fce20b4403fed2b4cbb15edb3c4d7850d3c99dca9f51f"
+    },
+    {
+      "path": "codearts_proof/24-完整审查回复第一部分.png",
+      "bytes": 167275,
+      "sha256": "ced835b3ff86bbcce36fce20b4403fed2b4cbb15edb3c4d7850d3c99dca9f51f"
+    },
+    {
+      "path": "codearts_proof/25-完整审查回复第二部分.png",
+      "bytes": 149082,
+      "sha256": "dc3c4b305f353ce8fe9ad08f62783c936bc8e5115912f9909bf6c84e99d75316"
+    },
+    {
+      "path": "codearts_proof/26-完整故障排查.png",
+      "bytes": 149347,
+      "sha256": "8cb247cb425732d1871bfc5b63aafdafc3f377d8c235c671cb0be4aad3d935a9"
+    },
+    {
+      "path": "codearts_proof/截图复查记录.json",
+      "bytes": 15168,
+      "sha256": "9db84fafee48390e8651932f53c3cac49cf03286955743289c3f75d232ee35b4"
+    },
+    {
+      "path": "codearts_proof/提交检查脚本-初始版.js",
+      "bytes": 9414,
+      "sha256": "47183065a78fbb4508806c5e5b7a36f2b7f7bbe7b86cdebd7144a73dfa11c917"
+    },
+    {
+      "path": "codearts_proof/提交检查脚本-修订版.js",
+      "bytes": 12898,
+      "sha256": "cf3b575d0895db5986fdbe92b8201ffba0289707720108a4844136463e32861c"
+    },
+    {
+      "path": "codearts_proof/提交检查脚本-最终版.js",
+      "bytes": 12881,
+      "sha256": "29015bdfbfeb86dfa15c76785947edf83e53d1aaddf0b4819000e91d9d465c9b"
+    },
+    {
+      "path": "codearts_proof/证据索引.md",
+      "bytes": 7615,
+      "sha256": "9cf39d9d82097d9f4a8dbca82d9d17947b34907b9e980373232ebc63d639f5db"
+    },
+    {
+      "path": "ppt/商职星途作品介绍.pptx",
+      "bytes": 2582608,
+      "sha256": "c380b337824bdf9fc6a9b6f9759ca420a0065d8ee27f86d4f47562a4d9e4cd21"
+    },
+    {
+      "path": "project/js/app.js",
+      "bytes": 131296,
+      "sha256": "bd03bf30b61d73bb40d301352eed244cf12a48f725d4cbb9028b7e5c7f516bcb"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2025,
+      "sha256": "5f28f0568d651d3f7be572d6a1dd3683b9cc8822427e2da60e1227d90440ffb5"
+    },
+    {
+      "path": "readme/环境检查.cmd",
+      "bytes": 413,
+      "sha256": "82e87611f642fdeb4ec9895231c03306b06c65a33e956b6c926997404f97d9f1"
+    },
+    {
+      "path": "readme/来源索引.md",
+      "bytes": 3207,
+      "sha256": "4110d53c1c602d8430d94de0df3443c5cbd81a6eb90cf612ff9247c4976cff5c"
+    },
+    {
+      "path": "readme/码道应用总结.md",
+      "bytes": 1508,
+      "sha256": "c3c1c32e20a67a248f2997c066abe74f603c248392124e7212f3e46837c73ab7"
+    },
+    {
+      "path": "readme/视频制作资料/录制说明.md",
+      "bytes": 1036,
+      "sha256": "c97033e279f0ade906ad1c96bd58608c5930bdbb3fb91de28a89ff801fbab8ae"
+    },
+    {
+      "path": "readme/视频制作资料/旁白稿.md",
+      "bytes": 2249,
+      "sha256": "7cbe9773c192f98ebfbc08bdd7facf9794eecb1052b2f53215cc8c1187cf13c2"
+    },
+    {
+      "path": "readme/视频制作资料/中文字幕.srt",
+      "bytes": 3868,
+      "sha256": "efceecc72549392dbaf3dd3c00cc08cbce8829e3c16d61c7661e13e81a24716b"
+    },
+    {
+      "path": "readme/验收记录.md",
+      "bytes": 8143,
+      "sha256": "e6131ffaea5a83ffca2adeb3b2b800d3e27efc64ab8a3d3263f02a5f188b653e"
+    },
+    {
+      "path": "readme/一键启动.cmd",
+      "bytes": 87,
+      "sha256": "a8c101e08cc09887034af3b49678a521d26ccfda963232a81010e7dd986dcbdd"
+    },
+    {
+      "path": "readme/运行与部署说明.md",
+      "bytes": 3934,
+      "sha256": "3dc571909a6da9ab97cda78ba312db166e06214191b0cc57920da8034467307c"
+    },
+    {
+      "path": "readme/组件与素材说明.md",
+      "bytes": 2467,
+      "sha256": "eb51a2e87f1eea32e6e1ce08395f7b50899aae3754a55b8a28382b34b2d5459b"
+    },
+    {
+      "path": "readme/最终检查日志.txt",
+      "bytes": 1203,
+      "sha256": "c603c135be04169eea62bb9ba8f19e03406957ae19fcd05a3d63bc75e8f8a523"
+    },
+    {
+      "path": "readme/check-submission.js",
+      "bytes": 12881,
+      "sha256": "29015bdfbfeb86dfa15c76785947edf83e53d1aaddf0b4819000e91d9d465c9b"
+    },
+    {
+      "path": "readme/HTTP预览.cmd",
+      "bytes": 770,
+      "sha256": "ab061521c115aeb6a640de5ed88f6a2226d327d5281d801165a74656b2093deb"
+    },
+    {
+      "path": "video/商职星途功能演示.mp4",
+      "bytes": 10438246,
+      "sha256": "42a7d3afdb3ae03990489dbb0bf9ebea1bc1745cc3e5e2b1756ea9be024469ff"
+    },
+    {
+      "path": "video/演示成长备份.json",
+      "bytes": 10643,
+      "sha256": "16e358cf89538808fccd20ab0fadbd415f72df2cf9a91884748e35e0ed66d8f6"
+    }
+  ],
+  "standaloneSubmissionCheck": {
+    "checkedAtUtc": "2026-10-10T14:25:18.018Z",
+    "exitCode": 0,
+    "passedItems": 18,
+    "warnings": 0,
+    "failures": 0,
+    "log": "readme/最终检查日志.txt"
+  },
+  "screenshotReview": {
+    "reviewedAtUtc": "2026-10-10T13:24:13.630Z",
+    "imageCount": 28,
+    "replacedCount": 22,
+    "retainedCount": 6,
+    "codexOverlay": false,
+    "mousePointer": false,
+    "blueHalo": false,
+    "newAiRequests": 0,
+    "record": "codearts_proof/截图复查记录.json"
+  },
+  "deliveryRevisionAtUtc": "2026-10-10T13:37:01.206Z",
+  "presentation": {
+    "format": "PPTX",
+    "slides": 24,
+    "designWidth": 1280,
+    "designHeight": 720,
+    "aspectRatio": "16:9",
+    "font": "Microsoft YaHei",
+    "editableText": true,
+    "editableShapes": true,
+    "embeddedScreenshots": true,
+    "packageIntegrity": "通过",
+    "geometryAndFontPolicy": "通过",
+    "numberBadgeAlignment": {
+      "slide": 4,
+      "numbers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "horizontal": "居中",
+      "vertical": "居中"
+    },
+    "allFinalSlidesImportedAndRendered": true,
+    "originalNinthSlideRetained": true,
+    "originalNinthSlideNewPosition": 23,
+    "originalTenthSlideRemoved": true
+  },
+  "presentationConvertedAtUtc": "2026-10-10T13:55:43.745Z",
+  "presentationExpandedAtUtc": "2026-10-10T14:10:59.250Z",
+  "manifestScope": "根README、ppt/video/codearts_proof/readme交付文件及本次修改的project/js/app.js；排除隐藏缓存及验收结果.json自身，避免自引用校验值",
+  "submissionRecheckedAtUtc": "2026-10-10T14:25:18.018Z"
+}

@@ -2,6 +2,10 @@
 
 面向在校生、校友与作品浏览者的校庆专题，以“回望校史—走近校友—传承成长—行动献礼”串联内容。保留面向计算机与信息类零基础新生的完整学习指南。无需安装依赖，直接打开 `project/index.html` 即可使用。
 
+## 最终参赛交付
+
+2026年10月10日完成的 [V3完整提交ZIP](压缩包/商职星途九秩校庆%20Amarantos%20V3%2013969002793.zip) 包含介绍PPT、工程源码、演示视频、码道证明与运行文档，16.30 MiB，解压后随包检查18项全部通过。PPT及文档说明本人亲手使用华为云码道完成网站核心功能开发。修订材料与 [最终检查报告](artifacts/final-submit-check-2026-10-10/最终检查报告.md) 保存在 `artifacts/final-submit-check-2026-10-10/`，尚未上传比赛平台。
+
 ## 内容
 
 - 红金校庆首页与原创90周年纪念主视觉；保留原始校徽、人物照片和星途插画。
@@ -90,6 +94,8 @@ python tests/practice.test.py
 ```
 
 可选浏览器回归使用 Playwright，Windows 默认 Microsoft Edge，Linux/macOS 默认 Chromium：`node tests/browser.test.js`；校史标题动画可单独运行 `node tests/history-title.test.js`，全部浏览器回归可运行 `node tools/dev.js browser`。若 Playwright 不在默认模块路径，可安装到 `.codex-tools/` 或通过 `NODE_PATH` 指向已有依赖目录；运行网站不依赖它。这些测试使用隔离的无界面浏览器和本机临时端口，不操作日常浏览器数据。
+
+提交前专项回归：`node tests/submission-regression.test.js`，已纳入 `node tools/dev.js browser`。覆盖 HTTP/file、390px/1440px 的存储写入恢复冲突、中文大备份下载与恢复、无效/超限文件、读取乱序、页面与表单切换取消；证据写入 `artifacts/submission-regression/`。Node 回归覆盖自然语言省市、跨专业目标透传及 UTF-8 备份容量，备份保持 v1 格式，共用 32 MiB 上限。学习折叠动画可单独运行 `node tests/method-motion.test.js`。
 
 校史动画回归：`node tests/history-motion.test.js`，覆盖按需拆字、独立播放、键盘来源链接、快速切页和减少动画。性能对比在修改前后分别执行 `node tests/history-motion.test.js --profile before` 与 `node tests/history-motion.test.js --profile after`；使用相同的390px/1440px滚动操作、正常与4倍CPU降速，各重复3次。性能记录、浏览器时间线（gzip压缩JSON）及截图写入 `artifacts/history-motion/`，不要用优化后的代码重新生成修改前基线。
 

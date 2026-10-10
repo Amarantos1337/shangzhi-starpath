@@ -2,6 +2,7 @@
   'use strict';
   const app = window.StarPath;
   const KEY = 'shangzhi-starpath:v1';
+  const BACKUP_MAX_BYTES = 32 * 1024 * 1024;
   const alumniIds = new Set(app.data.alumni.map(person => person.id));
   const routeIds = new Set(app.data.routes.map(route => route.id));
   const empty = () => ({ version: 1, favorites: [], plans: [] });
@@ -168,9 +169,12 @@
   function announce(persisted, external = false) {
     window.dispatchEvent(new CustomEvent('starpath:change', { detail: { persisted, external } }));
   }
-  function save() {
+  function save(replaceExisting = false) {
     if (status === 'damaged' || storageRemoved) return false;
     try {
+      // Session edits must not overwrite changes saved by another page while
+      // writes were unavailable. Only a confirmed backup may replace them.
+      if (!replaceExisting && status === 'session' && localStorage.getItem(KEY) !== savedRaw) return false;
       const raw = JSON.stringify(state);
       localStorage.setItem(KEY, raw);
       savedRaw = raw;
@@ -232,13 +236,14 @@
   }
   app.store = {
     key: KEY,
+    backupMaxBytes: BACKUP_MAX_BYTES,
     get: readState,
     status: () => status,
     damagedRaw: () => damagedRaw,
     uid, progress, update,
     validate,
     parseBackup(text) {
-      if (typeof text !== 'string' || text.length > 1024 * 1024) fail('请选择不超过1 MB的备份文件。');
+      if (typeof text !== 'string' || text.length > BACKUP_MAX_BYTES || new TextEncoder().encode(text).length > BACKUP_MAX_BYTES) fail('请选择不超过32 MiB的备份文件。');
       let value;
       try { value = JSON.parse(text); } catch (_) { fail('文件不是有效的 JSON，现有记录未作更改。'); }
       if (!object(value) || value.app !== 'shangzhi-starpath') fail('这不是商职星途导出的备份文件。');
@@ -250,7 +255,7 @@
       damagedRaw = null;
       storageRemoved = false;
       status = 'session';
-      const persisted = save();
+      const persisted = save(true);
       announce(persisted);
       return persisted;
     },

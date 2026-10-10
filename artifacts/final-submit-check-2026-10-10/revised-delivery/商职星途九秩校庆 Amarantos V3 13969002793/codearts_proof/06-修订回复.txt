@@ -1,0 +1,48 @@
+已修订 readme/check-submission.js。
+修订内容
+1. Markdown 扫描范围：findMarkdownFiles(ROOT, …) 从根目录递归扫描所有 .md，覆盖根 README、video/、codearts_proof/、project/docs/ 等，跳过 .codeartsdoer等缓存目录。
+2. 动态资源检查（新增第 4 项）：用 node:vm 创建仅含 window.StarPath 的 sandbox，依次执行 data.js、learning.js，递归遍历 window.StarPath.data 收集 src/download/preview/href/url 等键的字符串值，过滤本地路径后相对 project/ 校验存在性。不执行 app.js/ai.js/ai-config.js，不联网。
+3. 路径规范化：localPath 增加 trim → 去尖括号 <…> → decodeURIComponent → 去 Markdown 标题（url "title"） → 去 hash/search。
+4. materials HTML/CSS 扫描：checkLocalAssets 新增递归扫描 project/materials/ 下所有 .html/.css，提取 href/src/url() 相对文件所在目录校验。
+5. 脚本自身语法检查：第 2 项末尾对 __filename 执行 node --check。
+6. AI 配置安全：ai-config.js 仅 node --check，不 readFileSync；vm 上下文不加载 ai-config.js，报告不输出其内容。
+首轮 6 项失败的正确处理
+初版退出码 1 如实报告了 4 份编写中的说明链接缺失 + PDF/MP4 未完成，这是脚本的正确行为——职责是如实反映交付状态，缺失即失败（退出码 1）。材料补齐后再次运行即可通过（退出码 0）。退出码 0/1 语义保持不变。
+产物汇总：
+￼
+1个文件已更改
+￼
++132
+-47
+预估积分消耗: 60.21
+20:34
+
+
+
+
+￼
+￼
+变更文件（1）
+
+全部拒绝
+全部接受
+/ 调用快捷指令, # 添加上下文
+
+￼
+智能体
+
+GLM-5.2
+
+￼
+
+
+￼
+122.01
+·
+￼
+52.6%
+内容由AI生成
+￼
+￼
+￼
+```

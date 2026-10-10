@@ -13,25 +13,27 @@ function sharedTabs() {
   const saved = new Map();
   let blocked = false;
   function open() {
+    let writesBlocked = false;
     const listeners = new Map();
     const changes = [];
     const window = {
       addEventListener(type, listener) { listeners.set(type, listener); },
       dispatchEvent(event) { changes.push(event); }
     };
-    const context = vm.createContext({ window,
+    const context = vm.createContext({ window, TextEncoder,
       CustomEvent: class { constructor(type, options) { this.type = type; this.detail = options.detail; } },
       localStorage: {
         getItem(name) { if (blocked) throw new Error('Unavailable'); return saved.get(name) ?? null; },
-        setItem(name, value) { if (blocked) throw new Error('Unavailable'); saved.set(name, value); },
+        setItem(name, value) { if (blocked || writesBlocked) throw new Error('Unavailable'); saved.set(name, value); },
         removeItem(name) { if (blocked) throw new Error('Unavailable'); saved.delete(name); }
       }
     });
     scripts.forEach(script => vm.runInContext(script, context));
     return { store: window.StarPath.store, changes,
+      blockWrites(value = true) { writesBlocked = value; },
       deliver(type = 'storage', event = { key }) { listeners.get(type)(event); } };
   }
-  return { saved, open, block() { blocked = true; } };
+  return { saved, open, block() { blocked = true; }, restore() { blocked = false; } };
 }
 
 test('stale tabs preserve new plans and both favorites without storage-event delivery', () => {
@@ -181,4 +183,55 @@ test('continued write-time conflicts ask for retry without saving the rejected d
   const persisted = JSON.parse(shared.saved.get(key));
   assert.equal(persisted.plans.length, 3);
   assert.deepEqual(persisted.favorites, []);
+});
+
+test('recovered writes keep other tabs data and session edits until an explicit replacement', () => {
+  const shared = sharedTabs();
+  const a = shared.open();
+  const original = a.store.createPlan(null, { title: '原计划' });
+  const b = shared.open();
+  a.blockWrites();
+  assert.equal(a.store.editPlan(original.id, plan => { plan.title = 'A 未持久化的编辑'; }), false);
+  const added = b.store.createPlan(null, { title: 'B 已保存的新计划' });
+  const disk = shared.saved.get(key);
+  a.blockWrites(false);
+  assert.equal(a.store.toggleFavorite('chen-liang'), false);
+  assert.equal(a.store.status(), 'session');
+  assert.equal(shared.saved.get(key), disk);
+  assert.ok(b.store.get().plans.some(plan => plan.id === added.id));
+  const backup = a.store.parseBackup(a.store.exportBackup());
+  assert.equal(backup.plans[0].title, 'A 未持久化的编辑');
+  assert.deepEqual(plain(backup.favorites), ['chen-liang']);
+  assert.equal(a.store.replace(backup), true);
+  assert.equal(a.store.status(), 'persistent');
+  assert.deepEqual(JSON.parse(shared.saved.get(key)), plain(backup));
+});
+
+test('writes recover automatically when the persisted version did not change', () => {
+  const shared = sharedTabs();
+  const a = shared.open();
+  const original = a.store.createPlan(null, { title: '原计划' });
+  a.blockWrites();
+  assert.equal(a.store.editPlan(original.id, plan => { plan.title = '待保存编辑'; }), false);
+  a.blockWrites(false);
+  assert.equal(a.store.toggleFavorite('chen-liang'), true);
+  assert.equal(a.store.status(), 'persistent');
+  const persisted = JSON.parse(shared.saved.get(key));
+  assert.equal(persisted.plans[0].title, '待保存编辑');
+  assert.deepEqual(persisted.favorites, ['chen-liang']);
+});
+
+test('unreadable storage on startup cannot later overwrite existing records', () => {
+  const shared = sharedTabs();
+  const b = shared.open();
+  b.store.createPlan(null, { title: '已有数据' });
+  shared.block();
+  const a = shared.open();
+  const disk = shared.saved.get(key);
+  assert.equal(a.store.createPlan(null, { title: '会话计划' }).persisted, false);
+  // The existing record remains protected even if write access comes back.
+  shared.restore();
+  assert.equal(a.store.toggleFavorite('chen-liang'), false);
+  assert.equal(shared.saved.get(key), disk);
+  assert.equal(a.store.get().plans[0].title, '会话计划');
 });

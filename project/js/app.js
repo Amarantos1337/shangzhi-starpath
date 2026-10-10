@@ -38,6 +38,7 @@
   let modalReturnFocus = null;
   let toastTimer;
   let pendingImport = null;
+  let importRequestId = 0;
   let aiProfile = null;
   let aiDraft = null;
   let aiRequest = null;
@@ -151,7 +152,7 @@
     const status = store.status();
     target.hidden = status === 'persistent';
     if (status === 'damaged') target.innerHTML = '<span>' + icon('info') + '本机旧记录暂时无法读取，原始内容已保留。当前修改仅在本次打开有效，请及时导出备份。</span><button class="text-button" data-action="export-raw">下载原始记录</button>';
-    else if (status === 'session') target.textContent = '当前浏览器无法保存本机记录。离开页面前，请到“我的成长”导出备份；关闭后本次进度可能丢失。';
+    else if (status === 'session') target.textContent = '本页记录暂未保存到本机，浏览器存储可能不可用或已在其他页面变更。离开页面前，请到“我的成长”导出备份；关闭后本次进度可能丢失。';
   }
   function favoriteButton(person) {
     const active = store.get().favorites.includes(person.id);
@@ -837,7 +838,12 @@
     document.body.appendChild(burst);
     setTimeout(() => burst.remove(), 1200);
   }
-  function openModal(title, body) {
+  function cancelImport() {
+    importRequestId++;
+    pendingImport = null;
+  }
+  function openModal(title, body, keepImport = false) {
+    if (!keepImport) cancelImport();
     if (!modal.open) modalReturnFocus = document.activeElement;
     modal.classList.remove('ai-modal');
     modalContent.innerHTML = '<div class="modal-heading"><h2 id="modal-title">' + title + '</h2><button class="icon-button" data-action="close-modal" aria-label="关闭对话框">' + icon('close') + '</button></div>' + body;
@@ -866,7 +872,7 @@
     const requirement = constraints ? '筛选要求：' + readable(constraints.location.name) + (constraints.tier ? ' · ' + readable(constraints.tier) + '（按历史招生层次参考）' : '') + '。' : '';
     const notice = generation.recommendationNotice ? '<p class="inline-note">' + readable(generation.recommendationNotice) + '</p>' : '';
     const recommendations = schools.length || notice ? '<section class="ai-school-recommendations"><h3>推荐了解的院校</h3><p class="ai-school-note">' + requirement + '报考资格、招生专业及考试要求以对应年度官方资料为准。</p>' + notice + schools.map(school => {
-      const location = school.location ? '<p class="ai-school-note">专业培养地点：' + readable(school.location.province) + ' · ' + readable(school.location.city) + ' · ' + readable(school.location.campus) + '。<a href="' + esc(school.location.sourceUrl) + '" target="_blank" rel="noopener noreferrer">查看所在地依据' + icon('upRight') + '</a></p>' : '';
+      const location = school.location ? '<p class="ai-school-note">校区参考：' + readable(school.location.province) + ' · ' + readable(school.location.city) + ' · ' + readable(school.location.campus) + '。硕士培养地点待核实，本科或学校整体校区资料不能单独证明硕士专业培养地点。<a href="' + esc(school.location.sourceUrl) + '" target="_blank" rel="noopener noreferrer">查看所在地依据' + icon('upRight') + '</a></p>' : '';
       const evidence = (school.criteriaEvidence || []).map(item => '<p class="ai-school-note">' + readable(item.criterion) + '匹配依据：' + readable(item.explanation) + ' <a href="' + esc(item.sourceUrl) + '" target="_blank" rel="noopener noreferrer">查看匹配依据' + icon('upRight') + '</a></p>').join('');
       return '<article><h4>' + readable(school.name) + '</h4><p>' + readable(school.reason) + '</p>' + location + evidence + '<a href="' + esc(school.sourceUrl) + '" target="_blank" rel="noopener noreferrer">院校招生参考资料' + icon('upRight') + '</a></article>';
     }).join('') + '</section>' : '';
@@ -1131,7 +1137,7 @@
       wrapper.setAttribute('aria-hidden', 'true');
       wrapper.style.width = computed.width !== 'auto' ? computed.width : computed.fontSize;
       wrapper.style.height = computed.height !== 'auto' ? computed.height : computed.fontSize;
-      wrapper.style.margin = computed.margin;
+      wrapper.style.margin = source.style.margin;
       wrapper.style.fontSize = computed.fontSize;
       wrapper.style.setProperty('--loop-arrow-step-x', direction[0] + '%');
       wrapper.style.setProperty('--loop-arrow-step-y', direction[1] + '%');
@@ -1314,7 +1320,7 @@
         openModal('删除这项任务？', '<form data-form="delete-task" data-plan="' + plan + '" data-task="' + task + '"><p class="modal-description">' + esc(entry.title) + '</p>' + modalError + modalActions('确认删除') + '</form>');
       } else if (action === 'export') { download(store.exportBackup(), '商职星途-成长备份-' + localDate() + '.json'); toast('已发起备份下载，请检查浏览器下载记录'); }
       else if (action === 'export-raw') { download(store.damagedRaw() || '', '商职星途-原始记录.json'); toast('已发起原始记录下载'); }
-      else if (action === 'import') { fileInput.value = ''; fileInput.click(); }
+      else if (action === 'import') { cancelImport(); fileInput.value = ''; fileInput.click(); }
     } catch (error) { errorMessage(error); }
   });
   main.addEventListener('focusin', event => {
@@ -1407,22 +1413,29 @@
   });
   fileInput.addEventListener('change', async () => {
     const file = fileInput.files[0];
+    cancelImport();
+    const requestId = importRequestId;
     if (!file) return;
     try {
-      if (file.size > 1024 * 1024) throw new Error('请选择不超过1 MB的备份文件。');
-      const imported = store.parseBackup(await file.text());
+      if (file.size > store.backupMaxBytes) throw new Error('请选择不超过32 MiB的备份文件。');
+      const text = await file.text();
+      if (requestId !== importRequestId) return;
+      const imported = store.parseBackup(text);
       pendingImport = imported;
       const tasks = imported.plans.flatMap(plan => plan.tasks);
       const existing = store.get();
-      openModal('确认恢复这份备份？', '<form data-form="import"><p class="modal-description">请先核对内容。导入会替换当前的 ' + existing.plans.length + ' 份计划与 ' + existing.favorites.length + ' 位校友收藏，不会与现有记录合并。</p><div class="import-summary"><div><strong>' + imported.plans.length + '</strong><span>成长计划</span></div><div><strong>' + tasks.length + '</strong><span>任务</span></div><div><strong>' + imported.favorites.length + '</strong><span>校友收藏</span></div></div><ul class="import-plan-list">' + imported.plans.map(plan => '<li>' + esc(plan.title) + '<span>' + store.progress(plan).percent + '%</span></li>').join('') + '</ul><p class="inline-note">建议先导出现有记录，确认后再恢复备份。</p>' + modalError + modalActions('确认替换并恢复', '<button type="button" class="text-button" data-action="export">导出现有记录</button>') + '</form>');
-    } catch (error) { pendingImport = null; toast(error.message || '无法读取文件，现有记录未作更改。'); }
-    finally { fileInput.value = ''; }
+      openModal('确认恢复这份备份？', '<form data-form="import"><p class="modal-description">请先核对内容。导入会替换当前的 ' + existing.plans.length + ' 份计划与 ' + existing.favorites.length + ' 位校友收藏，不会与现有记录合并。</p><div class="import-summary"><div><strong>' + imported.plans.length + '</strong><span>成长计划</span></div><div><strong>' + tasks.length + '</strong><span>任务</span></div><div><strong>' + imported.favorites.length + '</strong><span>校友收藏</span></div></div><ul class="import-plan-list">' + imported.plans.map(plan => '<li>' + esc(plan.title) + '<span>' + store.progress(plan).percent + '%</span></li>').join('') + '</ul><p class="inline-note">建议先导出现有记录，确认后再恢复备份。</p>' + modalError + modalActions('确认替换并恢复', '<button type="button" class="text-button" data-action="export">导出现有记录</button>') + '</form>', true);
+    } catch (error) {
+      if (requestId !== importRequestId) return;
+      pendingImport = null;
+      toast(error.message || '无法读取文件，现有记录未作更改。');
+    } finally { if (requestId === importRequestId) fileInput.value = ''; }
   });
   modal.addEventListener('close', () => {
     resetAi();
     modal.classList.remove('ai-modal');
     document.body.classList.remove('modal-open');
-    pendingImport = null;
+    cancelImport();
     if (modalReturnFocus && modalReturnFocus.isConnected) modalReturnFocus.focus({ preventScroll: true });
   });
   modal.addEventListener('click', event => { if (event.target === modal) { const rect = modal.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) modal.close(); } });
@@ -1449,8 +1462,8 @@
       }
     } else refreshFavorites();
   });
-  modal.addEventListener('cancel', resetAi);
-  window.addEventListener('hashchange', () => { resetAi(); render({ routeChange: true }); });
+  modal.addEventListener('cancel', () => { cancelImport(); resetAi(); });
+  window.addEventListener('hashchange', () => { cancelImport(); resetAi(); render({ routeChange: true }); });
   window.addEventListener('resize', () => { clearAlumniTransition(true); clearReadingAnimations(); });
   window.addEventListener('scroll', () => {
     if (alumniTransition && (Math.abs(window.scrollX - alumniTransition.scrollX) > 1 || Math.abs(window.scrollY - alumniTransition.scrollY) > 1)) clearAlumniTransition(true);

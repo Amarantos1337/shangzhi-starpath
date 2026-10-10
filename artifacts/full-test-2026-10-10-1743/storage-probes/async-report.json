@@ -1,0 +1,29 @@
+{
+  "results": [
+    {
+      "case": "double_click_create_submit",
+      "planCount": 1,
+      "dialogOpen": false
+    },
+    {
+      "case": "older_invalid_read_clears_newer_valid_pending_import",
+      "previewBefore": "第二次选择的有效备份0%",
+      "modalError": "没有可导入的数据，请重新选择文件。",
+      "dialogOpen": true,
+      "actualTitle": "快速提交计划"
+    },
+    {
+      "case": "delayed_import_overwrites_unrelated_open_form",
+      "currentForm": "import",
+      "unsavedCreateFormExists": 0,
+      "storedPlanCount": 1
+    },
+    {
+      "case": "delayed_import_reappears_after_route_change",
+      "hash": "#/about",
+      "dialogOpen": true,
+      "currentForm": "import"
+    }
+  ],
+  "errors": []
+}

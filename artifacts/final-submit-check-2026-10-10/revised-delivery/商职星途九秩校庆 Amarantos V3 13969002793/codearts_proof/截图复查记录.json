@@ -1,0 +1,404 @@
+{
+  "reviewedAtUtc": "2026-10-10T13:24:13.630Z",
+  "timeZone": "UTC+08:00",
+  "imageCount": 28,
+  "replacedCount": 22,
+  "retainedCount": 6,
+  "newAiRequests": 0,
+  "method": "查看同一码道IDE的既有真实对话、已保存差异与原始日志；使用窗口截图，移开鼠标后复查。未涂抹、擦除、合成或改写截图。",
+  "historicalBoundary": "补截展示原有操作的完成记录，不冒充过去执行中的即时画面；操作时间与补截保存时间分别记录。",
+  "items": [
+    {
+      "file": "01-集成开发环境提示词.png",
+      "action": "从码道原生界面补截并替换",
+      "hadCodexOverlay": true,
+      "hadMousePointerOrBlueHalo": true,
+      "savedAtUtc": "2026-10-10T13:12:04.536Z",
+      "oldSha256": "42a75ee325a60df28fb7efe95a6546dc21ae3cbe71602a9731cc24e955fb9b6c",
+      "sha256": "631fe197d42d9ada7c96855642396b281dbf72ecdac19a5ed0e77c8745ff32ed",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "02-分析进度.png",
+      "action": "从码道原生界面补截并替换",
+      "hadCodexOverlay": true,
+      "hadMousePointerOrBlueHalo": true,
+      "savedAtUtc": "2026-10-10T13:12:04.537Z",
+      "oldSha256": "f00670ab9fc1a34bf42ef50b0b1759ef372a63d4259fad6fd30c8be5cd614b1f",
+      "sha256": "631fe197d42d9ada7c96855642396b281dbf72ecdac19a5ed0e77c8745ff32ed",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "03-代码生成.png",
+      "action": "检查通过，保留原图",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": false,
+      "savedAtUtc": "2026-10-10T12:22:35.915Z",
+      "oldSha256": "361f5cb2fd82e54f98e3b9548409395dc170ac7aeb636f03eb22c82fad26e2e7",
+      "sha256": "361f5cb2fd82e54f98e3b9548409395dc170ac7aeb636f03eb22c82fad26e2e7",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "04-分析结果.png",
+      "action": "从码道原生界面补截并替换",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": true,
+      "savedAtUtc": "2026-10-10T13:12:04.539Z",
+      "oldSha256": "1426d457486db72dcf640631f799bb4635b769ba018b928c75d918b475187fd5",
+      "sha256": "631fe197d42d9ada7c96855642396b281dbf72ecdac19a5ed0e77c8745ff32ed",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "05-审查提示词.png",
+      "action": "从码道原生界面补截并替换",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": true,
+      "savedAtUtc": "2026-10-10T13:19:45.108Z",
+      "oldSha256": "7043caf924b5fe3f2a45aa7e2b201c3aa7119a72040ca6882da39193210c1d1f",
+      "sha256": "ced835b3ff86bbcce36fce20b4403fed2b4cbb15edb3c4d7850d3c99dca9f51f",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "06-修订生成.png",
+      "action": "从码道原生界面补截并替换",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": true,
+      "savedAtUtc": "2026-10-10T13:20:50.151Z",
+      "oldSha256": "9aaa7e42dc6230e7efa1739caad1d2ea793bbe328776a43c8fcebc3a241591f4",
+      "sha256": "dc3c4b305f353ce8fe9ad08f62783c936bc8e5115912f9909bf6c84e99d75316",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "06-修订结果.png",
+      "action": "从码道原生界面补截并替换",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": true,
+      "savedAtUtc": "2026-10-10T13:20:50.153Z",
+      "oldSha256": "e684851438f90af10d686f77b134bdaa505be462c367d982953b13c6d7bea4e7",
+      "sha256": "dc3c4b305f353ce8fe9ad08f62783c936bc8e5115912f9909bf6c84e99d75316",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "07-控制台概览.png",
+      "action": "检查通过，保留原图",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": false,
+      "savedAtUtc": "2026-10-10T12:32:16.646Z",
+      "oldSha256": "69e9c35b9adfe124b551b47b20eb8bed1ae1c2b6816987fe47033055e32e3ce7",
+      "sha256": "69e9c35b9adfe124b551b47b20eb8bed1ae1c2b6816987fe47033055e32e3ce7",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "08-控制台详情.png",
+      "action": "检查通过，保留原图",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": false,
+      "savedAtUtc": "2026-10-10T12:30:45.244Z",
+      "oldSha256": "1b34d8da3449966b8f279484f13b6929118d1b6870d9e1296ee34fa01b06720b",
+      "sha256": "1b34d8da3449966b8f279484f13b6929118d1b6870d9e1296ee34fa01b06720b",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "11-故障排查提示词.png",
+      "action": "从码道原生界面补截并替换",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": true,
+      "savedAtUtc": "2026-10-10T13:07:47.177Z",
+      "oldSha256": "ec79a1277b8910350e4cb2b1dc467ad5f853c5d55e95e5acf501c2e63c864f68",
+      "sha256": "8cb247cb425732d1871bfc5b63aafdafc3f377d8c235c671cb0be4aad3d935a9",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "12-故障排查代码差异.png",
+      "action": "从码道原生界面补截并替换",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": true,
+      "savedAtUtc": "2026-10-10T13:09:38.102Z",
+      "oldSha256": "da8b3faf787c42051a555f95fa6c8972e6779f913938d8c815e0e14b25986336",
+      "sha256": "87cb2f9c4f676b26b41ce1f8522d6cb3f4ca2fb739401c2facff911b14f5775c",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "12-故障排查结果.png",
+      "action": "从码道原生界面补截并替换",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": true,
+      "savedAtUtc": "2026-10-10T13:07:47.179Z",
+      "oldSha256": "689c580f586511a96bb71b2a9a8aacf10231497e0a8410fae2aaa98f6ec76b08",
+      "sha256": "8cb247cb425732d1871bfc5b63aafdafc3f377d8c235c671cb0be4aad3d935a9",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "13-控制台最终详情.png",
+      "action": "检查通过，保留原图",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": false,
+      "savedAtUtc": "2026-10-10T12:43:16.416Z",
+      "oldSha256": "a6865b01f47876dc556160705e790d54b8c7dfce91c762b8ff7a06604b9df301",
+      "sha256": "a6865b01f47876dc556160705e790d54b8c7dfce91c762b8ff7a06604b9df301",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "13-控制台最终概览.png",
+      "action": "检查通过，保留原图",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": false,
+      "savedAtUtc": "2026-10-10T12:42:25.676Z",
+      "oldSha256": "913689aa462182968c81710844b63f123974933ccf002282614bef255954b4d9",
+      "sha256": "913689aa462182968c81710844b63f123974933ccf002282614bef255954b4d9",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "14-控制台最终详情下半部分.png",
+      "action": "检查通过，保留原图",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": false,
+      "savedAtUtc": "2026-10-10T12:43:37.505Z",
+      "oldSha256": "40184b5e28982316e9dcf2129796f9005e789c4c668fb3529b9102f96298011b",
+      "sha256": "40184b5e28982316e9dcf2129796f9005e789c4c668fb3529b9102f96298011b",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "15-集成开发环境最终检查.png",
+      "action": "从码道原生界面补截并替换",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": true,
+      "savedAtUtc": "2026-10-10T13:08:47.409Z",
+      "oldSha256": "779024d02b05618a4361cbb3086cbeaa953ef2b348998ac8a7b41354a3aa7be1",
+      "sha256": "b9d37dceb2d0d5c595aa7357bad6f4dbf64ec1de190b86a48dd68a09e1a3f846",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "16-最终退出码.png",
+      "action": "从码道原生界面补截并替换",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": true,
+      "savedAtUtc": "2026-10-10T13:08:39.830Z",
+      "oldSha256": "19fc99e5b5ce22a42b3bebda8989d1f0b529160be966ee6268a8ffb05c48bf82",
+      "sha256": "5f62835a1bbb915fa50c0b9111465f8ae02f98b0a9dbf89c2958f7d49de9d487",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "17-完整提示词.png",
+      "action": "从码道原生界面补截并替换",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": true,
+      "savedAtUtc": "2026-10-10T13:12:04.540Z",
+      "oldSha256": "f2198adc59ff6559ac82d6531c51cf147fe8895c6cb3ab8f0ed9378fbdb99cea",
+      "sha256": "631fe197d42d9ada7c96855642396b281dbf72ecdac19a5ed0e77c8745ff32ed",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "18-搜索分析.png",
+      "action": "从码道原生界面补截并替换",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": true,
+      "savedAtUtc": "2026-10-10T13:12:04.541Z",
+      "oldSha256": "6ebc3e73b56c062fd7271eeea8de06ed148ff2132461c8552c8d2c85d7f278eb",
+      "sha256": "631fe197d42d9ada7c96855642396b281dbf72ecdac19a5ed0e77c8745ff32ed",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "19-校验分析.png",
+      "action": "从码道原生界面补截并替换",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": true,
+      "savedAtUtc": "2026-10-10T13:13:09.371Z",
+      "oldSha256": "f9b74d0f86de686b2ac79548ef10d39ac427dacd86e3df45cad44dcdadf54449",
+      "sha256": "82e398fc6c8989c61f63b37541c251c0ca24c8dec8a798345c19d9092270343a",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "19补充-校验与取消分析.png",
+      "action": "从码道原生界面补截并替换",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": true,
+      "savedAtUtc": "2026-10-10T13:14:28.097Z",
+      "oldSha256": "19977950102b204865f0f9774f86392b65b90557892cb1cb7ce1c5ebb3683bdc",
+      "sha256": "99939160cb281f177a72d583e47885d3599204a6d3ceaae955a94d8b177203f4",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "20-取消与保存分析.png",
+      "action": "从码道原生界面补截并替换",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": true,
+      "savedAtUtc": "2026-10-10T13:14:28.099Z",
+      "oldSha256": "1008eef88044690e3bd42253ae6c784dc1555942c3043d88434858ef8392b3e0",
+      "sha256": "99939160cb281f177a72d583e47885d3599204a6d3ceaae955a94d8b177203f4",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "21-边界分析.png",
+      "action": "从码道原生界面补截并替换",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": true,
+      "savedAtUtc": "2026-10-10T13:16:07.632Z",
+      "oldSha256": "d1849be7870b216afda2802d74a85dd047ea2e6a81a826e4092bb7be292b2bc2",
+      "sha256": "9b24d2f9ec9d92f8d44b82fcbffe37117917a1ebe2bd76c4d6a521cf62a55f89",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "22-设计分析.png",
+      "action": "从码道原生界面补截并替换",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": true,
+      "savedAtUtc": "2026-10-10T13:17:11.585Z",
+      "oldSha256": "c8aa100f2f5b37cef8880bf3a929765e715eb334325009da20315617c8758530",
+      "sha256": "dabd1e008ff60361264fc3f976f31c02b6127c85803fff69298dc3cae086222f",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "23-完整审查提示词.png",
+      "action": "从码道原生界面补截并替换",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": true,
+      "savedAtUtc": "2026-10-10T13:19:45.109Z",
+      "oldSha256": "f7cc9e6a3b572fecd2ff1274f07147123a81fd5ce6cdb86b13081fad2a7ed102",
+      "sha256": "ced835b3ff86bbcce36fce20b4403fed2b4cbb15edb3c4d7850d3c99dca9f51f",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "24-完整审查回复第一部分.png",
+      "action": "从码道原生界面补截并替换",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": true,
+      "savedAtUtc": "2026-10-10T13:19:45.110Z",
+      "oldSha256": "97a070bf439fdbd2bbd334456d95d2811a46974f1fdc29f653777d1e55710e81",
+      "sha256": "ced835b3ff86bbcce36fce20b4403fed2b4cbb15edb3c4d7850d3c99dca9f51f",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "25-完整审查回复第二部分.png",
+      "action": "从码道原生界面补截并替换",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": true,
+      "savedAtUtc": "2026-10-10T13:20:50.155Z",
+      "oldSha256": "ed109dfb1f37412efcdb782fd179a91c9d4afdaa032ea3df271675f8dfdeb866",
+      "sha256": "dc3c4b305f353ce8fe9ad08f62783c936bc8e5115912f9909bf6c84e99d75316",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    },
+    {
+      "file": "26-完整故障排查.png",
+      "action": "从码道原生界面补截并替换",
+      "hadCodexOverlay": false,
+      "hadMousePointerOrBlueHalo": true,
+      "savedAtUtc": "2026-10-10T13:07:47.180Z",
+      "oldSha256": "2c13d2f0e39e22e8377a2d6174869ccf47aea3654fd6d91e464154d4f17ed967",
+      "sha256": "8cb247cb425732d1871bfc5b63aafdafc3f377d8c235c671cb0be4aad3d935a9",
+      "visualReview": {
+        "codexOverlay": false,
+        "mousePointer": false,
+        "blueHalo": false
+      }
+    }
+  ]
+}

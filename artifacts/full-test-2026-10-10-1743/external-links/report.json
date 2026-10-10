@@ -1,0 +1,434 @@
+{
+  "checkedAt": "2026-10-10T09:50:24.790Z",
+  "scope": "Current data.js and learning.js unique external url/sourceUrl values. Header reachability only; no body/content accuracy audit; no AI config read and no paid API.",
+  "classification": "403/5xx/timeouts/DNS failures are unable-to-verify. 404/410 must be reproduced by another method before being classified as broken.",
+  "summary": {
+    "uniqueLinks": 21,
+    "references": 48,
+    "reachable": 11,
+    "unableToVerify": 10,
+    "possibleBroken": 0,
+    "verifiedBroken": 0,
+    "secondMethodChecks": 10
+  },
+  "results": [
+    {
+      "url": "https://www.sict.edu.cn/uploads/2024/0731/17224061394c37011e47e39c1f.pdf",
+      "titles": [
+        "学校官方公开资料·学校概况（PDF）"
+      ],
+      "references": [
+        "data.anniversary.source.url",
+        "data.anniversary.history.0.source.url"
+      ],
+      "method": "HTTP GET (Node fetch)",
+      "status": 200,
+      "finalUrl": "https://www.sict.edu.cn/uploads/2024/0731/17224061394c37011e47e39c1f.pdf",
+      "contentType": "application/pdf",
+      "redirects": [],
+      "elapsedMs": 1054,
+      "result": "reachable"
+    },
+    {
+      "url": "https://shandong-chorography.org/database/d00/section/1/article/126/",
+      "titles": [
+        "《山东年鉴1987》·职业技术教育·山东省商业学校"
+      ],
+      "references": [
+        "data.anniversary.history.1.source.url",
+        "data.anniversary.history.2.source.url"
+      ],
+      "method": "HTTP GET (Node fetch)",
+      "status": 200,
+      "finalUrl": "https://shandong-chorography.org/database/d00/section/1/article/126/",
+      "contentType": "text/html",
+      "redirects": [],
+      "elapsedMs": 931,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.moe.gov.cn/srcsite/A03/s7050/199903/t19990312_162105.html",
+      "titles": [
+        "教育部·关于同意建立山东商业职业技术学院的通知"
+      ],
+      "references": [
+        "data.anniversary.history.3.source.url"
+      ],
+      "method": "HTTP GET (Node fetch)",
+      "finalUrl": "https://www.moe.gov.cn/srcsite/A03/s7050/199903/t19990312_162105.html",
+      "redirects": [],
+      "elapsedMs": 173,
+      "result": "unable-to-verify",
+      "error": "TypeError",
+      "errorCode": "ECONNRESET",
+      "secondMethod": {
+        "method": "web.open",
+        "result": "unable-to-verify",
+        "detail": "web tool reported redirect loop"
+      }
+    },
+    {
+      "url": "https://www.moe.gov.cn/jyb_xxgk/gk_gbgg/moe_0/moe_7/moe_16/tnull_137.html",
+      "titles": [
+        "教育部·第二批示范性职业技术学院建设单位通知"
+      ],
+      "references": [
+        "data.anniversary.history.4.source.url"
+      ],
+      "method": "HTTP GET (Node fetch)",
+      "finalUrl": "https://www.moe.gov.cn/jyb_xxgk/gk_gbgg/moe_0/moe_7/moe_16/tnull_137.html",
+      "redirects": [],
+      "elapsedMs": 173,
+      "result": "unable-to-verify",
+      "error": "TypeError",
+      "errorCode": "ECONNRESET",
+      "secondMethod": {
+        "method": "web.open",
+        "result": "unable-to-verify",
+        "detail": "web tool reported redirect loop"
+      }
+    },
+    {
+      "url": "https://www.moe.gov.cn/srcsite/A07/moe_737/s3876_qt/200710/t20071013_109726.html",
+      "titles": [
+        "教育部、财政部·2007年度国家示范性高职建设单位通知"
+      ],
+      "references": [
+        "data.anniversary.history.5.source.url"
+      ],
+      "method": "HTTP GET (Node fetch)",
+      "finalUrl": "https://www.moe.gov.cn/srcsite/A07/moe_737/s3876_qt/200710/t20071013_109726.html",
+      "redirects": [],
+      "elapsedMs": 158,
+      "result": "unable-to-verify",
+      "error": "TypeError",
+      "errorCode": "ECONNRESET",
+      "secondMethod": {
+        "method": "web.open",
+        "result": "unable-to-verify",
+        "detail": "web tool reported timeout"
+      }
+    },
+    {
+      "url": "https://epaper.qlwb.com.cn/images/2011-07/25/T22/QT2225K.pdf",
+      "titles": [
+        "《齐鲁晚报》·山东商业职业技术学院招生访谈（PDF）"
+      ],
+      "references": [
+        "data.anniversary.history.6.source.url"
+      ],
+      "method": "HTTP GET (Node fetch)",
+      "finalUrl": "https://epaper.qlwb.com.cn/images/2011-07/25/T22/QT2225K.pdf",
+      "redirects": [],
+      "elapsedMs": 10000,
+      "result": "unable-to-verify",
+      "error": "TimeoutError",
+      "errorCode": null,
+      "secondMethod": {
+        "method": "web.open",
+        "result": "unable-to-verify",
+        "detail": "web tool reported cache miss"
+      }
+    },
+    {
+      "url": "https://www.lushang.com.cn/xwzx/jtxw/2019/1229/9987.html",
+      "titles": [
+        "鲁商集团·通报表彰山东商院、青岛酒店管理职院"
+      ],
+      "references": [
+        "data.anniversary.history.7.source.url"
+      ],
+      "method": "HTTP GET (Node fetch)",
+      "status": 412,
+      "finalUrl": "https://www.lushang.com.cn/xwzx/jtxw/2019/1229/9987.html",
+      "contentType": "text/html; charset=utf-8",
+      "redirects": [],
+      "elapsedMs": 1744,
+      "result": "unable-to-verify",
+      "secondMethod": {
+        "method": "web.open",
+        "result": "unable-to-verify",
+        "detail": "web tool reported cache miss"
+      }
+    },
+    {
+      "url": "https://www.moe.gov.cn/srcsite/A03/s181/202606/t20260616_1440886.html",
+      "titles": [
+        "教育部·关于同意设置山东商业职业技术大学的函"
+      ],
+      "references": [
+        "data.anniversary.history.8.source.url"
+      ],
+      "method": "HTTP GET (Node fetch)",
+      "finalUrl": "https://www.moe.gov.cn/srcsite/A03/s181/202606/t20260616_1440886.html",
+      "redirects": [],
+      "elapsedMs": 151,
+      "result": "unable-to-verify",
+      "error": "TypeError",
+      "errorCode": "ECONNRESET",
+      "secondMethod": {
+        "method": "web.open",
+        "result": "unable-to-verify",
+        "detail": "web tool reported timeout"
+      }
+    },
+    {
+      "url": "https://www.sict.edu.cn/jg_yjs/xstd/xsfc/2024/0508/43823.html",
+      "titles": [
+        "大鹏展翅，梦想起飞，职业教育点亮人生——优秀毕业生王宗宇"
+      ],
+      "references": [
+        "data.alumni.0.photo.source.url",
+        "data.alumni.0.sources.1.url"
+      ],
+      "method": "HTTP GET (Node fetch)",
+      "status": 412,
+      "finalUrl": "https://www.sict.edu.cn/jg_yjs/xstd/xsfc/2024/0508/43823.html",
+      "contentType": "text/html; charset=utf-8",
+      "redirects": [],
+      "elapsedMs": 793,
+      "result": "unable-to-verify",
+      "secondMethod": {
+        "method": "web.open",
+        "result": "unable-to-verify",
+        "detail": "web tool could not access URL"
+      }
+    },
+    {
+      "url": "https://www.sict.edu.cn/xw/xwyb/2022/1027/34069.html",
+      "titles": [
+        "云计算技术与应用产业学院举行“优秀校友进校园”讲座活动"
+      ],
+      "references": [
+        "data.alumni.0.timeline.0.source.url",
+        "data.alumni.0.timeline.1.source.url",
+        "data.alumni.0.timeline.2.source.url",
+        "data.alumni.0.timeline.3.source.url",
+        "data.alumni.0.timeline.4.source.url",
+        "data.alumni.0.source.url",
+        "data.alumni.0.sources.0.url",
+        "data.alumni.1.photo.source.url",
+        "data.alumni.1.timeline.0.source.url",
+        "data.alumni.1.timeline.1.source.url",
+        "data.alumni.1.timeline.2.source.url",
+        "data.alumni.1.source.url",
+        "data.alumni.1.sources.0.url"
+      ],
+      "method": "HTTP GET (Node fetch)",
+      "status": 412,
+      "finalUrl": "https://www.sict.edu.cn/xw/xwyb/2022/1027/34069.html",
+      "contentType": "text/html; charset=utf-8",
+      "redirects": [],
+      "elapsedMs": 912,
+      "result": "unable-to-verify",
+      "secondMethod": {
+        "method": "web.open",
+        "result": "unable-to-verify",
+        "detail": "web tool could not access URL"
+      }
+    },
+    {
+      "url": "https://biai.bjut.edu.cn/info/1065/1140.htm",
+      "titles": [
+        "王功明——北京工业大学北京人工智能研究院教师主页"
+      ],
+      "references": [
+        "data.alumni.2.photo.source.url",
+        "data.alumni.2.timeline.1.source.url",
+        "data.alumni.2.timeline.2.source.url",
+        "data.alumni.2.sources.1.url"
+      ],
+      "method": "HTTP GET (Node fetch)",
+      "status": 200,
+      "finalUrl": "https://biai.bjut.edu.cn/info/1065/1140.htm",
+      "contentType": "text/html",
+      "redirects": [],
+      "elapsedMs": 2891,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.sict.edu.cn/xw/xwyb/2025/1018/52598.html",
+      "titles": [
+        "应用电子系组织开展“工匠大讲堂”第二十六讲"
+      ],
+      "references": [
+        "data.alumni.2.timeline.0.source.url",
+        "data.alumni.2.timeline.3.source.url",
+        "data.alumni.2.timeline.4.source.url",
+        "data.alumni.2.source.url",
+        "data.alumni.2.sources.0.url"
+      ],
+      "method": "HTTP GET (Node fetch)",
+      "status": 412,
+      "finalUrl": "https://www.sict.edu.cn/xw/xwyb/2025/1018/52598.html",
+      "contentType": "text/html; charset=utf-8",
+      "redirects": [],
+      "elapsedMs": 399,
+      "result": "unable-to-verify",
+      "secondMethod": {
+        "method": "web.open",
+        "result": "unable-to-verify",
+        "detail": "web tool could not access URL"
+      }
+    },
+    {
+      "url": "https://ie.sdua.edu.cn/2024/0923/c22279a272379/page.htm",
+      "titles": [
+        "中兴协力陈亮博士应邀请到我校做学术报告"
+      ],
+      "references": [
+        "data.alumni.3.photo.source.url",
+        "data.alumni.3.sources.1.url"
+      ],
+      "method": "HTTP GET (Node fetch)",
+      "status": 200,
+      "finalUrl": "https://ie.sdua.edu.cn/2024/0923/c22279a272379/page.htm",
+      "contentType": "text/html",
+      "redirects": [],
+      "elapsedMs": 526,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.sict.edu.cn/xw/xwyb/2024/0409/43218.html",
+      "titles": [
+        "信创与网络安全产业学院举办“信创大讲堂”活动"
+      ],
+      "references": [
+        "data.alumni.3.timeline.0.source.url",
+        "data.alumni.3.timeline.1.source.url",
+        "data.alumni.3.timeline.2.source.url",
+        "data.alumni.3.source.url",
+        "data.alumni.3.sources.0.url"
+      ],
+      "method": "HTTP GET (Node fetch)",
+      "status": 412,
+      "finalUrl": "https://www.sict.edu.cn/xw/xwyb/2024/0409/43218.html",
+      "contentType": "text/html; charset=utf-8",
+      "redirects": [],
+      "elapsedMs": 334,
+      "result": "unable-to-verify",
+      "secondMethod": {
+        "method": "web.open",
+        "result": "unable-to-verify",
+        "detail": "web tool could not access URL"
+      }
+    },
+    {
+      "url": "https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Getting_started/Your_first_website",
+      "titles": [
+        "MDN：Web 入门"
+      ],
+      "references": [
+        "data.resources.0.url"
+      ],
+      "method": "HTTP GET (Node fetch)",
+      "status": 200,
+      "finalUrl": "https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Getting_started/Your_first_website",
+      "contentType": "text/html",
+      "redirects": [],
+      "elapsedMs": 321,
+      "result": "reachable"
+    },
+    {
+      "url": "https://docs.python.org/zh-cn/3/tutorial/",
+      "titles": [
+        "Python 官方教程"
+      ],
+      "references": [
+        "data.resources.1.url"
+      ],
+      "method": "HTTP GET (Node fetch)",
+      "status": 200,
+      "finalUrl": "https://docs.python.org/zh-cn/3/tutorial/",
+      "contentType": "text/html",
+      "redirects": [],
+      "elapsedMs": 365,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.python.org/downloads/windows/",
+      "titles": [
+        "Python 官方下载"
+      ],
+      "references": [
+        "data.resources.2.url"
+      ],
+      "method": "HTTP GET (Node fetch)",
+      "status": 200,
+      "finalUrl": "https://www.python.org/downloads/windows/",
+      "contentType": "text/html; charset=utf-8",
+      "redirects": [],
+      "elapsedMs": 299,
+      "result": "reachable"
+    },
+    {
+      "url": "https://docs.python.org/zh-cn/3/library/csv.html",
+      "titles": [
+        "Python：CSV 文件读写"
+      ],
+      "references": [
+        "data.resources.3.url"
+      ],
+      "method": "HTTP GET (Node fetch)",
+      "status": 200,
+      "finalUrl": "https://docs.python.org/zh-cn/3/library/csv.html",
+      "contentType": "text/html",
+      "redirects": [],
+      "elapsedMs": 1037,
+      "result": "reachable"
+    },
+    {
+      "url": "https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server",
+      "titles": [
+        "MDN：设置本地测试服务器"
+      ],
+      "references": [
+        "data.resources.4.url"
+      ],
+      "method": "HTTP GET (Node fetch)",
+      "status": 200,
+      "finalUrl": "https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server",
+      "contentType": "text/html",
+      "redirects": [],
+      "elapsedMs": 309,
+      "result": "reachable"
+    },
+    {
+      "url": "https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Status",
+      "titles": [
+        "MDN：HTTP 响应状态码"
+      ],
+      "references": [
+        "data.resources.5.url"
+      ],
+      "method": "HTTP GET (Node fetch)",
+      "status": 200,
+      "finalUrl": "https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Status",
+      "contentType": "text/html",
+      "redirects": [],
+      "elapsedMs": 302,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.sdzk.cn/",
+      "titles": [
+        "山东省教育招生考试院"
+      ],
+      "references": [
+        "data.resources.6.url"
+      ],
+      "method": "HTTP GET (Node fetch)",
+      "status": 200,
+      "finalUrl": "https://www.sdzk.cn/",
+      "contentType": "text/html; charset=utf-8",
+      "redirects": [],
+      "elapsedMs": 4130,
+      "result": "reachable"
+    }
+  ],
+  "secondMethodCheckedAt": "2026-10-10T09:51:02.218Z",
+  "notes": [
+    "No 404 or 410 was observed. Unverified URLs are not proven broken.",
+    "The 2026 university-upgrade Ministry article was found in official search results with matching body facts, but direct reachability remains unverified; indexed content is not treated as a successful live link check."
+  ]
+}

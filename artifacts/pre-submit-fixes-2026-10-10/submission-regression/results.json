@@ -1,0 +1,37 @@
+{
+  "report": [
+    {
+      "origin": "http",
+      "width": 390,
+      "recoveryConflict": "passed",
+      "largeBackup": "passed",
+      "importRaces": "passed",
+      "cancellation": "passed"
+    },
+    {
+      "origin": "http",
+      "width": 1440,
+      "recoveryConflict": "passed",
+      "largeBackup": "passed",
+      "importRaces": "passed",
+      "cancellation": "passed"
+    },
+    {
+      "origin": "file",
+      "width": 390,
+      "recoveryConflict": "passed",
+      "largeBackup": "passed",
+      "importRaces": "passed",
+      "cancellation": "passed"
+    },
+    {
+      "origin": "file",
+      "width": 1440,
+      "recoveryConflict": "passed",
+      "largeBackup": "passed",
+      "importRaces": "passed",
+      "cancellation": "passed"
+    }
+  ],
+  "errors": []
+}

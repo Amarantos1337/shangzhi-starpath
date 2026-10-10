@@ -1,0 +1,34 @@
+{
+  "results": [
+    {
+      "case": "ui_rejects_own_capacity_export",
+      "bytes": 1860368,
+      "toast": "请选择不超过1 MB的备份文件。",
+      "dialogOpen": false,
+      "planCount": 20
+    },
+    {
+      "case": "ui_session_recovery_overwrites_other_tab",
+      "before": [
+        "B 已保存的新计划",
+        "原来的计划"
+      ],
+      "after": [
+        "A 尚未持久化的编辑"
+      ],
+      "aStatus": "persistent",
+      "aToast": "已收藏这个成长故事"
+    },
+    {
+      "case": "long_chinese_and_html_escaping",
+      "titleLength": 120,
+      "taskLength": 180,
+      "goalLiteral": "<img src=x onerror=\"window.auditXss=1\">",
+      "xssTriggered": false,
+      "horizontalOverflow": false,
+      "scrollWidth": 390,
+      "viewport": 390
+    }
+  ],
+  "errors": []
+}

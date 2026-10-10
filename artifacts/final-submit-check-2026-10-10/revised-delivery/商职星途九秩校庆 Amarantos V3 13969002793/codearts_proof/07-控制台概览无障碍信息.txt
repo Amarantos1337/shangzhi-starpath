@@ -1,0 +1,127 @@
+Browser tab: 1867998593, Title: "套餐与用量", URL: "https://codearts.huaweicloud.com/portal/settings/personal-usage?locale=zh-cn".
+1 AXWebArea 套餐与用量, URL: codearts.huaweicloud.com/portal/settings/personal-usage?locale=zh-cn
+	2 container
+		3 image logo
+		4 text 码道代码智能体 我的码道
+		5 image
+		6 text 套餐与用量
+		7 text 客户端管理
+		8 text CLI 授权指导 智能体设置
+		9 image
+		10 text 智能体中心
+		11 text 技能和规则中心
+		12 text 知识空间
+		13 text 代码库索引
+		14 image
+		15 text 心愿墙
+		16 container
+			17 text 
+			18 text 满意度评价
+		19 container CSDN-Anchoria
+			20 text C CSDN-Anchoria
+			21 text 
+		22 text 
+	23 container
+		24 image
+		25 text 码道已上线全新积分体系套餐。为确保您的最佳使用体验，请及时确认并更新至最新的客户端版本。 
+		26 link Description: 下载最新版本, Value: codearts.huaweicloud.com/
+		27 text 
+		28 image
+	29 text 套餐与用量
+	30 text 更新于
+	31 text 2026-10-10 20:13:13
+	32 text 
+	33 container
+		34 text 推荐码上有礼 每邀请1人得1000积分，多邀多得，最高50,000积分，
+		35 link Description: 点击查看活动详情, Value: activity.huaweicloud.com/codearts_invite.html?source=dmzntgwlb&sourcead=dmzntgwlb1
+		36 button 复制邀请链接
+	37 text 体验版
+	38 text 生效中
+	39 text 长期有效
+	40 button 变更权益
+	41 button ···
+	42 text 已用积分总量
+	43 text 
+	44 text 104.82
+	45 text 0 积分即将到期
+	46 text 查看
+	47 text 订阅套餐
+	48 text 0
+	49 text /500 (已用/总量)
+	50 text 剩余 500
+	51 text 活动福利
+	52 text 
+	53 text 104.82
+	54 text /5000 (已用/总量)
+	55 text 剩余 4895
+	56 tab group
+		57 tab (expanded, settable) 用量概览, Secondary Actions: Collapse
+		58 tab (collapsed, settable) 使用明细, Secondary Actions: Expand
+		59 tab (collapsed, settable) 获取明细, Secondary Actions: Expand
+	60 container
+		61 text field (settable) 2026-10-04
+		62 text -
+		63 text field (settable) 2026-10-10
+	64 container
+		65 content list
+			66 container
+				67 text 全部模型
+				68 image
+		69 image
+	70 container
+		71 container
+			72 text 智能体
+		73 container
+			74 text 自定义智能体
+		75 text +11
+		76 text field (settable)
+		77 image
+	78 button 
+		79 text 
+	80 text 积分累计用量
+	81 text 
+	82 text 0
+	83 text --%
+	84 text 日均积分用量
+	85 text 0
+	86 text --%
+	87 text Tokens 消耗量
+	88 text 
+	89 text 0
+	90 text --%
+	91 text 日均 Tokens 消耗
+	92 text 
+	93 text 0
+	94 text --%
+	95 text 活跃天数
+	96 text 
+	97 text 0
+	98 text 天
+	99 text --%
+	100 text 请求次数
+	101 text 
+	102 text 0
+	103 text 次
+	104 text --%
+	105 container
+		106 text 积分用量趋势  
+	107 container
+		108 text 按日
+		109 text field
+		110 image
+	111 container
+		112 text 积分用量
+		113 text field
+		114 image
+	115 text 模型使用次数分布
+	116 text 
+	117 text 功能使用次数分布
+	118 text 
+	119 container
+		120 text 活跃热力图  
+	121 container
+		122 text 近一年
+		123 text field
+		124 image
+
+The focused UI element is 1 AXWebArea 套餐与用量, URL: codearts.huaweicloud.com/portal/settings/personal-usage?locale=zh-cn

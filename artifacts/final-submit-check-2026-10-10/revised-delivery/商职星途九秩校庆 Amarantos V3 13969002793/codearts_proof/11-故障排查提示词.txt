@@ -1,0 +1,1 @@
+修订版实际执行返回1，发现6个动态资源误报：book、star、compass、trophy、briefcase、calendar。这些是data.js的icon语义标识，由app.js内置SVG图标表解析，不是文件路径。另2项是尚未输出的最终日志链接09-final-check.txt，补齐后自然消失。请只修复readme/check-submission.js的RESOURCE_KEYS：移除icon（也审视image，当前真实资源路径来自photo.src、download、preview），不改网站源码，不删除任何图片或素材。不读配置，不调用终端，不联网。直接用编辑工具做这一行的小修改，并简短说明此真实误报原因。

@@ -1,0 +1,133 @@
+Browser tab: 1867998593, Title: "套餐与用量", URL: "https://codearts.huaweicloud.com/portal/settings/personal-usage?locale=zh-cn".
+1 AXWebArea 套餐与用量, URL: codearts.huaweicloud.com/portal/settings/personal-usage?locale=zh-cn
+	2 container
+		3 image logo
+		4 text 码道代码智能体 我的码道
+		5 image
+		6 text 套餐与用量
+		7 text 客户端管理
+		8 text CLI 授权指导 智能体设置
+		9 image
+		10 text 智能体中心
+		11 text 技能和规则中心
+		12 text 知识空间
+		13 text 代码库索引
+		14 image
+		15 text 心愿墙
+		16 container
+			92 text 
+			18 text 满意度评价
+		19 container CSDN-Anchoria
+			20 text C CSDN-Anchoria
+			93 text 
+		94 text 
+	23 container
+		24 image
+		25 text 码道已上线全新积分体系套餐。为确保您的最佳使用体验，请及时确认并更新至最新的客户端版本。 
+		26 link Description: 下载最新版本, Value: codearts.huaweicloud.com/
+		95 text 
+		28 image
+	29 text 套餐与用量
+	30 text 更新于
+	31 text 2026-10-10 20:13:13
+	96 text 
+	33 container
+		34 text 推荐码上有礼 每邀请1人得1000积分，多邀多得，最高50,000积分，
+		35 link Description: 点击查看活动详情, Value: activity.huaweicloud.com/codearts_invite.html?source=dmzntgwlb&sourcead=dmzntgwlb1
+		36 button 复制邀请链接
+	37 text 体验版
+	38 text 生效中
+	39 text 长期有效
+	40 button 变更权益
+	41 button ···
+	42 text 已用积分总量
+	97 text 
+	44 text 171.18
+	45 text 0 积分即将到期
+	46 text 查看
+	47 text 订阅套餐
+	48 text 0
+	49 text /500 (已用/总量)
+	50 text 剩余 500
+	51 text 活动福利
+	98 text 
+	53 text 171.18
+	54 text /5000 (已用/总量)
+	55 text 剩余 4828
+	56 tab group
+		57 tab (collapsed, settable) 用量概览, Secondary Actions: Expand
+		58 tab (expanded, settable) 使用明细, Secondary Actions: Collapse
+		59 tab (collapsed, settable) 获取明细, Secondary Actions: Expand
+	60 tab group 标签页列表
+		61 tab (selectable, settable, boolean) 今天, Value: 0, ID: tab-today
+		62 tab (selected, settable, boolean) 近7天, Value: 1, ID: tab-7days
+		63 tab (selectable, settable, boolean) 近30天, Value: 0, ID: tab-30days
+	64 container
+		65 combo box (settable) 2026-10-04
+		66 text -
+		67 text field (settable) 2026-10-10
+		68 image
+	99 container
+		100 container
+			101 text 时间 积分消耗
+			102 text 
+			103 text 模型名称 请求
+			104 text 
+			105 text 客户端
+		106 container
+			107 text 2026/10/10 20:40:14
+			108 text 4.84
+			109 text openpangu-2.0-pro
+			110 container
+				111 text Memory Extraction msg_125d34c09001Y9lJQG4hzl20fH
+			112 text IDE
+			113 text 2026/10/10 20:39:27
+			114 text 33.63
+			115 text GLM-5.2
+			116 container
+				117 text 修订版实际执行返回1，发现6个动态资源误报：book、star、compass、trophy、briefcase、calendar。这些是data.js的icon语义标识，由app.js内置SVG图标表解析，不是文件路径。另2项是尚未输出的最终日志链接09-final-check.txt，补齐后自然消失。请只修复readme/check-submission.js的RESOURCE_KEYS：移除icon（也审视image，当前真实资源路径来自photo.src、download、preview），不改网站源码，不删除任何图片或素材。不读配置，不调用终端，不联网。直接用编辑工具做这一行的小修改，并简短说明此真实误报原因。 msg_125d101ba001s0Wh4r2WPgpxcT
+			118 text IDE
+			119 text 2026/10/10 20:34:08
+			120 text 60.21
+			121 text GLM-5.2
+			122 container
+				123 text 真实运行反馈：初版返回1，6项缺失为4份正在编写的说明链接及尚未完成的PDF/MP4，这些如实报错正确，现在材料已逐步补齐。人工审查发现检查覆盖不足：1) Markdown只扫project/readme，漏掉根README、video、codearts_proof；2) 本地图片、实践下载和预览地址主要由data.js/learning.js动态提供，当前只扫HTML/CSS无法检查这些；3) 引用路径需trim、去尖括号和标题、decodeURIComponent后再校验，且报告不得读取AI配置。请无需重复分析业务，直接编辑readme/check-submission.js修订上述覆盖。可用node:vm创建只有window.StarPath的上下文，仅执行data.js、learning.js并检查photo.src、download、preview等实际字段，不执行app/ai/config，不联网。还要扫描materials的HTML/CSS，跳过隐藏缓存。检查脚本自身也做语法检查。不要调用终端或shell，不改网站业务源码，用编辑工具保存。最后简短说明修订及首轮6项失败的 msg_125c7f87f001YpYCvLtHWY2E0G
+			124 text IDE
+			125 text 2026/10/10 20:28:16
+			126 text 5.01
+			127 text openpangu-2.0-pro
+			128 container
+				129 text Memory Extraction msg_125c874e5001qqWo0OILtE4j2j
+			130 text IDE
+			131 text 2026/10/10 20:23:50
+			132 text 61.8
+			133 text GLM-5.2
+			134 container
+				135 text 请协助完善当前V3参赛交付材料。只读取 project/js/ai.js、project/js/storage.js、project/js/app.js、project/index.html 以及必要的 data.js、learning.js；严禁读取或输出 ai-config.js、密钥、请求头、.codeartsdoer 内部记录。先分析升学AI的检索、结果校验、取消、保存流程，注明代码位置和事实边界。然后直接生成 readme/check-submission.js，只使用Node内置模块，检查ppt/project/video/codearts_proof/readme五目录、网站脚本语法、本地资源、Markdown本地文件链接。根目录由脚本自身位置解析，不能硬编码机器路径；隐藏IDE缓存跳过；AI配置只能node --check，不读取内容。不发起网络请求、不调用AI、不修改网站业务源码，不调用终端工具或shell命令，文件使用编辑工具写入。尚未制作的PDF/MP4应按真实缺失报告，退出码成功0失败1。末尾说明新增文件和设计取舍。 msg_125bd154d001dD8CYc1WEXyPIS
+			136 text IDE
+			137 text 2026/10/10 20:19:05
+			138 text 1.34
+			139 text openpangu-2.0-pro
+			140 container
+				141 text Memory Extraction msg_125bff349001pIQZ9AJB7WEUkh
+			142 text IDE
+			143 text 2026/10/10 20:17:18
+			144 text 4.35
+			145 text openpangu-2.0-pro
+			146 container
+				147 text Memory Extraction msg_125be29110014YK0E9jdSn74TG
+			148 text IDE
+	80 container
+		81 text 20
+		82 image
+	83 text 条/页，
+	84 container
+		85 text 所有条目： 7
+	86 content list
+		87 text 1
+	88 container
+		89 text 跳至
+		90 text field (settable) 1
+		91 text 页
+
+The focused UI element is 1 AXWebArea 套餐与用量, URL: codearts.huaweicloud.com/portal/settings/personal-usage?locale=zh-cn

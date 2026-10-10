@@ -297,7 +297,8 @@ async function run() {
           assert.ok(!evidence.includes('上海'));
           assert.ok(!/profile\.|dateStatus|targetExamYear/.test(await page.locator('.ai-research-summary').innerText()));
           assert.equal(await page.locator('.ai-school-recommendations article').count(), 3);
-          assert.match(evidence, /专业培养地点：山东 · 济南/);
+          assert.match(evidence, /校区参考：山东 · 济南/);
+          assert.match(evidence, /硕士培养地点待核实/);
           assert.equal(await page.locator('#modal').evaluate(dialog => dialog.scrollWidth <= dialog.clientWidth), true);
           if (scenario === 'code-repair') {
             await page.locator('#modal').evaluate(dialog => { document.querySelector('.ai-school-recommendations').scrollIntoView(); });

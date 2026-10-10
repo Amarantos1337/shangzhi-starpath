@@ -11,3 +11,5 @@
 *.gz binary
 # Teaching ZIP tests compare archived files byte for byte with their sources.
 project/materials/** -text
+# Preserve the final delivery bytes used by its SHA-256 verification manifest.
+artifacts/final-submit-check-2026-10-10/revised-delivery/** -text

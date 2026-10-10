@@ -1,0 +1,247 @@
+{
+  "checkedAt": "2026-10-10T10:21:56.965Z",
+  "input": {
+    "level": "本科",
+    "grade": "大一",
+    "major": "电子信息工程",
+    "goal": "想在济南读研，只考虑公办院校，目标是计算机相关硕士；希望跨专业升学",
+    "startDate": "2026-10-10"
+  },
+  "requestChecks": [
+    {
+      "task": "policy",
+      "currentMajor": "电子信息工程",
+      "targetGoalPreserved": true
+    },
+    {
+      "task": "eligibility",
+      "currentMajor": "电子信息工程",
+      "targetGoalPreserved": true
+    },
+    {
+      "task": "discovery",
+      "currentMajor": "电子信息工程",
+      "targetGoalPreserved": true
+    },
+    {
+      "task": "discovery",
+      "currentMajor": "电子信息工程",
+      "targetGoalPreserved": true
+    },
+    {
+      "task": "school-0-program",
+      "currentMajor": "电子信息工程",
+      "targetGoalPreserved": true
+    },
+    {
+      "task": "school-0-location",
+      "currentMajor": "电子信息工程",
+      "targetGoalPreserved": true
+    },
+    {
+      "task": "school-1-program",
+      "currentMajor": "电子信息工程",
+      "targetGoalPreserved": true
+    },
+    {
+      "task": "school-1-location",
+      "currentMajor": "电子信息工程",
+      "targetGoalPreserved": true
+    },
+    {
+      "task": "school-2-program",
+      "currentMajor": "电子信息工程",
+      "targetGoalPreserved": true
+    },
+    {
+      "task": "school-2-location",
+      "currentMajor": "电子信息工程",
+      "targetGoalPreserved": true
+    }
+  ],
+  "responses": [
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    }
+  ],
+  "refreshPersistence": true,
+  "backupRoundTrip": true,
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390
+  },
+  "origin": "file",
+  "effort": [
+    {
+      "stage": "generate",
+      "effort": "low"
+    },
+    {
+      "stage": "search",
+      "effort": "high"
+    },
+    {
+      "stage": "search",
+      "effort": "high"
+    },
+    {
+      "stage": "search",
+      "effort": "high"
+    },
+    {
+      "stage": "search",
+      "effort": "high"
+    },
+    {
+      "stage": "search",
+      "effort": "high"
+    },
+    {
+      "stage": "search",
+      "effort": "high"
+    },
+    {
+      "stage": "search",
+      "effort": "high"
+    },
+    {
+      "stage": "search",
+      "effort": "high"
+    },
+    {
+      "stage": "search",
+      "effort": "high"
+    },
+    {
+      "stage": "search",
+      "effort": "high"
+    },
+    {
+      "stage": "generate",
+      "effort": "low"
+    }
+  ],
+  "tasks": 16,
+  "stages": 4,
+  "sources": 19,
+  "recommendations": [
+    {
+      "name": "济南大学",
+      "reason": "公办省部共建高校，济南办学；电子信息工程与计算机、人工智能硕士方向基础相通，跨考085404计算机技术、085410人工智能等专业课衔接较顺。",
+      "sourceUrl": "https://yz.ujn.edu.cn/info/1032/3964.htm#1#1#1",
+      "location": {
+        "province": "山东",
+        "city": "济南",
+        "campus": "主校区（济南市市中区南辛庄西路336号）：信息科学与工程学院等多数学院研究生培养地；商学院、管理科学与工程学院、文化和旅游学院在舜耕校区，以实际教学安排为准",
+        "sourceUrl": "http://yz.ujn.edu.cn/info/1014/3954.htm#1#1#1"
+      },
+      "criteriaEvidence": [
+        {
+          "criterion": "只考虑公办院校（办学性质与历史录取批次）",
+          "explanation": "2024-2025学年本科教学质量报告（2026年2月发布）载招生批次含提前批、本科批、第一批次、第二批次A，举办者为省级教育部门，适用该学年本科招生。2023年本科招生录取（2023-08-25）：全国31省录取7968人，山东普通类最低分超一段线73分，非高考改革省份绝大多数为一批次录取。山东自2020年合并批次，一批次表述仅适用于未合并批次省份。",
+          "sourceUrl": "https://www.ujn.edu.cn/info/1047/262952.htm"
+        },
+        {
+          "criterion": "历史批次（山东省及未合并批次省份）",
+          "explanation": "2019年本科招生录取（2019-08-07，招生办发布）：夏季高考录取全日制本科8450人，山东省文史类最低560分、理工类535分；除新疆外，在其他未合并批次省份均全部或部分进入本科一批次招生，适用2019年录取批次，按省份分别适用。",
+          "sourceUrl": "https://admission.ujn.edu.cn/info/1007/1901.htm"
+        }
+      ]
+    },
+    {
+      "name": "山东大学",
+      "reason": "电子信息工程与计算机类硕士初试同考数学与计算机基础，跨考衔接较顺；山大081200学硕与085404/085405专硕方向齐全，属公办院校。计算机类各专业培养校区（济南/青岛）及2029年考试对应要求均待核实。",
+      "sourceUrl": "https://yz.sdu.edu.cn/info/1022/1491.htm",
+      "location": {
+        "province": "山东",
+        "city": "济南",
+        "campus": "软件学院（软件工程、人工智能）研究生在济南软件园校区（历城区舜华路1500号）培养；计算机科学与技术学院在青岛校区，报考资格待核实",
+        "sourceUrl": "https://www.sc.sdu.edu.cn/info/1019/6068.htm"
+      },
+      "criteriaEvidence": [
+        {
+          "criterion": "只考虑公办院校",
+          "explanation": "本轮仅返回山东大学官方域名（sdu.edu.cn）页面，未检索到办学性质（公办、教育部直属）的官方简介页，公办属性待核实。软件学院2027年推免通知（发布2026-09-01，适用2027年招生）明确“软件学院研究生在济南培养”，可确认该院培养城市为济南。",
+          "sourceUrl": "https://www.sc.sdu.edu.cn/info/1019/6068.htm"
+        },
+        {
+          "criterion": "计算机相关硕士在济南培养",
+          "explanation": "软件学院2027年推免复试地点为济南软件园校区（历城区舜华路1500号），适用2027年招生年度（发布2026-09-01）；计算机科学与技术学院2026年夏令营通知显示该院在青岛校区办学，含计算机、人工智能学位点，故其硕士培养城市为青岛，非济南。",
+          "sourceUrl": "https://www.cs.sdu.edu.cn/info/1068/6855.htm"
+        }
+      ]
+    },
+    {
+      "name": "齐鲁工业大学",
+      "reason": "该校计算机科学与技术学部在济南，招081200计算机科学与技术、083900网络空间安全及085404计算机技术，初试考408/英语数学，电子信息工程本科跨考计算机相关硕士衔接较顺，属公办院校，符合你的地域与办学性质偏好。",
+      "sourceUrl": "https://yjszs.qlu.edu.cn/2026/0930/c6601a284168/page.htm#6#5",
+      "location": {
+        "province": "山东",
+        "city": "济南",
+        "campus": "硕士具体培养校区官方未单独公布，待核实；计算机科学与技术学部教科研机构分布在长清、彩石、千佛山校区，均在济南。",
+        "sourceUrl": "https://yjszs.qlu.edu.cn/2019/0313/c7353a122863/page.htm"
+      },
+      "criteriaEvidence": [
+        {
+          "criterion": "计算机相关硕士及跨专业报考资格",
+          "explanation": "据校研招网学部简介，计算机科学与技术学部拥有计算机科学与技术一级学科硕士点、电子信息（计算机类）专业学位硕士点；教科研机构分布在长清、彩石、千佛山三个校区（均属济南）。该页适用年度以发布为准；跨专业报考是否限本科专业背景未在此页说明，待核实。",
+          "sourceUrl": "https://yjszs.qlu.edu.cn/2019/0313/c7353a122863/page.htm"
+        },
+        {
+          "criterion": "公办院校",
+          "explanation": "学校简介显示校（院）为山东省重点建设的应用研究型大学，占地3745亩，有长清、彩石、历城、历下、千佛山、菏泽6个校区，主校区在济南长清大学科技园；该页未直接标注办学性质，公办属性以官方招生章程为准，待核实。",
+          "sourceUrl": "https://www.qlu.edu.cn/_t2039/5171/list.htm"
+        },
+        {
+          "criterion": "硕士培养地点证据",
+          "explanation": "2024级博士研究生入学须知载明新生到长清校区计算机科学与技术学部报到，适用2024级博士，不能等同硕士；硕士就读校区官方未单独公布，待核实。",
+          "sourceUrl": "https://yjszs.qlu.edu.cn/2024/0712/c6601a245560/page.htm#1"
+        }
+      ]
+    }
+  ],
+  "durationSeconds": 65,
+  "period": {
+    "startDate": "2026-10-10",
+    "endDate": "2029-12-14",
+    "examDate": "",
+    "examSourceUrl": "",
+    "dateStatus": "estimated",
+    "targetExamYear": 2029,
+    "planningBasis": "按开始日期所在学年、四年制本科推算，在大四上学期参加初试。"
+  },
+  "pageErrors": []
+}

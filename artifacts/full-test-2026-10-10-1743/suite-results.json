@@ -1,0 +1,30 @@
+[
+  {
+    "name": "browser",
+    "status": 0
+  },
+  {
+    "name": "browser-audit-fixes",
+    "status": 0
+  },
+  {
+    "name": "ai-browser",
+    "status": 0
+  },
+  {
+    "name": "alumni-motion",
+    "status": 1
+  },
+  {
+    "name": "history-title",
+    "status": 0
+  },
+  {
+    "name": "history-motion",
+    "status": 0
+  },
+  {
+    "name": "method-motion",
+    "status": 1
+  }
+]

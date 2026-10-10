@@ -42,7 +42,7 @@ node tools/dev.js serve --host 0.0.0.0 --port 8765
 node tools/dev.js browser
 ```
 
-会顺序运行校友照片转场、页面、AI 模拟交互、校史标题与校史动画回归，保留已有 HTTP/file 两种访问、手机/桌面布局与存储检查。校友动画也可单独运行 `node tests/alumni-motion.test.js`，覆盖 440ms 双向过渡、照片真实落点与原始比例、正文不缩放、历史记录、筛选与滚动恢复、焦点和中断清理；照片离开视口时使用普通过渡。截图保存在 `artifacts/alumni-motion/test-temp/`。Linux/macOS 默认使用 Playwright Chromium，Windows 默认保持 Microsoft Edge。可以设置 `PLAYWRIGHT_CHANNEL=chromium` 明确选择 Chromium，也可指定 `msedge`/`chrome`（需要对应浏览器已安装）。
+会顺序运行校友照片转场、页面、多标签页与提交前专项、AI 模拟交互、校史标题、校史动画与学习折叠动画回归，保留已有 HTTP/file 两种访问、手机/桌面布局与存储检查。提交前专项可单独运行 `node tests/submission-regression.test.js`，覆盖写入恢复冲突、大备份与文件读取乱序取消，证据写入 `artifacts/submission-regression/`。校友动画也可单独运行 `node tests/alumni-motion.test.js`，覆盖 440ms 双向过渡、照片真实落点与原始比例、正文不缩放、历史记录、筛选与滚动恢复、焦点和中断清理；照片离开视口时使用普通过渡。截图保存在 `artifacts/alumni-motion/test-temp/`。Linux/macOS 默认使用 Playwright Chromium，Windows 默认保持 Microsoft Edge。可以设置 `PLAYWRIGHT_CHANNEL=chromium` 明确选择 Chromium，也可指定 `msedge`/`chrome`（需要对应浏览器已安装）。
 
 Windows 首次安装可运行：
 

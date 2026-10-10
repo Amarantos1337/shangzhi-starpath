@@ -1,0 +1,73 @@
+一、升学 AI 流程分析（代码位置与事实边界）
+1. 检索流程
+• 入口：app.js:1306 点击"创建学习计划"且模板为 education → resetAi() + openAiProfile()（app.js:939）。
+• 提交：app.js:1358 表单 ai-profile 提交 → startAiGeneration(form)（app.js:965）。
+• 预校验：先检查计划数上限（app.js:970），读取表单存入 aiProfile，调用 ai.validateProfile（app.js:972 → ai.js:85）校验学历/年级/日期/目标，推算 targetExamYear（ai.js:101）。
+• 并发检索：ai.generate（ai.js:388）创建内部 AbortController 并绑定外部 signal（ai.js:396-400），设置超时（ai.js:401）。检索任务并发上限 maxConcurrentRequests = 8（ai.js:9），搜索次数 minSearches=6…maxSearches=18（ai.js:7-8），超限即 fail（ai.js:550）。
+• 来源提取：extractSources（ai.js:133）只收 web_search_tool_result 中通过 officialSource（ai.js:34，白名单 gov.cn/edu.cn/chsi.com.cn/sdzk.cn）的官方来源，去重后上限 200 条。
+• 学习行动并行：未指定院校时 runLearning（ai.js:483）与检索同时生成 16 项学习行动草稿。
+• 逐校核验：readSchool（ai.js:455）校验院校专业/报考要求/培养校区/条件依据，所有 sourceUrl 必须匹配本任务实际检索结果（matchedEvidence，ai.js:450）。
+2. 结果校验
+• parsePlan（ai.js:210）：解析 JSON，校验任务数 12–24、4 个不同阶段、日期在计划期限内、最后一项落在截止日、长线计划覆盖前中后期（ai.js:240）。
+• 来源不可发明：所有 sourceUrls 必须在实际检索结果集合 known中（ai.js:253），最多 30 条官方资料。
+• 考试日期：estimated 状态禁止携带正式日期（ai.js:222）；official 必须引用教育部/研招网（examSource，ai.js:127）且年份对应推算值（ai.js:225）。
+• 推荐院校：未指定学校时必须 3–5 所不同院校（ai.js:257），地域须匹配 constraints（ai.js:266），层次须有 tierEvidence（ai.js:279）。
+• 历史资料核验：historicalReferences（ai.js:11）对济南大学/山东师范大学/山东财经大学 2016 年一本记录，核验日期 2026-10-07（ai.js:10），用于覆盖模型对层次的断言（ai.js:278）。
+• 反注入：readableText（ai.js:50）阻止内部字段名/代码片段混入面向用户文本。
+3. 取消流程
+• resetAi()（app.js:860）：清定时器 → aiRequest.abort()→ 置空 aiDraft/aiProfile。
+• 触发点：关闭弹窗（app.js:1434）、ESC 取消（app.js:1465）、切换页面 hashchange（app.js:1466）、点击"使用原始模板"（app.js:1307）、重新打开升学入口（app.js:1306）。
+• abort 传播：外部 signal 绑定内部 controller（ai.js:400），readResponse 在循环中检查 signal.aborted（ai.js:345,355）并 reader.cancel()（ai.js:306,360）。
+• 取消后恢复：startAiGeneration 的 finally（app.js:1036）恢复表单可编辑、恢复"使用原始模板"入口、聚焦提交按钮；catch（app.js:1023）仅展示错误与已找到资料，不保存任何计划。
+4. 保存流程
+• 预览：openAiPreview（app.js:957）展示四阶段任务、推荐院校、资料来源；提供"返回修改"（ai-edit，app.js:1308，仅 aiDraft=null 不保存）、"重新生成"（ai-regenerate，app.js:1309）、"取消"。
+• 保存：仅 ai-save 表单提交（app.js:1363）调用 store.createAiPlan(aiDraft)（storage.js:287）。
+• createAiPlan（storage.js:287）：校验任务数/4 阶段 → generation()（storage.js:37）深度校验来源域名、地域约束、层次依据、推荐院校出处 → update()（storage.js:185）乐观锁写入（sync→copy→change→validate→save，最多重试 3 次）。
+• 保存后跳转：location.hash = '/growth/' + result.id（app.js:1368）。
+• 事实边界：预览、返回修改、取消均不自动创建计划；摘要未经人工核实（index.html:78、app.js:879）；一本/二本仅指批次取消前历史招生层次（index.html:78）；专科衔接路径与报考资格待核实（ai.js:105）；estimatedExamDate 仅为长期安排参考，非官方考试日期（ai.js:110）。
+二、新增文件
+• readme/check-submission.js：参赛交付材料自检脚本，仅依赖 fs/path/child_process（Node 内置），根目录由 path.resolve(__dirname, '..') 解析，不硬编码机器路径。
+运行方式：node readme/check-submission.js，全部通过退出码 0，存在缺失项退出码 1。
+三、设计取舍
+1. AI 配置安全：对 ai-config.js 只执行 node --check（execFileSync 直传参数数组，不经 shell），不 readFileSync读取其内容、不输出任何密钥/请求头；语法失败仅报告"未通过"，不打印 stderr 代码片段。
+2. 真实缺失如实报告：ppt/ 当前为空 → 报告缺 PDF/PPTX；video/仅有 演示成长备份.json → 报告缺 MP4；codearts_proof/ 有 3 个文件 → 通过。缺失项计入失败，使退出码为 1，如实反映当前交付不完整。
+3. 跳过 IDE 缓存：遍历目录时跳过 .codeartsdoer/.git/.vscode/.idea/node_modules等，避免误报与信息泄漏。
+4. 本地资源检查范围：解析 index.html 的 href/src 与 CSS 的 url()，过滤外部 URL/纯锚点/data URI，对 index.html#/paths这类同页 hash 路由取 # 前部分验证文件存在，不发起网络请求。
+5. Markdown 链接检查：递归扫描 project/ 与 readme/ 下所有 .md，提取 [text](link)/![alt](link) 中的本地路径并验证，跳过缓存目录。
+6. 不修改业务源码、不调用 AI、不发起网络请求：脚本为纯只读检查，符合约束。
+产物汇总：
+￼
+1个文件已更改
+￼
++269
+预估积分消耗: 61.80
+20:23
+
+
+
+
+￼
+￼
+变更文件（1）
+
+全部拒绝
+全部接受
+/ 调用快捷指令, # 添加上下文
+
+￼
+智能体
+
+GLM-5.2
+
+￼
+
+
+￼
+61.80
+·
+￼
+37.1%
+内容由AI生成
+￼
+￼
+￼

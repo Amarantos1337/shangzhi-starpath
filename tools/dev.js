@@ -41,7 +41,7 @@ function main() {
     return;
   }
   if (command === 'browser' && args.length === 0) {
-    for (const file of ['alumni-motion', 'browser', 'browser-audit-fixes', 'ai-browser', 'history-title', 'history-motion']) run(process.execPath, ['tests/' + file + '.test.js']);
+    for (const file of ['alumni-motion', 'browser', 'browser-audit-fixes', 'submission-regression', 'ai-browser', 'history-title', 'history-motion', 'method-motion']) run(process.execPath, ['tests/' + file + '.test.js']);
     return;
   }
   if (command === 'serve') {

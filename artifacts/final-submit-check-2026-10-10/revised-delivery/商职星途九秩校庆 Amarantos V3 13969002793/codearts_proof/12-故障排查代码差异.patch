@@ -1,0 +1,11 @@
+--- 修订/check-submission.js
++++ 排障最终/check-submission.js
+@@ -18,7 +18,7 @@
+ 
+ const REQUIRED_DIRS = ['ppt', 'project', 'video', 'codearts_proof', 'readme'];
+ const WEBSITE_SCRIPTS = ['data.js', 'learning.js', 'storage.js', 'ai-config.js', 'ai.js', 'app.js'];
+-const RESOURCE_KEYS = new Set(['src', 'download', 'preview', 'href', 'url', 'icon', 'image']);
++const RESOURCE_KEYS = new Set(['src', 'download', 'preview', 'href', 'url']);
+ 
+ const failures = [];
+ const warnings = [];

@@ -1,0 +1,40 @@
+已移除 icon 和 image，RESOURCE_KEYS 现为 ['src', 'download', 'preview', 'href', 'url']。
+误报原因：icon 字段（如 routes[].icon = 'trophy'、practiceProjects[].icon = 'book'）是语义标识，由 app.js:46的内置 SVG 图标表映射为 path，并非文件路径；image 在数据中无对应资源字段。真实本地资源仅来自 photo.src、download、preview，保留这三个即可覆盖。
+产物汇总：
+￼
+1个文件已更改
+￼
++1
+-1
+预估积分消耗: 33.63
+20:39
+
+
+
+
+￼
+￼
+变更文件（1）
+
+全部拒绝
+全部接受
+/ 调用快捷指令, # 添加上下文
+
+￼
+智能体
+
+GLM-5.2
+
+￼
+
+
+￼
+155.64
+·
+￼
+53.8%
+内容由AI生成
+￼
+￼
+￼
+```

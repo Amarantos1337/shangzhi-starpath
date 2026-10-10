@@ -1,0 +1,211 @@
+{
+  "app": "shangzhi-starpath",
+  "exportedAt": "2026-10-10T12:17:32.620Z",
+  "version": 1,
+  "favorites": [
+    "wang-zongyu"
+  ],
+  "plans": [
+    {
+      "id": "d2067fc6-9566-4178-8c1f-86cd102aae62",
+      "templateId": "education",
+      "title": "我的升学成长计划 · 演示",
+      "goal": "围绕山东大学计算机相关专业初试，强化英语与数学基础，系统复习408专业课，完成真题训练和模拟冲刺，并持续核对最新招生信息。",
+      "createdAt": "2026-10-10T12:17:22.585Z",
+      "updatedAt": "2026-10-10T12:17:30.484Z",
+      "tasks": [
+        {
+          "id": "2a87bd24-ea1d-49b8-bae5-680d84333d31",
+          "title": "核对山东大学计算机相关专业近年招生专业目录、初试科目、复试科目与培养校区，建立待核实信息清单",
+          "stage": "信息核对与基础",
+          "dueDate": "2026-10-10",
+          "completed": true
+        },
+        {
+          "id": "ec78ecfe-f5da-4892-910a-b11ec288ba30",
+          "title": "依据英语薄弱现状，制定英语一词汇、长难句和阅读基础训练安排，重点补语法与高频词",
+          "stage": "信息核对与基础",
+          "dueDate": "2026-10-15",
+          "completed": false
+        },
+        {
+          "id": "4e780b00-a4e7-42da-a192-fcec34c1063b",
+          "title": "按数学一要求梳理高等数学、线性代数、概率论基础概念与公式，整理错题和薄弱章节",
+          "stage": "信息核对与基础",
+          "dueDate": "2026-10-19",
+          "completed": false
+        },
+        {
+          "id": "ce92502d-edf2-4f41-8d36-d9b118ade9e8",
+          "title": "了解408计算机学科专业基础统考范围，通读数据结构、计算机组成原理、操作系统、计算机网络教材框架",
+          "stage": "信息核对与基础",
+          "dueDate": "2026-10-24",
+          "completed": false
+        },
+        {
+          "id": "cf218bf8-485f-4350-920c-c723b1b2144a",
+          "title": "开展数学一强化训练，按高等数学、线性代数、概率论分模块做题并归纳常用解题方法",
+          "stage": "系统学习与强化",
+          "dueDate": "2026-10-28",
+          "completed": false
+        },
+        {
+          "id": "48f0d428-954c-4b97-a948-2b5bb71da5e7",
+          "title": "加强英语一阅读与长难句训练，坚持精读真题文章，积累高频词和常见句式",
+          "stage": "系统学习与强化",
+          "dueDate": "2026-11-02",
+          "completed": false
+        },
+        {
+          "id": "ed8cac5f-ab57-4d3f-a19a-c15c6e1a789c",
+          "title": "系统学习408数据结构与计算机组成原理，重点掌握线性表、树、图、排序、存储层次和指令系统",
+          "stage": "系统学习与强化",
+          "dueDate": "2026-11-07",
+          "completed": false
+        },
+        {
+          "id": "3520e048-ea5d-4a93-9a56-cd8bcb91e0cb",
+          "title": "系统学习408操作系统与计算机网络，理解进程线程、内存管理、文件系统、网络协议和体系结构",
+          "stage": "系统学习与强化",
+          "dueDate": "2026-11-11",
+          "completed": false
+        },
+        {
+          "id": "d3b1325f-7c7d-43c1-8b0d-e7905aa99aae",
+          "title": "按年份完成英语一真题阅读与完形，整理高频词、长难句和错因，提升定位与排除能力",
+          "stage": "真题训练与查漏",
+          "dueDate": "2026-11-16",
+          "completed": false
+        },
+        {
+          "id": "a558fc83-707f-4d0c-8b12-b42e402f6809",
+          "title": "按题型完成数学一历年真题，建立错题本，集中查漏高数、线代和概率论薄弱点",
+          "stage": "真题训练与查漏",
+          "dueDate": "2026-11-20",
+          "completed": false
+        },
+        {
+          "id": "53a2f099-3e03-4b1e-8d7b-18dd83943478",
+          "title": "完成408历年真题按科目拆分训练，统计数据结构、组成原理、操作系统、网络的失分点",
+          "stage": "真题训练与查漏",
+          "dueDate": "2026-11-25",
+          "completed": false
+        },
+        {
+          "id": "17b3f98f-1c88-4abd-9c61-4e10daa56bb9",
+          "title": "记录山东大学计算机相关专业已公布年度的复试与加试要求，了解上机、数据库原理等可能内容",
+          "stage": "真题训练与查漏",
+          "dueDate": "2026-11-30",
+          "completed": false
+        },
+        {
+          "id": "20e63de0-f37b-4e19-bdec-fc8cda61a432",
+          "title": "按正式考试时段进行英语一和数学一整套模拟，训练时间分配与答题顺序",
+          "stage": "模拟冲刺与调整",
+          "dueDate": "2026-12-04",
+          "completed": false
+        },
+        {
+          "id": "b2d40056-2bb6-4c66-bb2a-fae243f9cacb",
+          "title": "进行408整套模拟与错题回炉，重点复盘高频考点、算法题和综合应用题",
+          "stage": "模拟冲刺与调整",
+          "dueDate": "2026-12-09",
+          "completed": false
+        },
+        {
+          "id": "92dc97ae-a80e-4d2b-ae94-6f3f26d5eab4",
+          "title": "复盘山东大学计算机相关专业招生简章与专业目录变化，确认报名、资格和考试科目信息",
+          "stage": "模拟冲刺与调整",
+          "dueDate": "2026-12-13",
+          "completed": false
+        },
+        {
+          "id": "4ab265c4-cced-4951-995d-0dc8f53bb354",
+          "title": "调整作息与心态，进行考前知识清单滚动复习，保持英语、数学和408手感",
+          "stage": "模拟冲刺与调整",
+          "dueDate": "2026-12-18",
+          "completed": false
+        }
+      ],
+      "generation": {
+        "model": "deepseek-flash",
+        "generatedAt": "2026-10-10T12:17:15.948Z",
+        "summary": "本计划依据2026年招生年度前后的公开资料整理，目标初试年份为2026年，按四年制本科推算在大四上学期参加初试。教育部已公布2027年招生年度初试时间为2026年12月19日至20日，故以2026年12月19日作为正式初试首日，安排至初试前一天。已公布年度资料显示，山东大学计算机科学与技术相关专业初试多含思想政治理论、英语（一）、数学（一）、408计算机学科专业基础，复试与培养地点以当年公告为准。2027年入学招生章程、专业目录、考试科目、报考资格及同等学力附加要求尚待核实；专科衔接路径及资格亦需核实。计划暂按现有信息推进，学习任务为暂定安排，后续以山东大学和教育部最新公告校正。",
+        "sources": [
+          {
+            "title": "教育部关于印发《2027年全国硕士研究生招生工作管理规定》的通知",
+            "url": "http://www.moe.gov.cn/srcsite/A15/moe_778/s3261/202609/t20260923_1451734.html#3"
+          },
+          {
+            "title": "山东大学哲学与社会发展学院2026年硕士研究生招生章程",
+            "url": "http://zhouyi.sdu.edu.cn/info/1020/1259.htm#1"
+          },
+          {
+            "title": "计算机科学与技术学院",
+            "url": "https://ce.sdu.edu.cn/info/1013/8594.htm"
+          },
+          {
+            "title": "山东大学计算机科学与技术流动站简介",
+            "url": "https://rsc.qd.sdu.edu.cn/PDF/shandongdaxuejisuanjikexueyujishuboshihouliudongzhanjianjie.pdf#1#1"
+          },
+          {
+            "title": "学院简介-山大计算机科学与技术学院",
+            "url": "https://www.cs.sdu.edu.cn/gyxy/xyjj.htm"
+          },
+          {
+            "title": "计算机科学与技术学院/人工智能学院关于举办“2025年全国优秀大学生暑期夏令营”活动的通知",
+            "url": "https://www.cs.sdu.edu.cn/info/1068/6585.htm"
+          },
+          {
+            "title": "硕士研究生-山大计算机科学与技术学院",
+            "url": "https://www.cs.sdu.edu.cn/zsxx/ssyjs.htm"
+          },
+          {
+            "title": "招生专业代码、名称及研究方向 招生人数 初试考试科目 复试考核内容 复试笔试参考书目 备注 081200 计算机...",
+            "url": "https://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#25#15"
+          },
+          {
+            "title": "山东大学2026年硕士研究生招生章程",
+            "url": "https://www.yz.sdu.edu.cn/info/1003/1256.htm#1"
+          },
+          {
+            "title": "教育部关于印发《2026年全国硕士研究生招生工作管理规定》的通知 - 教育部关于印发《2026年全国硕士研究生招生工作管理规定》的通知",
+            "url": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250924/2293432108-1.html#1"
+          },
+          {
+            "title": "《2026年全国硕士研究生招生工作管理规定》",
+            "url": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-4.html#1"
+          },
+          {
+            "title": "河北省2027年全国硕士研究生招生考试百问百答（一）报名篇",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977251.html"
+          },
+          {
+            "title": "山东大学2027年硕士研究生招生专业目录",
+            "url": "https://yz.sdu.edu.cn/info/1022/1491.htm"
+          }
+        ],
+        "constraints": {
+          "location": {
+            "type": "province",
+            "name": "山东"
+          },
+          "tier": "",
+          "needsRecommendations": false
+        },
+        "recommendationNotice": "你已指定山东大学计算机相关专业，故不再推荐其他院校。2026年12月初试对应2027年入学，山东大学最新招生章程、专业目录、考试科目、报考资格及计算机类硕士实际培养校区仍待核实；已公布年度信息仅作复习参考。教育部已公布初试时间，后续如遇调整以官方公告为准。专科同等学力衔接路径及附加要求也需另行核实。",
+        "durationSeconds": 30,
+        "period": {
+          "startDate": "2026-10-10",
+          "endDate": "2026-12-18",
+          "examDate": "2026-12-19",
+          "examSourceUrl": "http://www.moe.gov.cn/srcsite/A15/moe_778/s3261/202609/t20260923_1451734.html#3",
+          "dateStatus": "official",
+          "targetExamYear": 2026,
+          "planningBasis": "按开始日期所在学年、四年制本科推算，在大四上学期参加初试。"
+        },
+        "recommendations": []
+      }
+    }
+  ]
+}

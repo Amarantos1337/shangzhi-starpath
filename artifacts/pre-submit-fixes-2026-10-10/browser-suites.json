@@ -1,0 +1,45 @@
+{
+  "suites": [
+    {
+      "name": "alumni-motion",
+      "status": 0,
+      "cleanCopy": false
+    },
+    {
+      "name": "browser",
+      "status": 0,
+      "cleanCopy": true
+    },
+    {
+      "name": "browser-audit-fixes",
+      "status": 0,
+      "cleanCopy": false
+    },
+    {
+      "name": "ai-browser",
+      "status": 0,
+      "cleanCopy": false
+    },
+    {
+      "name": "history-title",
+      "status": 0,
+      "cleanCopy": false
+    },
+    {
+      "name": "history-motion",
+      "status": 0,
+      "cleanCopy": false
+    },
+    {
+      "name": "method-motion",
+      "status": 0,
+      "cleanCopy": false
+    }
+  ],
+  "delivery": {
+    "files": 48,
+    "copyMatched": true,
+    "sourceUnchanged": true,
+    "cleanBasicPassed": true
+  }
+}

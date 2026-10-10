@@ -10,5 +10,13 @@ __pycache__/
 .DS_Store
 Thumbs.db
 artifacts/**/test-temp/
+.merkle-snapshot.json
+.codeartsdoer/
+
+# Temporary submission assembly and duplicate archive output
+/artifacts/final-submit-check-2026-10-10/unpacked-check/
+/artifacts/final-submit-check-2026-10-10/ppt-build/
+/artifacts/final-submit-check-2026-10-10/ppt-output/
+/artifacts/final-submit-check-2026-10-10/*.zip
 
 # Keep existing reports, screenshots, local assets and teaching ZIPs.

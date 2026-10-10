@@ -21,7 +21,7 @@ const server = http.createServer((request, response) => {
 async function settle(page) {
   await page.evaluate(() => document.querySelectorAll('.reading-details.is-animating').forEach(card => card.getAnimations().forEach(animation => animation.finish())));
   await page.waitForFunction(() => !document.querySelector('.reading-details.is-animating'));
-  await page.evaluate(() => document.querySelectorAll('.method-card,.stage-guide').forEach(card => card.getAnimations({ subtree:true }).forEach(animation => animation.finish())));
+  await page.evaluate(() => document.querySelectorAll('.method-card,.stage-guide').forEach(card => card.getAnimations({ subtree:true }).filter(animation => Number.isFinite(animation.effect.getComputedTiming().endTime)).forEach(animation => animation.finish())));
 }
 async function sampleToggle(page, fractions, selector = '.method-card') {
   return page.locator(selector).first().evaluate((card, fractions) => {

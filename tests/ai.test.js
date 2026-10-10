@@ -17,7 +17,7 @@ function load(responses = [], options = {}) {
   const firstSearch = responses[0];
   const answers = responses.filter(value => value && Array.isArray(value.content) && value.content.some(block => block.type === 'text' && /^\s*\{/.test(block.text)));
   const saved = new Map();
-  const context = vm.createContext({ URL, AbortController, DOMException, setTimeout, clearTimeout,
+  const context = vm.createContext({ URL, TextEncoder, AbortController, DOMException, setTimeout, clearTimeout,
     window: { StarPath: {}, dispatchEvent() {} }, CustomEvent: class {},
     localStorage: { getItem(key) { return saved.get(key) ?? null; }, setItem(key, value) { if (options.blocked) throw new Error('Unavailable'); saved.set(key, value); }, removeItem(key) { saved.delete(key); } },
     fetch: async (url, request) => {
@@ -72,6 +72,30 @@ test('profiles accept the simplified form and validate degree-linked grades and 
   const validated = ai.validateProfile({ ...profile, weeks: 12, hours: 4, constraints: '旧字段' });
   for (const removed of ['weeks', 'hours']) assert.equal(validated[removed], undefined);
   assert.deepEqual(plain(validated.constraints), { location: { type: 'province', name: '山东' }, tier: '', needsRecommendations: false });
+});
+
+test('natural-language cities and province-only goals retain valid locations and named schools', () => {
+  const { ai } = load();
+  for (const [goal, type, name, needsRecommendations] of [
+    ['想在济南读研，计算机专业', 'city', '济南', true],
+    ['希望在济南的大学读研', 'city', '济南', true],
+    ['只想在济南考研', 'city', '济南', true],
+    ['想在济南升学', 'city', '济南', true],
+    ['只考虑济南市', 'city', '济南', true],
+    ['只考虑山东省', 'province', '山东', true],
+    ['只考虑广西壮族自治区', 'province', '广西', true],
+    ['只考虑山东省的院校', 'province', '山东', true],
+    ['只考虑山东省济南市的院校', 'city', '济南', true],
+    ['法学相关专业，只考虑公办院校', 'province', '山东', true],
+    ['法学相关专业，只考虑民办院校', 'province', '山东', true],
+    ['济南本地一本院校，计算机相关专业', 'city', '济南', true],
+    ['山东大学，计算机相关专业', 'province', '山东', false],
+    ['济南大学，计算机相关专业', 'province', '山东', false]
+  ]) {
+    const constraints = ai.validateProfile({ ...profile, grade: '大一', goal }).constraints;
+    assert.deepEqual(plain(constraints.location), { type, name }, goal);
+    assert.equal(constraints.needsRecommendations, needsRecommendations, goal);
+  }
 });
 test('real tool evidence is required; text-only and unsafe search links are excluded', async () => {
   const { ai } = load([search({ content: [{ type: 'text', text: '我已搜索：' + sources[0].url }] })]);

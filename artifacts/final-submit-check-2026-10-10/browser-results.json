@@ -1,0 +1,25 @@
+{
+  "manualFlow": [
+    "校友搜索",
+    "收藏",
+    "模板创建",
+    "任务文字与日期编辑",
+    "完成度统计",
+    "刷新保存",
+    "备份文件已下载"
+  ],
+  "responsiveFix": {
+    "before": {
+      "clientWidth": 375,
+      "scrollWidth": 462
+    },
+    "after": {
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    "cause": "装饰箭头外边距复制了桌面计算值"
+  },
+  "errors": [],
+  "protocol": "HTTP",
+  "realAiRequested": false
+}

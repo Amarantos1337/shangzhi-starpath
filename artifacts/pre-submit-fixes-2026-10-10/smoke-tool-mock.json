@@ -1,0 +1,26 @@
+[
+  {
+    "efforts": [
+      "high",
+      "low"
+    ],
+    "expectedExit": 0,
+    "actualExit": 0
+  },
+  {
+    "efforts": [
+      "high",
+      "high"
+    ],
+    "expectedExit": 1,
+    "actualExit": 1
+  },
+  {
+    "efforts": [
+      "low",
+      "low"
+    ],
+    "expectedExit": 1,
+    "actualExit": 1
+  }
+]

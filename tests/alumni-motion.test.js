@@ -103,7 +103,10 @@ async function openCard(page, id, entry = '.card-link', keyboard = false) {
   await settled(page);
   await card.locator(entry).focus();
   if (!keyboard) {
-    await card.locator(entry).hover();
+    // The stretched story link covers the card. Use the actual name/photo
+    // coordinates so this follows the same hit testing as a user's pointer.
+    const bounds = await card.locator(entry).boundingBox();
+    await page.mouse.move(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2);
     // Focus scrolling can cancel a hover transition; cancellation is a settled state too.
     await card.evaluate(node => Promise.allSettled(node.getAnimations().map(animation => animation.finished)));
   }
@@ -121,7 +124,10 @@ async function openCard(page, id, entry = '.card-link', keyboard = false) {
   });
   // Keyboard also avoids pointer hover offsets when comparing the two endpoints.
   if (keyboard) await page.keyboard.press('Enter');
-  else await card.locator(entry).click();
+  else {
+    const bounds = await card.locator(entry).boundingBox();
+    await page.mouse.click(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2);
+  }
   return { source, scrollY };
 }
 

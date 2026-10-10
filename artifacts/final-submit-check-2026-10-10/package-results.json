@@ -1,0 +1,19 @@
+{
+  "archive": "D:\\华为开发者大赛\\artifacts\\final-submit-check-2026-10-10\\商职星途九秩校庆 Amarantos V3 13969002793.zip",
+  "bytes": 17094229,
+  "mib": 16.3,
+  "fileCount": 115,
+  "requiredFolders": [
+    "ppt",
+    "project",
+    "video",
+    "codearts_proof",
+    "readme"
+  ],
+  "crcPassed": true,
+  "extractedHashesMatch": true,
+  "standaloneCheckExitCode": 0,
+  "standaloneCheckOutput": "========================================\n 商职星途 V3 参赛交付材料检查\n========================================\n根目录：D:\\华为开发者大赛\\artifacts\\final-submit-check-2026-10-10\\unpacked-check\n说明：仅使用 Node 内置模块（fs/path/vm/child_process），不联网，不读取 AI 配置内容，跳过 IDE 缓存目录\n\n【1/6】检查必要目录\n  -> 通过\n\n【2/6】检查脚本语法（node --check，不读取文件内容，含脚本自身）\n  -> 通过\n\n【3/6】检查本地资源引用（index.html + CSS + materials HTML/CSS）\n  -> 通过\n\n【4/6】检查 data.js/learning.js 动态资源（node:vm，不执行 app/ai/config，不联网）\n  -> 通过\n\n【5/6】检查 Markdown 本地文件链接（根目录递归，跳过隐藏缓存）\n  -> 通过\n\n【6/6】检查参赛交付材料（PDF/MP4 等真实缺失报告）\n  -> 通过\n\n----------------------------------------\n检查汇总\n----------------------------------------\n通过项：18\n警告项：0\n失败项：0\n\n结果：全部通过（退出码 0）\n",
+  "sha256": "ae7f3e7dea271ba62095f11d1b3129480f0d21f99d294698dbaf3715d224668e",
+  "hiddenCachesIncluded": false
+}

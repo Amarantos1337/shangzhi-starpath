@@ -1,0 +1,43 @@
+Browser tab: 1867998593, Title: "套餐与用量", URL: "https://codearts.huaweicloud.com/portal/settings/personal-usage?locale=zh-cn".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 69-79
++	92 container
++		93 container
++			94 text 时间 积分消耗
++			95 text 
++			96 text 模型名称 请求
++			97 text 
++			98 text 客户端
++		99 container
++			100 text 2026/10/10 20:28:16
++			101 text 5.01
++			102 text openpangu-2.0-pro
++			103 container
++				104 text Memory Extraction msg_125c874e5001qqWo0OILtE4j2j
++			105 text IDE
++			106 text 2026/10/10 20:27:59
++			107 text 32.32
++			108 text GLM-5.2
++			109 container
++				110 text 真实运行反馈：初版返回1，6项缺失为4份正在编写的说明链接及尚未完成的PDF/MP4，这些如实报错正确，现在材料已逐步补齐。人工审查发现检查覆盖不足：1) Markdown只扫project/readme，漏掉根README、video、codearts_proof；2) 本地图片、实践下载和预览地址主要由data.js/learning.js动态提供，当前只扫HTML/CSS无法检查这些；3) 引用路径需trim、去尖括号和标题、decodeURIComponent后再校验，且报告不得读取AI配置。请无需重复分析业务，直接编辑readme/check-submission.js修订上述覆盖。可用node:vm创建只有window.StarPath的上下文，仅执行data.js、learning.js并检查photo.src、download、preview等实际字段，不执行app/ai/config，不联网。还要扫描materials的HTML/CSS，跳过隐藏缓存。检查脚本自身也做语法检查。不要调用终端或shell，不改网站业务源码，用编辑工具保存。最后简短说明修订及首轮6项失败的 msg_125c7f87f001YpYCvLtHWY2E0G
++			111 text IDE
++			112 text 2026/10/10 20:23:50
++			113 text 61.8
++			114 text GLM-5.2
++			115 container
++				116 text 请协助完善当前V3参赛交付材料。只读取 project/js/ai.js、project/js/storage.js、project/js/app.js、project/index.html 以及必要的 data.js、learning.js；严禁读取或输出 ai-config.js、密钥、请求头、.codeartsdoer 内部记录。先分析升学AI的检索、结果校验、取消、保存流程，注明代码位置和事实边界。然后直接生成 readme/check-submission.js，只使用Node内置模块，检查ppt/project/video/codearts_proof/readme五目录、网站脚本语法、本地资源、Markdown本地文件链接。根目录由脚本自身位置解析，不能硬编码机器路径；隐藏IDE缓存跳过；AI配置只能node --check，不读取内容。不发起网络请求、不调用AI、不修改网站业务源码，不调用终端工具或shell命令，文件使用编辑工具写入。尚未制作的PDF/MP4应按真实缺失报告，退出码成功0失败1。末尾说明新增文件和设计取舍。 msg_125bd154d001dD8CYc1WEXyPIS
++			117 text IDE
++			118 text 2026/10/10 20:19:05
++			119 text 1.34
++			120 text openpangu-2.0-pro
++			121 container
++				122 text Memory Extraction msg_125bff349001pIQZ9AJB7WEUkh
++			123 text IDE
++			124 text 2026/10/10 20:17:18
++			125 text 4.35
++			126 text openpangu-2.0-pro
++			127 container
++				128 text Memory Extraction msg_125be29110014YK0E9jdSn74TG
++			129 text IDE
+~		85 text 所有条目： 5
+The focused UI element is 1 AXWebArea 套餐与用量, URL: codearts.huaweicloud.com/portal/settings/personal-usage?locale=zh-cn

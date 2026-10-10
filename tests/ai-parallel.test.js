@@ -494,3 +494,21 @@ test('blank, major only, and diploma goals keep the minimum search and academic 
     assert.equal(draft.tasks[15].dueDate, draft.generation.period.endDate);
   }
 });
+
+test('recommendation research and learning keep cross-major and public/private preferences', async () => {
+  for (const goal of ['法学相关专业，只考虑公办院校', '法学相关专业，只考虑民办院校']) {
+    const input = { ...profile, grade: '大一', goal };
+    const fixture = load(null, input);
+    await fixture.ai.generate(input);
+    const research = fixture.requests.filter(request => request.body.tools);
+    assert.equal(research.length, 9);
+    for (const { body } of [...research, ...fixture.requests.filter(request => isLearning(request.body))]) {
+      const sent = JSON.parse(body.messages[0].content).profile;
+      assert.equal(sent.goal, goal);
+      assert.equal(sent.major, input.major);
+      assert.match(body.system, /目标专业优先/);
+    }
+    assert.match(JSON.parse(research.find(request => JSON.parse(request.body.messages[0].content).task.id === 'discovery').body.messages[0].content).task.instruction, /公办、民办/);
+    assert.ok(research.every(request => request.body.system.includes('区分本科校区资料与硕士专业培养地点')));
+  }
+});
