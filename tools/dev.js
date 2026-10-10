@@ -35,12 +35,13 @@ function main() {
   if (command === 'check' && args.length === 0) return check();
   if (command === 'test' && args.length === 0) {
     check();
-    run(process.execPath, ['--test', '--test-isolation=none', 'tests/content.test.js', 'tests/ai.test.js']);
+    run(process.execPath, ['tools/check-links.js']);
+    run(process.execPath, ['--test', '--test-isolation=none', 'tests/content.test.js', 'tests/storage-multitab.test.js', 'tests/ai.test.js', 'tests/ai-parallel.test.js', 'tests/ai-performance.test.js']);
     run(python(), ['tests/practice.test.py']);
     return;
   }
   if (command === 'browser' && args.length === 0) {
-    for (const file of ['alumni-motion', 'browser', 'ai-browser', 'history-title', 'history-motion']) run(process.execPath, ['tests/' + file + '.test.js']);
+    for (const file of ['alumni-motion', 'browser', 'browser-audit-fixes', 'ai-browser', 'history-title', 'history-motion']) run(process.execPath, ['tests/' + file + '.test.js']);
     return;
   }
   if (command === 'serve') {

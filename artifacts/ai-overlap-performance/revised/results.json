@@ -1,0 +1,1370 @@
+{
+  "startedAt": "2026-10-09T10:21:33.295Z",
+  "config": {
+    "model": "deepseek-flash",
+    "effort": "high",
+    "timeoutMs": 300000
+  },
+  "sourceSha256": {
+    "baseline": "28a8fe269ca00ba45f1b920b498ce3faa9b0bf04f49b7524c8172fd07df9829b",
+    "optimized": "cb9a1a1c738d91a56454bd80452fd78502ffa34a4bc2a64dced82a6193743ae1"
+  },
+  "profiles": [
+    {
+      "id": "local",
+      "samples": 3,
+      "input": {
+        "level": "本科",
+        "major": "计算机网络技术",
+        "grade": "大一",
+        "baseline": "英语基础较弱，数学刚开始复习。",
+        "goal": "济南本地一本院校，计算机相关专业",
+        "region": "山东",
+        "startDate": "2026-10-07"
+      }
+    }
+  ],
+  "runs": [
+    {
+      "profile": "local",
+      "version": "baseline",
+      "sample": 1,
+      "success": true,
+      "requests": [
+        {
+          "phase": "search",
+          "taskId": "policy",
+          "startMs": 3.847300000000004,
+          "endMs": 6003.417,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 4136,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 2088,
+            "outputTokens": 1026,
+            "cacheHitRate": 0.4951644100580271
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "eligibility",
+          "startMs": 22.038900000000005,
+          "endMs": 13799.3159,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 8147,
+            "cacheHitTokens": 2304,
+            "cacheMissTokens": 5843,
+            "outputTokens": 2931,
+            "cacheHitRate": 0.2828034859457469
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "discovery",
+          "startMs": 22.429899999999996,
+          "endMs": 9791.3701,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 9205,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 7029,
+            "outputTokens": 1904,
+            "cacheHitRate": 0.23639326453014667
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-0-program",
+          "startMs": 9792.5059,
+          "endMs": 17403.073800000002,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 20769,
+            "cacheHitTokens": 12032,
+            "cacheMissTokens": 8737,
+            "outputTokens": 1542,
+            "cacheHitRate": 0.5793249554624681
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-0-location",
+          "startMs": 9793.037,
+          "endMs": 17910.0303,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 6186,
+            "cacheHitTokens": 2304,
+            "cacheMissTokens": 3882,
+            "outputTokens": 1401,
+            "cacheHitRate": 0.37245392822502427
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-1-program",
+          "startMs": 9793.3933,
+          "endMs": 16842.784,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 6183,
+            "cacheHitTokens": 4608,
+            "cacheMissTokens": 1575,
+            "outputTokens": 1226,
+            "cacheHitRate": 0.745269286754003
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-1-location",
+          "startMs": 9793.7363,
+          "endMs": 21482.174,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 9524,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 7348,
+            "outputTokens": 2229,
+            "cacheHitRate": 0.22847543049139019
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-2-program",
+          "startMs": 9794.0829,
+          "endMs": 18500.5209,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 11697,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 9649,
+            "outputTokens": 1662,
+            "cacheHitRate": 0.17508762930665983
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-2-location",
+          "startMs": 13799.8095,
+          "endMs": 19397.9378,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 3362,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 1186,
+            "outputTokens": 879,
+            "cacheHitRate": 0.6472337894110648
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "integration",
+          "taskId": null,
+          "startMs": 21483.3545,
+          "endMs": 55128.4857,
+          "effort": "low",
+          "stream": false,
+          "usage": {
+            "inputTokens": 9215,
+            "cacheHitTokens": 1024,
+            "cacheMissTokens": 8191,
+            "outputTokens": 7474,
+            "cacheHitRate": 0.1111231687466088
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        }
+      ],
+      "searches": 15,
+      "maxConcurrent": 6,
+      "repairs": 0,
+      "firstSourceMs": 2471.4950999999996,
+      "plan": {
+        "tasks": 16,
+        "sources": 30,
+        "recommendations": 3
+      },
+      "totalMs": 55128.498199999995,
+      "searchMs": 21482.9441,
+      "learningMs": null,
+      "overlapMs": null,
+      "integrationMs": 33645.14369999999,
+      "usage": {
+        "requests": 10,
+        "measuredRequests": 10,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 32896,
+        "cacheMissTokens": 55528,
+        "measuredInputTokens": 88424,
+        "cacheHitRate": 0.37202569438161587,
+        "outputTokens": 22274,
+        "measuredOutputRequests": 10
+      }
+    },
+    {
+      "profile": "local",
+      "version": "baseline",
+      "sample": 2,
+      "success": true,
+      "requests": [
+        {
+          "phase": "search",
+          "taskId": "policy",
+          "startMs": 0.841999999989639,
+          "endMs": 7326.493199999997,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 4598,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 2422,
+            "outputTokens": 1443,
+            "cacheHitRate": 0.47324923879947806
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "eligibility",
+          "startMs": 1.079699999987497,
+          "endMs": 4726.601999999999,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 7887,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 5839,
+            "outputTokens": 612,
+            "cacheHitRate": 0.2596678077849626
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "discovery",
+          "startMs": 1.1824999999953434,
+          "endMs": 10628.31689999999,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 18633,
+            "cacheHitTokens": 11520,
+            "cacheMissTokens": 7113,
+            "outputTokens": 2019,
+            "cacheHitRate": 0.618257929479955
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-0-program",
+          "startMs": 10628.918699999995,
+          "endMs": 15874.19249999999,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 8962,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 6914,
+            "outputTokens": 938,
+            "cacheHitRate": 0.22852041954920777
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-0-location",
+          "startMs": 10629.265,
+          "endMs": 18286.021399999998,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 10676,
+            "cacheHitTokens": 2432,
+            "cacheMissTokens": 8244,
+            "outputTokens": 1383,
+            "cacheHitRate": 0.22780067440989135
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-1-program",
+          "startMs": 10629.45169999999,
+          "endMs": 18374.98449999999,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 22141,
+            "cacheHitTokens": 12672,
+            "cacheMissTokens": 9469,
+            "outputTokens": 1410,
+            "cacheHitRate": 0.5723318729957997
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-1-location",
+          "startMs": 10629.641999999993,
+          "endMs": 21260.03809999999,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 12936,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 10888,
+            "outputTokens": 1956,
+            "cacheHitRate": 0.1583178726035869
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-2-program",
+          "startMs": 10629.816099999996,
+          "endMs": 17141.114199999996,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 5890,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 3842,
+            "outputTokens": 1154,
+            "cacheHitRate": 0.3477079796264856
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-2-location",
+          "startMs": 10629.979399999997,
+          "endMs": 16174.604899999991,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 7055,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 4879,
+            "outputTokens": 858,
+            "cacheHitRate": 0.30843373493975906
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "integration",
+          "taskId": null,
+          "startMs": 21261.17469999999,
+          "endMs": 60865.5582,
+          "effort": "low",
+          "stream": false,
+          "usage": {
+            "inputTokens": 9151,
+            "cacheHitTokens": 1024,
+            "cacheMissTokens": 8127,
+            "outputTokens": 8902,
+            "cacheHitRate": 0.11190033876079117
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "integration",
+          "taskId": null,
+          "startMs": 60865.2604,
+          "endMs": 82169.67499999999,
+          "effort": "low",
+          "stream": false,
+          "usage": {
+            "inputTokens": 10563,
+            "cacheHitTokens": 9088,
+            "cacheMissTokens": 1475,
+            "outputTokens": 4657,
+            "cacheHitRate": 0.8603616396856953
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        }
+      ],
+      "searches": 15,
+      "maxConcurrent": 6,
+      "repairs": 1,
+      "firstSourceMs": 3116.0910000000003,
+      "plan": {
+        "tasks": 16,
+        "sources": 26,
+        "recommendations": 3
+      },
+      "totalMs": 82169.6851,
+      "searchMs": 21260.810599999997,
+      "learningMs": null,
+      "overlapMs": null,
+      "integrationMs": 60908.510400000014,
+      "usage": {
+        "requests": 11,
+        "measuredRequests": 11,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 49280,
+        "cacheMissTokens": 69212,
+        "measuredInputTokens": 118492,
+        "cacheHitRate": 0.41589305607129595,
+        "outputTokens": 25332,
+        "measuredOutputRequests": 11
+      }
+    },
+    {
+      "profile": "local",
+      "version": "baseline",
+      "sample": 3,
+      "success": true,
+      "requests": [
+        {
+          "phase": "search",
+          "taskId": "policy",
+          "startMs": 1.2871999999915715,
+          "endMs": 5005.939899999998,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 2615,
+            "cacheHitTokens": 2304,
+            "cacheMissTokens": 311,
+            "outputTokens": 721,
+            "cacheHitRate": 0.8810707456978968
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "eligibility",
+          "startMs": 1.7234999999927823,
+          "endMs": 9579.331999999995,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 8059,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 5883,
+            "outputTokens": 1846,
+            "cacheHitRate": 0.27000868594118377
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "discovery",
+          "startMs": 1.866199999989476,
+          "endMs": 9083.396899999992,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 9421,
+            "cacheHitTokens": 2432,
+            "cacheMissTokens": 6989,
+            "outputTokens": 1684,
+            "cacheHitRate": 0.25814669355694725
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-0-program",
+          "startMs": 9084.058400000009,
+          "endMs": 15826.383700000006,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 10627,
+            "cacheHitTokens": 1920,
+            "cacheMissTokens": 8707,
+            "outputTokens": 1121,
+            "cacheHitRate": 0.18067187352968853
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-0-location",
+          "startMs": 9084.545699999988,
+          "endMs": 17982.9963,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 4443,
+            "cacheHitTokens": 2304,
+            "cacheMissTokens": 2139,
+            "outputTokens": 1488,
+            "cacheHitRate": 0.5185685347738015
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-1-program",
+          "startMs": 9084.735599999985,
+          "endMs": 16118.655899999983,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 13724,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 11676,
+            "outputTokens": 1160,
+            "cacheHitRate": 0.14922763042844653
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-1-location",
+          "startMs": 9084.899000000005,
+          "endMs": 20708.627899999992,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 19978,
+            "cacheHitTokens": 11776,
+            "cacheMissTokens": 8202,
+            "outputTokens": 1967,
+            "cacheHitRate": 0.5894483932325558
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-2-program",
+          "startMs": 9085.059600000008,
+          "endMs": 19765.377199999988,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 8328,
+            "cacheHitTokens": 5760,
+            "cacheMissTokens": 2568,
+            "outputTokens": 2044,
+            "cacheHitRate": 0.69164265129683
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-2-location",
+          "startMs": 9579.481700000004,
+          "endMs": 16392.27979999999,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 7879,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 5703,
+            "outputTokens": 1082,
+            "cacheHitRate": 0.276177179845158
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "integration",
+          "taskId": null,
+          "startMs": 20709.915299999993,
+          "endMs": 62295.2383,
+          "effort": "low",
+          "stream": false,
+          "usage": {
+            "inputTokens": 9705,
+            "cacheHitTokens": 1024,
+            "cacheMissTokens": 8681,
+            "outputTokens": 9220,
+            "cacheHitRate": 0.10551262235960845
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        }
+      ],
+      "searches": 15,
+      "maxConcurrent": 6,
+      "repairs": 0,
+      "firstSourceMs": 2528.4793000000063,
+      "plan": {
+        "tasks": 16,
+        "sources": 25,
+        "recommendations": 3
+      },
+      "totalMs": 62295.245199999976,
+      "searchMs": 20709.388600000006,
+      "learningMs": null,
+      "overlapMs": null,
+      "integrationMs": 41585.32989999998,
+      "usage": {
+        "requests": 10,
+        "measuredRequests": 10,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 33920,
+        "cacheMissTokens": 60859,
+        "measuredInputTokens": 94779,
+        "cacheHitRate": 0.35788518553688053,
+        "outputTokens": 22333,
+        "measuredOutputRequests": 10
+      }
+    },
+    {
+      "profile": "local",
+      "version": "optimized",
+      "sample": 1,
+      "success": true,
+      "requests": [
+        {
+          "phase": "learning",
+          "taskId": null,
+          "startMs": 2.8966000000000065,
+          "endMs": 13851.5722,
+          "effort": "low",
+          "stream": false,
+          "usage": {
+            "inputTokens": 346,
+            "cacheHitTokens": 128,
+            "cacheMissTokens": 218,
+            "outputTokens": 2665,
+            "cacheHitRate": 0.3699421965317919
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "policy",
+          "startMs": 17.077800000000003,
+          "endMs": 7051.0721,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 4783,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 2735,
+            "outputTokens": 1345,
+            "cacheHitRate": 0.42818314865147394
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "eligibility",
+          "startMs": 17.453200000000002,
+          "endMs": 12733.3222,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 15357,
+            "cacheHitTokens": 9216,
+            "cacheMissTokens": 6141,
+            "outputTokens": 2579,
+            "cacheHitRate": 0.6001172103926549
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "discovery",
+          "startMs": 17.7314,
+          "endMs": 9125.411600000001,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 10435,
+            "cacheHitTokens": 2432,
+            "cacheMissTokens": 8003,
+            "outputTokens": 1826,
+            "cacheHitRate": 0.2330618112122664
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-0-program",
+          "startMs": 9127.2428,
+          "endMs": 18825.4672,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 19367,
+            "cacheHitTokens": 11264,
+            "cacheMissTokens": 8103,
+            "outputTokens": 1854,
+            "cacheHitRate": 0.5816078897092993
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-0-location",
+          "startMs": 9127.712300000001,
+          "endMs": 17990.097599999997,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 9517,
+            "cacheHitTokens": 2688,
+            "cacheMissTokens": 6829,
+            "outputTokens": 1524,
+            "cacheHitRate": 0.28244194599138384
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-1-program",
+          "startMs": 9128.0784,
+          "endMs": 33785.7209,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 15020,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 12844,
+            "outputTokens": 5268,
+            "cacheHitRate": 0.1448735019973369
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-1-location",
+          "startMs": 9128.4321,
+          "endMs": 15843.8438,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 8777,
+            "cacheHitTokens": 2432,
+            "cacheMissTokens": 6345,
+            "outputTokens": 1029,
+            "cacheHitRate": 0.277087843226615
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-2-program",
+          "startMs": 9128.7553,
+          "endMs": 19482.051,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 17337,
+            "cacheHitTokens": 10240,
+            "cacheMissTokens": 7097,
+            "outputTokens": 1760,
+            "cacheHitRate": 0.5906442867854876
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-2-location",
+          "startMs": 9129.1271,
+          "endMs": 14361.564400000001,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 10287,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 8111,
+            "outputTokens": 737,
+            "cacheHitRate": 0.21152911441625352
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "integration",
+          "taskId": null,
+          "startMs": 33798.769700000004,
+          "endMs": 58562.762800000004,
+          "effort": "low",
+          "stream": false,
+          "usage": {
+            "inputTokens": 4819,
+            "cacheHitTokens": 0,
+            "cacheMissTokens": 4819,
+            "outputTokens": 5024,
+            "cacheHitRate": 0
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        }
+      ],
+      "searches": 15,
+      "maxConcurrent": 8,
+      "repairs": 0,
+      "firstSourceMs": 2188.4148,
+      "plan": {
+        "tasks": 16,
+        "sources": 24,
+        "recommendations": 3
+      },
+      "totalMs": 58571.0579,
+      "searchMs": 33786.7013,
+      "learningMs": 13848.6756,
+      "overlapMs": 13834.4944,
+      "integrationMs": 24772.288199999995,
+      "usage": {
+        "requests": 11,
+        "measuredRequests": 11,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 44800,
+        "cacheMissTokens": 71245,
+        "measuredInputTokens": 116045,
+        "cacheHitRate": 0.3860571330087466,
+        "outputTokens": 25611,
+        "measuredOutputRequests": 11
+      }
+    },
+    {
+      "profile": "local",
+      "version": "optimized",
+      "sample": 2,
+      "success": true,
+      "requests": [
+        {
+          "phase": "learning",
+          "taskId": null,
+          "startMs": 0.8536000000021886,
+          "endMs": 17089.232099999994,
+          "effort": "low",
+          "stream": false,
+          "usage": {
+            "inputTokens": 346,
+            "cacheHitTokens": 128,
+            "cacheMissTokens": 218,
+            "outputTokens": 3224,
+            "cacheHitRate": 0.3699421965317919
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "policy",
+          "startMs": 1.1955999999991036,
+          "endMs": 5748.012799999997,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 4230,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 2182,
+            "outputTokens": 1050,
+            "cacheHitRate": 0.484160756501182
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "eligibility",
+          "startMs": 1.312100000002829,
+          "endMs": 8268.847800000003,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 7847,
+            "cacheHitTokens": 1920,
+            "cacheMissTokens": 5927,
+            "outputTokens": 1435,
+            "cacheHitRate": 0.24467949534854083
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "discovery",
+          "startMs": 1.4064999999973224,
+          "endMs": 8888.557100000005,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 6280,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 4104,
+            "outputTokens": 1796,
+            "cacheHitRate": 0.3464968152866242
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-0-program",
+          "startMs": 8889.1774,
+          "endMs": 17483.2016,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 13407,
+            "cacheHitTokens": 8192,
+            "cacheMissTokens": 5215,
+            "outputTokens": 1587,
+            "cacheHitRate": 0.6110240918922951
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-0-location",
+          "startMs": 8889.456600000005,
+          "endMs": 17308.835000000006,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 10594,
+            "cacheHitTokens": 2688,
+            "cacheMissTokens": 7906,
+            "outputTokens": 1335,
+            "cacheHitRate": 0.2537285255805173
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-1-program",
+          "startMs": 8889.642800000001,
+          "endMs": 22241.3664,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 15026,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 12850,
+            "outputTokens": 2904,
+            "cacheHitRate": 0.1448156528683615
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-1-location",
+          "startMs": 8889.812399999995,
+          "endMs": 17149.151400000002,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 6300,
+            "cacheHitTokens": 2432,
+            "cacheMissTokens": 3868,
+            "outputTokens": 1332,
+            "cacheHitRate": 0.38603174603174606
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-2-program",
+          "startMs": 8890.015400000004,
+          "endMs": 24751.536699999997,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 25900,
+            "cacheHitTokens": 14848,
+            "cacheMissTokens": 11052,
+            "outputTokens": 3310,
+            "cacheHitRate": 0.5732818532818533
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-2-location",
+          "startMs": 8890.197499999995,
+          "endMs": 14521.594100000002,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 7604,
+            "cacheHitTokens": 2432,
+            "cacheMissTokens": 5172,
+            "outputTokens": 864,
+            "cacheHitRate": 0.3198316675433982
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-0-location",
+          "startMs": 17308.501000000004,
+          "endMs": 26756.660000000003,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 7371,
+            "cacheHitTokens": 3584,
+            "cacheMissTokens": 3787,
+            "outputTokens": 1818,
+            "cacheHitRate": 0.4862298195631529
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-0-program",
+          "startMs": 17483.019199999995,
+          "endMs": 28317.252200000003,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 6069,
+            "cacheHitTokens": 3072,
+            "cacheMissTokens": 2997,
+            "outputTokens": 1962,
+            "cacheHitRate": 0.5061789421651013
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "integration",
+          "taskId": null,
+          "startMs": 28327.860799999995,
+          "endMs": 42915.4565,
+          "effort": "low",
+          "stream": false,
+          "usage": {
+            "inputTokens": 4268,
+            "cacheHitTokens": 384,
+            "cacheMissTokens": 3884,
+            "outputTokens": 2844,
+            "cacheHitRate": 0.08997188378631678
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        }
+      ],
+      "searches": 17,
+      "maxConcurrent": 7,
+      "repairs": 0,
+      "firstSourceMs": 2394.5699999999997,
+      "plan": {
+        "tasks": 16,
+        "sources": 21,
+        "recommendations": 3
+      },
+      "totalMs": 42921.74189999999,
+      "searchMs": 28317.660499999998,
+      "learningMs": 17088.37849999999,
+      "overlapMs": 17087.4162,
+      "integrationMs": 14593.881099999999,
+      "usage": {
+        "requests": 13,
+        "measuredRequests": 13,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 46080,
+        "cacheMissTokens": 69162,
+        "measuredInputTokens": 115242,
+        "cacheHitRate": 0.3998542198156922,
+        "outputTokens": 25461,
+        "measuredOutputRequests": 13
+      }
+    },
+    {
+      "profile": "local",
+      "version": "optimized",
+      "sample": 3,
+      "success": true,
+      "requests": [
+        {
+          "phase": "learning",
+          "taskId": null,
+          "startMs": 0.9649999999965075,
+          "endMs": 19187.694399999993,
+          "effort": "low",
+          "stream": false,
+          "usage": {
+            "inputTokens": 346,
+            "cacheHitTokens": 128,
+            "cacheMissTokens": 218,
+            "outputTokens": 3753,
+            "cacheHitRate": 0.3699421965317919
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "policy",
+          "startMs": 1.2295999999914784,
+          "endMs": 6678.9302000000025,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 4116,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 2068,
+            "outputTokens": 1209,
+            "cacheHitRate": 0.4975704567541302
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "eligibility",
+          "startMs": 1.335399999996298,
+          "endMs": 7964.488700000002,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 8160,
+            "cacheHitTokens": 2304,
+            "cacheMissTokens": 5856,
+            "outputTokens": 1405,
+            "cacheHitRate": 0.2823529411764706
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "discovery",
+          "startMs": 1.4214999999967404,
+          "endMs": 7504.262300000002,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 5328,
+            "cacheHitTokens": 4224,
+            "cacheMissTokens": 1104,
+            "outputTokens": 1209,
+            "cacheHitRate": 0.7927927927927928
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-0-program",
+          "startMs": 7505.482699999993,
+          "endMs": 14884.438599999994,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 10787,
+            "cacheHitTokens": 6784,
+            "cacheMissTokens": 4003,
+            "outputTokens": 1339,
+            "cacheHitRate": 0.6289051636228794
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-0-location",
+          "startMs": 7505.960699999996,
+          "endMs": 17615.391799999998,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 8628,
+            "cacheHitTokens": 2688,
+            "cacheMissTokens": 5940,
+            "outputTokens": 1835,
+            "cacheHitRate": 0.31154381084840055
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-1-program",
+          "startMs": 7506.171999999991,
+          "endMs": 22268.546000000002,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 12539,
+            "cacheHitTokens": 8192,
+            "cacheMissTokens": 4347,
+            "outputTokens": 2949,
+            "cacheHitRate": 0.6533216364941383
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-1-location",
+          "startMs": 7506.650599999994,
+          "endMs": 15784.919800000003,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 9584,
+            "cacheHitTokens": 2432,
+            "cacheMissTokens": 7152,
+            "outputTokens": 1297,
+            "cacheHitRate": 0.25375626043405675
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-2-program",
+          "startMs": 7506.881699999998,
+          "endMs": 15984.460699999996,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 36575,
+            "cacheHitTokens": 19968,
+            "cacheMissTokens": 16607,
+            "outputTokens": 1391,
+            "cacheHitRate": 0.5459466848940533
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "search",
+          "taskId": "school-2-location",
+          "startMs": 7507.103699999992,
+          "endMs": 20324.776199999993,
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 10935,
+            "cacheHitTokens": 7168,
+            "cacheMissTokens": 3767,
+            "outputTokens": 2336,
+            "cacheHitRate": 0.6555098308184728
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        },
+        {
+          "phase": "integration",
+          "taskId": null,
+          "startMs": 22278.788799999995,
+          "endMs": 40347.18919999999,
+          "effort": "low",
+          "stream": false,
+          "usage": {
+            "inputTokens": 5136,
+            "cacheHitTokens": 384,
+            "cacheMissTokens": 4752,
+            "outputTokens": 4028,
+            "cacheHitRate": 0.07476635514018691
+          },
+          "status": 200,
+          "stopReason": "end_turn"
+        }
+      ],
+      "searches": 15,
+      "maxConcurrent": 8,
+      "repairs": 0,
+      "firstSourceMs": 2169.1214000000036,
+      "plan": {
+        "tasks": 16,
+        "sources": 23,
+        "recommendations": 3
+      },
+      "totalMs": 40353.23509999999,
+      "searchMs": 22268.871799999994,
+      "learningMs": 19186.729399999997,
+      "overlapMs": 19186.4648,
+      "integrationMs": 18074.446299999996,
+      "usage": {
+        "requests": 11,
+        "measuredRequests": 11,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 56320,
+        "cacheMissTokens": 55814,
+        "measuredInputTokens": 112134,
+        "cacheHitRate": 0.5022562291544046,
+        "outputTokens": 22751,
+        "measuredOutputRequests": 11
+      }
+    }
+  ],
+  "reusedBaselineReport": "../results.json",
+  "completedAt": "2026-10-09T10:23:55.152Z",
+  "comparison": [
+    {
+      "profile": "local",
+      "baselineSuccesses": 3,
+      "optimizedSuccesses": 3,
+      "samples": 3,
+      "reliable": true,
+      "baselineMs": 62295.245199999976,
+      "optimizedMs": 42921.74189999999,
+      "reductionPercent": 31.099489596358453,
+      "meetsTarget": true
+    }
+  ],
+  "verification": {
+    "nodeTests": 76,
+    "pythonTests": 4,
+    "browser": "isolated Edge file/HTTP at 390/1042/1440px; parallel progress, preview, save, refresh, cancel, correction, storage fallback passed",
+    "stopNote": "All three revised runs had already completed when the user requested stopping; no further requests or tests were started."
+  }
+}

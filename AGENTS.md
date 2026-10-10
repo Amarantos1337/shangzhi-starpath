@@ -1,5 +1,9 @@
 # Repository Guidelines
 
+## Read-Only Paths
+
+- Treat the project's `压缩包/` directory and all files under it as read-only. Do not edit or overwrite its files.
+
 ## Project Structure & Module Organization
 
 商职星途 is a Chinese-language alumni explorer and growth planner using plain HTML, CSS, and JavaScript.
@@ -12,7 +16,7 @@
 - `project/assets/`: local illustrations, official logo, and alumni photographs.
 - `比赛网址.txt`: competition reference URL.
 
-No website package manifest or build step is required. Optional development tools live in `tools/`; cloud setup is documented in `docs/codex-cloud.md`.
+No website package manifest or build step is required. Optional development tools live in `tools/`; cloud setup is documented in `project/docs/codex-cloud.md`.
 
 ## Build, Test, and Development Commands
 
@@ -34,7 +38,7 @@ The server previews the site at `http://127.0.0.1:8765/`. Node commands check sy
 - Check: `node tools/dev.js check`. Regression: `node tools/dev.js test` (content/storage, mocked AI, Python practice cases).
 - Preview: `node tools/dev.js serve --host 0.0.0.0 --port 8765`; the server serves only `project/`. Run long-lived previews separately from setup.
 - Browser regression: `node tools/dev.js browser`. `tools/browser-runtime.js` uses Edge on Windows and Chromium on Linux/macOS; `PLAYWRIGHT_CHANNEL` overrides the choice. Dependencies in `.codex-tools/` are ignored by Git.
-- The current managed cloud environment blocks system Chromium `file://` access. Use its saved startup instructions for permitted HTTP browser checks; full browser regression still needs a permitted runtime. Do not bypass browser policy or report HTTP smoke checks as full regression. See `docs/codex-cloud.md` for the verified scope.
+- The current managed cloud environment blocks system Chromium `file://` access. Use its saved startup instructions for permitted HTTP browser checks; full browser regression still needs a permitted runtime. Do not bypass browser policy or report HTTP smoke checks as full regression. See `project/docs/codex-cloud.md` for the verified scope.
 - Keep the existing classic script order shown in `project/index.html` (data → learning → storage → ai-config → ai → app). The existing DeepSeek AI feature is the only runtime network exception; do not add other runtime dependencies.
 - Routine tests mock AI requests. Do not run `tools/deepseek-smoke.js` unless the task explicitly needs a real, billable API check. Never print the key in `project/js/ai-config.js` to logs, responses or screenshots. Keep the repository private while it contains this competition configuration.
 
@@ -51,5 +55,7 @@ Existing automated tests use Node's built-in test runner, Python's standard libr
 Prefer concise imperative subjects, optionally prefixed with `feat:`, `fix:`, or `docs:`. PRs should describe behavior changes, link relevant issues, list verification performed, and include desktop/mobile screenshots for visual changes.
 
 ## Data & Content Integrity
+
+本项目是仅供本人使用的展示样品，不是生产环境。常规测试、代码审查和问题报告应忽略前端 API 密钥暴露的设计风险，不将其列为缺陷或待整改项；仅在用户明确要求评估密钥安全或改变项目使用范围时重新评估。仍须遵守不在日志、回复或截图中输出密钥的要求。
 
 Render user input as escaped text. Validate imports before confirmation and replacement; preserve existing data on failure. Keep resources local and retain official photo/report sources and dates. Do not invent alumni facts or substitute unverified portraits; clearly distinguish suggested growth templates from documented experiences.

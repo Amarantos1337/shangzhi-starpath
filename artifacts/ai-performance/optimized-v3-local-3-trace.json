@@ -1,0 +1,951 @@
+[
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_yYNTSG2QSbgjhpoU54468238",
+        "name": "web_search",
+        "input": {
+          "query": "site:moe.gov.cn 2027年全国硕士研究生招生工作管理规定 初试时间"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_yYNTSG2QSbgjhpoU54468238",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "教育部关于印发《2027年全国硕士研究生招生工作管理规定》的通知 - 信息名称： | 教育部关于印发《2027年全国硕士研究生招生工作管理规定》的通知",
+            "url": "https://hudong.moe.gov.cn/srcsite/A15/moe_778/s3261/202609/t20260923_1451734.html#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "教育部关于印发《2027年全国硕士研究生招生工作管理规定》的通知",
+            "url": "http://www.moe.gov.cn/srcsite/A15/moe_778/s3261/202609/t20260923_1451734.html#3"
+          },
+          {
+            "type": "web_search_result",
+            "title": "教育部关于印发《2027年全国硕士研究生招生工作管理规定》的通知 - 第二十五条 对服役期间获得三等战功、二等功以上奖励或者二级以上表彰，符合全国硕士研究生招生考试报考条件的退役人员，可申请免初试攻读硕士研究生",
+            "url": "https://hudong.moe.gov.cn/srcsite/A15/moe_778/s3261/202609/t20260923_1451734.html#2"
+          },
+          {
+            "type": "web_search_result",
+            "title": "教育部关于印发《2027年全国硕士研究生招生工作管理规定》的通知 - 第五十六条 招生单位可设立破格复试机制",
+            "url": "https://hudong.moe.gov.cn/srcsite/A15/moe_778/s3261/202609/t20260923_1451734.html#3"
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "**已公布最新年度（2027年招生）**\n教育部《2027年全国硕士研究生招生工作管理规定》2026年9月21日印发、9月24日发布：初试由国家统一组织，时间为2026年12月19日至20日（19日上午思想政治理论或管理类综合能力、下午外国语；20日上午业务课一或专业基础综合、下午业务课二），不在规定日期举行的考试不予承认；公共科目可按规定破格复试，调剂须符合调入地区国家线及专业报考条件。\nhttps://hudong.moe.gov.cn/srcsite/A15/moe_778/s3261/202609/t20260923_1451734.html#1\nhttp://www.moe.gov.cn/srcsite/A15/moe_778/s3261/202609/t20260923_1451734.html#3\n\n**2030年招生年度（初试2029年12月）**\n该年度管理规定与初试日期截至检索时尚未公布，待核实；不得沿用上述2026年12月日期。另需注意：山东商业职业技术大学相关培养安排与本人报考资格，须以官方招生简章核实。\nhttps://hudong.moe.gov.cn/srcsite/A15/moe_778/s3261/202609/t20260923_1451734.html#3"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_Wu4tLLx4nFWh7rsHWgKu8269",
+        "name": "web_search",
+        "input": {
+          "query": "site:yz.chsi.com.cn 全国硕士研究生招生工作管理规定 报考条件"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_Wu4tLLx4nFWh7rsHWgKu8269",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "河北省2027年全国硕士研究生招生考试百问百答（一）报名篇",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977251.html"
+          },
+          {
+            "type": "web_search_result",
+            "title": "河南：2027年研考报名60问",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977279.html"
+          },
+          {
+            "type": "web_search_result",
+            "title": "甘肃省2027年全国硕士研究生招生考试报名公告（第一号）",
+            "url": "https://yz.chsi.com.cn/sch/viewZbBulletin--schId-369158,infoId-3551215697,categoryId-433376,mindex-10.dhtml"
+          },
+          {
+            "type": "web_search_result",
+            "title": "华东理工大学2026年硕士研究生招生简章",
+            "url": "https://yz.chsi.com.cn/wap/sch/detail?categoryId=10461192&infoId=3421171088&schId=368142#1#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "四川省2026年全国硕士研究生招生考试网上报名公告",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202509/20250930/2293436385.html#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "教育部关于印发《2025年全国硕士研究生招生工作管理规定》的通知 - 教育部关于印发《2025年全国硕士研究生招生工作管理规定》的通知",
+            "url": "https://yz.chsi.com.cn/kyzx/jybzc/202410/20241008/2293342617.html#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "中国航天科工集团第三研究院(8358所)_院校信息_中国研究生招生信息网",
+            "url": "https://yz.chsi.com.cn/sch/viewBulletin--schId-367942,infoId-3552305645,categoryId-446862,mindex-10.dhtml"
+          },
+          {
+            "type": "web_search_result",
+            "title": "烟台大学_在线咨询_中国研究生招生信息网 - 一、报考条件",
+            "url": "https://yz.chsi.com.cn/zxdy/forum--method-listBulletin,forumid-452213,year-2005,start-0.dhtml#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "华南理工大学_院校信息_中国研究生招生信息网",
+            "url": "https://yz.chsi.com.cn/sch/viewZszc--infoId-3421805361,categoryId-10461554,schId-368416,mindex-12.dhtml#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "MBA的报考条件",
+            "url": "https://yz.chsi.com.cn/kyzx/other/202410/20241008/2293342770.html"
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "**依据已公布年度资料**：最新为《2027年全国硕士研究生招生工作管理规定》，2026年10月8日省级考试院公告引述其报名条款。用户2029年12月初试对应2030年招生年度，该年度管理规定及报考条件尚未公布，待核实。\nhttps://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977279.html\n\n**报考学历条件（现行为2025年管理规定第十五条）**：①国家承认学历的应届本科毕业生（含普通高校、成人高校、自考、网教届时可毕业者），录取当年入学前须取得本科毕业证书；②具有国家承认的本科毕业学历；③高职（专科）毕业学历后满2年及以上，或本科结业生，符合招生单位具体学业要求者，按本科毕业同等学力报考；④已获硕士、博士学历或学位者。\nhttps://yz.chsi.com.cn/kyzx/jybzc/202410/20241008/2293342617.html\n\n**专科衔接**：以同等学力报考须毕业后到录取当年入学前满2年，招生单位可另设学业要求；上述规定未涉及专升本衔接路径，须按学信网学籍与学校官方培养安排核实，不推断用户已具本科学历或报考资格。\nhttps://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977251.html"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_GKtut9tbBjL6AbF1vvRq9074",
+        "name": "web_search",
+        "input": {
+          "query": "site:yz.chsi.com.cn 山东省 硕士研究生招生单位 济南 计算机"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_GKtut9tbBjL6AbF1vvRq9074",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "山东师范大学_在线咨询_中国研究生招生信息网 - 请问复试保护第一志愿吗 置顶",
+            "url": "https://yz.chsi.com.cn/zxdy/forum--method-listDefault,forumid-456207,year-2018,start-60.dhtml#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "济南大学_在线咨询_中国研究生招生信息网 - 是否会改考408 置顶",
+            "url": "https://yz.chsi.com.cn/zxdy/forum--method-listDefault,forumid-456159,year-2005,start-2595.dhtml#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>070101☆基础数学 0871-65033700</td><td>拟招生人数更新</td><td></td><td>考 试 科 目</td><td>备注</td></tr><tr><td rowspan=\"3\">01(全日制...",
+            "url": "https://yz.chsi.com.cn/news/file.do?method=downFile&id=2293160362#15#6"
+          },
+          {
+            "type": "web_search_result",
+            "title": "济南大学_在线咨询_中国研究生招生信息网",
+            "url": "https://yz.chsi.com.cn/zxdy/forum--method-listDefault,forumid-456159,year-2023,start-255.dhtml"
+          },
+          {
+            "type": "web_search_result",
+            "title": "齐鲁工业大学_在线咨询_中国研究生招生信息网",
+            "url": "https://yz.chsi.com.cn/zxdy/forum--method-listDefault,forumid-456191,year-2023,start-630.dhtml"
+          },
+          {
+            "type": "web_search_result",
+            "title": "齐鲁工业大学_在线咨询_中国研究生招生信息网 - 历年真题 置顶",
+            "url": "https://yz.chsi.com.cn/zxdy/forum--type-sch,forumid-456191,method-listDefault,year-2005,start-15.dhtml#1"
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "{\"candidates\":[{\"name\":\"济南大学\",\"province\":\"山东\",\"city\":\"济南\",\"sourceUrl\":\"https://yz.chsi.com.cn/zxdy/forum--method-listDefault,forumid-456159,year-2005,start-2595.dhtml#1\"},{\"name\":\"山东师范大学\",\"province\":\"山东\",\"city\":\"济南\",\"sourceUrl\":\"https://yz.chsi.com.cn/zxdy/forum--method-listDefault,forumid-456207,year-2018,start-60.dhtml#1\"},{\"name\":\"齐鲁工业大学\",\"province\":\"山东\",\"city\":\"济南\",\"sourceUrl\":\"https://yz.chsi.com.cn/zxdy/forum--method-listDefault,forumid-456191,year-2023,start-630.dhtml\"}],\"summary\":\"本轮仅完成1次宽口径检索，中国研究生招生信息网（教育部平台）济南招生单位咨询页中确认3所设计算机类院系的济南高校：济南大学（信息科学与工程学院）、山东师范大学（计算机与人工智能学院）、齐鲁工业大学（计算机科学与技术学部），符合济南地域与计算机专业方向。页面内容多为2023—2025年考生咨询与院方答复，2030年招生目录、报考资格与专业科目均未公布，属待核实；本轮为候选发现，不作最终推荐，未获官方结果的济南其他院校不列入。来源：https://yz.chsi.com.cn/zxdy/forum--method-listDefault,forumid-456159,year-2005,start-2595.dhtml#1 ；https://yz.chsi.com.cn/zxdy/forum--method-listDefault,forumid-456207,year-2018,start-60.dhtml#1 ；https://yz.chsi.com.cn/zxdy/forum--method-listDefault,forumid-456191,year-2023,start-630.dhtml\"}"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_UpARpehT1nhmDa3QTRPY9250",
+        "name": "web_search",
+        "input": {
+          "query": "site:yjszs.sdnu.edu.cn 硕士研究生招生专业目录 计算机"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "server_tool_use",
+        "id": "call_01_mcLCEWi669uhKKGX6ksH3630",
+        "name": "web_search",
+        "input": {
+          "query": "site:sdnu.edu.cn 硕士研究生招生简章 报考条件 同等学力"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_UpARpehT1nhmDa3QTRPY9250",
+        "content": []
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_01_mcLCEWi669uhKKGX6ksH3630",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "山东师范大学法学院 2026 年同等学力申硕招生简章-山东师范大学法学院(知识产权研究院)",
+            "url": "http://www.law.sdnu.edu.cn/info/1101/43071.htm"
+          },
+          {
+            "type": "web_search_result",
+            "title": "2026年硕士研究生招生章程",
+            "url": "http://www.yjszs.sdnu.edu.cn/info/1009/4765.htm#2#2#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "山东师范大学经济学院2026年以研究生毕业同等学力申请硕士学位招生简章-山东师范大学经济学院 - 通知公告",
+            "url": "http://www.sde.sdnu.edu.cn/info/1081/29539.htm#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "山东师范大学2026年公共管理硕士（MPA）专业学位研究生招生简章-山东师范大学公共管理学院 - 山东师范大学2026年公共管理硕士（MPA）专业学位研究生招生简章",
+            "url": "http://www.gggl.sdnu.edu.cn/info/1242/29287.htm#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "2025年硕士研究生招生章程 - （一）考生务必认真、详尽、准确填写联系方式，如因考生填写联系方式有误，造成无法联系考生而影响考生复试录取等事宜，我校概不负责",
+            "url": "http://www.yjszs.sdnu.edu.cn/info/1009/4095.htm?s=1102#2"
+          },
+          {
+            "type": "web_search_result",
+            "title": "硕士招生简章",
+            "url": "http://www.yjszs.sdnu.edu.cn/zsjz/sszsjz/1.htm"
+          },
+          {
+            "type": "web_search_result",
+            "title": "学院新闻-山东师范大学法学院(知识产权研究院)",
+            "url": "http://www.law.sdnu.edu.cn/index/xyxw.htm"
+          },
+          {
+            "type": "web_search_result",
+            "title": "2024年硕士研究生招生简章 - 千佛山校区办公楼三层西0304，电话：0531—86180869",
+            "url": "http://www.yjszs.sdnu.edu.cn/info/1009/3355.htm#2"
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "**一、统考报考资格（2026年招生章程，适用2026年招生年度）**\n学业水平四选一：应届本科毕业生（含成人高校、自考/网教届时可毕业）、已获本科毕业学历、高职（专科）毕业满2年或本科结业按同等学力、已获硕博学历学位。录取当年入学报到前须取得本科毕业证，学历须学信网可查。同等学力复试须加试两门本科主干课程。2030年招生年度（2029年12月初试）章程未公布，待核实。\nhttp://www.yjszs.sdnu.edu.cn/info/1009/4765.htm\n\n**二、上一年度对照（2025年招生章程，2024-10-01发布）**\n基本条件与2026年一致；管理类专业另有工作经验年限要求，本校在读本科生不适用。以同等学力报考者复试加试要求相同。\nhttp://www.yjszs.sdnu.edu.cn/info/1009/4095.htm\n\n**三、计算机相关专业目录、考试科目与限制**\n以 site: 限定官方域名检索“硕士研究生招生专业目录 计算机”本轮无返回结果，招生目录、初试科目及是否限专业均未核实，不作推断。学院零散页面仅见法学院、经济学院同等学力申硕简章（要求已获学士学位后工作三年），属另一渠道，与统考报名条件不同。\nhttp://www.yjszs.sdnu.edu.cn/zsjz/sszsjz/1.htm"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_jowUZQBgpKZAvmR3SZXy9386",
+        "name": "web_search",
+        "input": {
+          "query": "site:ujn.edu.cn 济南大学 硕士研究生 招生专业目录 计算机"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "server_tool_use",
+        "id": "call_01_7aeJwNtbCDIscnByYIef1644",
+        "name": "web_search",
+        "input": {
+          "query": "site:ujn.edu.cn 济南大学 硕士研究生招生简章 报考条件"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_jowUZQBgpKZAvmR3SZXy9386",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "济南大学研究生处-导师列表",
+            "url": "https://yanzhao.ujn.edu.cn/gms/ds/dszlgl/enterViewDszl4Sd?userId=4028818e84f4507b0184f46a4b4417c7&xkbh=4028818e847de7f401847e0269a2001f&yxsh=4028818e846f04af01846f0764ca0013#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "济南大学“计算机科学与技术”一级学科硕士学位研究生",
+            "url": "https://yjs.ujn.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1485039247&wbfileid=FA754AE8126EC6BC2F933845989AA240#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>培养单位</td><td>学科（领域）</td><td>导师姓名</td></tr><tr><td rowspan=\"5\">信息科学与工程学院</td><td>081000 | 信息与通信工程(8 人)</td><td>高嵩 ...",
+            "url": "http://yjs.ujn.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1485039247&wbfileid=0A7FA685ACA448135D98CC282AF98BEC#3#3"
+          },
+          {
+            "type": "web_search_result",
+            "title": "Graduate Programs",
+            "url": "http://isao.ujn.edu.cn/English/PROGRAMS/Graduate_Programs.htm"
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>719</td><td>教育与心理科学学院</td><td>045400</td><td>应用心理</td><td>02</td><td>组织管理与社会心理服务</td><td>全日制</td></tr><tr><td>721...",
+            "url": "http://yz.ujn.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1499064724&wbfileid=27B4834168D7C4F81BCAC05920527E83#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "济南大学卓越工程师学院2025年硕士研究生招生简章",
+            "url": "http://yz.ujn.edu.cn/info/1032/3214.htm#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td rowspan=\"3\">705外国语学院<br>（联系电话：0531-<br>82767743）</td><td>050201</td><td>英语语言文学</td><td>学术学位</td><td>全日制</td><td>4...",
+            "url": "http://yz.ujn.edu.cn/system/resource/pdfjs/viewer.html?file=%2F__local%2F1%2FED%2FAF%2F6CCEC03033132AA9D3C11919504_38606EC0_15EEC.pdf&_x_output_type_b6db407c4_=embedded_pdf#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "“计算机科学与技术”一级学科硕士学位研究生培养方案",
+            "url": "https://yjs.ujn.edu.cn/__local/6/75/E9/801D18EBCA53A4D4C8DF6BEB584_AD854E83_1C49A.pdf?e=.pdf#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "|070300|化学|全日制|理学硕士|学术型|36|",
+            "url": "https://xxgk.ujn.edu.cn/__local/9/44/71/5EB6DAE81F0F70C15E45DB1B086_D731A272_16FD49.pdf#9#4"
+          },
+          {
+            "type": "web_search_result",
+            "title": "济南大学学位点建设情况",
+            "url": "http://xkc.ujn.edu.cn/__local/7/55/81/569B48AB5004C49D3836FFDD033_0138225D_18B19.pdf#1#1"
+          }
+        ]
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_01_7aeJwNtbCDIscnByYIef1644",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "济南大学2026年MBA招生简章",
+            "url": "https://sxy.ujn.edu.cn/info/1463/24430.htm#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "济南大学2026年面向港澳台地区研究生招生简章-济南大学台港澳事务办公室 - |  搜索",
+            "url": "http://tga.ujn.edu.cn/info/1004/1942.htm#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "济南大学2026年面向港澳台地区研究生招生简章 - 济南大学2026年面向港澳台地区研究生招生简章",
+            "url": "https://yz.ujn.edu.cn/info/1013/4074.htm#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "济南大学2025年面向港澳台地区研究生招生简章 - 站内搜索：",
+            "url": "http://yz.ujn.edu.cn/info/1013/3364.htm#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "济南大学2025年MBA招生简章 - 首页 → 招生信息 → 正文",
+            "url": "http://sxy.ujn.edu.cn/info/1463/17850.htm#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "济南大学卓越工程师学院2025年硕士研究生招生简章",
+            "url": "http://yz.ujn.edu.cn/info/1032/3214.htm#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "济南大学文件",
+            "url": "https://yz.ujn.edu.cn/__local/2/9D/C3/292A8CDD9793DD31F825CA1140E_1E2EA5D1_86B23.pdf?e=.pdf#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "济南大学机器学习及其应用课题组",
+            "url": "https://linwang.ujn.edu.cn/news/news_cn/2026.html#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td rowspan=\"3\">705外国语学院<br>（联系电话：0531-<br>82767743）</td><td>050201</td><td>英语语言文学</td><td>学术学位</td><td>全日制</td><td>4...",
+            "url": "http://yz.ujn.edu.cn/system/resource/pdfjs/viewer.html?file=%2F__local%2F1%2FED%2FAF%2F6CCEC03033132AA9D3C11919504_38606EC0_15EEC.pdf&_x_output_type_b6db407c4_=embedded_pdf#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "济南大学2026年同等学力人员申请硕士学位招生简章 - 济南大学2026年同等学力人员申请硕士学位招生简章",
+            "url": "https://yz.ujn.edu.cn/info/1012/4294.htm#1"
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "**专业目录（2026年度）**：济南大学2026年硕士导师目录列出计算机类招生专业：081200计算机科学与技术（学术学位，信息科学与工程学院、人工智能研究院、913泛在智能计算重点实验室）、085404计算机技术、085410人工智能（专业学位）。2030招生年度（对应2029年初试）专业目录与初试科目尚未公布，待核实。\nhttps://yanzhao.ujn.edu.cn/gms/ds/dszlgl/enterViewDszl4Sd?userId=4028818e84f4507b0184f46a4b4417c7&xkbh=4028818e847de7f401847e0269a2001f&yxsh=4028818e846f04af01846f0764ca0013#1#1\n\n**报考要求**：卓越工程师学院2025年招生简章（2024年10月12日）含计算机技术专业，要求符合学校当年研究生招生要求并参加全国统考初试；该简章仅适用2025年度。校级统考报考条件与同等学力加试限制本次未检索到原文，待核实。\nhttp://yz.ujn.edu.cn/info/1032/3214.htm#1\n\n**学历资格提示（2026年度）**：同等学力申请硕士学位要求已获学士学位且工作三年以上，不适用统考路径，仅作资格边界参考。\nhttps://yz.ujn.edu.cn/info/1012/4294.htm#1"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_myOyzWtCGhTqVJX6Hjgr0617",
+        "name": "web_search",
+        "input": {
+          "query": "山东师范大学 计算机科学与技术 硕士研究生 培养地点 校区 site:sdnu.edu.cn"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "server_tool_use",
+        "id": "call_01_KXplQMajZDNvdcIOx9T00231",
+        "name": "web_search",
+        "input": {
+          "query": "山东师范大学 2016年 省外 本科一批 录取统计 site:sdnu.edu.cn"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_myOyzWtCGhTqVJX6Hjgr0617",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "2024级研究生入学须知-山东师范大学迎新网 - 通知公告 Notice",
+            "url": "http://2025yx.sdnu.edu.cn/info/1021/1351.htm#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "本专业办学地点为山东师范大学长清校区，专业现有全日制在校本科生876人、在读硕士生296人、博士生37人，年均招生规模320人",
+            "url": "http://www.xxgk.sdnu.edu.cn/info/1011/3358.htm#156#111"
+          },
+          {
+            "type": "web_search_result",
+            "title": "山东师范大学2020级研究生入学须知 - - 招生动态 当前位置： 网站首页 >> 招生动态 >> 正文",
+            "url": "http://www.yjszs.sdnu.edu.cn/info/1003/1761.htm#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "山东师范大学2017级研究生入学须知",
+            "url": "http://www.mpacc.sdnu.edu.cn/info/1093/1732.htm"
+          },
+          {
+            "type": "web_search_result",
+            "title": "各学院联系方式 - - 学院联系方式 当前位置： 网站首页 >> 信息查询 >> 学院联系方式 >> 正文",
+            "url": "http://www.yjszs.sdnu.edu.cn/info/1021/1068.htm#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "山东师范大学2018级研究生入学须知 - - 硕士招生 当前位置： 网站首页 >> 招生动态 >> 硕士招生 >> 正文",
+            "url": "http://www.yjszs.sdnu.edu.cn/info/1015/1048.htm#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "长清湖校区与千佛山校区的详细地址-山东师范大学迎新网",
+            "url": "https://2025yx.sdnu.edu.cn/info/1061/1781.htm"
+          },
+          {
+            "type": "web_search_result",
+            "title": "研究团队-山东师范大学信息科学与工程学院",
+            "url": "https://ischool.sdnu.edu.cn/kxyj/yjtd/1.htm"
+          },
+          {
+            "type": "web_search_result",
+            "title": "本学科授权发明专利2项，出版学术专著1部、教材1部，发表学术论文30余篇",
+            "url": "http://www.yjs.sdnu.edu.cn/images/ndbg.pdf#toolbar=0#260#235"
+          },
+          {
+            "type": "web_search_result",
+            "title": "Contact",
+            "url": "http://english.sdnu.edu.cn/Contact.htm"
+          }
+        ]
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_01_KXplQMajZDNvdcIOx9T00231",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "山东师范大学2016年山东省外各专业招生录取情况 - 山东师范大学2016年山东省外各专业招生录取情况",
+            "url": "https://cie.sdnu.edu.cn/info/1072/1924.htm#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "最新公开信息-山东师范大学信息公开网",
+            "url": "http://www.xxgk.sdnu.edu.cn/xxgkzn31/9.htm"
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "**一、培养校区（济南）**\n山东师范大学2024级研究生入学须知（2024年发布）：信息科学与工程学院全日制研究生在济南市长清区大学路1号长清湖校区报到；教育学部、文学院等学院在千佛山校区（历下区文化东路88号），两校区均在济南。2020级须知同将此学院列于长清湖校区。2029年初试、2030年入学的培养地点以当年招生目录为准，待核实。\nhttp://2025yx.sdnu.edu.cn/info/1021/1351.htm\nhttp://www.yjszs.sdnu.edu.cn/info/1003/1761.htm\n\n**二、历史批次证据**\n学校官方《山东师范大学2016年山东省外各专业招生录取情况》显示，2016年天津为本科一批B类、河北为本科一批、辽宁为普通本科一批、黑龙江为一批本科（A）。该证据仅适用于表中省外省份及2016年，不能据此泛称所有省份均为本科一批。\nhttps://cie.sdnu.edu.cn/info/1072/1924.htm\n\n**三、待核实**\n山东省内批次表述及2030年招生年度资料未公布，待核实。"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_7RTCC1zLHHRnlXDINKtG4478",
+        "name": "web_search",
+        "input": {
+          "query": "site:ujn.edu.cn 济南大学 计算机科学与技术学院 校区 培养地点"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "server_tool_use",
+        "id": "call_01_zuvLUL7CddyoVLDTSPTv0532",
+        "name": "web_search",
+        "input": {
+          "query": "site:ujn.edu.cn 济南大学 2016年 山东省 普通本科一批 录取统计"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_7RTCC1zLHHRnlXDINKtG4478",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "通讯地址：山东省济南市南辛庄西路336号  咨询电话：0531- 82765900  图文传真：0531- 82765901  电子邮箱：zsb@ujn",
+            "url": "https://admission.ujn.edu.cn/info/1024/2532.htm?_x_output_type_b6db407c4_=embedded_pdf#2#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "计算机专业于2002年获得计算机应用技术二级学科硕士学位授予权，2006年获得计算机科学与技术一级学科硕士学位授予权，2010年获得硕士研究生免试推荐权，2011年获得软件工程一级学科硕士学位授予权",
+            "url": "https://xxgk.ujn.edu.cn/__local/0/CC/B5/5935EC8778C41594AB3650D3E75_24CEC7C5_E4BD6A.pdf#198#126"
+          },
+          {
+            "type": "web_search_result",
+            "title": "济南大学2016-2017学年第一学期2016级硕士研究生公共课程表",
+            "url": "http://yjs.ujn.edu.cn/__local/C/1F/A3/81AC2B2A45B1B6CCB26E036DD87_C61F513C_4CCE.docx?e=.docx#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "学建模竞赛、ACM程序设计竞赛、全国大学生“互联网 \\(^+\\) ”创新大赛、中国高校计算机大赛、“龙芯杯”全国大学生计算机系统能力培养大赛、山东省大学生软件设计大赛、国家级大学生创新创业训练计划项目等，成绩斐然",
+            "url": "https://jwc.ujn.edu.cn/__local/D/DB/4D/11385BFEC9F96E1D369A7E821E9_DBAEE8C6_1A661EA.pdf#232#139"
+          },
+          {
+            "type": "web_search_result",
+            "title": "（4）专业主干课程和课程资源建设",
+            "url": "https://xxgk.ujn.edu.cn/__local/6/30/C7/73BECAF12EA7771EA268665D81D_B22C5825_C4D7E8.pdf#184#121"
+          },
+          {
+            "type": "web_search_result",
+            "title": "通过改善实验环境，调整课程体系，提升了针对国内外主流技术进行实验课程设计的能力，满足了学生获得当今技术前沿知识和技能的要求，学生综合能力得到提升",
+            "url": "https://xxgk.ujn.edu.cn/__local/6/7B/E3/FC5646173AC2082056774B58750_8CDBE03A_127E01A.pdf#231#149"
+          },
+          {
+            "type": "web_search_result",
+            "title": "|    | 专业方向课（选修）    | 选修；如选择相应实践环节，取得的学分可替换专业选修课学分 | 12.0   | 7.2   | 496   |",
+            "url": "https://xxgk.ujn.edu.cn/__local/0/CC/B5/5935EC8778C41594AB3650D3E75_24CEC7C5_E4BD6A.pdf#198#127"
+          },
+          {
+            "type": "web_search_result",
+            "title": "济南大学“计算机科学与技术”一级学科硕士学位研究生",
+            "url": "https://yjs.ujn.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1485039247&wbfileid=FA754AE8126EC6BC2F933845989AA240#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "大学十个省财政重点支持专业之一，2016年被评为计算机教指委“计算机类专业系统能力培养试点高校”，同年又获得高教研究会首批“面向工程教育本科计算机类专业课程改革项目”立项",
+            "url": "https://xxgk.ujn.edu.cn/__local/6/30/C7/73BECAF12EA7771EA268665D81D_B22C5825_C4D7E8.pdf#184#120"
+          },
+          {
+            "type": "web_search_result",
+            "title": "（4）学术活动和交流以科研促教学为指导思想，本专业努力营造浓厚学术氛围",
+            "url": "https://xxgk.ujn.edu.cn/__local/D/0B/E8/97483971E787567430DFB208A31_34B636BA_116C76B.pdf#231#146"
+          }
+        ]
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_01_zuvLUL7CddyoVLDTSPTv0532",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "济南大学2016年全国各省（市、自治区）普通文理录取分数线",
+            "url": "https://xxgk.ujn.edu.cn/__local/2/D4/61/18EB3CE24CAB055ADA7C69E792C_BBC62789_218FF.pdf#2#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "考生个人录取信息查询渠道和办法，分批次、分科类录取人数和录取最低分-济南大学信息公开网",
+            "url": "https://xxgk.ujn.edu.cn/xxgkml/xwgk/zsksxx/ksgrlqxxcxqdhbf/1.htm"
+          },
+          {
+            "type": "web_search_result",
+            "title": "通讯地址：山东省济南市南辛庄西路336号  咨询电话：0531- 82765900  图文传真：0531- 82765901  电子邮箱：zsb@ujn",
+            "url": "https://admission.ujn.edu.cn/info/1024/2532.htm?_x_output_type_b6db407c4_=embedded_pdf#2#1"
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "**校区与培养地点（2022年资料）**：济南大学信息科学与工程学院（含计算机科学与技术、网络工程、网络空间安全、人工智能等专业）培养校区为主校区（济南市南辛庄西路336号）；另一校区舜耕校区（济南市舜耕路13号）亦在济南。适用年度：2022年本科招生报考指南。https://admission.ujn.edu.cn/info/1024/2532.htm?_x_output_type_b6db407c4_=embedded_pdf#2#1\n\n**历史批次（2016年，山东）**：该校2016年全国普通文理录取分数线表列有山东普通本科一批次及济南走读本科一批次，仅作该校历史层次参考，不代表所有项目、所有省份同批次。教学质量报告另载：计算机科学与技术专业自2014年起在山东省内全部一本招生，2017—2020年亦全部一本招生（属校内自述，非批次公告）。https://xxgk.ujn.edu.cn/__local/2/D4/61/18EB3CE24CAB055ADA7C69E792C_BBC62789_218FF.pdf\nhttps://xxgk.ujn.edu.cn/xxgkml/xwgk/zsksxx/ksgrlqxxcxqdhbf/1.htm\n\n**待核实**：2030年（2029年12月初试对应）招生目录、校区安排与批次表述尚未公布，须以届时官方发布为准。"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_6kcBbUD6byPoyK3yB5to3158",
+        "name": "web_search",
+        "input": {
+          "query": "site:qlu.edu.cn 齐鲁工业大学 硕士研究生招生专业目录 计算机"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "server_tool_use",
+        "id": "call_01_dwbvOuBubB3Z8TRGYdZV2092",
+        "name": "web_search",
+        "input": {
+          "query": "site:qlu.edu.cn 齐鲁工业大学 计算机科学与技术 初试科目 报考条件"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_6kcBbUD6byPoyK3yB5to3158",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "齐鲁工业大学（山东省科学院）2027年硕士研究生招生专业目录",
+            "url": "https://yjszs.qlu.edu.cn/2026/0930/c6601a284168/page.htm#6#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "联系人：富老师，电话：0531- 89631987，邮箱：jsjyjs@qlu",
+            "url": "https://yjszs.qlu.edu.cn/_upload/article/files/38/21/415a3a1541cb98f530fb19860f39/8a7ace23-547d-4ada-96af-01516909cf84.pdf#4#3"
+          },
+          {
+            "type": "web_search_result",
+            "title": "010 数学与人工智能学部",
+            "url": "https://slx.qlu.edu.cn/_js/_portletPlugs/swfPlayer/pdfjs22228/web/viewer.html?file=%2F_upload%2Farticle%2Ffiles%2F72%2F15%2F74bdfa964429946ae50e235ec86b%2F4fa67cd5-94f9-4f98-b2a7-389c741440cb.pdf&_x_output_type_b6db407c4_=embedded_pdf#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>学部</td><td>学历</td><td>专业名称</td><td>人数</td><td>就业工作负责人联系方式</td></tr><tr><td rowspan=\"8\">数学与人工智能学部</td><td rowspan=...",
+            "url": "https://xyh.qlu.edu.cn/_upload/article/files/6f/f5/ac05554c49299ebda1e9041a5824/ed385631-4cbb-4afb-b10f-b3598ef62ab6.pdf#12#11"
+          },
+          {
+            "type": "web_search_result",
+            "title": "硕士研究生招生考试目录",
+            "url": "https://cpnis.qlu.edu.cn/2024/0420/c12831a241131/page.htm"
+          },
+          {
+            "type": "web_search_result",
+            "title": "齐鲁工业大学（山东省科学院）专业学位硕士研究生培养方案",
+            "url": "https://fots.qlu.edu.cn/2025/0401/c12864a255458/page.htm?_x_output_type_b6db407c4_=embedded_pdf#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>序号</td><td>门类</td><td>一级学科代码</td><td>一级学科名称</td><td>授权类型级别</td></tr><tr><td>1</td><td>经济学</td><td>0202</td><td>应用...",
+            "url": "https://yjsc.qlu.edu.cn/_upload/article/files/3b/3d/9be26ee0483faac0cb54ac170bde/65164f08-0253-4452-89b8-2dc6c5720732.pdf#29#27"
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>序号</td><td>专业类别</td><td>领域代码</td><td>领域名称</td><td>所在学院</td></tr><tr><td>1</td><td>工程硕士</td><td>085201</td><td>机械工...",
+            "url": "https://dangan.qlu.edu.cn/_upload/article/files/13/b1/555955ca4a79a2047b07a5bb5548/ec41b304-cd47-4887-bccf-b7f51174cd9c.pdf#110#78"
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>类别代码</td><td>专业类别</td><td>领域代码</td><td>领域名称</td><td>批准时间</td></tr><tr><td rowspan=\"2\">0251</td><td rowspan=\"2\">金融...",
+            "url": "https://dangan.qlu.edu.cn/_upload/article/files/2f/eb/7c8ff4264fdbb7775b9f32b45a64/4a11d600-2376-441c-945b-92173bbecc3f.pdf#92#44"
+          },
+          {
+            "type": "web_search_result",
+            "title": "2024硕士研究生",
+            "url": "https://xxgk.qlu.edu.cn/_upload/article/files/ae/c2/892539944c74ba5894fc561b9a58/1154bd8f-7bee-49fe-88ae-4fc52964b745.pdf#5#1"
+          }
+        ]
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_01_dwbvOuBubB3Z8TRGYdZV2092",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "齐鲁工业大学（山东省科学院）2027年硕士研究生招生专业目录",
+            "url": "https://yjszs.qlu.edu.cn/2026/0930/c6601a284168/page.htm#6#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "007计算机科学与技术学院",
+            "url": "https://xxgk.qlu.edu.cn/_upload/article/files/cf/c4/ef5d2495490c9f0a5163460cfacc/d00519ea-8194-4c88-bdcb-27dedf208c6e.pdf#3#3"
+          },
+          {
+            "type": "web_search_result",
+            "title": "2024硕士研究生",
+            "url": "https://xxgk.qlu.edu.cn/_upload/article/files/ae/c2/892539944c74ba5894fc561b9a58/1154bd8f-7bee-49fe-88ae-4fc52964b745.pdf#5#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "齐鲁工业大学（山东省科学院）2023年硕士研究生招生专业目录.doc - / 31",
+            "url": "https://yjszs.qlu.edu.cn/_js/_portletPlugs/swfPlayer/pdfjs22228/web/viewer.html?file=/_upload/article/files/8e/11/1f163ee54a3b944f6c1f66fd5afd/1ee0c5ea-91e7-41a3-bf27-493234fe1edc.pdf#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "联系人：富老师，电话：0531- 89631987，邮箱：jsjyjs@qlu",
+            "url": "https://yjszs.qlu.edu.cn/_upload/article/files/38/21/415a3a1541cb98f530fb19860f39/8a7ace23-547d-4ada-96af-01516909cf84.pdf#4#3"
+          },
+          {
+            "type": "web_search_result",
+            "title": "硕士研究生招生考试目录",
+            "url": "https://cpnis.qlu.edu.cn/2024/0420/c12831a241131/page.htm"
+          },
+          {
+            "type": "web_search_result",
+            "title": "齐鲁工业大学（山东省科学院）2022年硕士研究生招生简章",
+            "url": "https://spxy.qlu.edu.cn/_upload/article/files/84/a2/6fe6c37945ba8447a4f2f3d147fa/9861b948-e135-4583-8970-9b2d0bc34bdf.docx#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "齐鲁工业大学（山东省科学院）2018年硕士研究生招生简章",
+            "url": "https://xxgk.qlu.edu.cn/_upload/article/files/1b/a3/d4f50ee04acb9f54783f53da6237/68bf6fa6-6d26-4b92-bce9-9514f7817a6c.docx#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "齐鲁工业大学（山东省科学院）",
+            "url": "https://xxgk.qlu.edu.cn/_upload/article/files/0d/e3/704212b442a992204aed54b3d2aa/f874fa47-0db3-4f49-a9e2-a848ab6b4ccd.docx#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "7. 符合少数民族照顾政策规定条件并申请享受照顾政策的考生，须在网上报名时按要求填报相关信息，并如实填写少数民族身份及定向就业少数民族地区",
+            "url": "https://xxgk.qlu.edu.cn/_upload/article/files/ae/c2/892539944c74ba5894fc561b9a58/1154bd8f-7bee-49fe-88ae-4fc52964b745.pdf#5#2"
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "**一、专业与初试科目**\n齐鲁工业大学计算机科学与技术学部2027年硕士研究生招生专业目录（2026-09-30发布）：★081200计算机科学与技术拟招54人，★083900网络空间安全拟招12人，初试均为①101思想政治理论②201英语（一）③301数学（一）④408计算机学科专业基础；专业学位085404计算机技术拟招196人，初试为①101②204英语（二）③302数学（二）④408；复试均考高级程序设计。2030年招生目录与科目待核实。\nhttps://yjszs.qlu.edu.cn/2026/0930/c6601a284168/page.htm\n\n**二、报考条件**\n2024年硕士研究生招生简章（学校代码10431）报考条件：国家承认学历的应届本科毕业生（录取当年入学前须取得本科毕业证书）、已获本科学历人员等可报考；高职高专毕业满2年者按本科毕业同等学力报考，所学专业与报考专业原则上须相同或相近，并通过5门以上本科课程。具体年度限制以当年简章为准。\nhttps://xxgk.qlu.edu.cn/_upload/article/files/ae/c2/892539944c74ba5894fc561b9a58/1154bd8f-7bee-49fe-88ae-4fc52964b745.pdf\n\n**三、参考书目**\n复试参考书：高级程序设计为《C语言程序设计》（第四版），何钦铭、颜晖，高等教育出版社2020；同等学力加试编译原理、计算机体系结构。另校方公布的考试目录列873计算机专业综合参考书（数据结构、计算机操作系统教程）。2030年要求待核实。\nhttps://cpnis.qlu.edu.cn/2024/0420/c12831a241131/page.htm"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_lXZC9w7ZaSA1EcAIX8p97356",
+        "name": "web_search",
+        "input": {
+          "query": "site:qlu.edu.cn 齐鲁工业大学 研究生 培养校区 计算机"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "server_tool_use",
+        "id": "call_01_ua0zHWIkSOz5ulWMdfJ81050",
+        "name": "web_search",
+        "input": {
+          "query": "site:qlu.edu.cn 齐鲁工业大学 山东省 本科一批 招生批次"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_lXZC9w7ZaSA1EcAIX8p97356",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "2024硕士研究生",
+            "url": "https://xxgk.qlu.edu.cn/_upload/article/files/ae/c2/892539944c74ba5894fc561b9a58/1154bd8f-7bee-49fe-88ae-4fc52964b745.pdf#5#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "学校（科学院）召开彩石校区发展建设专题研讨会",
+            "url": "https://news.qlu.edu.cn/2021/0305/c8382a163207/page.psp"
+          },
+          {
+            "type": "web_search_result",
+            "title": "齐鲁工业大学（山东省科学院）",
+            "url": "https://slx.qlu.edu.cn/_upload/article/files/a2/86/6c8c36be4170badbdce373b99797/a51bfe5f-0af8-4d4c-b179-74fed50c5de5.docx#12#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "长清校区：山东省济南市长清区大学路3501号（主校区）",
+            "url": "https://twxy.qlu.edu.cn/_upload/article/files/b6/b8/5c4f410c4b6da743bf01bc983fd8/3d0d9168-3b38-4227-8fcc-c7aa2b73ab10.pdf#20#2"
+          },
+          {
+            "type": "web_search_result",
+            "title": "校区介绍",
+            "url": "https://csxq.qlu.edu.cn/xqgk/list.htm"
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>学部</td><td>学历</td><td>专业名称</td><td>人数</td><td>就业工作负责人联系方式</td></tr><tr><td rowspan=\"8\">数学与人工智能学部</td><td rowspan=...",
+            "url": "https://xyh.qlu.edu.cn/_upload/article/files/6f/f5/ac05554c49299ebda1e9041a5824/ed385631-4cbb-4afb-b10f-b3598ef62ab6.pdf#12#11"
+          },
+          {
+            "type": "web_search_result",
+            "title": "校（院）成功举办2023级研究生新生开学典礼",
+            "url": "https://yjsc.qlu.edu.cn/_t1313/2023/0915/c786a227103/page.htm"
+          },
+          {
+            "type": "web_search_result",
+            "title": "齐鲁工业大学（山东省科学院）专业学位硕士研究生培养方案",
+            "url": "https://fots.qlu.edu.cn/2025/0401/c12864a255458/page.htm?_x_output_type_b6db407c4_=embedded_pdf#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "齐鲁工业大学（山东省科学院）",
+            "url": "https://xxgk.qlu.edu.cn/_upload/article/files/fd/c3/2fdc07bc47e4976e11de4992fccd/426871b7-6de6-47b1-bbc4-e107bc2ebf32.pdf#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "齐鲁工业大学（山东省科学院）2026年硕士研究生推免招生专业目录",
+            "url": "https://yjszs.qlu.edu.cn/_upload/article/files/e0/bf/b5d6af29429ea7e465959acec304/7449ae7f-9c52-4994-a49a-056162489be2.pdf#1#1"
+          }
+        ]
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_01_ua0zHWIkSOz5ulWMdfJ81050",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "齐鲁工业大学",
+            "url": "https://me.qlu.edu.cn/_js/_portletPlugs/swfPlayer/pdfjs22228/web/viewer.html?file=/_upload/article/files/3c/98/73617ed0400f988abcdd18ef4a68/1962f066-12fe-4c09-8d1b-6e6251d522ea.pdf#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "齐鲁工业大学2021年各省市最低录取分数一览表",
+            "url": "https://xxgk.qlu.edu.cn/_upload/article/files/84/80/4bf51b0f49aab9761b13329df397/8451ce6d-552c-4864-a018-e12c4f816245.pdf#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "齐鲁工业大学2015-2018年各省最低录取分",
+            "url": "https://xxgk.qlu.edu.cn/_upload/article/files/9a/5c/c28d5f4843658022cb4b9e4fa8f5/85d0b5cf-98e7-4536-bd03-5469c1cd371a.pdf#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "2019年齐鲁工业大学各省市批次最低录取分",
+            "url": "https://xxgk.qlu.edu.cn/_upload/article/files/92/d7/0c08e04f4298b9c8df2a12466a1b/3532f814-0828-4313-9a19-8923b73a8c39.pdf#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "2024年，在未实行新高考综合改革的6个省份中，我校在山西、内蒙古、河南、四川和云南5个省份一本批次招生",
+            "url": "https://xxgk.qlu.edu.cn/_upload/article/files/74/01/f840e5e940f68c52cd627a99041a/78b153b7-de52-4856-896b-4755d5683ee9.pdf#8#2"
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>1</td><td>管理学院</td><td>文史</td><td>会计学（金融外包）</td><td>504</td><td>532</td><td>533</td><td>30101</td></tr><tr><td co...",
+            "url": "https://twxy.qlu.edu.cn/_upload/article/files/b6/b8/5c4f410c4b6da743bf01bc983fd8/3d0d9168-3b38-4227-8fcc-c7aa2b73ab10.pdf#20#9"
+          },
+          {
+            "type": "web_search_result",
+            "title": "齐鲁工业大学2015年新生入学复查",
+            "url": "https://xxgk.qlu.edu.cn/2019/0104/c10557a121740/page.htm"
+          },
+          {
+            "type": "web_search_result",
+            "title": "齐鲁工业大学齐鲁工业大学菏泽校区2015年招生计划和情况介绍",
+            "url": "https://hzxq.qlu.edu.cn/_t152/2015/0625/c3115a48325/page.htm"
+          },
+          {
+            "type": "web_search_result",
+            "title": "中共齐鲁工业大学（山东省科学院）委员会文件",
+            "url": "https://xxgk.qlu.edu.cn/_upload/article/files/e6/0e/fe76e4fb400dbd2bee62b266214e/e86816ad-8b42-417c-98ef-bd9f61ea1f39.pdf#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "学校（科学院）2020年本科招生工作取得新突破",
+            "url": "https://www.qlu.edu.cn/2020/0914/c8559a154986/page.htm"
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "**校区（培养地点）**：主校区位于济南长清大学科技园（长清区大学路3501号）；彩石校区位于济南市经十东路28789号，学科布局围绕计算机、电子信息等领域，入住以相关单位高年级本科生和研究生为主（2021-03-05校区建设专题研讨会），另在菏泽、青岛、济宁、德州等地设有校区或研究机构（2024年硕士招生资料口径）。\nhttps://xxgk.qlu.edu.cn/_upload/article/files/ae/c2/892539944c74ba5894fc561b9a58/1154bd8f-7bee-49fe-88ae-4fc52964b745.pdf\nhttps://news.qlu.edu.cn/2021/0305/c8382a163207/page.psp\n\n**计算机类培养**：085404计算机技术等专业学位培养方案（2025-04-01发布）依托计算机科学与技术一级学科；2026年推免招生专业目录已公布，但未逐专业标注培养校区，具体城市须以2030年度招生简章、专业目录为准，待核实。\nhttps://fots.qlu.edu.cn/2025/0401/c12864a255458/page.htm?_x_output_type_b6db407c4_=embedded_pdf\nhttps://yjszs.qlu.edu.cn/_upload/article/files/e0/bf/b5d6af29429ea7e465959acec304/7449ae7f-9c52-4994-a49a-056162489be2.pdf\n\n**“一本”层次**：山东省2020年起实行新高考、取消本科录取批次，省内已无一本批次划分；“一本”仅适用于未改革省份，2024年我校在山西、内蒙古、河南、四川、云南5省一本批次招生。2029/2030年度批次要求待核实。\nhttps://xxgk.qlu.edu.cn/_upload/article/files/74/01/f840e5e940f68c52cd627a99041a/78b153b7-de52-4856-896b-4755d5683ee9.pdf"
+      }
+    ]
+  },
+  {
+    "stage": "generate",
+    "stopReason": "end_turn",
+    "sources": [],
+    "text": [
+      {
+        "text": "{\n  \"title\": \"济南计算机相关专业考研四年学习规划（本科在读，目标2029年12月初试，日期暂定）\",\n  \"goal\": \"面向济南本地院校的计算机相关专业硕士：比较济南大学、山东师范大学、齐鲁工业大学等校的计算机科学与技术、网络空间安全、计算机技术、人工智能等方向，结合计算机网络技术专业基础与英语、数学实际水平，逐步确定1—2所主攻院校并据此准备初试。推荐仅为方向参考，不等于已选定院校，目标年度专业目录与报考资格待核实。\",\n  \"summary\": \"本规划依据2026年10月已公开资料整理。目前最新已公布年度为2027年硕士研究生招生（初试2026年12月19日至20日），该年度信息不适用于你的目标年份；你对应的是2030年招生年度、2029年12月初试，其管理规定、初试日期与招生目录目前均未公布，属待核实事项。济南地区已核实设有计算机类院系并具官方历史招生记录的院校包括济南大学、山东师范大学、齐鲁工业大学，其计算机相关方向与培养校区（济南主校区、长清湖校区等）均有官方出处支撑，历史本科一批情况仅作择校参考，不代表未来批次或报考门槛。目标初试日期按“12月第三个周六”推算为2029年12月15日，仅为暂定规划参考，不是正式考试日期，学习计划截止至2029年12月14日。建议大一、大二打牢数学、英语与数据结构、计算机网络基础，大三进入真题与专业课强化，大四专注模拟、报名与考前调整；报考资格、专业目录与考试科目以目标年度官方简章为准。\",\n  \"dateStatus\": \"estimated\",\n  \"examDate\": \"\",\n  \"examSourceUrl\": \"\",\n  \"sourceUrls\": [\n    \"https://yanzhao.ujn.edu.cn/gms/ds/dszlgl/enterViewDszl4Sd?userId=4028818e84f4507b0184f46a4b4417c7&xkbh=4028818e847de7f401847e0269a2001f&yxsh=4028818e846f04af01846f0764ca0013#1#1\",\n    \"https://admission.ujn.edu.cn/info/1024/2532.htm?_x_output_type_b6db407c4_=embedded_pdf#2#1\",\n    \"https://xxgk.ujn.edu.cn/__local/2/D4/61/18EB3CE24CAB055ADA7C69E792C_BBC62789_218FF.pdf#2#1\",\n    \"http://www.yjszs.sdnu.edu.cn/info/1009/4765.htm#2#2#1\",\n    \"http://2025yx.sdnu.edu.cn/info/1021/1351.htm#1\",\n    \"https://cie.sdnu.edu.cn/info/1072/1924.htm#1\",\n    \"https://yjszs.qlu.edu.cn/2026/0930/c6601a284168/page.htm#6#1\",\n    \"https://news.qlu.edu.cn/2021/0305/c8382a163207/page.psp\",\n    \"https://xxgk.qlu.edu.cn/_upload/article/files/74/01/f840e5e940f68c52cd627a99041a/78b153b7-de52-4856-896b-4755d5683ee9.pdf#8#2\",\n    \"https://yz.chsi.com.cn/kyzx/jybzc/202410/20241008/2293342617.html#1\"\n  ],\n  \"recommendationNotice\": \"本次推荐限定济南本地、设有计算机类硕士培养且具官方历史招生记录的院校，共3所，均为候选参考，并非已确定报考目标。“一本”采用取消或合并批次前的历史招生层次作择校参考：山东自2020年实行新高考后已无本科批次划分，历史批次不代表未来年份的招生批次或报考门槛，也不等同于985、211。济南大学、山东师范大学依据2016年官方录取统计，齐鲁工业大学依据2024年部分省份一本批次招生信息。2030年招生年度（2029年12月初试）的管理规定、专业目录、考试科目、招生人数与报考资格均未公布，请以目标年度研招网与学校官网正式文件为准；本规划不对录取可能性作任何判断。\",\n  \"recommendations\": [\n    {\n      \"name\": \"济南大学\",\n      \"reason\": \"该校信息科学与工程学院设计算机类硕士培养，2026年导师目录中列有计算机科学与技术、计算机技术、人工智能等招生方向，与你所学计算机网络技术衔接紧密。培养地点在济南（主校区、舜耕校区均在济南），便于课程学习与实习衔接。学校官方2016年录取统计在山东列有普通本科一批次等记录，可作为历史一本参考层次。该校卓越工程师学院2025年招生简章含计算机技术专业并要求参加全国统考初试，2030年招生年度的专业目录、初试科目与报考限制尚未公布，需待核实。\",\n      \"sourceUrl\": \"https://yanzhao.ujn.edu.cn/gms/ds/dszlgl/enterViewDszl4Sd?userId=4028818e84f4507b0184f46a4b4417c7&xkbh=4028818e847de7f401847e0269a2001f&yxsh=4028818e846f04af01846f0764ca0013#1#1\",\n      \"location\": {\n        \"province\": \"山东省\",\n        \"city\": \"济南市\",\n        \"campus\": \"信息科学与工程学院相关专业培养地点为主校区（济南市南辛庄西路336号），舜耕校区（济南市舜耕路13号）同在济南。2030年入学具体培养校区以当年招生目录为准，待核实。\",\n        \"sourceUrl\": \"https://admission.ujn.edu.cn/info/1024/2532.htm?_x_output_type_b6db407c4_=embedded_pdf#2#1\"\n      },\n      \"criteriaEvidence\": [\n        {\n          \"criterion\": \"一本\",\n          \"explanation\": \"学校官方2016年全国普通文理录取分数线统计中，山东省列有普通本科一批次及济南走读本科一批次招生记录；校方教学质量报告另载计算机科学与技术专业自2014年起在山东省内全部一本招生（2017—2020年同）。适用年度为2016年，适用省份为山东，属历史招生层次参考，不代表所有项目、所有省份处于同一批次，也不代表未来年份批次。\",\n          \"sourceUrl\": \"https://xxgk.ujn.edu.cn/__local/2/D4/61/18EB3CE24CAB055ADA7C69E792C_BBC62789_218FF.pdf#2#1\"\n        }\n      ]\n    },\n    {\n      \"name\": \"山东师范大学\",\n      \"reason\": \"该校在济南设有信息科学与工程学院等计算机相关培养单位，计算机与人工智能方向在长清湖校区办学，校区同在济南，通勤与资源共享方便。2026年硕士研究生招生章程明确了应届本科毕业生等报考条件与录取前须取得本科毕业证书等要求，可作为资格准备的对照材料；学院招生目录与初试科目本轮未获公布，需待核实。历史层次方面，学校官方2016年省外录取统计在河北、天津等地列有本科一批记录，可作为历史一本参考，但当时北京、山西等地批次不同，不能泛称所有省份均为一批。\",\n      \"sourceUrl\": \"http://www.yjszs.sdnu.edu.cn/info/1009/4765.htm#2#2#1\",\n      \"location\": {\n        \"province\": \"山东省\",\n        \"city\": \"济南市\",\n        \"campus\": \"信息科学与工程学院全日制研究生在长清湖校区（济南市长清区大学路1号）报到；千佛山校区（济南市历下区文化东路88号）同在济南。目标年度具体培养校区待核实。\",\n        \"sourceUrl\": \"http://2025yx.sdnu.edu.cn/info/1021/1351.htm#1\"\n      },\n      \"criteriaEvidence\": [\n        {\n          \"criterion\": \"一本\",\n          \"explanation\": \"学校官方《山东师范大学2016年山东省外各专业招生录取情况》显示，2016年河北为本科一批、天津为本科一批B类、辽宁为普通本科一批、黑龙江为一批本科（A）。适用年度为2016年，适用省份为上述表中所列省外省份，不能据此推断所有省份、所有专业均为本科一批，也不代表未来年份批次。\",\n          \"sourceUrl\": \"https://cie.sdnu.edu.cn/info/1072/1924.htm#1\"\n        }\n      ]\n    },\n    {\n      \"name\": \"齐鲁工业大学\",\n      \"reason\": \"该校计算机科学与技术学部2027年招生专业目录列有计算机科学与技术（拟招54人）、网络空间安全（拟招12人），初试为思想政治理论、英语（一）、数学（一）、408计算机学科专业基础；计算机技术专业学位初试为思想政治理论、英语（二）、数学（二）、408，科目层次与你的专业基础匹配，可据此规划数学一或数学二、英语一或英语二两条路径。主校区位于济南长清，彩石校区以计算机、电子信息等学科为主，均在济南。2024年该校在部分省份一本批次招生，可作历史一本参考。2030年招生年度目录与科目待核实。\",\n      \"sourceUrl\": \"https://yjszs.qlu.edu.cn/2026/0930/c6601a284168/page.htm#6#1\",\n      \"location\": {\n        \"province\": \"山东省\",\n        \"city\": \"济南市\",\n        \"campus\": \"主校区位于济南长清大学科技园（长清区大学路3501号）；彩石校区（济南市经十东路28789号）学科布局围绕计算机、电子信息等领域，入住以相关单位高年级本科生和研究生为主；学校另在菏泽、青岛、济宁、德州等地设有校区或研究机构，2030年具体培养城市与校区须以当年招生简章、专业目录为准，待核实。\",\n        \"sourceUrl\": \"https://news.qlu.edu.cn/2021/0305/c8382a163207/page.psp\"\n      },\n      \"criteriaEvidence\": [\n        {\n          \"criterion\": \"一本\",\n          \"explanation\": \"学校公开信息显示，2024年在未实行新高考综合改革的省份中，学校在山西、内蒙古、河南、四川、云南5个省份一本批次招生。适用年度为2024年，适用省份为上述5省；山东省自2020年实行新高考后已合并本科批次，无一本划分，故“一本”仅作历史招生层次参考，不代表未来年份的批次与报考门槛。\",\n          \"sourceUrl\": \"https://xxgk.qlu.edu.cn/_upload/article/files/74/01/f840e5e940f68c52cd627a99041a/78b153b7-de52-4856-896b-4755d5683ee9.pdf#8#2\"\n        }\n      ]\n    }\n  ],\n  \"tasks\": [\n    {\n      \"title\": \"梳理专业课程地图：通读计算机网络技术专业培养方案，列出数学（高数、线代、概率）、英语与专业课开课学期，建立个人学习档案，并了解学信网学籍查询与考研基本流程。\",\n      \"stage\": \"信息核对与基础\",\n      \"dueDate\": \"2026-10-07\"\n    },\n    {\n      \"title\": \"打牢数学与英语地基：完成高数上册章节练习并整理错题本，英语每天背诵复习核心词汇30个、做一次四级真题自测，找出薄弱环节。\",\n      \"stage\": \"信息核对与基础\",\n      \"dueDate\": \"2026-12-24\"\n    },\n    {\n      \"title\": \"C语言与数据结构入门，同步做院校信息核对：练习C语言基础编程与数据结构线性表、栈队列；关注济南大学、山东师范大学、齐鲁工业大学计算机类学院官网的招生栏目，记录其信息更新规律。\",\n      \"stage\": \"信息核对与基础\",\n      \"dueDate\": \"2027-03-11\"\n    },\n    {\n      \"title\": \"大一学年复盘与暑期计划：整理数学错题与英语生词本，评估四级准备情况，确定暑期重点为数学基础巩固与数据结构、计算机组成原理先修内容预习。\",\n      \"stage\": \"信息核对与基础\",\n      \"dueDate\": \"2027-05-28\"\n    },\n    {\n      \"title\": \"暑期强化：系统学完数据结构与计算机组成原理基础章节，数学进入高数下册与线性代数，英语坚持长难句训练，每周完成一次限时阅读。\",\n      \"stage\": \"系统学习与强化\",\n      \"dueDate\": \"2027-08-13\"\n    },\n    {\n      \"title\": \"大二上学期：认真修读操作系统、计算机网络课程并完成课后题；数学完成线性代数与概率第一轮，英语通过四级并准备六级，保持每日学习记录。\",\n      \"stage\": \"系统学习与强化\",\n      \"dueDate\": \"2027-10-30\"\n    },\n    {\n      \"title\": \"专业核心课巩固与项目实践：完成一次课程设计或参加程序设计类学科竞赛，把计算机网络、操作系统知识用于实践，形成可写进个人陈述的项目经历。\",\n      \"stage\": \"系统学习与强化\",\n      \"dueDate\": \"2028-01-16\"\n    },\n    {\n      \"title\": \"第二轮基础复习：数学二轮章节练习，专业课四门（数据结构、计算机组成原理、操作系统、计算机网络）通读并整理知识框架笔记；核对目标院校当年招生目录与参考书变化。\",\n      \"stage\": \"系统学习与强化\",\n      \"dueDate\": \"2028-04-02\"\n    },\n    {\n      \"title\": \"大三启动真题训练：数学与英语开始做近十年历年真题，专业课按章节做真题并标注错因；再次核实目标院校最新专业目录、考试科目与参考书，形成初步择校范围。\",\n      \"stage\": \"真题训练与查漏\",\n      \"dueDate\": \"2028-06-19\"\n    },\n    {\n      \"title\": \"强化阶段：数学真题限时训练并统计正确率，英语真题精读与写作素材积累，专业课第二轮真题并整理高频考点；参加校内考研讲座或招生咨询活动，收集培养校区与复试要求信息。\",\n      \"stage\": \"真题训练与查漏\",\n      \"dueDate\": \"2028-09-04\"\n    },\n    {\n      \"title\": \"查漏补缺：按错题本对薄弱章节专项突破，英语开始作文与翻译专项练习，专业课完成第三轮真题；整理目标院校研究方向与导师信息，核对报考资格与同等学力等限制条目。\",\n      \"stage\": \"真题训练与查漏\",\n      \"dueDate\": \"2028-11-21\"\n    },\n    {\n      \"title\": \"寒假集中突破：数学与专业课完成真题三刷，英语真题二刷并坚持每日一篇阅读；熟悉历年分数线、复试办法的官方公布渠道，仅作信息了解，不对录取结果作预判。\",\n      \"stage\": \"真题训练与查漏\",\n      \"dueDate\": \"2029-02-07\"\n    },\n    {\n      \"title\": \"冲刺前期：数学每周一套模拟卷并订正，专业课错题三刷与知识框架默写，英语保持每日阅读与写作；确认报考点选择、报名材料与身份信息，准备九月报名所需资料。\",\n      \"stage\": \"模拟冲刺与调整\",\n      \"dueDate\": \"2029-04-25\"\n    },\n    {\n      \"title\": \"暑期强化冲刺：全科模拟与专项补弱并行，公共课开始系统复习；重点核对目标年度招生简章、专业目录与考试科目是否已正式公布，按最新文件调整复习书目。\",\n      \"stage\": \"模拟冲刺与调整\",\n      \"dueDate\": \"2029-07-12\"\n    },\n    {\n      \"title\": \"报名与全真模拟：按官方通知完成网上报名与信息确认；按考试科目顺序做全真模拟（上午思想政治理论、下午外国语，次日上午业务课），逐步调整为考试作息。\",\n      \"stage\": \"模拟冲刺与调整\",\n      \"dueDate\": \"2029-09-27\"\n    },\n    {\n      \"title\": \"考前最后一周：回顾错题本与专业课知识框架，按考试时间作息，准备准考证与证件、文具及住宿安排；按暂定规划，本日为初试前一天，正式初试日期以教育部及研招网通知为准。\",\n      \"stage\": \"模拟冲刺与调整\",\n      \"dueDate\": \"2029-12-14\"\n    }\n  ]\n}"
+      }
+    ],
+    "queries": []
+  },
+  {
+    "stage": "generate",
+    "stopReason": "end_turn",
+    "sources": [],
+    "text": [
+      {
+        "text": "{\n  \"title\": \"济南计算机相关专业考研四年学习规划（本科在读，目标2029年12月初试，日期暂定）\",\n  \"goal\": \"面向济南本地院校的计算机相关专业硕士：比较济南大学、山东师范大学、齐鲁工业大学等校的计算机科学与技术、网络空间安全、计算机技术、人工智能等方向，结合计算机网络技术专业基础与英语、数学实际水平，逐步确定1—2所主攻院校并据此准备初试。推荐仅为方向参考，不等于已选定院校，目标年度专业目录与报考资格待核实。\",\n  \"summary\": \"本规划依据2026年10月已公开资料整理。目前最新已公布年度为2027年硕士研究生招生（初试2026年12月19日至20日），该年度信息不适用于你的目标年份；你对应的是2030年招生年度、2029年12月初试，其管理规定、初试日期与招生目录目前均未公布，属待核实事项。济南地区已核实设有计算机类院系并具官方历史招生记录的院校包括济南大学、山东师范大学、齐鲁工业大学，其计算机相关方向与培养校区（济南主校区、长清湖校区等）均有官方出处支撑，历史本科一批情况仅作择校参考，不代表未来批次或报考门槛。目标初试日期按“12月第三个周六”推算为2029年12月15日，仅为暂定规划参考，不是正式考试日期，学习计划截止至2029年12月14日。建议大一、大二打牢数学、英语与数据结构、计算机网络基础，大三进入真题与专业课强化，大四专注模拟、报名与考前调整；报考资格、专业目录与考试科目以目标年度官方简章为准。\",\n  \"dateStatus\": \"estimated\",\n  \"examDate\": \"\",\n  \"examSourceUrl\": \"\",\n  \"sourceUrls\": [\n    \"https://yanzhao.ujn.edu.cn/gms/ds/dszlgl/enterViewDszl4Sd?userId=4028818e84f4507b0184f46a4b4417c7&xkbh=4028818e847de7f401847e0269a2001f&yxsh=4028818e846f04af01846f0764ca0013#1#1\",\n    \"https://admission.ujn.edu.cn/info/1024/2532.htm?_x_output_type_b6db407c4_=embedded_pdf#2#1\",\n    \"https://xxgk.ujn.edu.cn/__local/2/D4/61/18EB3CE24CAB055ADA7C69E792C_BBC62789_218FF.pdf#2#1\",\n    \"http://www.yjszs.sdnu.edu.cn/info/1009/4765.htm#2#2#1\",\n    \"http://2025yx.sdnu.edu.cn/info/1021/1351.htm#1\",\n    \"https://cie.sdnu.edu.cn/info/1072/1924.htm#1\",\n    \"https://yjszs.qlu.edu.cn/2026/0930/c6601a284168/page.htm#6#1\",\n    \"https://news.qlu.edu.cn/2021/0305/c8382a163207/page.psp\",\n    \"https://xxgk.qlu.edu.cn/_upload/article/files/74/01/f840e5e940f68c52cd627a99041a/78b153b7-de52-4856-896b-4755d5683ee9.pdf#8#2\",\n    \"https://yz.chsi.com.cn/kyzx/jybzc/202410/20241008/2293342617.html#1\"\n  ],\n  \"recommendationNotice\": \"本次推荐限定济南本地、设有计算机类硕士培养且具官方历史招生记录的院校，共3所，均为候选参考，并非已确定报考目标。“一本”采用取消或合并批次前的历史招生层次作择校参考：山东自2020年实行新高考后已无本科批次划分，历史批次不代表未来年份的招生批次或报考门槛，也不等同于985、211。济南大学、山东师范大学依据2016年官方录取统计，齐鲁工业大学依据2024年部分省份一本批次招生信息。2030年招生年度（2029年12月初试）的管理规定、专业目录、考试科目、招生人数与报考资格均未公布，请以目标年度研招网与学校官网正式文件为准；本规划不对录取可能性作任何判断。\",\n  \"recommendations\": [\n    {\n      \"name\": \"济南大学\",\n      \"reason\": \"该校信息科学与工程学院设计算机类硕士培养，2026年导师目录中列有计算机科学与技术、计算机技术、人工智能等招生方向，与你所学计算机网络技术衔接紧密。培养地点在济南（主校区、舜耕校区均在济南），便于课程学习与实习衔接。学校官方2016年录取统计在山东列有普通本科一批次等记录，可作为历史一本参考层次。该校卓越工程师学院2025年招生简章含计算机技术专业并要求参加全国统考初试，2030年招生年度的专业目录、初试科目与报考限制尚未公布，需待核实。\",\n      \"sourceUrl\": \"https://yanzhao.ujn.edu.cn/gms/ds/dszlgl/enterViewDszl4Sd?userId=4028818e84f4507b0184f46a4b4417c7&xkbh=4028818e847de7f401847e0269a2001f&yxsh=4028818e846f04af01846f0764ca0013#1#1\",\n      \"location\": {\n        \"province\": \"山东省\",\n        \"city\": \"济南市\",\n        \"campus\": \"计算机相关专业（计算机科学与技术、计算机技术、人工智能等）培养地点以主校区为主，地址为济南市南辛庄西路336号；舜耕校区（济南市舜耕路13号）同在济南。2030年招生年度具体培养校区以当年招生目录为准，待核实。\",\n        \"sourceUrl\": \"https://admission.ujn.edu.cn/info/1024/2532.htm?_x_output_type_b6db407c4_=embedded_pdf#2#1\"\n      },\n      \"criteriaEvidence\": [\n        {\n          \"criterion\": \"一本\",\n          \"explanation\": \"学校官方2016年全国普通文理录取分数线统计中，山东省列有普通本科一批次及济南走读本科一批次招生记录；校方教学质量报告另载计算机科学与技术专业自2014年起在山东省内全部一本招生（2017—2020年同）。适用年度为2016年，适用省份为山东，属历史招生层次参考，不代表所有项目、所有省份处于同一批次，也不代表未来年份批次。\",\n          \"sourceUrl\": \"https://xxgk.ujn.edu.cn/__local/2/D4/61/18EB3CE24CAB055ADA7C69E792C_BBC62789_218FF.pdf#2#1\"\n        }\n      ]\n    },\n    {\n      \"name\": \"山东师范大学\",\n      \"reason\": \"该校在济南设有信息科学与工程学院等计算机相关培养单位，计算机与人工智能方向在长清湖校区办学，校区同在济南，通勤与资源共享方便。2026年硕士研究生招生章程明确了应届本科毕业生等报考条件与录取前须取得本科毕业证书等要求，可作为资格准备的对照材料；学院招生目录与初试科目本轮未获公布，需待核实。历史层次方面，学校官方2016年省外录取统计在河北、天津等地列有本科一批记录，可作为历史一本参考，但当时北京、山西等地批次不同，不能泛称所有省份均为一批。\",\n      \"sourceUrl\": \"http://www.yjszs.sdnu.edu.cn/info/1009/4765.htm#2#2#1\",\n      \"location\": {\n        \"province\": \"山东省\",\n        \"city\": \"济南市\",\n        \"campus\": \"计算机相关专业（信息科学与工程学院）全日制研究生培养地点为长清湖校区，地址为济南市长清区大学路1号；千佛山校区（济南市历下区文化东路88号）同在济南。2030年招生年度具体培养校区以当年招生目录为准，待核实。\",\n        \"sourceUrl\": \"http://2025yx.sdnu.edu.cn/info/1021/1351.htm#1\"\n      },\n      \"criteriaEvidence\": [\n        {\n          \"criterion\": \"一本\",\n          \"explanation\": \"学校官方《山东师范大学2016年山东省外各专业招生录取情况》显示，2016年河北为本科一批、天津为本科一批B类、辽宁为普通本科一批、黑龙江为一批本科（A）。适用年度为2016年，适用省份为上述表中所列省外省份，不能据此推断所有省份、所有专业均为本科一批，也不代表未来年份批次。\",\n          \"sourceUrl\": \"https://cie.sdnu.edu.cn/info/1072/1924.htm#1\"\n        }\n      ]\n    },\n    {\n      \"name\": \"齐鲁工业大学\",\n      \"reason\": \"该校计算机科学与技术学部2027年招生专业目录列有计算机科学与技术（拟招54人）、网络空间安全（拟招12人），初试为思想政治理论、英语（一）、数学（一）、408计算机学科专业基础；计算机技术专业学位初试为思想政治理论、英语（二）、数学（二）、408，科目层次与你的专业基础匹配，可据此规划数学一或数学二、英语一或英语二两条路径。主校区位于济南长清，彩石校区以计算机、电子信息等学科为主，均在济南。2024年该校在部分省份一本批次招生，可作历史一本参考。2030年招生年度目录与科目待核实。\",\n      \"sourceUrl\": \"https://yjszs.qlu.edu.cn/2026/0930/c6601a284168/page.htm#6#1\",\n      \"location\": {\n        \"province\": \"山东省\",\n        \"city\": \"济南市\",\n        \"campus\": \"计算机相关专业（计算机科学与技术、网络空间安全、计算机技术等）培养地点涉及主校区（济南市长清区大学路3501号）与彩石校区（济南市经十东路28789号）；学校另在菏泽、青岛、济宁、德州等地设有校区或研究机构，2030年招生年度具体培养城市与校区以当年招生简章、专业目录为准，待核实。\",\n        \"sourceUrl\": \"https://news.qlu.edu.cn/2021/0305/c8382a163207/page.psp\"\n      },\n      \"criteriaEvidence\": [\n        {\n          \"criterion\": \"一本\",\n          \"explanation\": \"学校公开信息显示，2024年在未实行新高考综合改革的省份中，学校在山西、内蒙古、河南、四川、云南5个省份一本批次招生。适用年度为2024年，适用省份为上述5省；山东省自2020年实行新高考后已合并本科批次，无一本划分，故“一本”仅作历史招生层次参考，不代表未来年份的批次与报考门槛。\",\n          \"sourceUrl\": \"https://xxgk.qlu.edu.cn/_upload/article/files/74/01/f840e5e940f68c52cd627a99041a/78b153b7-de52-4856-896b-4755d5683ee9.pdf#8#2\"\n        }\n      ]\n    }\n  ],\n  \"tasks\": [\n    {\n      \"title\": \"梳理专业课程地图：通读计算机网络技术专业培养方案，列出数学（高数、线代、概率）、英语与专业课开课学期，建立个人学习档案，并了解学信网学籍查询与考研基本流程。\",\n      \"stage\": \"信息核对与基础\",\n      \"dueDate\": \"2026-10-07\"\n    },\n    {\n      \"title\": \"打牢数学与英语地基：完成高数上册章节练习并整理错题本，英语每天背诵复习核心词汇30个、做一次四级真题自测，找出薄弱环节。\",\n      \"stage\": \"信息核对与基础\",\n      \"dueDate\": \"2026-12-24\"\n    },\n    {\n      \"title\": \"C语言与数据结构入门，同步做院校信息核对：练习C语言基础编程与数据结构线性表、栈队列；关注济南大学、山东师范大学、齐鲁工业大学计算机类学院官网的招生栏目，记录其信息更新规律。\",\n      \"stage\": \"信息核对与基础\",\n      \"dueDate\": \"2027-03-11\"\n    },\n    {\n      \"title\": \"大一学年复盘与暑期计划：整理数学错题与英语生词本，评估四级准备情况，确定暑期重点为数学基础巩固与数据结构、计算机组成原理先修内容预习。\",\n      \"stage\": \"信息核对与基础\",\n      \"dueDate\": \"2027-05-28\"\n    },\n    {\n      \"title\": \"暑期强化：系统学完数据结构与计算机组成原理基础章节，数学进入高数下册与线性代数，英语坚持长难句训练，每周完成一次限时阅读。\",\n      \"stage\": \"系统学习与强化\",\n      \"dueDate\": \"2027-08-13\"\n    },\n    {\n      \"title\": \"大二上学期：认真修读操作系统、计算机网络课程并完成课后题；数学完成线性代数与概率第一轮，英语通过四级并准备六级，保持每日学习记录。\",\n      \"stage\": \"系统学习与强化\",\n      \"dueDate\": \"2027-10-30\"\n    },\n    {\n      \"title\": \"专业核心课巩固与项目实践：完成一次课程设计或参加程序设计类学科竞赛，把计算机网络、操作系统知识用于实践，形成可写进个人陈述的项目经历。\",\n      \"stage\": \"系统学习与强化\",\n      \"dueDate\": \"2028-01-16\"\n    },\n    {\n      \"title\": \"第二轮基础复习：数学二轮章节练习，专业课四门（数据结构、计算机组成原理、操作系统、计算机网络）通读并整理知识框架笔记；核对目标院校当年招生目录与参考书变化。\",\n      \"stage\": \"系统学习与强化\",\n      \"dueDate\": \"2028-04-02\"\n    },\n    {\n      \"title\": \"大三启动真题训练：数学与英语开始做近十年历年真题，专业课按章节做真题并标注错因；再次核实目标院校最新专业目录、考试科目与参考书，形成初步择校范围。\",\n      \"stage\": \"真题训练与查漏\",\n      \"dueDate\": \"2028-06-19\"\n    },\n    {\n      \"title\": \"强化阶段：数学真题限时训练并统计正确率，英语真题精读与写作素材积累，专业课第二轮真题并整理高频考点；参加校内考研讲座或招生咨询活动，收集培养校区与复试要求信息。\",\n      \"stage\": \"真题训练与查漏\",\n      \"dueDate\": \"2028-09-04\"\n    },\n    {\n      \"title\": \"查漏补缺：按错题本对薄弱章节专项突破，英语开始作文与翻译专项练习，专业课完成第三轮真题；整理目标院校研究方向与导师信息，核对报考资格与同等学力等限制条目。\",\n      \"stage\": \"真题训练与查漏\",\n      \"dueDate\": \"2028-11-21\"\n    },\n    {\n      \"title\": \"寒假集中突破：数学与专业课完成真题三刷，英语真题二刷并坚持每日一篇阅读；熟悉历年分数线、复试办法的官方公布渠道，仅作信息了解，不对录取结果作预判。\",\n      \"stage\": \"真题训练与查漏\",\n      \"dueDate\": \"2029-02-07\"\n    },\n    {\n      \"title\": \"冲刺前期：数学每周一套模拟卷并订正，专业课错题三刷与知识框架默写，英语保持每日阅读与写作；确认报考点选择、报名材料与身份信息，准备九月报名所需资料。\",\n      \"stage\": \"模拟冲刺与调整\",\n      \"dueDate\": \"2029-04-25\"\n    },\n    {\n      \"title\": \"暑期强化冲刺：全科模拟与专项补弱并行，公共课开始系统复习；重点核对目标年度招生简章、专业目录与考试科目是否已正式公布，按最新文件调整复习书目。\",\n      \"stage\": \"模拟冲刺与调整\",\n      \"dueDate\": \"2029-07-12\"\n    },\n    {\n      \"title\": \"报名与全真模拟：按官方通知完成网上报名与信息确认；按考试科目顺序做全真模拟（上午思想政治理论、下午外国语，次日上午业务课），逐步调整为考试作息。\",\n      \"stage\": \"模拟冲刺与调整\",\n      \"dueDate\": \"2029-09-27\"\n    },\n    {\n      \"title\": \"考前最后一周：回顾错题本与专业课知识框架，按考试时间作息，准备准考证与证件、文具及住宿安排；按暂定规划，本日为初试前一天，正式初试日期以教育部及研招网通知为准。\",\n      \"stage\": \"模拟冲刺与调整\",\n      \"dueDate\": \"2029-12-14\"\n    }\n  ]\n}"
+      }
+    ],
+    "queries": []
+  }
+]

@@ -1,0 +1,2287 @@
+{
+  "startedAt": "2026-10-09T09:09:22.473Z",
+  "config": {
+    "model": "deepseek-flash",
+    "effort": "high",
+    "timeoutMs": 300000
+  },
+  "sourceSha256": {
+    "baseline": "e35c0ea64c6d04ea77c03290635c6447591b64dfa9abbd8003a471d1f382c0a5",
+    "optimized": "0c65e072bf2bdf27ae44e59c482ca6791f929645953d0e8857640ceb632affee"
+  },
+  "profiles": [
+    {
+      "id": "named",
+      "input": {
+        "level": "本科",
+        "major": "计算机科学与技术",
+        "grade": "大四",
+        "baseline": "英语需要加强，数学刚开始复习",
+        "goal": "山东大学，计算机相关专业",
+        "region": "山东",
+        "startDate": "2026-10-01"
+      }
+    },
+    {
+      "id": "local",
+      "input": {
+        "level": "本科",
+        "major": "计算机网络技术",
+        "grade": "大一",
+        "baseline": "英语基础较弱，数学刚开始复习。",
+        "goal": "济南本地一本院校，计算机相关专业",
+        "region": "山东",
+        "startDate": "2026-10-07"
+      }
+    }
+  ],
+  "runs": [
+    {
+      "profile": "named",
+      "version": "baseline",
+      "sample": 1,
+      "success": true,
+      "startedAt": "2026-10-09T09:09:22.478Z",
+      "requests": [
+        {
+          "stage": "search",
+          "taskId": "policy",
+          "systemSha256": "23722cb1453b3a68257921b0664fde9d1662b96f7eaa9ba933710cd6cab2af29",
+          "usage": {
+            "inputTokens": 3096,
+            "cacheHitTokens": 1792,
+            "cacheMissTokens": 1304,
+            "outputTokens": 920,
+            "cacheHitRate": 0.5788113695090439
+          },
+          "rawUsage": {
+            "input_tokens": 1304,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1792,
+            "output_tokens": 920,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 4920.6226
+        },
+        {
+          "stage": "search",
+          "taskId": "eligibility",
+          "systemSha256": "23722cb1453b3a68257921b0664fde9d1662b96f7eaa9ba933710cd6cab2af29",
+          "usage": {
+            "inputTokens": 10082,
+            "cacheHitTokens": 1536,
+            "cacheMissTokens": 8546,
+            "outputTokens": 1282,
+            "cacheHitRate": 0.152350724062686
+          },
+          "rawUsage": {
+            "input_tokens": 8546,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1536,
+            "output_tokens": 1282,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 7128.1212
+        },
+        {
+          "stage": "search",
+          "taskId": "directory",
+          "systemSha256": "23722cb1453b3a68257921b0664fde9d1662b96f7eaa9ba933710cd6cab2af29",
+          "usage": {
+            "inputTokens": 4061,
+            "cacheHitTokens": 1536,
+            "cacheMissTokens": 2525,
+            "outputTokens": 1253,
+            "cacheHitRate": 0.3782319625707954
+          },
+          "rawUsage": {
+            "input_tokens": 2525,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1536,
+            "output_tokens": 1253,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 6480.1864000000005
+        },
+        {
+          "stage": "search",
+          "taskId": "subjects",
+          "systemSha256": "23722cb1453b3a68257921b0664fde9d1662b96f7eaa9ba933710cd6cab2af29",
+          "usage": {
+            "inputTokens": 4700,
+            "cacheHitTokens": 1792,
+            "cacheMissTokens": 2908,
+            "outputTokens": 1404,
+            "cacheHitRate": 0.38127659574468087
+          },
+          "rawUsage": {
+            "input_tokens": 2908,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1792,
+            "output_tokens": 1404,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 7320.2957
+        },
+        {
+          "stage": "search",
+          "taskId": "restrictions",
+          "systemSha256": "23722cb1453b3a68257921b0664fde9d1662b96f7eaa9ba933710cd6cab2af29",
+          "usage": {
+            "inputTokens": 25464,
+            "cacheHitTokens": 1536,
+            "cacheMissTokens": 23928,
+            "outputTokens": 1419,
+            "cacheHitRate": 0.060320452403393024
+          },
+          "rawUsage": {
+            "input_tokens": 23928,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1536,
+            "output_tokens": 1419,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 8533.496899999998
+        },
+        {
+          "stage": "search",
+          "taskId": "campus",
+          "systemSha256": "23722cb1453b3a68257921b0664fde9d1662b96f7eaa9ba933710cd6cab2af29",
+          "usage": {
+            "inputTokens": 4661,
+            "cacheHitTokens": 1536,
+            "cacheMissTokens": 3125,
+            "outputTokens": 463,
+            "cacheHitRate": 0.3295430165200601
+          },
+          "rawUsage": {
+            "input_tokens": 3125,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1536,
+            "output_tokens": 463,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 3667.7681000000002
+        },
+        {
+          "stage": "generate",
+          "taskId": null,
+          "systemSha256": "6a065712d3b49ab7ff41b310a774d0aa5b30c5108ccf6bcaf36a7fe9b24e4afc",
+          "usage": {
+            "inputTokens": 5563,
+            "cacheHitTokens": 1152,
+            "cacheMissTokens": 4411,
+            "outputTokens": 9538,
+            "cacheHitRate": 0.20708250943735396
+          },
+          "rawUsage": {
+            "input_tokens": 4411,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1152,
+            "output_tokens": 9538,
+            "service_tier": "standard"
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 36328.1604
+        }
+      ],
+      "searches": 6,
+      "repairs": 0,
+      "plan": {
+        "tasks": 16,
+        "sources": 13,
+        "recommendations": 0
+      },
+      "totalMs": 44883.0786,
+      "searchMs": 8554.6448,
+      "generationMs": 36328.4338,
+      "firstSourceMs": 1920.1333,
+      "usage": {
+        "requests": 7,
+        "measuredRequests": 7,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 10880,
+        "cacheMissTokens": 46747,
+        "measuredInputTokens": 57627,
+        "cacheHitRate": 0.18880038870668264,
+        "outputTokens": 16279,
+        "measuredOutputRequests": 7
+      },
+      "stageUsage": {
+        "search": {
+          "requests": 6,
+          "measuredRequests": 6,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 9728,
+          "cacheMissTokens": 42336,
+          "measuredInputTokens": 52064,
+          "cacheHitRate": 0.18684695759065764,
+          "outputTokens": 6741,
+          "measuredOutputRequests": 6
+        },
+        "generate": {
+          "requests": 1,
+          "measuredRequests": 1,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 1152,
+          "cacheMissTokens": 4411,
+          "measuredInputTokens": 5563,
+          "cacheHitRate": 0.20708250943735396,
+          "outputTokens": 9538,
+          "measuredOutputRequests": 1
+        }
+      }
+    },
+    {
+      "profile": "named",
+      "version": "optimized",
+      "sample": 1,
+      "success": true,
+      "startedAt": "2026-10-09T09:10:07.364Z",
+      "requests": [
+        {
+          "stage": "search",
+          "taskId": "policy",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 4677,
+            "cacheHitTokens": 1408,
+            "cacheMissTokens": 3269,
+            "outputTokens": 1871,
+            "cacheHitRate": 0.30104768013683986
+          },
+          "rawUsage": {
+            "input_tokens": 3269,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1408,
+            "output_tokens": 1871,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 9702.315599999994
+        },
+        {
+          "stage": "search",
+          "taskId": "eligibility",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 13378,
+            "cacheHitTokens": 1408,
+            "cacheMissTokens": 11970,
+            "outputTokens": 1794,
+            "cacheHitRate": 0.10524742113918373
+          },
+          "rawUsage": {
+            "input_tokens": 11970,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1408,
+            "output_tokens": 1794,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 9679.887600000002
+        },
+        {
+          "stage": "search",
+          "taskId": "directory",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 2798,
+            "cacheHitTokens": 1280,
+            "cacheMissTokens": 1518,
+            "outputTokens": 994,
+            "cacheHitRate": 0.45746962115796996
+          },
+          "rawUsage": {
+            "input_tokens": 1518,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1280,
+            "output_tokens": 994,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5308.969400000002
+        },
+        {
+          "stage": "search",
+          "taskId": "subjects",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 3120,
+            "cacheHitTokens": 1280,
+            "cacheMissTokens": 1840,
+            "outputTokens": 1023,
+            "cacheHitRate": 0.41025641025641024
+          },
+          "rawUsage": {
+            "input_tokens": 1840,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1280,
+            "output_tokens": 1023,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 6505.218999999997
+        },
+        {
+          "stage": "search",
+          "taskId": "restrictions",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 9042,
+            "cacheHitTokens": 1408,
+            "cacheMissTokens": 7634,
+            "outputTokens": 2323,
+            "cacheHitRate": 0.15571776155717762
+          },
+          "rawUsage": {
+            "input_tokens": 7634,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1408,
+            "output_tokens": 2323,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 11038.937000000005
+        },
+        {
+          "stage": "search",
+          "taskId": "campus",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 3299,
+            "cacheHitTokens": 1152,
+            "cacheMissTokens": 2147,
+            "outputTokens": 846,
+            "cacheHitRate": 0.3491967262806911
+          },
+          "rawUsage": {
+            "input_tokens": 2147,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1152,
+            "output_tokens": 846,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5324.432799999995
+        },
+        {
+          "stage": "generate",
+          "taskId": null,
+          "systemSha256": "251d0b46132f7f3ba21025658e6bf614c82aac1a1c9d0485ebb1a26fd9d6618c",
+          "usage": {
+            "inputTokens": 5178,
+            "cacheHitTokens": 0,
+            "cacheMissTokens": 5178,
+            "outputTokens": 9269,
+            "cacheHitRate": 0
+          },
+          "rawUsage": {
+            "input_tokens": 5178,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 9269,
+            "service_tier": "standard"
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 37593.3022
+        }
+      ],
+      "searches": 6,
+      "repairs": 0,
+      "plan": {
+        "tasks": 16,
+        "sources": 10,
+        "recommendations": 0
+      },
+      "totalMs": 48635.912599999996,
+      "searchMs": 11042.360099999998,
+      "generationMs": 37593.5525,
+      "firstSourceMs": 1782.214899999999,
+      "usage": {
+        "requests": 7,
+        "measuredRequests": 7,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 7936,
+        "cacheMissTokens": 33556,
+        "measuredInputTokens": 41492,
+        "cacheHitRate": 0.19126578617564832,
+        "outputTokens": 18120,
+        "measuredOutputRequests": 7
+      },
+      "stageUsage": {
+        "search": {
+          "requests": 6,
+          "measuredRequests": 6,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 7936,
+          "cacheMissTokens": 28378,
+          "measuredInputTokens": 36314,
+          "cacheHitRate": 0.21853830478603292,
+          "outputTokens": 8851,
+          "measuredOutputRequests": 6
+        },
+        "generate": {
+          "requests": 1,
+          "measuredRequests": 1,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 0,
+          "cacheMissTokens": 5178,
+          "measuredInputTokens": 5178,
+          "cacheHitRate": 0,
+          "outputTokens": 9269,
+          "measuredOutputRequests": 1
+        }
+      }
+    },
+    {
+      "profile": "named",
+      "version": "baseline",
+      "sample": 2,
+      "success": true,
+      "startedAt": "2026-10-09T09:10:56.002Z",
+      "requests": [
+        {
+          "stage": "search",
+          "taskId": "policy",
+          "systemSha256": "23722cb1453b3a68257921b0664fde9d1662b96f7eaa9ba933710cd6cab2af29",
+          "usage": {
+            "inputTokens": 3064,
+            "cacheHitTokens": 1792,
+            "cacheMissTokens": 1272,
+            "outputTokens": 793,
+            "cacheHitRate": 0.5848563968668408
+          },
+          "rawUsage": {
+            "input_tokens": 1272,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1792,
+            "output_tokens": 793,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 4532.313500000004
+        },
+        {
+          "stage": "search",
+          "taskId": "eligibility",
+          "systemSha256": "23722cb1453b3a68257921b0664fde9d1662b96f7eaa9ba933710cd6cab2af29",
+          "usage": {
+            "inputTokens": 15055,
+            "cacheHitTokens": 1536,
+            "cacheMissTokens": 13519,
+            "outputTokens": 2565,
+            "cacheHitRate": 0.1020259050149452
+          },
+          "rawUsage": {
+            "input_tokens": 13519,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1536,
+            "output_tokens": 2565,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 12465.992899999997
+        },
+        {
+          "stage": "search",
+          "taskId": "directory",
+          "systemSha256": "23722cb1453b3a68257921b0664fde9d1662b96f7eaa9ba933710cd6cab2af29",
+          "usage": {
+            "inputTokens": 4123,
+            "cacheHitTokens": 1536,
+            "cacheMissTokens": 2587,
+            "outputTokens": 662,
+            "cacheHitRate": 0.37254426388552025
+          },
+          "rawUsage": {
+            "input_tokens": 2587,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1536,
+            "output_tokens": 662,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 4152.311600000001
+        },
+        {
+          "stage": "search",
+          "taskId": "subjects",
+          "systemSha256": "23722cb1453b3a68257921b0664fde9d1662b96f7eaa9ba933710cd6cab2af29",
+          "usage": {
+            "inputTokens": 2430,
+            "cacheHitTokens": 1536,
+            "cacheMissTokens": 894,
+            "outputTokens": 822,
+            "cacheHitRate": 0.6320987654320988
+          },
+          "rawUsage": {
+            "input_tokens": 894,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1536,
+            "output_tokens": 822,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5151.2033999999985
+        },
+        {
+          "stage": "search",
+          "taskId": "restrictions",
+          "systemSha256": "23722cb1453b3a68257921b0664fde9d1662b96f7eaa9ba933710cd6cab2af29",
+          "usage": {
+            "inputTokens": 7116,
+            "cacheHitTokens": 1536,
+            "cacheMissTokens": 5580,
+            "outputTokens": 478,
+            "cacheHitRate": 0.21585160202360876
+          },
+          "rawUsage": {
+            "input_tokens": 5580,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1536,
+            "output_tokens": 478,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 3731.661699999997
+        },
+        {
+          "stage": "search",
+          "taskId": "campus",
+          "systemSha256": "23722cb1453b3a68257921b0664fde9d1662b96f7eaa9ba933710cd6cab2af29",
+          "usage": {
+            "inputTokens": 2900,
+            "cacheHitTokens": 1536,
+            "cacheMissTokens": 1364,
+            "outputTokens": 302,
+            "cacheHitRate": 0.5296551724137931
+          },
+          "rawUsage": {
+            "input_tokens": 1364,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1536,
+            "output_tokens": 302,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 2874.935599999997
+        },
+        {
+          "stage": "generate",
+          "taskId": null,
+          "systemSha256": "6a065712d3b49ab7ff41b310a774d0aa5b30c5108ccf6bcaf36a7fe9b24e4afc",
+          "usage": {
+            "inputTokens": 5013,
+            "cacheHitTokens": 1280,
+            "cacheMissTokens": 3733,
+            "outputTokens": 8374,
+            "cacheHitRate": 0.25533612607221223
+          },
+          "rawUsage": {
+            "input_tokens": 3733,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1280,
+            "output_tokens": 8374,
+            "service_tier": "standard"
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 33273.467099999994
+        }
+      ],
+      "searches": 6,
+      "repairs": 0,
+      "plan": {
+        "tasks": 16,
+        "sources": 10,
+        "recommendations": 0
+      },
+      "totalMs": 45740.71789999999,
+      "searchMs": 12467.092300000004,
+      "generationMs": 33273.625599999985,
+      "firstSourceMs": 1921.3703999999998,
+      "usage": {
+        "requests": 7,
+        "measuredRequests": 7,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 10752,
+        "cacheMissTokens": 28949,
+        "measuredInputTokens": 39701,
+        "cacheHitRate": 0.27082441248331274,
+        "outputTokens": 13996,
+        "measuredOutputRequests": 7
+      },
+      "stageUsage": {
+        "search": {
+          "requests": 6,
+          "measuredRequests": 6,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 9472,
+          "cacheMissTokens": 25216,
+          "measuredInputTokens": 34688,
+          "cacheHitRate": 0.2730627306273063,
+          "outputTokens": 5622,
+          "measuredOutputRequests": 6
+        },
+        "generate": {
+          "requests": 1,
+          "measuredRequests": 1,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 1280,
+          "cacheMissTokens": 3733,
+          "measuredInputTokens": 5013,
+          "cacheHitRate": 0.25533612607221223,
+          "outputTokens": 8374,
+          "measuredOutputRequests": 1
+        }
+      }
+    },
+    {
+      "profile": "named",
+      "version": "optimized",
+      "sample": 2,
+      "success": true,
+      "startedAt": "2026-10-09T09:11:41.744Z",
+      "requests": [
+        {
+          "stage": "search",
+          "taskId": "policy",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 4538,
+            "cacheHitTokens": 3711,
+            "cacheMissTokens": 827,
+            "outputTokens": 1241,
+            "cacheHitRate": 0.8177611282503305
+          },
+          "rawUsage": {
+            "input_tokens": 827,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 3711,
+            "output_tokens": 1241,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 8243.339800000016
+        },
+        {
+          "stage": "search",
+          "taskId": "eligibility",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 15576,
+            "cacheHitTokens": 9472,
+            "cacheMissTokens": 6104,
+            "outputTokens": 2156,
+            "cacheHitRate": 0.6081150487930149
+          },
+          "rawUsage": {
+            "input_tokens": 6104,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 9472,
+            "output_tokens": 2156,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 10926.736400000023
+        },
+        {
+          "stage": "search",
+          "taskId": "directory",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 10830,
+            "cacheHitTokens": 7168,
+            "cacheMissTokens": 3662,
+            "outputTokens": 2522,
+            "cacheHitRate": 0.6618651892890121
+          },
+          "rawUsage": {
+            "input_tokens": 3662,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 7168,
+            "output_tokens": 2522,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 12241.145599999989
+        },
+        {
+          "stage": "search",
+          "taskId": "subjects",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 2329,
+            "cacheHitTokens": 1920,
+            "cacheMissTokens": 409,
+            "outputTokens": 774,
+            "cacheHitRate": 0.8243881494203521
+          },
+          "rawUsage": {
+            "input_tokens": 409,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1920,
+            "output_tokens": 774,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5046.67319999999
+        },
+        {
+          "stage": "search",
+          "taskId": "restrictions",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 8088,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 6040,
+            "outputTokens": 1799,
+            "cacheHitRate": 0.2532146389713155
+          },
+          "rawUsage": {
+            "input_tokens": 6040,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 1799,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 9227.666200000007
+        },
+        {
+          "stage": "search",
+          "taskId": "campus",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 5841,
+            "cacheHitTokens": 1920,
+            "cacheMissTokens": 3921,
+            "outputTokens": 1092,
+            "cacheHitRate": 0.32871083718541344
+          },
+          "rawUsage": {
+            "input_tokens": 3921,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1920,
+            "output_tokens": 1092,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 6035.882800000021
+        },
+        {
+          "stage": "search",
+          "taskId": "subjects",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 3029,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 853,
+            "outputTokens": 910,
+            "cacheHitRate": 0.718388907230109
+          },
+          "rawUsage": {
+            "input_tokens": 853,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2176,
+            "output_tokens": 910,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5121.211899999995
+        },
+        {
+          "stage": "generate",
+          "taskId": null,
+          "systemSha256": "251d0b46132f7f3ba21025658e6bf614c82aac1a1c9d0485ebb1a26fd9d6618c",
+          "usage": {
+            "inputTokens": 5702,
+            "cacheHitTokens": 1536,
+            "cacheMissTokens": 4166,
+            "outputTokens": 9068,
+            "cacheHitRate": 0.2693791652051912
+          },
+          "rawUsage": {
+            "input_tokens": 4166,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1536,
+            "output_tokens": 9068,
+            "service_tier": "standard"
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 35587.254199999996
+        }
+      ],
+      "searches": 7,
+      "repairs": 0,
+      "plan": {
+        "tasks": 16,
+        "sources": 10,
+        "recommendations": 0
+      },
+      "totalMs": 47830.445999999996,
+      "searchMs": 12242.964000000007,
+      "generationMs": 35587.48199999999,
+      "firstSourceMs": 1965.508999999991,
+      "usage": {
+        "requests": 8,
+        "measuredRequests": 8,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 29951,
+        "cacheMissTokens": 25982,
+        "measuredInputTokens": 55933,
+        "cacheHitRate": 0.5354799492249656,
+        "outputTokens": 19562,
+        "measuredOutputRequests": 8
+      },
+      "stageUsage": {
+        "search": {
+          "requests": 7,
+          "measuredRequests": 7,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 28415,
+          "cacheMissTokens": 21816,
+          "measuredInputTokens": 50231,
+          "cacheHitRate": 0.5656865282395334,
+          "outputTokens": 10494,
+          "measuredOutputRequests": 7
+        },
+        "generate": {
+          "requests": 1,
+          "measuredRequests": 1,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 1536,
+          "cacheMissTokens": 4166,
+          "measuredInputTokens": 5702,
+          "cacheHitRate": 0.2693791652051912,
+          "outputTokens": 9068,
+          "measuredOutputRequests": 1
+        }
+      }
+    },
+    {
+      "profile": "local",
+      "version": "baseline",
+      "sample": 1,
+      "success": true,
+      "startedAt": "2026-10-09T09:12:29.576Z",
+      "requests": [
+        {
+          "stage": "search",
+          "taskId": "policy",
+          "systemSha256": "b8c9c7ace6f8bf6c59727f718dfb918c6d149ba971d38f30d9b6de4230c9ca09",
+          "usage": {
+            "inputTokens": 4369,
+            "cacheHitTokens": 1792,
+            "cacheMissTokens": 2577,
+            "outputTokens": 1014,
+            "cacheHitRate": 0.4101625085831998
+          },
+          "rawUsage": {
+            "input_tokens": 2577,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1792,
+            "output_tokens": 1014,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5665.777299999987
+        },
+        {
+          "stage": "search",
+          "taskId": "eligibility",
+          "systemSha256": "b8c9c7ace6f8bf6c59727f718dfb918c6d149ba971d38f30d9b6de4230c9ca09",
+          "usage": {
+            "inputTokens": 7602,
+            "cacheHitTokens": 1664,
+            "cacheMissTokens": 5938,
+            "outputTokens": 705,
+            "cacheHitRate": 0.21888976585109182
+          },
+          "rawUsage": {
+            "input_tokens": 5938,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1664,
+            "output_tokens": 705,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 4968.436999999976
+        },
+        {
+          "stage": "search",
+          "taskId": "discovery",
+          "systemSha256": "8518c877b2ec3e873b70a3047ff5e28e00939da3e5871506249cf18d182de789",
+          "usage": {
+            "inputTokens": 7165,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 5117,
+            "outputTokens": 1503,
+            "cacheHitRate": 0.28583391486392185
+          },
+          "rawUsage": {
+            "input_tokens": 5117,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 1503,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 8096.374899999995
+        },
+        {
+          "stage": "search",
+          "taskId": "school-0-program",
+          "systemSha256": "d1b49f3c60b0ef42a97cb5e6656520e1dc3ea730851d6f5a8dfa2d9fc8277621",
+          "usage": {
+            "inputTokens": 11860,
+            "cacheHitTokens": 1664,
+            "cacheMissTokens": 10196,
+            "outputTokens": 1025,
+            "cacheHitRate": 0.1403035413153457
+          },
+          "rawUsage": {
+            "input_tokens": 10196,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1664,
+            "output_tokens": 1025,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5706.512300000002
+        },
+        {
+          "stage": "search",
+          "taskId": "school-0-location",
+          "systemSha256": "d1b49f3c60b0ef42a97cb5e6656520e1dc3ea730851d6f5a8dfa2d9fc8277621",
+          "usage": {
+            "inputTokens": 8555,
+            "cacheHitTokens": 1920,
+            "cacheMissTokens": 6635,
+            "outputTokens": 1071,
+            "cacheHitRate": 0.2244301578024547
+          },
+          "rawUsage": {
+            "input_tokens": 6635,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1920,
+            "output_tokens": 1071,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 6262.719400000002
+        },
+        {
+          "stage": "search",
+          "taskId": "school-1-program",
+          "systemSha256": "d1b49f3c60b0ef42a97cb5e6656520e1dc3ea730851d6f5a8dfa2d9fc8277621",
+          "usage": {
+            "inputTokens": 7144,
+            "cacheHitTokens": 1792,
+            "cacheMissTokens": 5352,
+            "outputTokens": 1413,
+            "cacheHitRate": 0.25083986562150057
+          },
+          "rawUsage": {
+            "input_tokens": 5352,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1792,
+            "output_tokens": 1413,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 8089.181700000016
+        },
+        {
+          "stage": "search",
+          "taskId": "school-1-location",
+          "systemSha256": "d1b49f3c60b0ef42a97cb5e6656520e1dc3ea730851d6f5a8dfa2d9fc8277621",
+          "usage": {
+            "inputTokens": 14183,
+            "cacheHitTokens": 1664,
+            "cacheMissTokens": 12519,
+            "outputTokens": 1743,
+            "cacheHitRate": 0.11732355637030248
+          },
+          "rawUsage": {
+            "input_tokens": 12519,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1664,
+            "output_tokens": 1743,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 10088.612400000013
+        },
+        {
+          "stage": "search",
+          "taskId": "school-2-program",
+          "systemSha256": "d1b49f3c60b0ef42a97cb5e6656520e1dc3ea730851d6f5a8dfa2d9fc8277621",
+          "usage": {
+            "inputTokens": 11192,
+            "cacheHitTokens": 1664,
+            "cacheMissTokens": 9528,
+            "outputTokens": 2168,
+            "cacheHitRate": 0.14867762687634023
+          },
+          "rawUsage": {
+            "input_tokens": 9528,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1664,
+            "output_tokens": 2168,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 11538.486499999999
+        },
+        {
+          "stage": "search",
+          "taskId": "school-2-location",
+          "systemSha256": "d1b49f3c60b0ef42a97cb5e6656520e1dc3ea730851d6f5a8dfa2d9fc8277621",
+          "usage": {
+            "inputTokens": 7665,
+            "cacheHitTokens": 1792,
+            "cacheMissTokens": 5873,
+            "outputTokens": 1771,
+            "cacheHitRate": 0.23378995433789954
+          },
+          "rawUsage": {
+            "input_tokens": 5873,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1792,
+            "output_tokens": 1771,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 8839.07130000001
+        },
+        {
+          "stage": "generate",
+          "taskId": null,
+          "systemSha256": "29bfe0d5ddda737793fe28767edd26fa26cab22168bd804ae13ef6e4ffb4b512",
+          "usage": {
+            "inputTokens": 10801,
+            "cacheHitTokens": 1408,
+            "cacheMissTokens": 9393,
+            "outputTokens": 10762,
+            "cacheHitRate": 0.13035830015739283
+          },
+          "rawUsage": {
+            "input_tokens": 9393,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1408,
+            "output_tokens": 10762,
+            "service_tier": "standard"
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 42307.62820000001
+        },
+        {
+          "stage": "generate",
+          "taskId": null,
+          "systemSha256": "29bfe0d5ddda737793fe28767edd26fa26cab22168bd804ae13ef6e4ffb4b512",
+          "usage": {
+            "inputTokens": 14060,
+            "cacheHitTokens": 10752,
+            "cacheMissTokens": 3308,
+            "outputTokens": 5032,
+            "cacheHitRate": 0.7647226173541963
+          },
+          "rawUsage": {
+            "input_tokens": 3308,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 10752,
+            "output_tokens": 5032,
+            "service_tier": "standard"
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 18019.989300000016
+        }
+      ],
+      "searches": 15,
+      "repairs": 1,
+      "plan": {
+        "tasks": 16,
+        "sources": 12,
+        "recommendations": 3
+      },
+      "totalMs": 79966.04470000003,
+      "searchMs": 19638.498099999997,
+      "generationMs": 60327.54660000003,
+      "firstSourceMs": 2138.1465000000026,
+      "usage": {
+        "requests": 11,
+        "measuredRequests": 11,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 28160,
+        "cacheMissTokens": 76436,
+        "measuredInputTokens": 104596,
+        "cacheHitRate": 0.2692263566484378,
+        "outputTokens": 28207,
+        "measuredOutputRequests": 11
+      },
+      "stageUsage": {
+        "search": {
+          "requests": 9,
+          "measuredRequests": 9,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 16000,
+          "cacheMissTokens": 63735,
+          "measuredInputTokens": 79735,
+          "cacheHitRate": 0.20066470182479462,
+          "outputTokens": 12413,
+          "measuredOutputRequests": 9
+        },
+        "generate": {
+          "requests": 2,
+          "measuredRequests": 2,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 12160,
+          "cacheMissTokens": 12701,
+          "measuredInputTokens": 24861,
+          "cacheHitRate": 0.4891195044447126,
+          "outputTokens": 15794,
+          "measuredOutputRequests": 2
+        }
+      }
+    },
+    {
+      "profile": "local",
+      "version": "optimized",
+      "sample": 1,
+      "success": true,
+      "startedAt": "2026-10-09T09:13:49.544Z",
+      "requests": [
+        {
+          "stage": "search",
+          "taskId": "policy",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 5307,
+            "cacheHitTokens": 1920,
+            "cacheMissTokens": 3387,
+            "outputTokens": 1422,
+            "cacheHitRate": 0.3617863199547767
+          },
+          "rawUsage": {
+            "input_tokens": 3387,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1920,
+            "output_tokens": 1422,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 7504.121899999969
+        },
+        {
+          "stage": "search",
+          "taskId": "eligibility",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 8043,
+            "cacheHitTokens": 1792,
+            "cacheMissTokens": 6251,
+            "outputTokens": 2308,
+            "cacheHitRate": 0.2228024369016536
+          },
+          "rawUsage": {
+            "input_tokens": 6251,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1792,
+            "output_tokens": 2308,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 12410.770000000019
+        },
+        {
+          "stage": "search",
+          "taskId": "discovery",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 9824,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 7776,
+            "outputTokens": 1239,
+            "cacheHitRate": 0.20846905537459284
+          },
+          "rawUsage": {
+            "input_tokens": 7776,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 1239,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 7001.014000000025
+        },
+        {
+          "stage": "search",
+          "taskId": "school-0-program",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 16555,
+            "cacheHitTokens": 1920,
+            "cacheMissTokens": 14635,
+            "outputTokens": 969,
+            "cacheHitRate": 0.11597704620960435
+          },
+          "rawUsage": {
+            "input_tokens": 14635,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1920,
+            "output_tokens": 969,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 6254.453300000052
+        },
+        {
+          "stage": "search",
+          "taskId": "school-0-location",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 16936,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 14760,
+            "outputTokens": 1984,
+            "cacheHitRate": 0.12848370335380255
+          },
+          "rawUsage": {
+            "input_tokens": 14760,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2176,
+            "output_tokens": 1984,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 10578.54059999995
+        },
+        {
+          "stage": "search",
+          "taskId": "school-1-program",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 30306,
+            "cacheHitTokens": 1920,
+            "cacheMissTokens": 28386,
+            "outputTokens": 1930,
+            "cacheHitRate": 0.06335379132844982
+          },
+          "rawUsage": {
+            "input_tokens": 28386,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1920,
+            "output_tokens": 1930,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 9803.460100000026
+        },
+        {
+          "stage": "search",
+          "taskId": "school-1-location",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 6177,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 4129,
+            "outputTokens": 888,
+            "cacheHitRate": 0.33155253359235876
+          },
+          "rawUsage": {
+            "input_tokens": 4129,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 888,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5633.759400000039
+        },
+        {
+          "stage": "search",
+          "taskId": "school-2-program",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 29546,
+            "cacheHitTokens": 1920,
+            "cacheMissTokens": 27626,
+            "outputTokens": 1466,
+            "cacheHitRate": 0.06498341569078725
+          },
+          "rawUsage": {
+            "input_tokens": 27626,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1920,
+            "output_tokens": 1466,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 8216.816200000001
+        },
+        {
+          "stage": "search",
+          "taskId": "school-2-location",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 7233,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 5185,
+            "outputTokens": 722,
+            "cacheHitRate": 0.2831466887875017
+          },
+          "rawUsage": {
+            "input_tokens": 5185,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 722,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5309.426299999992
+        },
+        {
+          "stage": "generate",
+          "taskId": null,
+          "systemSha256": "251d0b46132f7f3ba21025658e6bf614c82aac1a1c9d0485ebb1a26fd9d6618c",
+          "usage": {
+            "inputTokens": 10937,
+            "cacheHitTokens": 1408,
+            "cacheMissTokens": 9529,
+            "outputTokens": 11811,
+            "cacheHitRate": 0.1287373137057694
+          },
+          "rawUsage": {
+            "input_tokens": 9529,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1408,
+            "output_tokens": 11811,
+            "service_tier": "standard"
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 47353.38209999999
+        }
+      ],
+      "searches": 15,
+      "repairs": 0,
+      "plan": {
+        "tasks": 16,
+        "sources": 10,
+        "recommendations": 3
+      },
+      "totalMs": 65076.27189999999,
+      "searchMs": 17722.640599999984,
+      "generationMs": 47353.63130000001,
+      "firstSourceMs": 2722.382899999968,
+      "usage": {
+        "requests": 10,
+        "measuredRequests": 10,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 19200,
+        "cacheMissTokens": 121664,
+        "measuredInputTokens": 140864,
+        "cacheHitRate": 0.13630168105406634,
+        "outputTokens": 24739,
+        "measuredOutputRequests": 10
+      },
+      "stageUsage": {
+        "search": {
+          "requests": 9,
+          "measuredRequests": 9,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 17792,
+          "cacheMissTokens": 112135,
+          "measuredInputTokens": 129927,
+          "cacheHitRate": 0.13693843465946262,
+          "outputTokens": 12928,
+          "measuredOutputRequests": 9
+        },
+        "generate": {
+          "requests": 1,
+          "measuredRequests": 1,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 1408,
+          "cacheMissTokens": 9529,
+          "measuredInputTokens": 10937,
+          "cacheHitRate": 0.1287373137057694,
+          "outputTokens": 11811,
+          "measuredOutputRequests": 1
+        }
+      }
+    },
+    {
+      "profile": "local",
+      "version": "baseline",
+      "sample": 2,
+      "success": true,
+      "startedAt": "2026-10-09T09:14:54.621Z",
+      "requests": [
+        {
+          "stage": "search",
+          "taskId": "policy",
+          "systemSha256": "b8c9c7ace6f8bf6c59727f718dfb918c6d149ba971d38f30d9b6de4230c9ca09",
+          "usage": {
+            "inputTokens": 2153,
+            "cacheHitTokens": 1536,
+            "cacheMissTokens": 617,
+            "outputTokens": 496,
+            "cacheHitRate": 0.7134231305155597
+          },
+          "rawUsage": {
+            "input_tokens": 617,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1536,
+            "output_tokens": 496,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 3807.089500000002
+        },
+        {
+          "stage": "search",
+          "taskId": "eligibility",
+          "systemSha256": "b8c9c7ace6f8bf6c59727f718dfb918c6d149ba971d38f30d9b6de4230c9ca09",
+          "usage": {
+            "inputTokens": 10892,
+            "cacheHitTokens": 1664,
+            "cacheMissTokens": 9228,
+            "outputTokens": 1618,
+            "cacheHitRate": 0.152772677194271
+          },
+          "rawUsage": {
+            "input_tokens": 9228,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1664,
+            "output_tokens": 1618,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 8235.356000000029
+        },
+        {
+          "stage": "search",
+          "taskId": "discovery",
+          "systemSha256": "8518c877b2ec3e873b70a3047ff5e28e00939da3e5871506249cf18d182de789",
+          "usage": {
+            "inputTokens": 22531,
+            "cacheHitTokens": 1920,
+            "cacheMissTokens": 20611,
+            "outputTokens": 1037,
+            "cacheHitRate": 0.08521592472593316
+          },
+          "rawUsage": {
+            "input_tokens": 20611,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1920,
+            "output_tokens": 1037,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5660.110699999961
+        },
+        {
+          "stage": "search",
+          "taskId": "school-0-program",
+          "systemSha256": "d1b49f3c60b0ef42a97cb5e6656520e1dc3ea730851d6f5a8dfa2d9fc8277621",
+          "usage": {
+            "inputTokens": 15027,
+            "cacheHitTokens": 1792,
+            "cacheMissTokens": 13235,
+            "outputTokens": 1821,
+            "cacheHitRate": 0.11925201304318893
+          },
+          "rawUsage": {
+            "input_tokens": 13235,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1792,
+            "output_tokens": 1821,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 9674.770900000003
+        },
+        {
+          "stage": "search",
+          "taskId": "school-0-location",
+          "systemSha256": "d1b49f3c60b0ef42a97cb5e6656520e1dc3ea730851d6f5a8dfa2d9fc8277621",
+          "usage": {
+            "inputTokens": 8591,
+            "cacheHitTokens": 1920,
+            "cacheMissTokens": 6671,
+            "outputTokens": 1259,
+            "cacheHitRate": 0.22348969852170877
+          },
+          "rawUsage": {
+            "input_tokens": 6671,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1920,
+            "output_tokens": 1259,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 7052.985400000005
+        },
+        {
+          "stage": "search",
+          "taskId": "school-1-program",
+          "systemSha256": "d1b49f3c60b0ef42a97cb5e6656520e1dc3ea730851d6f5a8dfa2d9fc8277621",
+          "usage": {
+            "inputTokens": 19511,
+            "cacheHitTokens": 1664,
+            "cacheMissTokens": 17847,
+            "outputTokens": 1031,
+            "cacheHitRate": 0.08528522371995284
+          },
+          "rawUsage": {
+            "input_tokens": 17847,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1664,
+            "output_tokens": 1031,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5727.665900000022
+        },
+        {
+          "stage": "search",
+          "taskId": "school-1-location",
+          "systemSha256": "d1b49f3c60b0ef42a97cb5e6656520e1dc3ea730851d6f5a8dfa2d9fc8277621",
+          "usage": {
+            "inputTokens": 16618,
+            "cacheHitTokens": 1920,
+            "cacheMissTokens": 14698,
+            "outputTokens": 836,
+            "cacheHitRate": 0.11553736911782404
+          },
+          "rawUsage": {
+            "input_tokens": 14698,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1920,
+            "output_tokens": 836,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5685.244700000039
+        },
+        {
+          "stage": "search",
+          "taskId": "school-2-program",
+          "systemSha256": "d1b49f3c60b0ef42a97cb5e6656520e1dc3ea730851d6f5a8dfa2d9fc8277621",
+          "usage": {
+            "inputTokens": 12769,
+            "cacheHitTokens": 1664,
+            "cacheMissTokens": 11105,
+            "outputTokens": 936,
+            "cacheHitRate": 0.13031560811339965
+          },
+          "rawUsage": {
+            "input_tokens": 11105,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1664,
+            "output_tokens": 936,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5653.721499999985
+        },
+        {
+          "stage": "search",
+          "taskId": "school-2-location",
+          "systemSha256": "d1b49f3c60b0ef42a97cb5e6656520e1dc3ea730851d6f5a8dfa2d9fc8277621",
+          "usage": {
+            "inputTokens": 3557,
+            "cacheHitTokens": 1920,
+            "cacheMissTokens": 1637,
+            "outputTokens": 1021,
+            "cacheHitRate": 0.539780714084903
+          },
+          "rawUsage": {
+            "input_tokens": 1637,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1920,
+            "output_tokens": 1021,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 6307.403500000015
+        },
+        {
+          "stage": "generate",
+          "taskId": null,
+          "systemSha256": "29bfe0d5ddda737793fe28767edd26fa26cab22168bd804ae13ef6e4ffb4b512",
+          "usage": {
+            "inputTokens": 9547,
+            "cacheHitTokens": 1408,
+            "cacheMissTokens": 8139,
+            "outputTokens": 14836,
+            "cacheHitRate": 0.14748088404734472
+          },
+          "rawUsage": {
+            "input_tokens": 8139,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1408,
+            "output_tokens": 14836,
+            "service_tier": "standard"
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 59507.19549999997
+        }
+      ],
+      "searches": 15,
+      "repairs": 0,
+      "plan": {
+        "tasks": 16,
+        "sources": 14,
+        "recommendations": 3
+      },
+      "totalMs": 74844.59210000001,
+      "searchMs": 15337.199900000007,
+      "generationMs": 59507.3922,
+      "firstSourceMs": 1910.651200000022,
+      "usage": {
+        "requests": 10,
+        "measuredRequests": 10,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 17408,
+        "cacheMissTokens": 103788,
+        "measuredInputTokens": 121196,
+        "cacheHitRate": 0.14363510346876135,
+        "outputTokens": 24891,
+        "measuredOutputRequests": 10
+      },
+      "stageUsage": {
+        "search": {
+          "requests": 9,
+          "measuredRequests": 9,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 16000,
+          "cacheMissTokens": 95649,
+          "measuredInputTokens": 111649,
+          "cacheHitRate": 0.14330625442234143,
+          "outputTokens": 10055,
+          "measuredOutputRequests": 9
+        },
+        "generate": {
+          "requests": 1,
+          "measuredRequests": 1,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 1408,
+          "cacheMissTokens": 8139,
+          "measuredInputTokens": 9547,
+          "cacheHitRate": 0.14748088404734472,
+          "outputTokens": 14836,
+          "measuredOutputRequests": 1
+        }
+      }
+    },
+    {
+      "profile": "local",
+      "version": "optimized",
+      "sample": 2,
+      "success": true,
+      "startedAt": "2026-10-09T09:16:09.468Z",
+      "requests": [
+        {
+          "stage": "search",
+          "taskId": "policy",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 3592,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 1416,
+            "outputTokens": 824,
+            "cacheHitRate": 0.6057906458797327
+          },
+          "rawUsage": {
+            "input_tokens": 1416,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2176,
+            "output_tokens": 824,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 4731.624499999976
+        },
+        {
+          "stage": "search",
+          "taskId": "eligibility",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 7328,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 5280,
+            "outputTokens": 925,
+            "cacheHitRate": 0.2794759825327511
+          },
+          "rawUsage": {
+            "input_tokens": 5280,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 925,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5768.4847999999765
+        },
+        {
+          "stage": "search",
+          "taskId": "discovery",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 9635,
+            "cacheHitTokens": 2432,
+            "cacheMissTokens": 7203,
+            "outputTokens": 2082,
+            "cacheHitRate": 0.2524130773222626
+          },
+          "rawUsage": {
+            "input_tokens": 7203,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2432,
+            "output_tokens": 2082,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 10412.712899999984
+        },
+        {
+          "stage": "search",
+          "taskId": "school-0-program",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 22343,
+            "cacheHitTokens": 12672,
+            "cacheMissTokens": 9671,
+            "outputTokens": 1222,
+            "cacheHitRate": 0.5671574989929732
+          },
+          "rawUsage": {
+            "input_tokens": 9671,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 12672,
+            "output_tokens": 1222,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 3
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 8303.941599999962
+        },
+        {
+          "stage": "search",
+          "taskId": "school-0-location",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 22107,
+            "cacheHitTokens": 12800,
+            "cacheMissTokens": 9307,
+            "outputTokens": 1468,
+            "cacheHitRate": 0.5790021260234315
+          },
+          "rawUsage": {
+            "input_tokens": 9307,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 12800,
+            "output_tokens": 1468,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 3
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 8160.789300000004
+        },
+        {
+          "stage": "search",
+          "taskId": "school-1-program",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 42467,
+            "cacheHitTokens": 22656,
+            "cacheMissTokens": 19811,
+            "outputTokens": 2396,
+            "cacheHitRate": 0.5334965973579485
+          },
+          "rawUsage": {
+            "input_tokens": 19811,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 22656,
+            "output_tokens": 2396,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 4
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 11504.007199999993
+        },
+        {
+          "stage": "search",
+          "taskId": "school-1-location",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 9726,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 7678,
+            "outputTokens": 1024,
+            "cacheHitRate": 0.21056960723833024
+          },
+          "rawUsage": {
+            "input_tokens": 7678,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 1024,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 6976.264400000044
+        },
+        {
+          "stage": "search",
+          "taskId": "school-2-program",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 21344,
+            "cacheHitTokens": 12160,
+            "cacheMissTokens": 9184,
+            "outputTokens": 1164,
+            "cacheHitRate": 0.5697151424287856
+          },
+          "rawUsage": {
+            "input_tokens": 9184,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 12160,
+            "output_tokens": 1164,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 3
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 7038.474500000011
+        },
+        {
+          "stage": "search",
+          "taskId": "school-2-location",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 33235,
+            "cacheHitTokens": 18432,
+            "cacheMissTokens": 14803,
+            "outputTokens": 2755,
+            "cacheHitRate": 0.5545960583721979
+          },
+          "rawUsage": {
+            "input_tokens": 14803,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 18432,
+            "output_tokens": 2755,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 3
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 13915.067299999995
+        },
+        {
+          "stage": "search",
+          "taskId": "school-0-program",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "usage": {
+            "inputTokens": 4068,
+            "cacheHitTokens": 2688,
+            "cacheMissTokens": 1380,
+            "outputTokens": 1712,
+            "cacheHitRate": 0.6607669616519174
+          },
+          "rawUsage": {
+            "input_tokens": 1380,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2688,
+            "output_tokens": 1712,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 9394.531100000022
+        },
+        {
+          "stage": "generate",
+          "taskId": null,
+          "systemSha256": "251d0b46132f7f3ba21025658e6bf614c82aac1a1c9d0485ebb1a26fd9d6618c",
+          "usage": {
+            "inputTokens": 9803,
+            "cacheHitTokens": 1536,
+            "cacheMissTokens": 8267,
+            "outputTokens": 18757,
+            "cacheHitRate": 0.15668672855248394
+          },
+          "rawUsage": {
+            "input_tokens": 8267,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1536,
+            "output_tokens": 18757,
+            "service_tier": "standard"
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 72617.3148
+        }
+      ],
+      "searches": 16,
+      "repairs": 0,
+      "plan": {
+        "tasks": 16,
+        "sources": 17,
+        "recommendations": 3
+      },
+      "totalMs": 100731.08529999998,
+      "searchMs": 28113.56209999998,
+      "generationMs": 72617.5232,
+      "firstSourceMs": 1756.1042999999481,
+      "usage": {
+        "requests": 11,
+        "measuredRequests": 11,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 91648,
+        "cacheMissTokens": 94000,
+        "measuredInputTokens": 185648,
+        "cacheHitRate": 0.4936654313539602,
+        "outputTokens": 34329,
+        "measuredOutputRequests": 11
+      },
+      "stageUsage": {
+        "search": {
+          "requests": 10,
+          "measuredRequests": 10,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 90112,
+          "cacheMissTokens": 85733,
+          "measuredInputTokens": 175845,
+          "cacheHitRate": 0.5124513065483807,
+          "outputTokens": 15572,
+          "measuredOutputRequests": 10
+        },
+        "generate": {
+          "requests": 1,
+          "measuredRequests": 1,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 1536,
+          "cacheMissTokens": 8267,
+          "measuredInputTokens": 9803,
+          "cacheHitRate": 0.15668672855248394,
+          "outputTokens": 18757,
+          "measuredOutputRequests": 1
+        }
+      }
+    }
+  ],
+  "completedAt": "2026-10-09T09:17:50.201Z",
+  "comparison": [
+    {
+      "profile": "named",
+      "baseline": {
+        "requests": 14,
+        "measuredRequests": 14,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 21632,
+        "cacheMissTokens": 75696,
+        "measuredInputTokens": 97328,
+        "cacheHitRate": 0.22225875390432354,
+        "outputTokens": 30275,
+        "measuredOutputRequests": 14
+      },
+      "optimized": {
+        "requests": 15,
+        "measuredRequests": 15,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 37887,
+        "cacheMissTokens": 59538,
+        "measuredInputTokens": 97425,
+        "cacheHitRate": 0.3888837567359507,
+        "outputTokens": 37682,
+        "measuredOutputRequests": 15
+      },
+      "allSuccessful": true,
+      "improved": false,
+      "hitRateChangePercentagePoints": 16.662500283162718
+    },
+    {
+      "profile": "local",
+      "baseline": {
+        "requests": 21,
+        "measuredRequests": 21,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 45568,
+        "cacheMissTokens": 180224,
+        "measuredInputTokens": 225792,
+        "cacheHitRate": 0.2018140589569161,
+        "outputTokens": 53098,
+        "measuredOutputRequests": 21
+      },
+      "optimized": {
+        "requests": 21,
+        "measuredRequests": 21,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 110848,
+        "cacheMissTokens": 215664,
+        "measuredInputTokens": 326512,
+        "cacheHitRate": 0.3394913510070074,
+        "outputTokens": 59068,
+        "measuredOutputRequests": 21
+      },
+      "allSuccessful": true,
+      "improved": false,
+      "hitRateChangePercentagePoints": 13.76772920500913
+    }
+  ]
+}

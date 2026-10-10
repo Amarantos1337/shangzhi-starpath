@@ -8,6 +8,9 @@
   let state = empty();
   let status = 'persistent';
   let damagedRaw = null;
+  let savedRaw = null;
+  let storageRemoved = false;
+  let externalAnnouncementPending = false;
   const copy = value => JSON.parse(JSON.stringify(value));
   const fail = message => { throw new Error(message); };
   const object = value => value && typeof value === 'object' && !Array.isArray(value);
@@ -132,6 +135,7 @@
   }
   try {
     const raw = localStorage.getItem(KEY);
+    savedRaw = raw;
     if (raw !== null) {
       try { state = validate(JSON.parse(raw)); }
       catch (_) { status = 'damaged'; damagedRaw = raw; }
@@ -143,21 +147,79 @@
     }
   } catch (_) { status = 'session'; }
 
+  function sync() {
+    // Never discard unsaved session edits or the preserved damaged record.
+    if (status !== 'persistent') return false;
+    let raw;
+    try { raw = localStorage.getItem(KEY); }
+    catch (_) { status = 'session'; return true; }
+    if (raw === savedRaw) return false;
+    if (raw === null) {
+      // Another page/browser action removed storage. Keep a recoverable copy.
+      status = 'session';
+      storageRemoved = true;
+      return true;
+    }
+    try { state = validate(JSON.parse(raw)); }
+    catch (_) { status = 'damaged'; damagedRaw = raw; return true; }
+    savedRaw = raw;
+    return true;
+  }
+  function announce(persisted, external = false) {
+    window.dispatchEvent(new CustomEvent('starpath:change', { detail: { persisted, external } }));
+  }
   function save() {
-    if (status === 'damaged') return false;
+    if (status === 'damaged' || storageRemoved) return false;
     try {
-      localStorage.setItem(KEY, JSON.stringify(state));
+      const raw = JSON.stringify(state);
+      localStorage.setItem(KEY, raw);
+      savedRaw = raw;
       status = 'persistent';
       return true;
     } catch (_) { status = 'session'; return false; }
   }
   function update(change) {
-    const draft = copy(state);
-    change(draft);
-    state = validate(draft);
-    const persisted = save();
-    window.dispatchEvent(new CustomEvent('starpath:change', { detail: { persisted } }));
-    return persisted;
+    for (let attempt = 0; attempt < 3; attempt++) {
+      // Storage events can be delayed while a tab is inactive. Read before
+      // applying the operation, then check again before committing the draft.
+      sync();
+      const draft = copy(state);
+      change(draft);
+      const next = validate(draft);
+      if (status === 'persistent') {
+        try { if (localStorage.getItem(KEY) !== savedRaw) continue; }
+        catch (_) { status = 'session'; }
+      }
+      state = next;
+      const persisted = save();
+      announce(persisted);
+      return persisted;
+    }
+    sync();
+    announce(status === 'persistent', true);
+    fail('其他页面正在更新记录，请重试本次操作。');
+  }
+  function syncExternal() {
+    if (sync()) announce(status === 'persistent', true);
+  }
+  function readState() {
+    // A read may discover changes before their storage event is delivered.
+    // Notify after the caller finishes, so rendering never recursively renders.
+    if (sync() && !externalAnnouncementPending) {
+      externalAnnouncementPending = true;
+      Promise.resolve().then(() => {
+        externalAnnouncementPending = false;
+        announce(status === 'persistent', true);
+      });
+    }
+    return copy(state);
+  }
+  if (typeof window.addEventListener === 'function') {
+    window.addEventListener('storage', event => {
+      // Read current storage rather than trusting a queued event's old value.
+      if (event.key === KEY || event.key === null) syncExternal();
+    });
+    window.addEventListener('focus', syncExternal);
   }
   function uid() {
     if (window.crypto && typeof window.crypto.randomUUID === 'function') return window.crypto.randomUUID();
@@ -170,7 +232,7 @@
   }
   app.store = {
     key: KEY,
-    get: () => copy(state),
+    get: readState,
     status: () => status,
     damagedRaw: () => damagedRaw,
     uid, progress, update,
@@ -182,13 +244,14 @@
       if (!object(value) || value.app !== 'shangzhi-starpath') fail('这不是商职星途导出的备份文件。');
       return validate(value);
     },
-    exportBackup: () => JSON.stringify({ app: 'shangzhi-starpath', exportedAt: new Date().toISOString(), ...state }, null, 2),
+    exportBackup: () => JSON.stringify({ app: 'shangzhi-starpath', exportedAt: new Date().toISOString(), ...readState() }, null, 2),
     replace(value) {
       state = validate(value);
       damagedRaw = null;
+      storageRemoved = false;
       status = 'session';
       const persisted = save();
-      window.dispatchEvent(new CustomEvent('starpath:change', { detail: { persisted } }));
+      announce(persisted);
       return persisted;
     },
     toggleFavorite(personId) {
@@ -196,7 +259,6 @@
       return update(draft => { draft.favorites = draft.favorites.includes(personId) ? draft.favorites.filter(value => value !== personId) : [...draft.favorites, personId]; });
     },
     createPlan(templateId, details = {}) {
-      if (state.plans.length >= 20) fail('最多可保存20份计划，请先整理已有计划。');
       const template = app.data.routes.find(route => route.id === templateId);
       if (templateId !== null && !template) fail('未找到这条路线。');
       let initialTasks = [];
@@ -211,11 +273,13 @@
       const now = new Date().toISOString();
       const plan = { id: uid(), templateId, title: details.title ?? (template ? '我的' + template.name + '计划' : '我的成长计划'), goal: details.goal ?? '', createdAt: now, updatedAt: now,
         tasks: template ? template.stages.flatMap(stage => stage.tasks.map(title => ({ id: uid(), title, stage: stage.title, dueDate: '', completed: false }))) : initialTasks };
-      const persisted = update(draft => { draft.plans.unshift(plan); });
+      const persisted = update(draft => {
+        if (draft.plans.length >= 20) fail('最多可保存20份计划，请先整理已有计划。');
+        draft.plans.unshift(plan);
+      });
       return { id: plan.id, persisted };
     },
     createAiPlan(details) {
-      if (state.plans.length >= 20) fail('最多可保存20份计划，请先整理已有计划。');
       if (!object(details) || !Array.isArray(details.tasks) || details.tasks.length < 12 || details.tasks.length > 24) fail('AI 计划需要12–24项任务。');
       const tasks = details.tasks.map(task => {
         if (!object(task)) fail('AI 任务格式无效。');
@@ -226,7 +290,10 @@
       if (new Set(tasks.map(task => task.stage)).size !== 4) fail('AI 计划需要4个阶段。');
       const now = new Date().toISOString();
       const plan = { id: uid(), templateId: 'education', title: str(details.title, '计划名称', 120), goal: str(details.goal, '成长目标', 1000), createdAt: now, updatedAt: now, tasks, generation: generation(details.generation) };
-      const persisted = update(draft => { draft.plans.unshift(plan); });
+      const persisted = update(draft => {
+        if (draft.plans.length >= 20) fail('最多可保存20份计划，请先整理已有计划。');
+        draft.plans.unshift(plan);
+      });
       return { id: plan.id, persisted };
     },
     editPlan(planId, change) {

@@ -1,0 +1,135 @@
+{
+  "phase": "baseline",
+  "startedAt": "2026-10-09T04:37:58.888Z",
+  "sourceSha256": "1b7c05b06bf9c31a8677477bc461f3c3f0ff139969ee68f9a4085d149ae177ea",
+  "config": {
+    "model": "deepseek-flash",
+    "effort": "high",
+    "timeoutMs": 300000
+  },
+  "profiles": [
+    {
+      "id": "named",
+      "input": {
+        "level": "本科",
+        "major": "计算机科学与技术",
+        "grade": "大四",
+        "baseline": "英语需要加强，数学刚开始复习",
+        "goal": "山东大学，计算机相关专业",
+        "region": "山东",
+        "startDate": "2026-10-01"
+      }
+    },
+    {
+      "id": "local",
+      "input": {
+        "level": "本科",
+        "major": "计算机网络技术",
+        "grade": "大一",
+        "baseline": "英语基础较弱，数学刚开始复习。",
+        "goal": "济南本地一本院校，计算机相关专业",
+        "region": "山东",
+        "startDate": "2026-10-07"
+      }
+    }
+  ],
+  "runs": [
+    {
+      "profile": "named",
+      "index": 1,
+      "startedAt": "2026-10-09T04:37:58.891Z",
+      "success": false,
+      "searchMs": 40.701299999999996,
+      "generationMs": null,
+      "totalMs": 40.701299999999996,
+      "firstSourceMs": null,
+      "searches": 0,
+      "requests": 1,
+      "maxConcurrency": 1,
+      "repairs": 0,
+      "error": "无法连接 AI 服务，请检查网络后重试。",
+      "failedStage": "search"
+    },
+    {
+      "profile": "named",
+      "index": 2,
+      "startedAt": "2026-10-09T04:37:58.933Z",
+      "success": false,
+      "searchMs": 3.5762,
+      "generationMs": null,
+      "totalMs": 3.5762,
+      "firstSourceMs": null,
+      "searches": 0,
+      "requests": 1,
+      "maxConcurrency": 1,
+      "repairs": 0,
+      "error": "无法连接 AI 服务，请检查网络后重试。",
+      "failedStage": "search"
+    },
+    {
+      "profile": "named",
+      "index": 3,
+      "startedAt": "2026-10-09T04:37:58.937Z",
+      "success": false,
+      "searchMs": 3.471199999999996,
+      "generationMs": null,
+      "totalMs": 3.471199999999996,
+      "firstSourceMs": null,
+      "searches": 0,
+      "requests": 1,
+      "maxConcurrency": 1,
+      "repairs": 0,
+      "error": "无法连接 AI 服务，请检查网络后重试。",
+      "failedStage": "search"
+    },
+    {
+      "profile": "local",
+      "index": 1,
+      "startedAt": "2026-10-09T04:37:58.941Z",
+      "success": false,
+      "searchMs": 3.284499999999994,
+      "generationMs": null,
+      "totalMs": 3.284499999999994,
+      "firstSourceMs": null,
+      "searches": 0,
+      "requests": 1,
+      "maxConcurrency": 1,
+      "repairs": 0,
+      "error": "无法连接 AI 服务，请检查网络后重试。",
+      "failedStage": "search"
+    },
+    {
+      "profile": "local",
+      "index": 2,
+      "startedAt": "2026-10-09T04:37:58.945Z",
+      "success": false,
+      "searchMs": 2.8700999999999937,
+      "generationMs": null,
+      "totalMs": 2.8700999999999937,
+      "firstSourceMs": null,
+      "searches": 0,
+      "requests": 1,
+      "maxConcurrency": 1,
+      "repairs": 0,
+      "error": "无法连接 AI 服务，请检查网络后重试。",
+      "failedStage": "search"
+    },
+    {
+      "profile": "local",
+      "index": 3,
+      "startedAt": "2026-10-09T04:37:58.949Z",
+      "success": false,
+      "searchMs": 3.7087999999999965,
+      "generationMs": null,
+      "totalMs": 3.7087999999999965,
+      "firstSourceMs": null,
+      "searches": 0,
+      "requests": 1,
+      "maxConcurrency": 1,
+      "repairs": 0,
+      "error": "无法连接 AI 服务，请检查网络后重试。",
+      "failedStage": "search"
+    }
+  ],
+  "completedAt": "2026-10-09T04:37:58.953Z"
+}

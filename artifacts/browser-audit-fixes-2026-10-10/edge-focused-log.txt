@@ -1,0 +1,1 @@
+Audit fixes: HTTP/file multi-tab flows, modal/focus, 42 page/viewport combinations, keyboard navigation and console checks passed.

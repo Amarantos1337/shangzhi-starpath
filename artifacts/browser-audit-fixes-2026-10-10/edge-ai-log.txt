@@ -1,0 +1,7 @@
+file 390px: form, preview, editing, regenerate, save, progress, refresh, import/cancel, escaping, failure/retry, duplicate submit, cancellation, template fallback, city constraints, readable text repair, 3-school repair and legacy rendering passed
+file 1042px: form, preview, editing, regenerate, save, progress, refresh, import/cancel, escaping, failure/retry, duplicate submit, cancellation, template fallback, city constraints, readable text repair, 3-school repair and legacy rendering passed
+file 1440px: form, preview, editing, regenerate, save, progress, refresh, import/cancel, escaping, failure/retry, duplicate submit, cancellation, template fallback, city constraints, readable text repair, 3-school repair and legacy rendering passed
+http 390px: form, preview, editing, regenerate, save, progress, refresh, import/cancel, escaping, failure/retry, duplicate submit, cancellation, template fallback, city constraints, readable text repair, 3-school repair and legacy rendering passed
+http 1042px: form, preview, editing, regenerate, save, progress, refresh, import/cancel, escaping, failure/retry, duplicate submit, cancellation, template fallback, city constraints, readable text repair, 3-school repair and legacy rendering passed
+http 1440px: form, preview, editing, regenerate, save, progress, refresh, import/cancel, escaping, failure/retry, duplicate submit, cancellation, template fallback, city constraints, readable text repair, 3-school repair and legacy rendering passed
+Unavailable localStorage: AI plan saved for the session and warning displayed

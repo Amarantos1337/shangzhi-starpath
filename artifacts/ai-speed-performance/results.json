@@ -1,0 +1,2245 @@
+{
+  "kind": "speed",
+  "startedAt": "2026-10-09T09:29:59.064Z",
+  "config": {
+    "model": "deepseek-flash",
+    "effort": "high",
+    "timeoutMs": 300000
+  },
+  "sourceSha256": {
+    "baseline": "0c65e072bf2bdf27ae44e59c482ca6791f929645953d0e8857640ceb632affee",
+    "optimized": "28a8fe269ca00ba45f1b920b498ce3faa9b0bf04f49b7524c8172fd07df9829b"
+  },
+  "profiles": [
+    {
+      "id": "named",
+      "input": {
+        "level": "本科",
+        "major": "计算机科学与技术",
+        "grade": "大四",
+        "baseline": "英语需要加强，数学刚开始复习",
+        "goal": "山东大学，计算机相关专业",
+        "region": "山东",
+        "startDate": "2026-10-01"
+      }
+    },
+    {
+      "id": "local",
+      "input": {
+        "level": "本科",
+        "major": "计算机网络技术",
+        "grade": "大一",
+        "baseline": "英语基础较弱，数学刚开始复习。",
+        "goal": "济南本地一本院校，计算机相关专业",
+        "region": "山东",
+        "startDate": "2026-10-07"
+      }
+    }
+  ],
+  "runs": [
+    {
+      "profile": "named",
+      "version": "baseline",
+      "sample": 1,
+      "success": true,
+      "startedAt": "2026-10-09T09:29:59.074Z",
+      "requests": [
+        {
+          "stage": "search",
+          "taskId": "policy",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 7863,
+            "cacheHitTokens": 2175,
+            "cacheMissTokens": 5688,
+            "outputTokens": 906,
+            "cacheHitRate": 0.2766119801602442
+          },
+          "rawUsage": {
+            "input_tokens": 5688,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2175,
+            "output_tokens": 906,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5572.8446
+        },
+        {
+          "stage": "search",
+          "taskId": "eligibility",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 8181,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 6005,
+            "outputTokens": 1044,
+            "cacheHitRate": 0.26598215377093265
+          },
+          "rawUsage": {
+            "input_tokens": 6005,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2176,
+            "output_tokens": 1044,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 6325.982499999999
+        },
+        {
+          "stage": "search",
+          "taskId": "directory",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 4625,
+            "cacheHitTokens": 1920,
+            "cacheMissTokens": 2705,
+            "outputTokens": 1397,
+            "cacheHitRate": 0.4151351351351351
+          },
+          "rawUsage": {
+            "input_tokens": 2705,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1920,
+            "output_tokens": 1397,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 8473.9139
+        },
+        {
+          "stage": "search",
+          "taskId": "subjects",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 2899,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 851,
+            "outputTokens": 909,
+            "cacheHitRate": 0.7064505001724732
+          },
+          "rawUsage": {
+            "input_tokens": 851,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 909,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5546.883599999999
+        },
+        {
+          "stage": "search",
+          "taskId": "restrictions",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 10482,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 8434,
+            "outputTokens": 1350,
+            "cacheHitRate": 0.19538256058004197
+          },
+          "rawUsage": {
+            "input_tokens": 8434,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 1350,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 7578.7327
+        },
+        {
+          "stage": "search",
+          "taskId": "campus",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 13219,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 11171,
+            "outputTokens": 1166,
+            "cacheHitRate": 0.15492851199031696
+          },
+          "rawUsage": {
+            "input_tokens": 11171,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 1166,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 6458.6309
+        },
+        {
+          "stage": "generate",
+          "taskId": null,
+          "systemSha256": "251d0b46132f7f3ba21025658e6bf614c82aac1a1c9d0485ebb1a26fd9d6618c",
+          "effort": "high",
+          "stream": false,
+          "usage": {
+            "inputTokens": 5597,
+            "cacheHitTokens": 1536,
+            "cacheMissTokens": 4061,
+            "outputTokens": 12319,
+            "cacheHitRate": 0.27443273182061817
+          },
+          "rawUsage": {
+            "input_tokens": 4061,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1536,
+            "output_tokens": 12319,
+            "service_tier": "standard"
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "responseFormat": "full",
+          "totalMs": 49210.199499999995
+        }
+      ],
+      "searches": 6,
+      "repairs": 0,
+      "plan": {
+        "tasks": 16,
+        "sources": 11,
+        "recommendations": 0
+      },
+      "totalMs": 57711.4407,
+      "searchMs": 8500.9579,
+      "generationMs": 49210.4828,
+      "firstSourceMs": 2648.0828,
+      "usage": {
+        "requests": 7,
+        "measuredRequests": 7,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 13951,
+        "cacheMissTokens": 38915,
+        "measuredInputTokens": 52866,
+        "cacheHitRate": 0.2638936178262021,
+        "outputTokens": 19091,
+        "measuredOutputRequests": 7
+      },
+      "stageUsage": {
+        "search": {
+          "requests": 6,
+          "measuredRequests": 6,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 12415,
+          "cacheMissTokens": 34854,
+          "measuredInputTokens": 47269,
+          "cacheHitRate": 0.2626457086039476,
+          "outputTokens": 6772,
+          "measuredOutputRequests": 6
+        },
+        "generate": {
+          "requests": 1,
+          "measuredRequests": 1,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 1536,
+          "cacheMissTokens": 4061,
+          "measuredInputTokens": 5597,
+          "cacheHitRate": 0.27443273182061817,
+          "outputTokens": 12319,
+          "measuredOutputRequests": 1
+        }
+      }
+    },
+    {
+      "profile": "named",
+      "version": "optimized",
+      "sample": 1,
+      "success": true,
+      "startedAt": "2026-10-09T09:30:56.789Z",
+      "requests": [
+        {
+          "stage": "search",
+          "taskId": "policy",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 3568,
+            "cacheHitTokens": 2175,
+            "cacheMissTokens": 1393,
+            "outputTokens": 1185,
+            "cacheHitRate": 0.609585201793722
+          },
+          "rawUsage": {
+            "input_tokens": 1393,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2175,
+            "output_tokens": 1185,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 7107.054900000003
+        },
+        {
+          "stage": "search",
+          "taskId": "eligibility",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 20681,
+            "cacheHitTokens": 12032,
+            "cacheMissTokens": 8649,
+            "outputTokens": 2668,
+            "cacheHitRate": 0.5817900488370968
+          },
+          "rawUsage": {
+            "input_tokens": 8649,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 12032,
+            "output_tokens": 2668,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 13827.1028
+        },
+        {
+          "stage": "search",
+          "taskId": "directory",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 3623,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 1575,
+            "outputTokens": 1640,
+            "cacheHitRate": 0.5652773944245101
+          },
+          "rawUsage": {
+            "input_tokens": 1575,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 1640,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 9297.674499999994
+        },
+        {
+          "stage": "search",
+          "taskId": "subjects",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 3154,
+            "cacheHitTokens": 1920,
+            "cacheMissTokens": 1234,
+            "outputTokens": 915,
+            "cacheHitRate": 0.6087507926442612
+          },
+          "rawUsage": {
+            "input_tokens": 1234,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1920,
+            "output_tokens": 915,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 6777.262699999999
+        },
+        {
+          "stage": "search",
+          "taskId": "restrictions",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 11075,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 9027,
+            "outputTokens": 1899,
+            "cacheHitRate": 0.18492099322799097
+          },
+          "rawUsage": {
+            "input_tokens": 9027,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 1899,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 3
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 10451.780800000008
+        },
+        {
+          "stage": "search",
+          "taskId": "campus",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 2927,
+            "cacheHitTokens": 1920,
+            "cacheMissTokens": 1007,
+            "outputTokens": 1021,
+            "cacheHitRate": 0.6559617355654254
+          },
+          "rawUsage": {
+            "input_tokens": 1007,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1920,
+            "output_tokens": 1021,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 6944.7355000000025
+        },
+        {
+          "stage": "generate",
+          "taskId": null,
+          "systemSha256": "360f0fdf9b22561ef87a29d472602aa43d317b167cc92205e5f7b6ae3d2967e1",
+          "effort": "low",
+          "stream": false,
+          "usage": {
+            "inputTokens": 4216,
+            "cacheHitTokens": 0,
+            "cacheMissTokens": 4216,
+            "outputTokens": 5519,
+            "cacheHitRate": 0
+          },
+          "rawUsage": {
+            "input_tokens": 4216,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 5519,
+            "service_tier": "standard"
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "responseFormat": "compact",
+          "totalMs": 23604.045199999993
+        }
+      ],
+      "searches": 6,
+      "repairs": 0,
+      "plan": {
+        "tasks": 16,
+        "sources": 9,
+        "recommendations": 0
+      },
+      "totalMs": 37433.7428,
+      "searchMs": 13829.517400000004,
+      "generationMs": 23604.225399999996,
+      "firstSourceMs": 2527.5682000000015,
+      "usage": {
+        "requests": 7,
+        "measuredRequests": 7,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 22143,
+        "cacheMissTokens": 27101,
+        "measuredInputTokens": 49244,
+        "cacheHitRate": 0.44965884168629683,
+        "outputTokens": 14847,
+        "measuredOutputRequests": 7
+      },
+      "stageUsage": {
+        "search": {
+          "requests": 6,
+          "measuredRequests": 6,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 22143,
+          "cacheMissTokens": 22885,
+          "measuredInputTokens": 45028,
+          "cacheHitRate": 0.4917606822421604,
+          "outputTokens": 9328,
+          "measuredOutputRequests": 6
+        },
+        "generate": {
+          "requests": 1,
+          "measuredRequests": 1,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 0,
+          "cacheMissTokens": 4216,
+          "measuredInputTokens": 4216,
+          "cacheHitRate": 0,
+          "outputTokens": 5519,
+          "measuredOutputRequests": 1
+        }
+      }
+    },
+    {
+      "profile": "named",
+      "version": "baseline",
+      "sample": 2,
+      "success": true,
+      "startedAt": "2026-10-09T09:31:34.224Z",
+      "requests": [
+        {
+          "stage": "search",
+          "taskId": "policy",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 4182,
+            "cacheHitTokens": 2175,
+            "cacheMissTokens": 2007,
+            "outputTokens": 2553,
+            "cacheHitRate": 0.5200860832137734
+          },
+          "rawUsage": {
+            "input_tokens": 2007,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2175,
+            "output_tokens": 2553,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 11436.210900000005
+        },
+        {
+          "stage": "search",
+          "taskId": "eligibility",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 11455,
+            "cacheHitTokens": 2304,
+            "cacheMissTokens": 9151,
+            "outputTokens": 2466,
+            "cacheHitRate": 0.2011348756001746
+          },
+          "rawUsage": {
+            "input_tokens": 9151,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2304,
+            "output_tokens": 2466,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 13138.923999999999
+        },
+        {
+          "stage": "search",
+          "taskId": "directory",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 3947,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 1899,
+            "outputTokens": 975,
+            "cacheHitRate": 0.5188750950088675
+          },
+          "rawUsage": {
+            "input_tokens": 1899,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 975,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5916.198799999998
+        },
+        {
+          "stage": "search",
+          "taskId": "subjects",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 4563,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 2515,
+            "outputTokens": 1511,
+            "cacheHitRate": 0.4488275257506027
+          },
+          "rawUsage": {
+            "input_tokens": 2515,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 1511,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 8397.073699999994
+        },
+        {
+          "stage": "search",
+          "taskId": "restrictions",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 8797,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 6621,
+            "outputTokens": 1517,
+            "cacheHitRate": 0.2473570535409799
+          },
+          "rawUsage": {
+            "input_tokens": 6621,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2176,
+            "output_tokens": 1517,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 8694.550900000002
+        },
+        {
+          "stage": "search",
+          "taskId": "campus",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 4037,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 1989,
+            "outputTokens": 762,
+            "cacheHitRate": 0.5073074064899677
+          },
+          "rawUsage": {
+            "input_tokens": 1989,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 762,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 4703.293800000014
+        },
+        {
+          "stage": "generate",
+          "taskId": null,
+          "systemSha256": "251d0b46132f7f3ba21025658e6bf614c82aac1a1c9d0485ebb1a26fd9d6618c",
+          "effort": "high",
+          "stream": false,
+          "usage": {
+            "inputTokens": 6049,
+            "cacheHitTokens": 1536,
+            "cacheMissTokens": 4513,
+            "outputTokens": 10624,
+            "cacheHitRate": 0.2539262688047611
+          },
+          "rawUsage": {
+            "input_tokens": 4513,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1536,
+            "output_tokens": 10624,
+            "service_tier": "standard"
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "responseFormat": "full",
+          "totalMs": 42312.67090000001
+        }
+      ],
+      "searches": 6,
+      "repairs": 0,
+      "plan": {
+        "tasks": 16,
+        "sources": 11,
+        "recommendations": 0
+      },
+      "totalMs": 55453.5848,
+      "searchMs": 13140.674599999998,
+      "generationMs": 42312.9102,
+      "firstSourceMs": 2262.234400000001,
+      "usage": {
+        "requests": 7,
+        "measuredRequests": 7,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 14335,
+        "cacheMissTokens": 28695,
+        "measuredInputTokens": 43030,
+        "cacheHitRate": 0.333139669997676,
+        "outputTokens": 20408,
+        "measuredOutputRequests": 7
+      },
+      "stageUsage": {
+        "search": {
+          "requests": 6,
+          "measuredRequests": 6,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 12799,
+          "cacheMissTokens": 24182,
+          "measuredInputTokens": 36981,
+          "cacheHitRate": 0.34609664422270897,
+          "outputTokens": 9784,
+          "measuredOutputRequests": 6
+        },
+        "generate": {
+          "requests": 1,
+          "measuredRequests": 1,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 1536,
+          "cacheMissTokens": 4513,
+          "measuredInputTokens": 6049,
+          "cacheHitRate": 0.2539262688047611,
+          "outputTokens": 10624,
+          "measuredOutputRequests": 1
+        }
+      }
+    },
+    {
+      "profile": "named",
+      "version": "optimized",
+      "sample": 2,
+      "success": true,
+      "startedAt": "2026-10-09T09:32:29.679Z",
+      "requests": [
+        {
+          "stage": "search",
+          "taskId": "policy",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 4444,
+            "cacheHitTokens": 2431,
+            "cacheMissTokens": 2013,
+            "outputTokens": 1797,
+            "cacheHitRate": 0.5470297029702971
+          },
+          "rawUsage": {
+            "input_tokens": 2013,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2431,
+            "output_tokens": 1797,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 8707.519100000005
+        },
+        {
+          "stage": "search",
+          "taskId": "eligibility",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 10445,
+            "cacheHitTokens": 1920,
+            "cacheMissTokens": 8525,
+            "outputTokens": 2000,
+            "cacheHitRate": 0.18382000957395883
+          },
+          "rawUsage": {
+            "input_tokens": 8525,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1920,
+            "output_tokens": 2000,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 11051.28899999999
+        },
+        {
+          "stage": "search",
+          "taskId": "directory",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 20599,
+            "cacheHitTokens": 1920,
+            "cacheMissTokens": 18679,
+            "outputTokens": 961,
+            "cacheHitRate": 0.09320840817515413
+          },
+          "rawUsage": {
+            "input_tokens": 18679,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1920,
+            "output_tokens": 961,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 6092.576900000015
+        },
+        {
+          "stage": "search",
+          "taskId": "subjects",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 2503,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 455,
+            "outputTokens": 751,
+            "cacheHitRate": 0.818218138234119
+          },
+          "rawUsage": {
+            "input_tokens": 455,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 751,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5108.759600000019
+        },
+        {
+          "stage": "search",
+          "taskId": "restrictions",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 12120,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 9944,
+            "outputTokens": 1346,
+            "cacheHitRate": 0.17953795379537954
+          },
+          "rawUsage": {
+            "input_tokens": 9944,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2176,
+            "output_tokens": 1346,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 8047.895300000004
+        },
+        {
+          "stage": "search",
+          "taskId": "campus",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 3485,
+            "cacheHitTokens": 2432,
+            "cacheMissTokens": 1053,
+            "outputTokens": 1404,
+            "cacheHitRate": 0.6978479196556672
+          },
+          "rawUsage": {
+            "input_tokens": 1053,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2432,
+            "output_tokens": 1404,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 3
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 8299.685200000007
+        },
+        {
+          "stage": "search",
+          "taskId": "subjects",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 2970,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 922,
+            "outputTokens": 1266,
+            "cacheHitRate": 0.6895622895622896
+          },
+          "rawUsage": {
+            "input_tokens": 922,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 1266,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 3
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 7000.17379999999
+        },
+        {
+          "stage": "generate",
+          "taskId": null,
+          "systemSha256": "360f0fdf9b22561ef87a29d472602aa43d317b167cc92205e5f7b6ae3d2967e1",
+          "effort": "low",
+          "stream": false,
+          "usage": {
+            "inputTokens": 4863,
+            "cacheHitTokens": 1024,
+            "cacheMissTokens": 3839,
+            "outputTokens": 6332,
+            "cacheHitRate": 0.21056960723833024
+          },
+          "rawUsage": {
+            "input_tokens": 3839,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1024,
+            "output_tokens": 6332,
+            "service_tier": "standard"
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "responseFormat": "compact",
+          "totalMs": 27558.655700000003
+        }
+      ],
+      "searches": 7,
+      "repairs": 0,
+      "plan": {
+        "tasks": 16,
+        "sources": 10,
+        "recommendations": 0
+      },
+      "totalMs": 39668.8327,
+      "searchMs": 12110.001900000003,
+      "generationMs": 27558.830799999996,
+      "firstSourceMs": 2827.971099999995,
+      "usage": {
+        "requests": 8,
+        "measuredRequests": 8,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 15999,
+        "cacheMissTokens": 45430,
+        "measuredInputTokens": 61429,
+        "cacheHitRate": 0.26044702013706883,
+        "outputTokens": 15857,
+        "measuredOutputRequests": 8
+      },
+      "stageUsage": {
+        "search": {
+          "requests": 7,
+          "measuredRequests": 7,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 14975,
+          "cacheMissTokens": 41591,
+          "measuredInputTokens": 56566,
+          "cacheHitRate": 0.26473499982321536,
+          "outputTokens": 9525,
+          "measuredOutputRequests": 7
+        },
+        "generate": {
+          "requests": 1,
+          "measuredRequests": 1,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 1024,
+          "cacheMissTokens": 3839,
+          "measuredInputTokens": 4863,
+          "cacheHitRate": 0.21056960723833024,
+          "outputTokens": 6332,
+          "measuredOutputRequests": 1
+        }
+      }
+    },
+    {
+      "profile": "local",
+      "version": "baseline",
+      "sample": 1,
+      "success": true,
+      "startedAt": "2026-10-09T09:33:09.350Z",
+      "requests": [
+        {
+          "stage": "search",
+          "taskId": "policy",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 4614,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 2438,
+            "outputTokens": 1744,
+            "cacheHitRate": 0.4716081491114001
+          },
+          "rawUsage": {
+            "input_tokens": 2438,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2176,
+            "output_tokens": 1744,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 8564.108399999997
+        },
+        {
+          "stage": "search",
+          "taskId": "eligibility",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 8114,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 5938,
+            "outputTokens": 1868,
+            "cacheHitRate": 0.2681784569879221
+          },
+          "rawUsage": {
+            "input_tokens": 5938,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2176,
+            "output_tokens": 1868,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 9500.420299999998
+        },
+        {
+          "stage": "search",
+          "taskId": "discovery",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 7423,
+            "cacheHitTokens": 2304,
+            "cacheMissTokens": 5119,
+            "outputTokens": 1498,
+            "cacheHitRate": 0.31038663613094436
+          },
+          "rawUsage": {
+            "input_tokens": 5119,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2304,
+            "output_tokens": 1498,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 7751.312200000015
+        },
+        {
+          "stage": "search",
+          "taskId": "school-0-program",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 10591,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 8543,
+            "outputTokens": 978,
+            "cacheHitRate": 0.1933717307147578
+          },
+          "rawUsage": {
+            "input_tokens": 8543,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 978,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 6032.492999999988
+        },
+        {
+          "stage": "search",
+          "taskId": "school-0-location",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 14429,
+            "cacheHitTokens": 2432,
+            "cacheMissTokens": 11997,
+            "outputTokens": 1345,
+            "cacheHitRate": 0.16854944902626653
+          },
+          "rawUsage": {
+            "input_tokens": 11997,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2432,
+            "output_tokens": 1345,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 7484.5813999999955
+        },
+        {
+          "stage": "search",
+          "taskId": "school-1-program",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 20342,
+            "cacheHitTokens": 11520,
+            "cacheMissTokens": 8822,
+            "outputTokens": 1946,
+            "cacheHitRate": 0.566315996460525
+          },
+          "rawUsage": {
+            "input_tokens": 8822,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 11520,
+            "output_tokens": 1946,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 3
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 10371.626699999993
+        },
+        {
+          "stage": "search",
+          "taskId": "school-1-location",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 13696,
+            "cacheHitTokens": 8192,
+            "cacheMissTokens": 5504,
+            "outputTokens": 1088,
+            "cacheHitRate": 0.5981308411214953
+          },
+          "rawUsage": {
+            "input_tokens": 5504,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 8192,
+            "output_tokens": 1088,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 3
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 6638.2976999999955
+        },
+        {
+          "stage": "search",
+          "taskId": "school-2-program",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 12172,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 9996,
+            "outputTokens": 2092,
+            "cacheHitRate": 0.1787709497206704
+          },
+          "rawUsage": {
+            "input_tokens": 9996,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2176,
+            "output_tokens": 2092,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 9751.382699999987
+        },
+        {
+          "stage": "search",
+          "taskId": "school-2-location",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 9032,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 6856,
+            "outputTokens": 1383,
+            "cacheHitRate": 0.2409211691762622
+          },
+          "rawUsage": {
+            "input_tokens": 6856,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2176,
+            "output_tokens": 1383,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 7920.244200000016
+        },
+        {
+          "stage": "generate",
+          "taskId": null,
+          "systemSha256": "251d0b46132f7f3ba21025658e6bf614c82aac1a1c9d0485ebb1a26fd9d6618c",
+          "effort": "high",
+          "stream": false,
+          "usage": {
+            "inputTokens": 11487,
+            "cacheHitTokens": 1536,
+            "cacheMissTokens": 9951,
+            "outputTokens": 15087,
+            "cacheHitRate": 0.1337163750326456
+          },
+          "rawUsage": {
+            "input_tokens": 9951,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1536,
+            "output_tokens": 15087,
+            "service_tier": "standard"
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "responseFormat": "full",
+          "totalMs": 58014.134100000025
+        }
+      ],
+      "searches": 15,
+      "repairs": 0,
+      "plan": {
+        "tasks": 16,
+        "sources": 22,
+        "recommendations": 3
+      },
+      "totalMs": 76331.87950000001,
+      "searchMs": 18317.485199999996,
+      "generationMs": 58014.394300000014,
+      "firstSourceMs": 2308.9823000000033,
+      "usage": {
+        "requests": 10,
+        "measuredRequests": 10,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 36736,
+        "cacheMissTokens": 75164,
+        "measuredInputTokens": 111900,
+        "cacheHitRate": 0.32829311885612156,
+        "outputTokens": 29029,
+        "measuredOutputRequests": 10
+      },
+      "stageUsage": {
+        "search": {
+          "requests": 9,
+          "measuredRequests": 9,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 35200,
+          "cacheMissTokens": 65213,
+          "measuredInputTokens": 100413,
+          "cacheHitRate": 0.35055221933415,
+          "outputTokens": 13942,
+          "measuredOutputRequests": 9
+        },
+        "generate": {
+          "requests": 1,
+          "measuredRequests": 1,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 1536,
+          "cacheMissTokens": 9951,
+          "measuredInputTokens": 11487,
+          "cacheHitRate": 0.1337163750326456,
+          "outputTokens": 15087,
+          "measuredOutputRequests": 1
+        }
+      }
+    },
+    {
+      "profile": "local",
+      "version": "optimized",
+      "sample": 1,
+      "success": false,
+      "startedAt": "2026-10-09T09:34:25.683Z",
+      "requests": [
+        {
+          "stage": "search",
+          "taskId": "policy",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 8719,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 6543,
+            "outputTokens": 1029,
+            "cacheHitRate": 0.24956990480559696
+          },
+          "rawUsage": {
+            "input_tokens": 6543,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2176,
+            "output_tokens": 1029,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5614.3904999999795
+        },
+        {
+          "stage": "search",
+          "taskId": "eligibility",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": null,
+          "rawUsage": null,
+          "status": 200,
+          "observationError": "已取消",
+          "totalMs": 6307.603300000017
+        },
+        {
+          "stage": "search",
+          "taskId": "discovery",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 10258,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 8082,
+            "outputTokens": 1137,
+            "cacheHitRate": 0.21212712029635405
+          },
+          "rawUsage": {
+            "input_tokens": 8082,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2176,
+            "output_tokens": 1137,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 3
+            }
+          },
+          "status": 200,
+          "stopReason": "tool_use",
+          "totalMs": 6298.460299999977
+        }
+      ],
+      "searches": 3,
+      "repairs": 0,
+      "error": "检索响应未完整结束，请重试。",
+      "totalMs": 6308.542699999991,
+      "searchMs": 6308.542699999991,
+      "generationMs": null,
+      "firstSourceMs": 2113.3355999999912,
+      "usage": {
+        "requests": 3,
+        "measuredRequests": 2,
+        "missingUsageRequests": 1,
+        "cacheHitTokens": 4352,
+        "cacheMissTokens": 14625,
+        "measuredInputTokens": 18977,
+        "cacheHitRate": 0.22933024187173948,
+        "outputTokens": 2166,
+        "measuredOutputRequests": 2
+      },
+      "stageUsage": {
+        "search": {
+          "requests": 3,
+          "measuredRequests": 2,
+          "missingUsageRequests": 1,
+          "cacheHitTokens": 4352,
+          "cacheMissTokens": 14625,
+          "measuredInputTokens": 18977,
+          "cacheHitRate": 0.22933024187173948,
+          "outputTokens": 2166,
+          "measuredOutputRequests": 2
+        },
+        "generate": {
+          "requests": 0,
+          "measuredRequests": 0,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": null,
+          "cacheMissTokens": null,
+          "measuredInputTokens": null,
+          "cacheHitRate": null,
+          "outputTokens": null,
+          "measuredOutputRequests": 0
+        }
+      }
+    },
+    {
+      "profile": "local",
+      "version": "baseline",
+      "sample": 2,
+      "success": true,
+      "startedAt": "2026-10-09T09:34:31.993Z",
+      "requests": [
+        {
+          "stage": "search",
+          "taskId": "policy",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 5519,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 3343,
+            "outputTokens": 1350,
+            "cacheHitRate": 0.3942743250588875
+          },
+          "rawUsage": {
+            "input_tokens": 3343,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2176,
+            "output_tokens": 1350,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 6936.437399999995
+        },
+        {
+          "stage": "search",
+          "taskId": "eligibility",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 17121,
+            "cacheHitTokens": 11008,
+            "cacheMissTokens": 6113,
+            "outputTokens": 3383,
+            "cacheHitRate": 0.6429530985339641
+          },
+          "rawUsage": {
+            "input_tokens": 6113,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 11008,
+            "output_tokens": 3383,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 17260.688800000004
+        },
+        {
+          "stage": "search",
+          "taskId": "discovery",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 14591,
+            "cacheHitTokens": 8960,
+            "cacheMissTokens": 5631,
+            "outputTokens": 2286,
+            "cacheHitRate": 0.6140771708587486
+          },
+          "rawUsage": {
+            "input_tokens": 5631,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 8960,
+            "output_tokens": 2286,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 3
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 11577.355299999996
+        },
+        {
+          "stage": "search",
+          "taskId": "school-0-program",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 11733,
+            "cacheHitTokens": 1920,
+            "cacheMissTokens": 9813,
+            "outputTokens": 941,
+            "cacheHitRate": 0.16364101252876503
+          },
+          "rawUsage": {
+            "input_tokens": 9813,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1920,
+            "output_tokens": 941,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5476.5143999999855
+        },
+        {
+          "stage": "search",
+          "taskId": "school-0-location",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 7438,
+            "cacheHitTokens": 2304,
+            "cacheMissTokens": 5134,
+            "outputTokens": 1486,
+            "cacheHitRate": 0.30976068835708526
+          },
+          "rawUsage": {
+            "input_tokens": 5134,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2304,
+            "output_tokens": 1486,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 8343.976900000009
+        },
+        {
+          "stage": "search",
+          "taskId": "school-1-program",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 17560,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 15512,
+            "outputTokens": 3370,
+            "cacheHitRate": 0.11662870159453304
+          },
+          "rawUsage": {
+            "input_tokens": 15512,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 3370,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 13679.770699999994
+        },
+        {
+          "stage": "search",
+          "taskId": "school-1-location",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 7804,
+            "cacheHitTokens": 5376,
+            "cacheMissTokens": 2428,
+            "outputTokens": 879,
+            "cacheHitRate": 0.6888774987186058
+          },
+          "rawUsage": {
+            "input_tokens": 2428,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 5376,
+            "output_tokens": 879,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 4
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5897.653200000001
+        },
+        {
+          "stage": "search",
+          "taskId": "school-2-program",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 9880,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 7832,
+            "outputTokens": 1303,
+            "cacheHitRate": 0.20728744939271254
+          },
+          "rawUsage": {
+            "input_tokens": 7832,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 1303,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 7138.792700000049
+        },
+        {
+          "stage": "search",
+          "taskId": "school-2-location",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 9618,
+            "cacheHitTokens": 1920,
+            "cacheMissTokens": 7698,
+            "outputTokens": 1854,
+            "cacheHitRate": 0.19962570180910794
+          },
+          "rawUsage": {
+            "input_tokens": 7698,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1920,
+            "output_tokens": 1854,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 9830.312099999981
+        },
+        {
+          "stage": "generate",
+          "taskId": null,
+          "systemSha256": "251d0b46132f7f3ba21025658e6bf614c82aac1a1c9d0485ebb1a26fd9d6618c",
+          "effort": "high",
+          "stream": false,
+          "usage": {
+            "inputTokens": 10352,
+            "cacheHitTokens": 1536,
+            "cacheMissTokens": 8816,
+            "outputTokens": 11427,
+            "cacheHitRate": 0.14837712519319937
+          },
+          "rawUsage": {
+            "input_tokens": 8816,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 1536,
+            "output_tokens": 11427,
+            "service_tier": "standard"
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "responseFormat": "full",
+          "totalMs": 44815.937000000034
+        }
+      ],
+      "searches": 15,
+      "repairs": 0,
+      "plan": {
+        "tasks": 16,
+        "sources": 12,
+        "recommendations": 3
+      },
+      "totalMs": 71703.6998,
+      "searchMs": 26887.55349999998,
+      "generationMs": 44816.14630000002,
+      "firstSourceMs": 2182.243699999992,
+      "usage": {
+        "requests": 10,
+        "measuredRequests": 10,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 39296,
+        "cacheMissTokens": 72320,
+        "measuredInputTokens": 111616,
+        "cacheHitRate": 0.35206422018348627,
+        "outputTokens": 28279,
+        "measuredOutputRequests": 10
+      },
+      "stageUsage": {
+        "search": {
+          "requests": 9,
+          "measuredRequests": 9,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 37760,
+          "cacheMissTokens": 63504,
+          "measuredInputTokens": 101264,
+          "cacheHitRate": 0.3728867119608153,
+          "outputTokens": 16852,
+          "measuredOutputRequests": 9
+        },
+        "generate": {
+          "requests": 1,
+          "measuredRequests": 1,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 1536,
+          "cacheMissTokens": 8816,
+          "measuredInputTokens": 10352,
+          "cacheHitRate": 0.14837712519319937,
+          "outputTokens": 11427,
+          "measuredOutputRequests": 1
+        }
+      }
+    },
+    {
+      "profile": "local",
+      "version": "optimized",
+      "sample": 2,
+      "success": true,
+      "startedAt": "2026-10-09T09:35:43.700Z",
+      "requests": [
+        {
+          "stage": "search",
+          "taskId": "policy",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 3599,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 1423,
+            "outputTokens": 881,
+            "cacheHitRate": 0.6046123923312031
+          },
+          "rawUsage": {
+            "input_tokens": 1423,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2176,
+            "output_tokens": 881,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 4913.924699999974
+        },
+        {
+          "stage": "search",
+          "taskId": "eligibility",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 8769,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 6721,
+            "outputTokens": 921,
+            "cacheHitRate": 0.23355000570190443
+          },
+          "rawUsage": {
+            "input_tokens": 6721,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 921,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 1
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5243.752699999954
+        },
+        {
+          "stage": "search",
+          "taskId": "discovery",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 15943,
+            "cacheHitTokens": 9856,
+            "cacheMissTokens": 6087,
+            "outputTokens": 2729,
+            "cacheHitRate": 0.618202345857116
+          },
+          "rawUsage": {
+            "input_tokens": 6087,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 9856,
+            "output_tokens": 2729,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 4
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 12820.294500000018
+        },
+        {
+          "stage": "search",
+          "taskId": "school-0-program",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 9589,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 7413,
+            "outputTokens": 1014,
+            "cacheHitRate": 0.22692668682865783
+          },
+          "rawUsage": {
+            "input_tokens": 7413,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2176,
+            "output_tokens": 1014,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 6770.2598
+        },
+        {
+          "stage": "search",
+          "taskId": "school-0-location",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 10968,
+            "cacheHitTokens": 2432,
+            "cacheMissTokens": 8536,
+            "outputTokens": 1440,
+            "cacheHitRate": 0.22173595915390226
+          },
+          "rawUsage": {
+            "input_tokens": 8536,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2432,
+            "output_tokens": 1440,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 8569.456400000025
+        },
+        {
+          "stage": "search",
+          "taskId": "school-1-program",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 16076,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 14028,
+            "outputTokens": 1944,
+            "cacheHitRate": 0.12739487434685245
+          },
+          "rawUsage": {
+            "input_tokens": 14028,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 1944,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 9780.075199999963
+        },
+        {
+          "stage": "search",
+          "taskId": "school-1-location",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 10813,
+            "cacheHitTokens": 2176,
+            "cacheMissTokens": 8637,
+            "outputTokens": 749,
+            "cacheHitRate": 0.20123924905206694
+          },
+          "rawUsage": {
+            "input_tokens": 8637,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2176,
+            "output_tokens": 749,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 5128.747100000037
+        },
+        {
+          "stage": "search",
+          "taskId": "school-2-program",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 14879,
+            "cacheHitTokens": 2048,
+            "cacheMissTokens": 12831,
+            "outputTokens": 1335,
+            "cacheHitRate": 0.13764365884804086
+          },
+          "rawUsage": {
+            "input_tokens": 12831,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2048,
+            "output_tokens": 1335,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 7581.953200000047
+        },
+        {
+          "stage": "search",
+          "taskId": "school-2-location",
+          "systemSha256": "92aae20539df5058095bba8a1d040cff6c056e2efbea1178b275031104d5680a",
+          "effort": "high",
+          "stream": true,
+          "usage": {
+            "inputTokens": 5690,
+            "cacheHitTokens": 2304,
+            "cacheMissTokens": 3386,
+            "outputTokens": 2179,
+            "cacheHitRate": 0.404920913884007
+          },
+          "rawUsage": {
+            "input_tokens": 3386,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 2304,
+            "output_tokens": 2179,
+            "service_tier": "standard",
+            "server_tool_use": {
+              "web_search_requests": 2
+            }
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "totalMs": 10618.622099999979
+        },
+        {
+          "stage": "generate",
+          "taskId": null,
+          "systemSha256": "360f0fdf9b22561ef87a29d472602aa43d317b167cc92205e5f7b6ae3d2967e1",
+          "effort": "low",
+          "stream": false,
+          "usage": {
+            "inputTokens": 9956,
+            "cacheHitTokens": 896,
+            "cacheMissTokens": 9060,
+            "outputTokens": 8400,
+            "cacheHitRate": 0.08999598232221775
+          },
+          "rawUsage": {
+            "input_tokens": 9060,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 896,
+            "output_tokens": 8400,
+            "service_tier": "standard"
+          },
+          "status": 200,
+          "stopReason": "end_turn",
+          "responseFormat": "compact",
+          "totalMs": 35885.469700000016
+        }
+      ],
+      "searches": 15,
+      "repairs": 0,
+      "plan": {
+        "tasks": 16,
+        "sources": 20,
+        "recommendations": 3
+      },
+      "totalMs": 59330.6041,
+      "searchMs": 23444.438400000043,
+      "generationMs": 35886.165699999954,
+      "firstSourceMs": 2030.9186000000336,
+      "usage": {
+        "requests": 10,
+        "measuredRequests": 10,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 28160,
+        "cacheMissTokens": 78122,
+        "measuredInputTokens": 106282,
+        "cacheHitRate": 0.2649554957565721,
+        "outputTokens": 21592,
+        "measuredOutputRequests": 10
+      },
+      "stageUsage": {
+        "search": {
+          "requests": 9,
+          "measuredRequests": 9,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 27264,
+          "cacheMissTokens": 69062,
+          "measuredInputTokens": 96326,
+          "cacheHitRate": 0.28303884724788736,
+          "outputTokens": 13192,
+          "measuredOutputRequests": 9
+        },
+        "generate": {
+          "requests": 1,
+          "measuredRequests": 1,
+          "missingUsageRequests": 0,
+          "cacheHitTokens": 896,
+          "cacheMissTokens": 9060,
+          "measuredInputTokens": 9956,
+          "cacheHitRate": 0.08999598232221775,
+          "outputTokens": 8400,
+          "measuredOutputRequests": 1
+        }
+      }
+    }
+  ],
+  "completedAt": "2026-10-09T09:36:43.032Z",
+  "comparison": [
+    {
+      "profile": "named",
+      "baselineSuccesses": 2,
+      "optimizedSuccesses": 2,
+      "reliable": true,
+      "metrics": {
+        "searchMs": {
+          "baselineMs": 10820.81625,
+          "optimizedMs": 12969.759650000004,
+          "savedMs": -2148.9434000000037,
+          "reductionPercent": -19.8593465626958,
+          "speedup": 0.8343112395301787
+        },
+        "generationMs": {
+          "baselineMs": 45761.6965,
+          "optimizedMs": 25581.528099999996,
+          "savedMs": 20180.168400000002,
+          "reductionPercent": 44.09838345918841,
+          "speedup": 1.7888570346976265
+        },
+        "totalMs": {
+          "baselineMs": 56582.512749999994,
+          "optimizedMs": 38551.28775,
+          "savedMs": 18031.22499999999,
+          "reductionPercent": 31.867133719684432,
+          "speedup": 1.46772043302237
+        },
+        "firstSourceMs": {
+          "baselineMs": 2455.1586000000007,
+          "optimizedMs": 2677.7696499999984,
+          "savedMs": -222.6110499999977,
+          "reductionPercent": -9.067074118959063,
+          "speedup": 0.9168669904074841
+        }
+      },
+      "allSuccessful": true,
+      "improved": true,
+      "baselineUsage": {
+        "requests": 14,
+        "measuredRequests": 14,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 28286,
+        "cacheMissTokens": 67610,
+        "measuredInputTokens": 95896,
+        "cacheHitRate": 0.2949653791607575,
+        "outputTokens": 39499,
+        "measuredOutputRequests": 14
+      },
+      "optimizedUsage": {
+        "requests": 15,
+        "measuredRequests": 15,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 38142,
+        "cacheMissTokens": 72531,
+        "measuredInputTokens": 110673,
+        "cacheHitRate": 0.34463690330975033,
+        "outputTokens": 30704,
+        "measuredOutputRequests": 15
+      }
+    },
+    {
+      "profile": "local",
+      "baselineSuccesses": 2,
+      "optimizedSuccesses": 1,
+      "reliable": false,
+      "metrics": {
+        "searchMs": {
+          "baselineMs": 22602.519349999988,
+          "optimizedMs": 23444.438400000043,
+          "savedMs": null,
+          "reductionPercent": null,
+          "speedup": null
+        },
+        "generationMs": {
+          "baselineMs": 51415.27030000002,
+          "optimizedMs": 35886.165699999954,
+          "savedMs": null,
+          "reductionPercent": null,
+          "speedup": null
+        },
+        "totalMs": {
+          "baselineMs": 74017.78965,
+          "optimizedMs": 59330.6041,
+          "savedMs": null,
+          "reductionPercent": null,
+          "speedup": null
+        },
+        "firstSourceMs": {
+          "baselineMs": 2245.6129999999976,
+          "optimizedMs": 2030.9186000000336,
+          "savedMs": null,
+          "reductionPercent": null,
+          "speedup": null
+        }
+      },
+      "allSuccessful": false,
+      "improved": false,
+      "baselineUsage": {
+        "requests": 20,
+        "measuredRequests": 20,
+        "missingUsageRequests": 0,
+        "cacheHitTokens": 76032,
+        "cacheMissTokens": 147484,
+        "measuredInputTokens": 223516,
+        "cacheHitRate": 0.34016356770879935,
+        "outputTokens": 57308,
+        "measuredOutputRequests": 20
+      },
+      "optimizedUsage": {
+        "requests": 13,
+        "measuredRequests": 12,
+        "missingUsageRequests": 1,
+        "cacheHitTokens": 32512,
+        "cacheMissTokens": 92747,
+        "measuredInputTokens": 125259,
+        "cacheHitRate": 0.25955819541909164,
+        "outputTokens": 23758,
+        "measuredOutputRequests": 12
+      }
+    }
+  ]
+}

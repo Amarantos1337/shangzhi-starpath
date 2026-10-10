@@ -1,0 +1,397 @@
+[
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_HzEui1amfgTM0sOkQfki1500",
+        "name": "web_search",
+        "input": {
+          "query": "site:sdu.edu.cn 计算机科学与技术学院 研究生 培养校区 青岛"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_HzEui1amfgTM0sOkQfki1500",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "山东大学计算机科学与技术流动站简介",
+            "url": "https://rsc.qd.sdu.edu.cn/PDF/shandongdaxuejisuanjikexueyujishuboshihouliudongzhanjianjie.pdf#1#1",
+            "encrypted_content": "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",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "2018年计算机科学与技术学院专业学位博士研究生招生工作日程表",
+            "url": "https://www.cs.sdu.edu.cn/info/1058/2738.htm",
+            "encrypted_content": "yPYCZJmq8ZhBsK4ExwmnDVxa5CyFsku3sqMEDhWx8HM6Lao0xrmY1FF2PWR0WlaVt5M1E8yvFB8YCQPBdMhhvrBSQJgzNkftEUhOeWbOQv/WjSDctRUaiti/9IQofzYDZECm6iGacZD5LOtsQHjmabhwKco0DI9t2nnUFPLemYpdd3VCcvjVJ1EhojQxR8oOVIliftHX6sukrr+rQWwe9GqUczhGFLGouk/IQ0LUZ1dL8jT773gAd/KbnpQ5YLuvt6M9/67vqgvZmLNrHaKdPn2wCEKm7W7hCscJ8qyniINTBtPG2ITXonM+sGyw/DocQ6sRyn5CqUEOhtqI4gWap4/z5yr03lc8io1m6hVX676+NJevZvWKBVzFFkOifI1CTclCJQZXD8q1aDxET9YYP6DTPlcMTuQjDaCVA5FMBJihjHwncI1WVuyw7eIW4j7pe89Dr9AIpx85/eyw8vZ/+YON07Q0v6Pf0KjKWT6Wxmaf2vQ/fdsW1zHmvn8Sal2R9ws5VxX1c7fs6N9qKITANzaTM+Dk4UDWCHN8l8H8dyTSBEqwMIhvG3/clGmvBWX0MrKKiJ1mlNMFfGflqEcrSjm8DWgeyILWL0qG6xfR7fIqXMtapOfD13zRIJ6p/CBNGR0yK/M2NIK61yCe09tZjT48ekxiB5F9TdAE2pKq2PrEtXNm5COJVv9YpIV5WAQWSunv1FJz7zoT95TalVJeeo0szuLfol3ihhV3Plav8lZyb51WHe7ihrhAbk+4a1AvC4sYvmb6d5b0pW2IimUhDZCbHZyqRdczGPXEbzOOrcI083HulT6zdOfTtOPtTcWBLLTDzGvG0jdoNvdEw13YNFSXMjoPi6nH3yi4orphMemyxh0tldqo3JsN9rdPRAs39jHX4xIdg2zv5erMdSq7XCaOZcznmdhXMtLqunrG4cU2HEnBtQgL7Av8xig=",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "山大计算机科学与技术学院",
+            "url": "https://www.cs.sdu.edu.cn/ssjg.jsp?wbtreeid=1082&searchScope=0&currentnum=11&newskeycode2=5aSn5pWw5o2uIOW5tuihjOiuoeeulzIwMTk%3D",
+            "encrypted_content": "A92AKy/+qF8ETreMjXIZidS8RfEexU3cPFzatdM09+43+77IOF0P+/6DhwCh2yQwN9kxw8q9pIVixBpRnhyQwSkU/YqsW3vCVWx82VoUSwOynbi1VxDoOUV1EbwAsbAUdy4IAFNOVCn2apnwYg88BNpP/Oyc/5QnG4fDP0TyTEWrSeTi9oI5oYZvtftVSFTRFiLlbxHbxvEur3lRmtl4RVfC0l1D+uh4frtG",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "计算机科学与技术学院关于举办“2026年全国优秀大学生暑期夏令营”活动的通知",
+            "url": "https://www.cs.sdu.edu.cn/info/1068/6855.htm",
+            "encrypted_content": "Jy/cv4nX5kiCCOg1To1Auj3ob2YgY6WptqBPauHI9ebSEpvL8ZlyAhHA1TjOCDJUt2rMf3sYCbEsoxQENODZss/B22CImPMWeOGZBcxjWjZvi3QVQzxiNm96QGS/9vpRQGUs8Lfh2GjAKtz1ZomMUUGlVXQud/+TXwV1IZ9v72/xwBw63PSSfC7T4x8m04O2lU+WWkGTPK6P+dg91uBXVaN2QtX8fZUejeaY5TUnDo2ehubhIq1rDIjkIhLGr/+THcmLho0lpsC4cochKuwTgnLWrMYlz+eRqMeV/3CX2S3l2tMTn/VMJUXkF/J/8adSNC0jvuYN6OiBUsQfcJrTowIdkE4yv+jr+kXgGzLZ+mrIzu0fxRehbBxChNliutLvdCSZJpps6DBzAtk6JlsorWCIlEZGOwboELVEX9YFk7Y/UF5xDlHdwUVX0o38FdCVkV01CvW1j0Aqp0uaSEX7ShfB9bJldzi97U/h81A7kMcfVO73XL0UxeVtyqv8003hnjIM85epynknkLlj5iURs955W8qk4UaPCUhEmNSGrbGTiE5upVGFGtxRa2eKFtQYEKRYczqkQ1qi8rkO1SsWcXR7xb6NqxKwmb5eWrnN60JoSAdhhKvRAULVtMquaKC/K3M7ziJE43y9wa3ahqGoY+JP1A5IawzCWeb1ckgLwFO9z4fPiIyi+99exNX2SbHScC5pfI17Y3C3m7QPwj/7Tf9QJhq9W7r8SpUEbtRB9MhG4mW/J9AczBcEqxZbxoSalTPrRxuJQS0+IhZZYtcfA/Pj5QUKFOiaF3Z05WEgjGjCALtST/OX3VFHu9z19LhmJtSaaI+I4VGdrwc8lIL8t44ENuQgdWB97nOZUpQEh4MOIKS1t8zkzbN+eIYSVhjdq8doBItz24GQNsWD9N2Hi4DvasTfBaag9QD5Xpe+RxWwiyZHAmrwkBKmrofoEqffoiLc970MJsaoMjLDw03OFpL2vql5OkBV7zAWp/qEgWfoyv4RbXO4aUvbmwKEaSqf13YH0kqoKs+TEqLtHvhw1aC+5jDSKMqEvcI2Oy2THF71K3vhZI2FDC9RIFjmxRsP/nrCnKP8zNrs8fdOE95v7q5UWOLa6UfkIDXVeH1ARGKm47zUwgqPUlykznbSddB+scpggr3mi7PiBXmPcw1N7Xn46m/JLz+lf2ZWz83pqE4lzu24pdF9A2ZvVNK+iknktCUPe0/KKtX4443LArK6bt5x0fthm2O0i3Lo31/t2qQfWOopXjUFVc5i95oIWX2Rtls2uqUYwJb+gOsl1XZLS7hCARiVmrqrb9HEdpsdz+KCXvkhDdq0kyBY4jD6hdXjEdluOFhXVDY2FeXsXhnQvFpW+CTIyDSxQZK3jNHmn4VFDTVnzwBoDk/PKUeVa1PK6vD6lxyRjvi8yZMHQxUNf1rMOit6m9hQc+jCkLq2aEpcGgDN8/XGFOwgdsmUaHbta/d2d+dwmXdMBdLlj9SCRtyw5Bkr9FupAPXAQtEbrJJnXHjN8kOpm5H+/GGV9ZBDhclGmnqnR3yvaubQhfcALtMdEaeF/Jk6sxR0ZBBlJXqYPFuwhBh4nCsPGbGmSzKGEQ5HdMu7ifSvOkcxiW/hTR/5bK2vcxW+POwbpzp/NSEGYBc9eCH5iuQQt0NoA/4ly2g663EjyzvVPkLJUm60K3NFB7nUzfMnHoH9/ggBCW4P75HaF0PljROVR1xHuOnO52hVBIIMjs+FvJV5sB++T4vdgibXi9fQItlOxy/iO/ZikXBj/5+YQ4Db9+koZ8Yl//b9dcKHJXbtOc0FxByfv8g8hNn90osleWy4kIwlbO+5mvGV3daW6YEx8wOIJQybT9xz2qkSfS5vezSiB+VQKXS59nYX+kY9mVXBroQHiIO7BzyX2A==",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "计算机科学与技术学院/浪潮人工智能学院关于举办“2024年全国优秀大学生暑期夏令营”活动的通知 - 研究生教育",
+            "url": "https://www.cs.sdu.edu.cn/info/1068/6284.htm#1",
+            "encrypted_content": "kOBnF6e0zE39HTK8MDlyjWTCuOztiy24Lkc73Pz39aI3HFyoC7w/hlh9Fh8dLAWCbE16/rJY+X0w1Af75hHmbPfsj9XhFPRO+Tw1JwA+IseUwqSb5cMs4bztRlYndrhO1R23oKwImH7NUOzeu7zr2jF4yx1frzOIV0cExfpJIxGkr+5faU81NxKUAV0wO0kXVpQVkS+mLTKbBq6KMp20J5MR43UQa7Gr8O15uf7EWGaPEjQSuFgcUmqYKY0fWp5ff/jnVpjXGrOAxC6V9JrZzZvf744inAOVjO/9BWUTwiXP1Xllcat+MZj5743RaMc7ATqNDmYhExXEypf827jIGHmGxPUtJM4XhN3OaNLHbsqO/oeQJ/kHkyXzvMg/ziGs4Fsfp+CDzE3Vuq2egwwTypGPk4RWKJRxlQGvDsEpc+c71Zzdpp1RFsZ/14sEkmnXyIAtSDNAgaWIsvVCRpk/e0oWR59/US2stGRsuT/K+WN/VpMoHTZC6moAax77H9OMT2K2iOEsHG6tov5c70rTvIAPJDTeObKJbpHUsoiUvq0GFfqbbSQNPjRzlm7QFMdP/BcmzkT9qu90YTIrHwtJgfZDQ528D3BMkV8VLY5j9k1Z+1wFvO35vNN6kqTETz20k5dLmTvfbIUFstvDYzGlghk+J/zfWvZDg2Z0k+szD5AcshZvuwK2CDfrTthVeEt13YmmFTaN6PI07lVY2qGkAhM7HLiTpYX3AsCjDXC4p5GWpvwsRvzdhi7BagG5HuEYgW13hNEuIobXXZd1WdP47CTacY1rPKZg0NHPFiX0vczeyYwkGkb3O4QrB4FJKHcbwBM2bypjtSkEgqjR0CMjJqiqCA/P7rAUuqKWnLqWjwqQUJgg3A+YgYbttRoVx2zMvkVLJ9iTq1IjJYGOe12qyzxzO8yTnSXkGpv0KSWuj7yzJ9583QpgCR0hWo+YDTb+75orl45ekA==",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "计算机科学与技术学院2020年以“申请-考核”方式招收博士研究生简章 - 研究生教育",
+            "url": "https://www.cs.sdu.edu.cn/info/1068/3109.htm#1",
+            "encrypted_content": "9bwQz6ifOTcuajdzMQqcRMhIc1gRjf5vCjJFVfOh+FR0XUeviR+awv7065yed9+cOmbIozTGXt3Ii1WASj8idflu9RaqmOaE0xRnHwCkpu2CH27yygPrgSE8Oxt/NQLZaxDJe+ojehxnKrJGNnqPBhLLr0mfBWjtK/sVx/xGIcmju5kTPBKm+Wmk/YG3/3tXk7JzKx8dVcKNhAZ76rYM7s8Wmkgc0+78CZpXYGPnS2Rd5HRAdwV1p3bepuoEw4fNGSbzOatNq2mzNuEI/Xvnfggk3CH37SlSmsBNV8kzN/tgaGRkMLpn+XuNPf9vbkqJN8M/utP474zrF8zsEbMxK53IJNnrfpJFFvP1Dk7s6ogxVsfOhzYbcU574uUEyH3JkujCC4P2McPcBdsZ5oPUx8ADbGC4V4YBmVUGmV1cs+q5cBfMTYxvHt5ney0DQNx5oeDrOJJvHflPMV6qsCxKlpqgnMi4chln4VLNBZc6/hHIg1TassO2lon/wWvpZ/dtN9Er87K6m6KbKQsGAHjFIzggKgBl4+EJz+iNlLeNSQySMvVFMeCn8wcaXwl6mnR7szhgHMw8bAX6D0SjxhTxSJXDqfL/eLRuDqTAk3KWQnYnx9ktu/npIYXn8TmtNurGvHWdZ9jD6Jh+CjS1SMY6eaC95pAEWYTIoDyNewfiYMTamDfVLcuYFHcaTyLNhWX5IYg9qBuXmPGHDVTCxTjpWyPAf06PrUUkDvPkbN853QIM5bVZbRVEaIbkcwIR0R9P+r0jJw/euNYoXtzpBdn4UCkYc5h2nlN3Dv1q+hhy7cnRteliDaWSm+oo273pLAJBdbw9op6VTJqWHMoxGFSiIQClNAjI7LtWg8opisKep5SFerWvTndimdLwQY5ijLCkLwKuejt7Bor/9qkBd0knJfHffzW2SxA=",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "【研究生】计算机科学与技术学院2019年3月一志愿硕士研究生进入复试的初试成绩调整说明及进入复试公示名单",
+            "url": "https://www.cs.sdu.edu.cn/info/1058/2674.htm",
+            "encrypted_content": "SEjmRbMK7CoTEmxUJ5vYgjet7Q4eMmn78fHJCmZ2OEd/lRgwq8sFbZg8DKlcbJ6p+tn5Cg5kyrSn4pMxfpU5repo0xjslECVjaAE/FB02//gpyzXQQpoN8CFPfe4VY9UznxVn2b38DgMHttLgFblvshKC/ohxItf6oQQPIkcOuOhky0nq1zga5VXB1RVd/vzE6oY8o7RC+00dLXP4AVtyieklZrgw0t5YFJ8JSqkkGIYfV37bTbIBOXPox6sBf6uTEQj1JA3ApmCB2NtkajjwNAvqJ3uwidmXKpoiCgBpKfQmCLRLEyLlkA9hNUBOAtqKf6tnv2gDaq/7LXGelLrWSnDSTZsKOChe7kXyhWtxFXYDKlWZRHypVoCLDAobYgphBEUOSz75326Ml2OedwwDk3Ww0i1LkLCrmGi8NjydoxpFWT/f+cGtP3ckhD3EJY4XRqS2na7nvSEXBjSRV7mRcBeiy0ng6BtPDF42urH1ZcOydSwWidqjwRNrVmQfWpIBAWvY/g8ol+/bFtqpUBRyqbm9DqgLh1V67EPM9lixnl1ELQ8CWkYQaI+1w26fGExwRuL4oS3gpNxi98ibqpreE79MubOl63AI1yFcDbpmd7XdVa/JtI+heCYUv49wYG8DVGCtSissnwy7+ErZ0VWIpOkmeFonkUJfJnvbyvy0tP4JB1aDTZv0KqiOqHKxwN3kDZEegdnd5Xpmakllw5o6g1c3THzMNYmqbTT5KfjAGOCUxwUOcs2Yujp0uejP8O5tkpfQORdu31oI99E15QeTep4H+UK7O/jn1tz8yYwG4ViLe+uH5QtFPI3eGL9eBMcoj4=",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "2015年计算机科学与技术学院博士研究生招生工作日程表",
+            "url": "https://www.cs.sdu.edu.cn/info/1058/2530.htm",
+            "encrypted_content": "d2vNlMhX7evnS5CJtzoq5qX7VXR01jdfRdpzk8C7snFS6JNYSa0lGAmz3z4Hk5F5CZsVzU677Qt5FPUg+9lUt0HbjD/xgvVW/+ygVNRE32wodvSZb+mt2ghA0eASp7YiOifYGISqB7uC2o7vCLJL0D+UeY8ywyPiiV/r9Z4k17XXgzuqzQv/95YHPOzbO9angKky78Scwyk2LrdVLglxu1fZnkZP4CAdiuBb3LsTwGIbAhd1pi0L8ehvs4qCPi3DnLQMzTM6rXsdO8gsbVltXq0twJ3VLxpqv5zELfEXTLbWDqtXdONQKd9vVnYDteZ7yf8LoTJzGVVFUbnhu8euWEMslfg3nVhtgGkMu4PoXLr2+RAlsLT/lz2PMaMcS6HpL/RnvCY/NAHue8l5mWKSBQoN+mBpS5w6HV5SQnjx91PzwI+AzEA6ejVnRMYY6FIV2r36XXYXoVRNXcbEaw==",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "计算机学院举行2017级研究生院领导见面会",
+            "url": "https://www.view.sdu.edu.cn/info/1023/94647.htm",
+            "encrypted_content": "AkEsauzIgKz9cmQmIJBbJ5RnugvUljlJm3uoKPRW6IkwsmsaGz3fcjbA4ZmubWcia7i2eVW+5G8NRWY3zechzdAHfBGGwrY/nA7Q7sogvWLKlr+EBZ0S+5YC+hOgfmYb2S0V0Y8LPOazwVZSwPx6NEKp0GeUA+5MkNuCjVtCer97JCzjJIsXambflrYP7Wm1GnoaQsb0HJkfM2EFL5ImAcRntDLKubxw/AxKlC2BG1af41hQRvs4PETuFz9G8k5WDbHko1Wj4mDBSjQFXaiSB0YXOAF7XsveUBKAHUFUoajFv7OJdUf+FXGV/VwfjzLBO76REjE7eZxLa6ZM20syxod+Xh/94aF6KCs8O8M/Vo1HdWg7EDi1QXN5JAamlN3JNAkOvBocc01uw3VaX4YRHA5Mg8E/nK3PUh65GnZjIDx75biR/Yt9mlKkmpRNg4+sa6w+rzjW87ig+O4LjRfdgCw/sULjhDyrhfgR/UWmx3ve6aglW+wrLU4wyr3FcLObSPbcGxO7B46VNmZSOQ/YukYXlQxP93YHdSEwqrCgL0PPfDICxE6swXM7ZvSKQU4SdQzMJNypdQC8aRZtI47erV/aK33AQ4IvbTaWWEjzZgvD4jlJ0LFCwRjCABfyvLt8Iu6hRU7ya/VfBCioy45hYvh4DQ0Yp3cpeXOiHLYzr0VRv8n4JoEwt+BMRXDyvozsyTO/SGkVu28eRYkTaWPxumJIMxH6M2boGUizT6C88oy8qdZtvQ90zO2nMN5ZaYEypqPIk1meFdNpKiSzxrR21sLKXP7g1oTXWuGqcDpbchc2GdzMVZ2FlgfABnzWNCPMzGmKuhEJIrh7u0+1PIhZKTJyzzh/v6vZ/CIoTgwGBvaOMa2KC9oRnh+1X4vDCV7epG3YWjzZvYZi/llXuJJEq6v35cCtNaFFVZaBeb3tPTLZekPIrmb++J2SAceDtdQ3O2wb3F13GaXnVANI3cKxLDRf97aNPeKxuLnw0NF9hSYsFmzbCX5HSVq2gbweUlZE5f+LRmrsnfnH/CsMlLSh9YyPr1K61yvSYUwMaB8IvSDpVWgVMNBXyBcYGh15kcQJwcBZnx1CNmskjrqYifzTepADVhyyRP4ty5BlFRCk3BICKK/EoPQuwqyGZjkE1+NdKEDj0M4fhA4B38sqlIqY3CmyB52F0L8d6u4Uff22vk8Inp8zv3qgDIuqUgYQ6yENCWcWiP8p6Anmy6ksPh14jRoJPeS9Wh1M3B6M6RxWf/ZqV6Hf91gSagHmQLu9peLqYnDWmsExysZbxQNidXNqxpzpM6Lk77623XJ0iIxtzUotBN/P4AlajMHRNVUg37wKU1cMlOxjcXpvCRwYNPsa0S5pkGVXiBYT7lyjrQDdF8QQpaCl936nVfR1QLMec3RKWvj2vA2Ad6nQvGL5XcMhbvLdcKB89SU67ufsbPmnrzvEsq+6fRoU+6T/E+yddTftSRqYHNHMCFQzqPARXrivMN0LBQwUDFrP/5ahch+xjbCMtoVdIwpR/bD441A5q7L1NtatgY4OefGb7RStnXr6GRlpqJ8MgBwyk7c8Bj2iJyo6Fw9xB9aKKMP0zJtlQgJpWPiIRCheor2EJwMwveSjM4u4riynntZFO0YMKCHALntm8IoZrqI4aTJvO+gQDEekySQy+/YIc02Tu46/x47T786+5gd3H8RdAvGpWT5MQ4MgXK48XQmoLr8Db2OgJ5rY40E/NOJG3p7YH5KNxM/OpJVQRejmolGVDLwb3fFqW/cAWWK+opn6r+wiwMHZNB2BrQckijwRTdey77Hmk4BPX3cIhF37upoOr4zJB9N7+QW+ynZK0ntCknNWr8uMO44E/mTAbOvGfguQxeimONrivsq0qKNOPyEoFXnwGFnxnac=",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "计算机学院开展2023级研究生新生入学教育系列活动-山东大学（青岛）",
+            "url": "https://www.qdxq.sdu.edu.cn/info/1820/54443.htm",
+            "encrypted_content": "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",
+            "page_age": null
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "**培养校区核实（山东大学计算机科学与技术学院）**\n\n官方资料显示：该学院2017年由济南搬迁至**青岛校区**，院址为山东省青岛市即墨区滨海公路72号（山东大学（青岛）第周苑C座），研究生办公室、复试与考核均在该校区举行；2026年夏令营通知亦标注\"计算机科学与技术学院（青岛校区）\"，说明现行研究生培养地点在青岛，而非济南各校区。学院现设计算机科学与技术学术硕/博、计算机技术专业硕/博及博士后流动站。2026年考研各专业具体录取校区仍以当年招生简章与复试通知为准，属待核实。\nhttps://www.cs.sdu.edu.cn/info/1068/6855.htm\nhttps://rsc.qd.sdu.edu.cn/PDF/shandongdaxuejisuanjikexueyujishuboshihouliudongzhanjianjie.pdf\n\n**适用范围与待核实事项**\n\n上述信息适用于计算机科学与技术学院（含人工智能相关方向）研究生培养，来源含发布于2018—2023年的招生日程、新生教育及2026年夏令营通知，均指向青岛校区。用户为在读职业院校背景，报考资格、专业限制及山东大学软件学院等其他计算机相关单位的培养校区本轮未搜索，均待核实，不作推断。\nhttps://www.qdxq.sdu.edu.cn/info/1820/54443.htm\nhttps://www.cs.sdu.edu.cn/info/1058/2738.htm"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_BxPH03gQIumHyRaDc1au1530",
+        "name": "web_search",
+        "input": {
+          "query": "site:yz.chsi.com.cn 2027年全国硕士研究生招生考试 初试时间"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_BxPH03gQIumHyRaDc1au1530",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "湖北省2027年全国硕士研究生招生考试报名须知",
+            "url": "https://yz.chsi.com.cn/sch/viewZbBulletin--schId-369147,infoId-3552096243,categoryId-433156,mindex-10.dhtml",
+            "encrypted_content": "pQHWxK5lqrnC/a/aSZEljMLXtMjIm9NgdtIqsWoW271tY7R5ElYQXj3EZiZ4b/298T+RAg5L/j8qfxma9K08TbZH39L845XoDuQmCk6eIV/v8UXMdOO28qw9g6XO3hMLbVlaO0VhPpgzMXZtc1/jKNCF1ZRhyUTKoWCKLW5UEm+wHzMqBH03QGRXKlxsNn1MEsY3zK4CwRo9SbmyJSq4IA0dsFdc3xf72q8vfQ3WfJoSdHoQpsSljwTTzNYGgv6UQ3DTdG8m3PR+K/avwajTU1/B1Gq2svlkHvMUZFPanwgOSkKTh3W4FDyAtuxAOqS/TWsTY1v8wl/IwoDsCbc=",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "广东外语外贸大学（招生单位11846）2027年硕士研究生招生考试网报公告（二）",
+            "url": "https://yz.chsi.com.cn/sswbgg/pages/msgdetail.do?dwdm=11846&msg_id=654533",
+            "encrypted_content": "zoJQzVXhxr501e4spl53r3FTyMS0+9E589p+LdRA40tSdM+W+92dJHDTcPS8KuONlf3rFyb6mmGIsBcgmJEsDp2Agl7GJ1JQXyLM8Vmq7WrYjfTxVPsTbUtz8OaWY/Tb0vSFHSP6MkcZl/Spn/6kCpOdpKKe/2KYb5C0Ow2tVqUpkmK81t2FuvpdLVeRfnHomVBQ6VOLyEdAjcVXZKd1BvtWGVWaBZusv329KWJ6Q1upMB81pfVWlaBAWJNCYF76g/eC/EeugvhywXWjSN1NHw7AcQ62TncPU/dkek10HbxduTG84DLOneq03VWRequxJ4Pkpk8OQulEj7tX5JkEZEICt2i3NL9BlygaHs3YpR1vWp9hJ1WU33iPQyr4Bx9Ie3TXgAa+htT7ebBwpOKN+pNe7kf/qKfbHHO/d71TwHEOew6FinfpknZFD6xmM5Gt+s5UfMoatJVSU2wWkpU3mxe/HHHgzxwqGCB4cyVwMY3E",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "2027年全国硕士研究生招生考试公告",
+            "url": "https://yz.chsi.com.cn/kyzx/other/202609/20260927/2293973606.html#1",
+            "encrypted_content": "fg5we+ol8d9zJgl4Eff3jyJ0j7C4UJMkqrczXoR5mUfKwqhp2x7xdqgyTKh03CJz3A3xLLpRqROdojaBd8Vuh4UmXMQiMIi0hNTolL/yalWQQpvQi4mocoPZxDayBQHmqbdyeWcIDoRviOdYdfMefLunRzEX8k8Grvbf0yCF4vFvOBgXppCO+7U6OVdwxD8jJ+jP/tG5V7khFxPvSfcRGq8AKz2N9iVELBXVdNtCHr4nnm3+frrsDfX+LeqBRPZLZFyfmdgDk/G8U8OKxQovaIpxkYnQAjHDgHLaD/H8fxoZhDWZOxroqPP4NsWzoX/QKEaDLF1QIkGGq5Vi42Fv9FGdADkoFO2yujcJLUnazD3qimx/SZooTkDrKaf6T+oZWN9FKn2LtbQvVSRsSGb13FBL0SAiz5lD5irpR5R1Dhqi6ulXW9MseTWT1LC4GtwJe7L18ejSRDy72vXWSLBcyNlwGUJ3/92f2eFjhj9qjbhB8QRQtvRajEZQwh5CdId2CNHZfQ18outG/ymYvHSOO0VMmjVVuFwVWjKZOqNnMe7zrT/Or3pCohPH8j3EbVzJeJsxNWZkQLWCaxp/oQpu/CRecSTSpEwtP8q2C+Zs7r0uPhWVnQb2d8t7IYjBxR6NVJC06SWsR9DoDSTbtZT65rUV95QGwMakbFn4Q/EIN9v6MMiLzrzgQ5o/LIvjkzxRZyDttOpUREImwBPJUFxUZqVi64CCpExFKWmkux+Nc5D5YOleoaslAiL+E4Me3STt2KdfkfxGUbqiLY6B3dOqVUbeuzUzRLg99rDzDbZcxdw5u3Tbw9JA3TJm2Pw0GBzG7avZkgkGltwgI7IBtIbSFMv20QdrZY0Y/ex2yHPdGGdj7+fFieFNCTH3nhq53BKK1afCEdEmE9bvipZalwPC/uqEgXMlj2a0XlYMiG9sEaXnLe6+zpaqIQZdETkNBNWaF+tjlRsLIYWj/UNNLfhaaLHQVlxY6PZzRWxYON7M9Vto0lS8IAK+JHoIgPUJtp3OSA60uF5W5Fdbk/ZVuZOnwdZ0yETZtMsa8isDZdZau8z+HSi26wwF4x+CUCU4L7q1DGWZocVrZYfsTvniZNYlhk9CU5dVXx352QRsuzQHmrUE3Mom+Ql9MfTjIHwSPsBWa6CqeuN7rqB9FSBnEnX79SO4q2qDCpTvOZ5GxhUJPP0deGNYW92Oj6WzGp6Yrl2QGWL0uxKkiKPAmJO0/Rvr2HJnj2Kz1SHju8cKz3OvaARf+ZVKAbp2/fzyyVCptZob56X+88ZKefbW/r7bqJUS1P05WQ7+RdGqRmrmHy+UkChOjDJU8FChAd8VnmXxcwEJ1Cughe8Rt6XRvuvitdwvb/PZeMTkn+T2zp6k6NrMXIBky9qPeh2B90/iDaunzz9LfmIGfqYRkDbOb4PIMNAnxo6FJP17tPwK+h0vfRMO248XHBiXlb4vvSIM2Ag3yGKIO2cY",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "中国航天科工集团第三研究院(8358所)_院校信息_中国研究生招生信息网",
+            "url": "https://yz.chsi.com.cn/sch/viewBulletin--schId-367942,infoId-3552305645,categoryId-446862,mindex-10.dhtml",
+            "encrypted_content": "nW1W09ZMvrVycJxwBywf3R+CWNklWrj18ZWPMHUXq9aOY0A+LhVrKRDfAuDcQ8saOL0DSVU0eDBvW2HcvUDOE/uu0ortpGGEy06yji4OKSfjKSFD3P3UfFjxSULg3P2u7ybWwoycgbS28iBRmtoftxiw60FnuBCrI968aauR9/8TgWSCWcVbOKSJCmAuOpFvPZN4bcOgXED/YOUv0FmxwxP9331UOdIAxf1ipvIx2nZeDgmT0vJdRhHhQxtry7XNGgjkLA/5Y+vNe6sXtbU/tGmLdNOD7+4jvx7qJOX+cumAdCivjaf+GTv435wkISEmvkkO6rDP75E9vcunGiBwx2tvaaIvxehbVby+JsGGu3idoE28lauTnUK9tn6XAOKQA0zz2EjKjim4W1FQoKpM75rM4TWDmx2AR/nWFWMc+H6Qm4zTLVSUjnyTobvYSG6IxNbDgQ==",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "河南：2027年研考报名60问",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977279.html",
+            "encrypted_content": "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",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "华东理工大学2027年硕士研究生招生简章",
+            "url": "https://yz.chsi.com.cn/wap/sch/detail?categoryId=10461192&infoId=3550533513&schId=368142",
+            "encrypted_content": "gkELIurFdKe1d25WJTU4q5dbbCTp+1n+uGm5hp9co9w5r5qxyfPCun71aldhUEdWDQltXBV5VzkvbMdvjUK2etSYbAlxpfya4KWmVUNX0vOp8Fi2dUsmiM/YcMC0sT5IIXJj+aQ0wLCDYxFR0LRbvwXON8/3KIrmWLoWSEUL290MgwALjWoIqm9ONl5fx7mEoyXZFaIconvIXJ14Sny4bbwZbrEqquq9qeJThHX3Ab0vmlIxOxv/+pfQCKGRolK1uqXj2Mv+dXCEX5gHtjtSW6N7HdqbxIhkJbQMA+QV5R+8FifdDrjMTxPsUlVB4jbkEH1uG5mixDFaRD8q3MQtJw==",
+            "page_age": null
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "**国家初试日期（官方已公布）**\n研招网《2027年全国硕士研究生招生考试公告》（2026年9月27日发布）及《2027年全国硕士研究生招生工作管理规定》：2027年研考初试定于2026年12月19日至20日（每天8:30-11:30、14:00-17:00），报名时间2026年10月15日至24日，预报名10月9日至12日，每日9:00-22:00。该日期适用于全国统考，不含单独考试等特殊安排。https://yz.chsi.com.cn/kyzx/other/202609/20260927/2293973606.html#1\n\n**省级与招生单位口径印证**\n湖北省教育考试院报名须知（2026-10-08）：2027年研考初试定于2026年12月19日至20日举行，报名与缴费按省级公告执行，报考点选择以山东省等省级机构公布为准。https://yz.chsi.com.cn/sch/viewZbBulletin--schId-369147,infoId-3552096243,categoryId-433156,mindex-10.dhtml\n\n**用户报考资格待核实**\n上述公告未涉及职业本科在校生（山东商业职业技术大学）报考资格与应届身份认定，须以教育部管理规定及山东省教育招生考试院当年公告为准；2028年及以后年度要求尚未公布，标记待核实。https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977279.html"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_C1wyeKRh2EzgOHnAoNrB5773",
+        "name": "web_search",
+        "input": {
+          "query": "site:yz.sdu.edu.cn 2026年硕士研究生招生专业目录 计算机"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_C1wyeKRh2EzgOHnAoNrB5773",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>专业代码、名称及研究方向</td><td>招生团队</td><td>招生人数</td><td>考试科目</td><td>加试科目</td><td>备注</td></tr><tr><td>080104 工程力学<br/>01 智...",
+            "url": "https://yz.sdu.edu.cn/2023/shandongdaxue2023nianboshiyanjiushengzhaoshengzhuanyemulu.pdf#20#11",
+            "encrypted_content": "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",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>083100生物医学工程<br/>01生物医学测量及仪器<br/>02生物医学信号与图像处理<br/>03医学人工智能技术及应用<br/>04生物信息与机器学习</td><td>团队招生</td><td>①501英语<br/>...",
+            "url": "https://www.yz.sdu.edu.cn/2025boshimulu.pdf#20#11",
+            "encrypted_content": "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",
+            "page_age": null
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "本轮 search 仅返回山东大学**博士**招生目录，未获得 2026 年**硕士**专业目录，故目标专业方向与考试科目仍待核实。\n\n已公布资料（博士层次）：047 计算机科学与技术学院设 081200 计算机科学与技术、085404 计算机技术；048 软件学院设 085405 软件工程、085410 人工智能，均为团队招生，考试科目为 501 英语＋700 材料审核＋922 专业素质，同等学力加试计算机系统结构、离散数学、思想政治理论。该目录属博士招考，**不适用于硕士报考**，年份与专业方向需以最新硕士简章为准。\nhttps://yz.sdu.edu.cn/2023/shandongdaxue2023nianboshiyanjiushengzhaoshengzhuanyemulu.pdf\nhttps://www.yz.sdu.edu.cn/2025boshimulu.pdf\n\n2026 年硕士招生专业目录（含计算机相关专业代码、方向、拟招人数、培养地点）截至本轮检索未在官方站点获取到，标记为待核实；不以博士目录或往年目录替代。"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_SOQkH9ZdlohTeMSlBcmt0768",
+        "name": "web_search",
+        "input": {
+          "query": "site:sdu.edu.cn 2026年硕士研究生招生简章 报考条件"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_SOQkH9ZdlohTeMSlBcmt0768",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "山东大学2026年工程管理硕士（MEM）招生简章",
+            "url": "http://www.suz.sdu.edu.cn/info/1086/5173.htm#1#1",
+            "encrypted_content": "0set7eZAvGUAGFeTv7RolXfRfFyQq4XEmpxM24ZKfdxtXXiUp4pO17Uvo0jXX5M5ELHJFARROm0kkc+6i85wIT1na9jjO5zjmvLqG2xb2VQD4DcHPh4CWR3tUzDyOggyTaok8GSCSKWigKnLjij759PUIsXyroDY2hHOC4Xr+OQq8kvhlYp7sqSyDdcgAfJPgXtQ3aRqpUJnRPQ5eDLeSpOJj2a6A/NIDfc2LmZsmA4Inl8YtRvc8Gz50s+R4s9cObdJj+dOZp7PCYUjWh0QhcMS75dVADgdUc9PIzk1uReMY9/+aJ2IXxcK4tjSf6VhailuTXdlyp3uQ2TWLNYZVzTkyXdwF1NXAtmxvXDi4s2kkZUWIBU50OoNNYbiUWgwQSef8S+BY9HIHzTv3dvg3uoeuG9I6yjWCVjrtZUgjrlmnEsbLu+ttcyYzflW5Z0hXzy9XvztHzEE6xnwFc14AbcciJAiSSvqhIy5s5OvimKEJcWgAytoXjb4aXYhgXYSLY7NOhjYbbE0PU76uVEyqj/JHlADKX0kFKKNxUa9Ju2+roCzrGmd4iuAD6/jcP3tBm4E21r2V72CKX47IziQHhniLN13QkefdxWK1Fynhvyf6sCAzb+HI8yrWkdsO9HeDw3cH9nHTWBg9OmUd29VB6JW3KCj/CIi9xSZSDd9OIIzsWGh1OFomdEflVRdHQkSui+eflaG3ZhU/zApnr6H9mLMVkgKKifqPd0NRCkacegFDjA4NmbWW/Gd7DYFMAfKVHieaXVCoUQCKCIoVZmBEQsbPJ80p9ryEvT94oRxksiLcTifxrDQ45EJIeMQ06DrNQTFk9B/AWO3Fo2nMz/ZxCVsvKhXmq3se/z0Vm0IzQVWut39cvUkyH31v9IRBHB9ecFkBA4AfiAaZVz7daKLrd8lZztYApG6M2becWt6vyRNVD6qzQADjOmQqbRVzKe8qnofnEm5POlNTPstIdnQYI7am0X3HptBqhlDvvVmZILKAf8O9Azi5iEBnDyDIPS2UPWQ0uHmr93AlIQBUyZaA5XM65vCXUP7QDe9Vn/m3GkpX46e555aVkVJAiKkQJs+dBjXJsD25ORJR06+fu+TFiKDJ82SV/zwiseL3TYIZClafRz8VIRfQp7tFeu2IB/nXoGDO5kU4lcFpSi6P23UJ/qj+fViEmHKPbIppUAE5D2m/WMfBk7AhK22PduxDLdd5qdPcE9YMNhcXcL4mxNDokkVuAG/pLsFVj62t1ZwSXkzRDfDRtSgeQyqYMoigbBYn/awNLGB+SIEf889y8DbCCsLkOZphSlntRiSeVHh1aO5IZU50udBlzMTJacwM9iGFUg+XcHJnVIfyuFWb1OOb4mbtgPjOKcA1jPOjbLoXT7V4b1bcpjNTX3doGK4bdTV7/evuobvdXsZbrtIlRUUhtn1frzpq3hyzyF26AffYU78MA5mo4ivKw+++uT/Vn8f5CFx6Kaa/scdQU8ca9RQ",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "山东大学2026年工商管理专业学位研究生（MBA方向）招生简章 - 招生动态",
+            "url": "http://www.mba.sdu.edu.cn/info/1010/1565.htm#1",
+            "encrypted_content": "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",
+            "page_age": null
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "本轮检索仅返回山东大学管理类专业学位（MBA/MEM）简章，未返回全校硕士招生简章或计算机相关专业的报考限制，故以下不代表计算机类专业的报考条件。\n\n已核实事实：山东大学2026年工程管理硕士（MEM）简章，发布日期2025-10-01，报考条件要求\"本科毕业后有3年以上工作经验\"，专科或本科结业须达同等学力并有5年以上工作经验，详见 http://www.suz.sdu.edu.cn/info/1086/5173.htm\n\n山东大学2026年MBA方向简章，发布日期2025-09-21，要求本科毕业3年以上工作经验（2023年9月1日前获证），非全日制考生只能录取为定向就业，详见 http://www.mba.sdu.edu.cn/info/1010/1565.htm\n\n上述两类均为管理类专业学位的工作经验要求，与应届本科毕业生报考计算机类学术/专业学位的限制不同，不能套用。计算机相关专业的学历、专业背景及同等学力加试等具体限制，本轮未获得官方资料，标记待核实；建议以山东大学研究生招生信息网当年发布的《硕士研究生招生简章》及计算机学院招生目录为准。"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_VxZKQORkxnmBbJTRzOWd8299",
+        "name": "web_search",
+        "input": {
+          "query": "site:moe.gov.cn 2026年全国硕士研究生招生工作管理规定 报考条件 应届本科毕业生"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_VxZKQORkxnmBbJTRzOWd8299",
+        "content": []
+      },
+      null,
+      {
+        "type": "text",
+        "text": "本轮仅执行1次检索（site:moe.gov.cn 2026年全国硕士研究生招生工作管理规定 报考条件 应届本科毕业生），**未返回任何官方页面**，故无法给出可引用的资格结论。\n\n可确认的事实：用户自述为山东商业职业技术大学在读、大四、计算机科学与技术，这属**自述信息**，不能推定其已取得本科学历或已具备报考资格；该校为职业院校，其本科层次及学制、应届生身份须以学籍信息和学校官方文件核实。因本轮无官方资料返回，无可用官方 URL，相关报考条件与山东大学计算机相关专业的学历要求均标记**待核实**，下轮需以研招网/教育部及山东大学研究生招生官网原文补证。"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_3xmV0SogLln0Hdh6iJ9E1831",
+        "name": "web_search",
+        "input": {
+          "query": "site:yz.sdu.edu.cn 计算机科学与技术 硕士研究生 招生专业目录 初试科目"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_3xmV0SogLln0Hdh6iJ9E1831",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>招生专业代码、名称及研究方向</td><td>招生人数</td><td>初试考试科目</td><td>复试考核内容</td><td>复试笔试参考书目</td><td>备注</td></tr><tr><td>081200 计算机...",
+            "url": "https://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#25#15",
+            "encrypted_content": "v53NaXW14WuaYgxs2stbnDl6hgyx9ATTsHJEwTTQnOx7Kv04+lU4GiWcvfelYlAoNypUM3+VJY05JEkwx6e5awSl/RSDOl2Z02AwWKqgB9xNgpAkOVvxC12q9Pfd0AowA6sFr7+mulvB9Ecg8FE8r38xNeuI8ZKniHVqDNjy5YsffNOCOof3YqN78TBnMw+QUax2s+3FIHSwJ8zrbchLcwg1nIepzWbMPWLGqaq1XJJrz64zUFYEhp/bAMeS15N9uF1E9oV4I5bZqzh1VzmMo/+X/VZoViEoWPQmcrC8Fsf28Fz5rkpdlfXDMSiulP55PTf/+gLUuBFFCb6ydgu6QK9/Tke0F6zncxgLb1s/2RKK/9+t7MSLTqkPw+iwHV3wt/bmFrhNvAXrM+y7XRSGTChwhg9g9UAQRzqemiQx8RwqZsA1nA9NPu3/iQy77Wa89PlMgrHnGvl5o2IBd0KDeJNyUBK3SAgjJto/pd6KLalRL6K0DycWE9jlOEl8ubrLn/EWJ29HXI6qIhcYSxlpzLO/f3JOiBGH432AYIgkxnhsuE+raAG0XAj4gGcX4kK5c6pyjxviapxEDL9eo+23r8DFryEYG9FadqVVReRtqZ24oRIa7d96pi62xATHvVilruRBMdRkext5ysWOAmOl/s2jXch2UROmJP0G2mJpOBf5pPQY1xzHOVNwKDz+NOdJZirRcgH9a79obzOIIvzc+9nBY3LbE7i/2pTQcW8wyFmYnMt5ReXi278ULsO8TJDkKCW12Ie1eW5mE+TiEW5b2Qd9Yp24lWKP/jXHCVCvrevsaJuLdMihzzh7XxdzDs4ugQZuClKc1fyqnAw1xK7rmJBYzX9UrmbG6VIifNYZVNLLg5tOKybWZI+E/U1+3A3TBJcHvZbTsXk4mn1000ISmGwpulc7kss0jYTWzj9sdiL14UbKTsrL0Pw79MHfb50kJKpVCGHO3rKU3pq8lABXQaX6FCGmPqcj0ZnMZ3LgFVBAiHEcKaA42JJNuEKjauwhHz0a5Q7p0j0Qw13Mk8Vkhus9BU9TMtAzYC6984CcgCGixilC36oD4tcDLUnsBEza8vGB668av74SxL4rXjDGq8WzpYbYgQBnpJCV2qi1tik6aSFYUbazuYvmh4MVE4MVjOH14pheTkrtu5ZZ3+V6BA9PGX8uSRk34gIgGBAhrysWpzbIsp2k8u/+eoyZvBfJUcFQcxTaLWluxPI5dYRbz+DjmEUCnegywl+n",
+            "page_age": null
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "**山东大学 081200 计算机科学与技术（学术学位）初试与复试科目**\n\n据山东大学研究生招生网发布的《山东大学2025年硕士研究生招生专业目录》PDF（年度：2025年招生，适用山东大学计算机科学与技术学院，培养地点济南）：初试科目为①101思想政治理论、②201英语（一）、③301数学（一）、④408计算机学科专业基础；该专业目录页面所列招生人数为2人。复试考核内容包括上机、笔试（离散数学、数据库原理）和面试；笔试参考书目含《离散数学》徐秋亮编著，山东大学出版社1994年版或计算机学院自编教材。上述为2025年公布要求；2026年12月考试的2027年招生专业目录尚未发布，其科目、招生人数须以最新官方目录为准，待核实。英语（一）与数学（一）对英语、数学基础薄弱者难度较高。\n\nhttps://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_2YtuTawzXIuyaIZtgp5h9603",
+        "name": "web_search",
+        "input": {
+          "query": "site:yz.chsi.com.cn 2026年全国硕士研究生招生工作管理规定"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_2YtuTawzXIuyaIZtgp5h9603",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "《2026年全国硕士研究生招生工作管理规定》",
+            "url": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-4.html#1",
+            "encrypted_content": "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",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "招生政策_全国硕士研究生招生信息公开平台",
+            "url": "https://yz.chsi.com.cn/zsgs/zsinfo/queryzszc.action",
+            "encrypted_content": "0MY8vqLypJ48BTPVuQa0lQ+CUSRWgHQGQcPO8Y+ubXFhf3u8Ih4kIv+LoiYytqxR8Uyfg0vC3jhOmkuMtHB/xaidbkqnMOShHhpJKb3cNoKPwtDae/Ybvv2bGH97ncKCOKwa9T01z8jdlIIdOJip8tWstzS0Beo4jWmPyR7jrckZ+zzRWI8aMeZnTUQBYEx8M43gQ3iJU0l8YtnC94Hi7SBx86MHsn92bld22FNzZ8GIpGESOE/xWleskGHs40DzPj2k23NtE/ldpjNu74xx9y2Y4IBLKDj4XRTI",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "复试录取办法_全国硕士研究生招生信息公开平台",
+            "url": "https://yz.chsi.com.cn/zsgs/fslq/detail.action?zsgsId=3541433080&schCode=13023#1",
+            "encrypted_content": "7etkNcaeqlHflEqM3PrDNi0yWbkjgcmCg9q/i6jYrDcJx+SYEQSG8TZokkJrWXy5L25LAd5hx1iHNI7/x9cXEZvgH9gGuu18Tfjjuf/3TLudpvTkEmPRZtbIQAckI7E5byNJ63iF1Q99F+v3ZS7g1KTYNcHQAkENuDOQnhflkQNHRBi3am+pQT/+mb9ECNPlvg7GPAEmyCaralQQ2dOY6Cc/uISEGI76JKqWxasu1evztO5WvP2LsZ800Z5FUIpTwzdql3sW/CuCHBfR/V7AMTz3uemaFMsBB0ePFdxv9uAvc1gFi5a0jT3eNsbjKAStfBqghDxIxPBY6eYzvDI/fsJ6WeAYYdBSJ2qYMzbNAgqjxA3aEXxZzAyt6cks8a4JTaxpsIwlslrSk7QZmFO7A9QIS1E8b9JF8F7DDEdshkSczvwyCwp3d1B70TSYqZ4jXLnl8B9SoHdZY+6U7OAIme/Uej9RjbzB6XLe0C7A7gTyQOkYCyinLRk/aiXV/kqGrFJCr9x5NqQRI6r/z663uS5Z8KDW+zUAMLSYhDGjDEHT0U+Rte2KHUnOy+E6XWJm282F8EVTJspB+X1WwmvBVa89B02OJ7mDCdFmHozQRDsDKCk1/Iy2N/SkcXMWEr3UbIAgYrRD8HyH0tC8qR7TVq+jaBtwTDOWZ0ELIGaMOydjzTvFoJJ4dlKowoiiEReT8bsM7pomAuauWppPOiiug5+tB0kx/q2FbTK/",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "新疆：2026年全国硕士研究生招生考试报名公告 - 新疆：2026年全国硕士研究生招生考试报名公告",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202510/20251009/2293437618.html#1",
+            "encrypted_content": "jDCNAcZtjZX9aPa25sNkT8nsdtp/bu/nwt3IpEp7b735DCSyK8BzESAzVDNHCfy7AgevfHXI4cMgd5SPFBlGlGKepZ6z9PdhVuJd2GC4J6xyLaNZAyse/IT6pgYwsOwflqnlWASUlvt+RNpuZv5JMCLsEG48IJiFGUKSmpPvDcJjW6aCNsUbG92cJqH6ZJfOMivZJdCXacxeMRLrkdeKvC8jM5siuGd+pemPZh2cUNkfEjUAg1XZyDqMIE11A7iGNc4h71jxm58Duf01cdYUGM7tHlsxykiQbWOv83s4I8zWrpFK6b5Z2BmLywM87v+SJ37kkqCPdeXEKHuERSxid4XMi6qson8pHiQE9ixu5SJM18VlgyqITcqCzcLIN/P+Rfo4LxWX3spRfPoxRBXqGnXS5/4wMVLfRIkJ9c9hvPGz/VP+1eEptzJ+LhIKTOTtyWC8Tz59GDKS3FdrlVcD1e9OKBpLiJhPv+THSb6rvNJY+FN8e35p8x5quZnuuJQWbGZrPlUHV2So+QlI5IiYNWenC1EBm8FfnXOZAWomOSP5mjTP16se1cGfkJgXlr1HXi9u5Z9TJPix9A+mqYo1a4l3dwr6/UoQpiU7CljZCyWo2tEfks8ycsMOT0wpnK1joavAAOUFLVulzrRWK2ZQcJD05nYo0mONzP1R",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "贵州省2026年全国硕士研究生招生考试报名通告",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202509/20250930/2293436094.html;jsessionid=8858C90EB8CA4852EF36D876C671159C",
+            "encrypted_content": "fhxeJZAjQZaSH6H1cqozXEbPlGmdmrJwtUKczvBX2ImuKPmgZnKUeJ1v7Oz6gQFuJhXMrXQHWWpZeLjNSpX/jJ82rYDucfbaKQhUjwAAADr8CKWORk+k/FapsuWacvZ/UrTuJ2zGrI8R3PdPL8L9beaqJG5f04HpFecYcU1dxIwU4oFNmZojJUgkeApxNz/NJfc6YKeLob511ifgFG/KEJh780dFILR6Fm6ABYsaSsF8bre2vrGlzIc/nHFoWVH84JEJdIHU0NEytJuXbcS1pijq4d1p/G5UhCDJVQiZWUqsjCqq9mhptm09YhvXnU5CgFImK2zKjoscNpxHEk2JRtyobz0EczDTZ7qH8FzExOwD3uIl60npG4UtKYg0BGbf4trqv7229bCwV8PBBVVkcWLqIOA9PoofB+8+l+1dt1QB4KzVrwiCW6AVJ4NRvm7Itsmm6UlRUf+GgZbfqOjle/KgT2st4KNRYshLPqkPqON3Yyghrjc6bmH76sXL1ujzWh/2BVBswIBFpQomeWIoB4kwEebDZ9s58uLudIacqi89Nf90J3lfnbt1hYsfVF9+rxJyj9x1Rr69n/HM1WVnQz3X",
+            "page_age": null
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "**一、政策依据（最新国家规定）**\n《2026年全国硕士研究生招生工作管理规定》（教学〔2025〕2号），2025年9月25日由教育部发布、研招网刊载。该规定覆盖2025年10月报名的2026年招生年度；用户初试目标为2026年12月，属2027年招生年度，相应规定与报名时间尚未公布，待核实。\nhttps://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-4.html#1\n\n**二、学历资格口径（第十五条）**\n可报考情形为：①国家承认学历的应届本科毕业生（含成人高校、自考/网络教育届时可毕业本科生）；②已具国家承认本科毕业学历；③高职（专科）毕业满2年及以上（至录取当年入学前）或本科结业生，且符合招生单位具体学业要求，按本科毕业同等学力报考。专科身份不能直接视为已获本科资格。\nhttps://yz.chsi.com.cn/zsgs/zsinfo/queryzszc.action\n\n**三、对本人的适用与待核实项**\n若在读职业本科/专升本，须以“国家承认学历的应届本科毕业生、届时可毕业”身份报考，学籍层次与培养安排须以学校官方文件核实，不得推定；若为专科层次，则走专升本毕业后报考，或专科毕业满2年按同等学力报考。山东大学是否接收同等学力、加试要求属招生单位自定，需查其研究生招生官网简章，本轮未核实。\nhttps://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-4.html#1"
+      }
+    ]
+  },
+  {
+    "stage": "generate",
+    "stopReason": "end_turn",
+    "sources": [],
+    "text": [
+      {
+        "text": "{\n  \"title\": \"山东大学计算机方向2026年12月初试备考计划（10月1日至12月18日）\",\n  \"goal\": \"以山东大学计算机相关专业（如计算机科学与技术、计算机技术等方向）为主要报考方向，参加2026年12月19日至20日举行的初试，争取2027年入学。计算机科学与技术学院的研究生培养在青岛校区，报考前须核对当年硕士招生目录中的专业设置、考试科目与具体培养校区。结合英语需加强、数学刚起步的现状，学习重点从词汇、长难句与数学基础起步，逐步过渡到强化训练、真题演练与全科模拟，同时确认本人应届本科毕业生的报考资格、网上报名与网上确认要求。\",\n  \"summary\": \"目标年度为2026年12月参加初试、2027年入学的硕士研究生招生年度。依据研招网2026年9月27日发布的2027年全国硕士研究生招生考试公告，初试定于2026年12月19日至20日举行，网上报名为10月15日至24日，预报名为10月9日至12日；省级考试机构发布的报名须知对同一日期作出印证，本次规划截止到2026年12月18日。山东大学计算机科学与技术学院的研究生培养地点在青岛校区，院址为青岛市即墨区滨海公路72号，该学院此前由济南迁至青岛，2026年优秀大学生夏令营通知亦标注青岛校区；2025年硕士研究生招生目录中列有081200计算机科学与技术等专业，可作为方向参考。2027年入学年度对应的专业目录、考试科目、招生人数、复试办法以及是否接收同等学力等，均以山东大学研究生招生官网最新简章为准，目前属待核实事项。报考资格以教育部管理规定和山东省教育招生考试院公告为准，应届本科毕业身份与学籍层次需自行核对。英语基础较弱、数学刚刚起步，建议10月以信息核对、英语词汇长难句和数学基础为主，11月进入强化与真题训练，12月按考试时段进行模拟冲刺，最后一天只做轻量回顾并保证休息。\",\n  \"dateStatus\": \"official\",\n  \"examDate\": \"2026-12-19\",\n  \"examSourceUrl\": \"https://yz.chsi.com.cn/kyzx/other/202609/20260927/2293973606.html#1\",\n  \"sourceUrls\": [\n    \"https://yz.chsi.com.cn/kyzx/other/202609/20260927/2293973606.html#1\",\n    \"https://yz.chsi.com.cn/sch/viewZbBulletin--schId-369147,infoId-3552096243,categoryId-433156,mindex-10.dhtml\",\n    \"https://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-4.html#1\",\n    \"https://yz.chsi.com.cn/zsgs/zsinfo/queryzszc.action\",\n    \"https://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#25#15\",\n    \"https://www.cs.sdu.edu.cn/info/1068/6855.htm\",\n    \"https://www.qdxq.sdu.edu.cn/info/1820/54443.htm\",\n    \"https://rsc.qd.sdu.edu.cn/PDF/shandongdaxuejisuanjikexueyujishuboshihouliudongzhanjianjie.pdf#1#1\"\n  ],\n  \"recommendationNotice\": \"目标中已明确为山东大学，故不再补充其他院校，仅就该校作核实提示：计算机科学与技术学院的研究生培养地点在青岛校区而非济南各校区，所报专业实际所在学院与校区须以当年招生简章及复试通知为准。2027年入学年度对应的专业目录、考试科目、招生人数、复试要求尚未公布，属待核实事项，本计划的院校信息只作方向参照，不代表已确定报考专业。报考资格、网上确认流程与报考点选择，以教育部管理规定和山东省教育招生考试院公告为准。\",\n  \"recommendations\": [\n    {\n      \"name\": \"山东大学\",\n      \"reason\": \"报考目标已明确为该校计算机相关专业。山东大学计算机科学与技术学院承担计算机科学与技术、计算机技术等方向的研究生培养，2025年硕士研究生招生目录中列有081200计算机科学与技术等专业，与用户本科专业方向一致。需要特别注意的是，该学院研究生培养地点在青岛校区，与济南各校区不同，报考前应核对当年简章中的专业、考试科目、招生人数与培养校区，并结合英语、数学基础制定阶段目标，不宜以分数线推断录取把握。\",\n      \"sourceUrl\": \"https://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#25#15\",\n      \"location\": {\n        \"province\": \"山东省\",\n        \"city\": \"青岛市\",\n        \"campus\": \"计算机科学与技术学院研究生培养在山东大学青岛校区，院址为山东省青岛市即墨区滨海公路72号（第周苑C座），并非济南各校区；具体专业所在校区与培养安排以当年招生简章及复试通知为准。\",\n        \"sourceUrl\": \"https://www.cs.sdu.edu.cn/info/1068/6855.htm\"\n      },\n      \"criteriaEvidence\": [\n        {\n          \"criterion\": \"所在地\",\n          \"explanation\": \"山东大学计算机科学与技术学院的研究生培养地点位于山东省青岛市即墨区，属山东省内，符合以山东省为地域范围的报考条件；该信息见于学院2026年全国优秀大学生暑期夏令营通知及青岛校区研究生入学教育活动报道，本科批次历史情况与当年报考资格需另行核实。\",\n          \"sourceUrl\": \"https://www.qdxq.sdu.edu.cn/info/1820/54443.htm\"\n        }\n      ]\n    }\n  ],\n  \"tasks\": [\n    {\n      \"title\": \"核对山东大学计算机相关专业最新硕士招生目录与考试科目，确认计算机科学与技术学院研究生培养在青岛校区，并按英语、数学、专业课、政治四科整理当前基础，排出每日学习时间表。\",\n      \"stage\": \"信息核对与基础\",\n      \"dueDate\": \"2026-10-01\"\n    },\n    {\n      \"title\": \"英语启动核心词汇与长难句训练，每天固定时段背诵与精读；数学从高数基础开始，完成极限与导数第一轮。\",\n      \"stage\": \"信息核对与基础\",\n      \"dueDate\": \"2026-10-06\"\n    },\n    {\n      \"title\": \"准备网上报名材料，核对学信网学籍信息、身份证与照片要求，明确报考点选择，按10月15日至24日的报名窗口提交报考信息。\",\n      \"stage\": \"信息核对与基础\",\n      \"dueDate\": \"2026-10-11\"\n    },\n    {\n      \"title\": \"完成网上报名与缴费并留存报名信息；数学推进一元积分与多元微分基础，英语每周精读两篇真题阅读并整理生词。\",\n      \"stage\": \"信息核对与基础\",\n      \"dueDate\": \"2026-10-16\"\n    },\n    {\n      \"title\": \"数学线性代数基础一轮，配合基础习题训练；英语阅读进入强化，开始限时作答并复盘错因。\",\n      \"stage\": \"系统学习与强化\",\n      \"dueDate\": \"2026-10-22\"\n    },\n    {\n      \"title\": \"政治启动马克思主义基本原理部分，配合选择题练习；专业课进入数据结构强化，梳理线性表、树与图的核心算法。\",\n      \"stage\": \"系统学习与强化\",\n      \"dueDate\": \"2026-10-28\"\n    },\n    {\n      \"title\": \"按山东省教育招生考试院公告完成网上确认，核对报考信息与上传材料；专业课推进计算机组成原理。\",\n      \"stage\": \"系统学习与强化\",\n      \"dueDate\": \"2026-11-03\"\n    },\n    {\n      \"title\": \"数学进入强化习题阶段，重点突破中值定理与线性代数综合题；专业课完成操作系统与计算机网络强化，英语积累作文素材。\",\n      \"stage\": \"系统学习与强化\",\n      \"dueDate\": \"2026-11-09\"\n    },\n    {\n      \"title\": \"数学近十年真题第一遍限时训练，建立错题本并归类薄弱章节，按题型回补基础。\",\n      \"stage\": \"真题训练与查漏\",\n      \"dueDate\": \"2026-11-15\"\n    },\n    {\n      \"title\": \"英语真题套卷训练，兼顾阅读、新题型与翻译；政治转向毛中特与史纲的选择题刷题。\",\n      \"stage\": \"真题训练与查漏\",\n      \"dueDate\": \"2026-11-21\"\n    },\n    {\n      \"title\": \"专业课真题与模拟题结合练习，梳理知识框架并查漏补缺；数学对错题本做第二遍回做。\",\n      \"stage\": \"真题训练与查漏\",\n      \"dueDate\": \"2026-11-27\"\n    },\n    {\n      \"title\": \"复核报名与网上确认结果，关注考点与考场安排通知；英语作文形成个人模板并每周动手写两篇。\",\n      \"stage\": \"真题训练与查漏\",\n      \"dueDate\": \"2026-12-03\"\n    },\n    {\n      \"title\": \"打印准考证，确认考点位置、出行与住宿；按考试时间完成数学与专业课模拟各一套。\",\n      \"stage\": \"模拟冲刺与调整\",\n      \"dueDate\": \"2026-12-09\"\n    },\n    {\n      \"title\": \"全科模拟：上午政治、下午英语，严格按考试时段作答，晚上复盘答题节奏与时间分配。\",\n      \"stage\": \"模拟冲刺与调整\",\n      \"dueDate\": \"2026-12-12\"\n    },\n    {\n      \"title\": \"专业课与数学错题回看，政治背记核心考点与主观题框架，逐步把作息调整到考试时段。\",\n      \"stage\": \"模拟冲刺与调整\",\n      \"dueDate\": \"2026-12-15\"\n    },\n    {\n      \"title\": \"考前最后一天：核对准考证、身份证与考试用品，熟悉考点路线，只做公式、单词与作文模板的轻量回顾，保证休息。\",\n      \"stage\": \"模拟冲刺与调整\",\n      \"dueDate\": \"2026-12-18\"\n    }\n  ]\n}"
+      }
+    ],
+    "queries": []
+  }
+]

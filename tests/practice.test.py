@@ -96,7 +96,7 @@ for row in rows:
                 with OPENER.open(url) as response:
                     self.assertEqual(response.status, 200)
                     html = response.read().decode('utf-8')
-                self.assertIn('href="info.html"' if version == 'starter' else 'href="about.html"', html)
+                self.assertIn('href="about.html"', html)
                 for path in ['/missing.html', '/info.html']:
                     with self.assertRaises(urllib.error.HTTPError) as caught:
                         OPENER.open(url + path)

@@ -19,7 +19,7 @@
 
 ## 本地预览
 
-Codex 云端开发与 GitHub 接入见 [云端开发说明](docs/codex-cloud.md)。新增统一命令：`node tools/dev.js check`（语法）、`node tools/dev.js test`（基础回归）、`node tools/dev.js serve`（预览）。云端 Linux 安装执行 `bash tools/codex-setup.sh --browser`；浏览器测试在 Windows 使用 Edge，在 Linux 使用 Chromium。网页仍无需构建或安装依赖。
+Codex 云端开发与 GitHub 接入见 [云端开发说明](project/docs/codex-cloud.md)。新增统一命令：`node tools/dev.js check`（语法）、`node tools/dev.js test`（含本地链接检查的基础回归）、`node tools/dev.js serve`（预览）。可单独运行 `node tools/check-links.js` 检查空链接、本地资源和页面入口。云端 Linux 安装执行 `bash tools/codex-setup.sh --browser`；浏览器测试在 Windows 使用 Edge，在 Linux 使用 Chromium。网页仍无需构建或安装依赖。
 
 ```powershell
 python -m http.server 8765 --bind 127.0.0.1 --directory project

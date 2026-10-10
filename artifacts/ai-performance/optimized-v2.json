@@ -1,0 +1,1206 @@
+{
+  "phase": "optimized",
+  "startedAt": "2026-10-09T04:55:45.926Z",
+  "sourceSha256": "1103a001c12fa7322268706571037d00643458661f5a8ac3c3440d28b1eea5ae",
+  "config": {
+    "model": "deepseek-flash",
+    "effort": "high",
+    "timeoutMs": 300000
+  },
+  "profiles": [
+    {
+      "id": "named",
+      "input": {
+        "level": "本科",
+        "major": "计算机科学与技术",
+        "grade": "大四",
+        "baseline": "英语需要加强，数学刚开始复习",
+        "goal": "山东大学，计算机相关专业",
+        "region": "山东",
+        "startDate": "2026-10-01"
+      }
+    },
+    {
+      "id": "local",
+      "input": {
+        "level": "本科",
+        "major": "计算机网络技术",
+        "grade": "大一",
+        "baseline": "英语基础较弱，数学刚开始复习。",
+        "goal": "济南本地一本院校，计算机相关专业",
+        "region": "山东",
+        "startDate": "2026-10-07"
+      }
+    }
+  ],
+  "runs": [
+    {
+      "profile": "named",
+      "index": 1,
+      "startedAt": "2026-10-09T04:55:45.929Z",
+      "success": true,
+      "searchMs": 21368.145800000002,
+      "generationMs": 50624.302800000005,
+      "totalMs": 71992.4251,
+      "firstSourceMs": 1853.3812,
+      "searches": 9,
+      "requests": 10,
+      "maxConcurrency": 6,
+      "repairs": 0,
+      "progress": {
+        "tasks": [
+          {
+            "id": "policy",
+            "title": "国家政策与考试日期",
+            "status": "complete"
+          },
+          {
+            "id": "eligibility",
+            "title": "学历与升学资格",
+            "status": "complete"
+          },
+          {
+            "id": "directory",
+            "title": "目标院校专业目录",
+            "status": "complete"
+          },
+          {
+            "id": "subjects",
+            "title": "目标院校考试科目",
+            "status": "complete"
+          },
+          {
+            "id": "restrictions",
+            "title": "目标院校报考限制",
+            "status": "complete"
+          },
+          {
+            "id": "campus",
+            "title": "目标院校培养校区",
+            "status": "complete"
+          }
+        ],
+        "sources": [
+          {
+            "title": "2018年计算机科学与技术学院专业学位博士研究生招生工作日程表",
+            "url": "https://www.cs.sdu.edu.cn/info/1058/2738.htm"
+          },
+          {
+            "title": "山东大学计算机科学与技术流动站简介",
+            "url": "https://rsc.qd.sdu.edu.cn/PDF/shandongdaxuejisuanjikexueyujishuboshihouliudongzhanjianjie.pdf#1#1"
+          },
+          {
+            "title": "山大计算机科学与技术学院",
+            "url": "https://www.cs.sdu.edu.cn/ssjg.jsp?wbtreeid=1082&searchScope=0&currentnum=11&newskeycode2=5aSn5pWw5o2uIOW5tuihjOiuoeeulzIwMTk%3D"
+          },
+          {
+            "title": "生源基地-山大计算机科学与技术学院",
+            "url": "https://www.cs.sdu.edu.cn/zsxx/syjd.htm"
+          },
+          {
+            "title": "计算机科学与技术学院2020年以“申请-考核”方式招收博士研究生简章 - 研究生教育",
+            "url": "https://www.cs.sdu.edu.cn/info/1068/3109.htm#1"
+          },
+          {
+            "title": "计算机学院2026年博士研究生招生复试成绩及拟录取名单公示——第一批次",
+            "url": "https://www.cs.sdu.edu.cn/info/1068/6736.htm"
+          },
+          {
+            "title": "计算机科学与技术学院/浪潮人工智能学院关于举办“2024年全国优秀大学生暑期夏令营”活动的通知 - 研究生教育",
+            "url": "https://www.cs.sdu.edu.cn/info/1068/6284.htm#1"
+          },
+          {
+            "title": "【博士研究生招生】计算机学院2023年博士研究生招生复试日程安排",
+            "url": "https://www.cs.sdu.edu.cn/info/1068/5765.htm"
+          },
+          {
+            "title": "计算机学院举行2017级研究生院领导见面会",
+            "url": "https://www.view.sdu.edu.cn/info/1023/94647.htm"
+          },
+          {
+            "title": "山东大学教师主页 刘保东 招生信息 中文主页",
+            "url": "https://faculty.sdu.edu.cn/liubaodong/zh_CN/zsxx/393360/list/index.htm"
+          },
+          {
+            "title": "招生专业代码、名称及研究方向 招生人数 初试考试科目 复试考核内容 复试笔试参考书目 备注 081200 计算机...",
+            "url": "https://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#25#15"
+          },
+          {
+            "title": "021 物理学院 招生专业代码、名称及研究方向 招生人数 初试考试科目 复试考核内容 复试笔试参考书目<...",
+            "url": "https://www.yz.sdu.edu.cn/2024/shandongdaxue2024nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#29#9"
+          },
+          {
+            "title": "2026年软件工程专业同力申硕工作安排",
+            "url": "https://www.sc.sdu.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1775056217&wbfileid=16792421#1#1"
+          },
+          {
+            "title": "山东大学2026-2027学年国际学生硕士研究生",
+            "url": "https://istudy.sdu.edu.cn/info/1432/3934.htm?_x_output_type_b6db407c4_=embedded_pdf#1#1"
+          },
+          {
+            "title": "083100生物医学工程 01生物医学测量及仪器 02生物医学信号与图像处理 03医学人工智能技术及应用 04生物信息与机器学习 团队招生 ①501英语 ...",
+            "url": "https://www.yz.sdu.edu.cn/2025boshimulu.pdf#20#11"
+          },
+          {
+            "title": "招生专业代码、名称及研究方向 招生人数 初试考试科目 复试考核内容 复试笔试参考书目 备注 080300光学工程...",
+            "url": "https://yz.sdu.edu.cn/2023/shandongdaxue2023nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#26#12"
+          },
+          {
+            "title": "085700 资源与环境 01 环境科学技术 02 环境化学工程 03 环境生态工程 04 生态环境大数据 12 ①101 思想政治理论 ②204 英语二 ③...",
+            "url": "https://www.yz.sdu.edu.cn/2022/211026shandongdaxue2022nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#22#10"
+          },
+          {
+            "title": "代码 名称 学制 全日制 非全日制 1451 文物",
+            "url": "https://www.qdxqcwc.sdu.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1388310872&wbfileid=16015828#1#1"
+          },
+          {
+            "title": "2026智能媒体研究中心iLearn（济南校区）招生简介-山东大学智能媒体研究中心",
+            "url": "https://ilearn.qd.sdu.edu.cn/info/1038/2235.htm"
+          },
+          {
+            "title": "湖北省2027年全国硕士研究生招生考试报名须知",
+            "url": "https://yz.chsi.com.cn/sch/viewZbBulletin--schId-369147,infoId-3552096243,categoryId-433156,mindex-10.dhtml"
+          },
+          {
+            "title": "广东外语外贸大学（招生单位11846）2027年硕士研究生招生考试网报公告（二）",
+            "url": "https://yz.chsi.com.cn/sswbgg/pages/msgdetail.do?dwdm=11846&msg_id=654533"
+          },
+          {
+            "title": "2027年全国硕士研究生招生考试公告",
+            "url": "https://yz.chsi.com.cn/kyzx/other/202609/20260927/2293973606.html#1"
+          },
+          {
+            "title": "华东理工大学2026年硕士研究生招生简章",
+            "url": "https://yz.chsi.com.cn/wap/sch/detail?categoryId=10461192&infoId=3421171088&schId=368142#1#1#1"
+          },
+          {
+            "title": "四川省2026年全国硕士研究生招生考试网上报名公告",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202509/20250930/2293436385.html#1"
+          },
+          {
+            "title": "合肥大学_在线咨询_中国研究生招生信息网 - 0860",
+            "url": "https://yz.chsi.com.cn/zxdy/forum--forumid-302972263,method-listDefault,year-2014,start-15.dhtml#1"
+          },
+          {
+            "title": "大连大学2026年全国硕士研究生招生章程",
+            "url": "https://yz.chsi.com.cn/wap/sch/detail?schId=368008&categoryId=10461872&infoId=3421521914#1"
+          },
+          {
+            "title": "华南理工大学_院校信息_中国研究生招生信息网",
+            "url": "https://yz.chsi.com.cn/sch/viewZszc--infoId-3421805361,categoryId-10461554,schId-368416,mindex-12.dhtml#1"
+          },
+          {
+            "title": "《2026年全国硕士研究生招生工作管理规定》",
+            "url": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-9.html"
+          },
+          {
+            "title": "烟台大学_在线咨询_中国研究生招生信息网 - 一、报考条件",
+            "url": "https://yz.chsi.com.cn/zxdy/forum--method-listBulletin,forumid-452213,year-2005,start-0.dhtml#1"
+          },
+          {
+            "title": "内蒙古医科大学_在线咨询_中国研究生招生信息网",
+            "url": "https://yz.chsi.com.cn/zxdy/forum--forumid-448504,method-listDefault,start-0,year-2014.dhtml"
+          },
+          {
+            "title": "河北师范大学_院校信息_中国研究生招生信息网",
+            "url": "https://yz.chsi.com.cn/sch/viewZszc--infoId-3545299245,categoryId-10461000,schId-367982,mindex-12.dhtml#1#1#1"
+          },
+          {
+            "title": "广东工业大学2026年硕士学位研究生招生简章",
+            "url": "https://yz.chsi.com.cn/kyzx/yxzc/202509/20250926/2293430983.html#1"
+          }
+        ],
+        "summaries": [
+          "山东大学计算机科学与技术学院自2017年搬迁至青岛校区，研究生培养地点为山东省青岛市即墨区滨海公路72号、山东大学（青岛）第周苑C座；学院研究生招生电话0532-58630610。该地址在学院官网多个页面一致出现。https://www.cs.sdu.edu.cn/ssjg.jsp?wbtreeid=1082&searchScope=0&currentnum=11&newskeycode2=5aSn5pWw5o2uIOW5tuihjOiuoeeulzIwMTk%3D\n\n2018-06-05发布的博士招生日程表写明研究生办公室在青岛校区N3楼218；2024年暑期夏令营通知亦标注“山东大学计算机科学与技术学院（青岛校区）”。2026年硕士研究生招生简章中各专业（含计算机相关）实际培养地点尚未核实，须以山东大学研究生招生信息网当年专业目录为准，标记待核实。https://www.cs.sdu.edu.cn/info/1068/6284.htm",
+          "**目标院校专业目录（山东大学，2025年公布版）**：081200 计算机科学与技术，研究方向含01大数据与机器学习、02计算机网络与边缘计算、03计算机图形与三维视觉、04人机交互与数据可视化、05区块链与信息安全、06人机融合智能和移动系统、07体系结构与嵌入式系统、08智能计算理论与技术、09自然语言处理与信息检索、10智能感知与多媒体处理；初试①101思想政治理论②201英语（一）③301数学（一）④408计算机学科专业基础；复试为上机、笔试（离散数学、数据库原理）与面试。该文件为2025年招生专业目录，2026年目录是否公布及最新方向、人数、培养地点待核实；本人层面报考资格须以官方招生简章为准。来源：https://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf",
+          "**官方公告与报名时间**（第一次搜索）：研招网《2027年全国硕士研究生招生考试公告》发布日期2026年09月27日：网上报名2026年10月15日至10月24日，预报名10月9日至10月12日，每日9:00-22:00；考前十天左右自行下载打印《准考证》。注意年度口径：2026年12月举行的初试对应\"2027年招生年度\"，与规划中的\"目标年份2026\"指考试年度而非招生年度。\nhttps://yz.chsi.com.cn/kyzx/other/202609/20260927/2293973606.html#1\n\n**初试日期**（同一轮搜索）：湖北省级报名须知（来源：湖北省，发布日期2026-10-8）载明2027年研考初试定于2026年12月19日至20日举行；广东外语外贸大学网报公告（发布2026-10-08）同载初试时间2026年12月19日至12月20日，每天8:30-11:30、14:00-17:00。与用户暂定考试季日期一致，但仍以教育部及山东省教育招生考试院正式公告为准。\nhttps://yz.chsi.com.cn/sch/viewZbBulletin--schId-369147,infoId-3552096243,categoryId-433156,mindex-10.dhtml\n\n**适用范围与待核实**：上述为全国统考时间与报名程序，具体报考资格、加分照顾政策申报条件按《2027年全国硕士研究生招生工作管理规定》及报考点公告执行；本轮未检索到山东省教育招生考试院的报考点安排，山东大学作为招生单位的专业报考要求由其他任务核实，此段不作推断。\nhttps://yz.chsi.com.cn/sswbgg/pages/msgdetail.do?dwdm=11846&msg_id=654533",
+          "山大研招网《2024年硕士研究生招生专业目录》载：047计算机科学与技术学院081200计算机科学与技术初试为101政治、201英语（一）、301数学（一）、408计算机学科专业基础，2024年招4人；085404计算机技术考204英语（二）、302数学（二）、832计算机综合，招42人；两专业备注均列“同等学力加试：程序设计、编译原理”，即对同等学力考生另设加试门槛。资料年度2024。https://www.yz.sdu.edu.cn/2024/shandongdaxue2024nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#29#15",
+          "来源：https://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf",
+          "**资格结论（2026年）**：教育部《2026年全国硕士研究生招生工作管理规定》（2025-09-25发布）第十五条规定，报名学业水平之一为国家承认学历的应届本科毕业生（含普通高校、成人高校、成人高等学历教育等），以及自考、网络教育届时可毕业本科生；录取当年入学前须取得国家承认的本科毕业证书，否则录取资格无效。高职（专科）毕业满2年及以上者，须符合招生单位具体学业要求，按本科毕业同等学力报考，而非直接以专科身份报考。\nhttps://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-9.html\n\n**对本人适用性**：研招网转载的四川省2026年网上报名公告（2025-09-30）复述同一条件，并要求专科满2年者\"符合招生单位提出的具体学业要求\"。因此能否以应届本科生身份报考，取决于其在山东商业职业技术大学的学籍注册层次是否为本科层次、以及能否在录取当年入学前取得本科毕业证；若实际为专科在读，需先毕业后满2年按同等学力，或先完成专升本取得本科学历，山东省对口专升本具体衔接办法及山东大学计算机类专业是否接收同等学力、加试要求均待核实。\nhttps://yz.chsi.com.cn/kyzx/kydt/202509/20250930/2293436385.html"
+        ]
+      },
+      "tasks": 16,
+      "sources": 8,
+      "recommendations": 0
+    },
+    {
+      "profile": "named",
+      "index": 2,
+      "startedAt": "2026-10-09T04:56:57.922Z",
+      "success": true,
+      "searchMs": 17549.2699,
+      "generationMs": 58429.442299999995,
+      "totalMs": 75978.71139999999,
+      "firstSourceMs": 2259.366599999994,
+      "searches": 6,
+      "requests": 7,
+      "maxConcurrency": 6,
+      "repairs": 0,
+      "progress": {
+        "tasks": [
+          {
+            "id": "policy",
+            "title": "国家政策与考试日期",
+            "status": "complete"
+          },
+          {
+            "id": "eligibility",
+            "title": "学历与升学资格",
+            "status": "complete"
+          },
+          {
+            "id": "directory",
+            "title": "目标院校专业目录",
+            "status": "complete"
+          },
+          {
+            "id": "subjects",
+            "title": "目标院校考试科目",
+            "status": "complete"
+          },
+          {
+            "id": "restrictions",
+            "title": "目标院校报考限制",
+            "status": "complete"
+          },
+          {
+            "id": "campus",
+            "title": "目标院校培养校区",
+            "status": "complete"
+          }
+        ],
+        "sources": [
+          {
+            "title": "2018年计算机科学与技术学院专业学位博士研究生招生工作日程表",
+            "url": "https://www.cs.sdu.edu.cn/info/1058/2738.htm"
+          },
+          {
+            "title": "山东大学计算机科学与技术流动站简介",
+            "url": "https://rsc.qd.sdu.edu.cn/PDF/shandongdaxuejisuanjikexueyujishuboshihouliudongzhanjianjie.pdf#1#1"
+          },
+          {
+            "title": "计算机科学与技术学院/浪潮人工智能学院关于举办“2024年全国优秀大学生暑期夏令营”活动的通知 - 研究生教育",
+            "url": "https://www.cs.sdu.edu.cn/info/1068/6284.htm#1"
+          },
+          {
+            "title": "生源基地-山大计算机科学与技术学院",
+            "url": "https://www.cs.sdu.edu.cn/zsxx/syjd.htm"
+          },
+          {
+            "title": "山大计算机科学与技术学院",
+            "url": "https://www.cs.sdu.edu.cn/ssjg.jsp?wbtreeid=1082&searchScope=0&currentnum=11&newskeycode2=5aSn5pWw5o2uIOW5tuihjOiuoeeulzIwMTk%3D"
+          },
+          {
+            "title": "学院简介-山大计算机科学与技术学院",
+            "url": "https://www.cs.sdu.edu.cn/gyxy/xyjj.htm?ivk_sa=1024320u"
+          },
+          {
+            "title": "计算机科学与技术学院",
+            "url": "https://ce.sdu.edu.cn/info/1013/8594.htm"
+          },
+          {
+            "title": "计算机科学与技术学院举行2020届研究生毕业典礼暨学位授予仪式",
+            "url": "https://www.cs.sdu.edu.cn/syyxxzx/info/1015/1023.htm"
+          },
+          {
+            "title": "2015年计算机科学与技术学院博士研究生招生工作日程表",
+            "url": "https://www.cs.sdu.edu.cn/info/1058/2530.htm"
+          },
+          {
+            "title": "山东大学优秀研究生导学团队候选团队——智能计算研究所团队",
+            "url": "https://www.cs.sdu.edu.cn/info/1068/5900.htm"
+          },
+          {
+            "title": "080500 材料科学与工程 2 ①101 思想政治理论 ②201 英语（一） ③302 数学（二） ④860 材料科学基础 笔试：工程材料成形与机械制造...",
+            "url": "https://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#25#24"
+          },
+          {
+            "title": "专业代码、名称及研究方向 招生团队 招生人数 考试科目 加试科目 备注 080104 工程力学 01 智...",
+            "url": "https://yz.sdu.edu.cn/2023/shandongdaxue2023nianboshiyanjiushengzhaoshengzhuanyemulu.pdf#20#11"
+          },
+          {
+            "title": "04 桥梁结构设计方法 05 桥梁监测与控制 082301 道路与铁道工程 01 道路...",
+            "url": "https://www.yz.sdu.edu.cn/2024/shandongdaxue2024nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#29#16"
+          },
+          {
+            "title": "山东大学2027年硕士研究生招生专业目录",
+            "url": "https://yz.sdu.edu.cn/info/1022/1491.htm"
+          },
+          {
+            "title": "Academic Program for Master Degree Candidates in Computer Science and Technology",
+            "url": "https://www.istudy.sdu.edu.cn/style/masterprograms/shuoshijisuanjikexueyujishu.pdf#1#1"
+          },
+          {
+            "title": "085700 资源与环境 01 环境科学技术 02 环境化学工程 03 环境生态工程 04 生态环境大数据 12 ①101 思想政治理论 ②204 英语二 ③...",
+            "url": "https://www.yz.sdu.edu.cn/2022/211026shandongdaxue2022nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#22#10"
+          },
+          {
+            "title": "山东大学2026年接受同等学力人员申请硕士学位专业目录",
+            "url": "https://www.sc.sdu.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1775056217&wbfileid=16792158#1#1"
+          },
+          {
+            "title": "教育部关于印发《2027年全国硕士研究生招生工作管理规定》的通知 - 第五十六条 招生单位可设立破格复试机制",
+            "url": "https://hudong.moe.gov.cn/srcsite/A15/moe_778/s3261/202609/t20260923_1451734.html#3"
+          },
+          {
+            "title": "教育部关于印发《2027年全国硕士研究生招生工作管理规定》的通知",
+            "url": "http://www.moe.gov.cn/srcsite/A15/moe_778/s3261/202609/t20260923_1451734.html#3"
+          },
+          {
+            "title": "030 环境研究院 招生专业代码、名称及研究方向 招生人数 初试考试科目 复试考核内容 复试笔试参考书目...",
+            "url": "https://yz.sdu.edu.cn/shandongdaxue2023nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#13#11"
+          },
+          {
+            "title": "冷链物流技术与管理专业（专本贯通）",
+            "url": "http://www.sict.edu.cn/jg_xllwl/rcpy/zysz/2025/0702/51414.html#1"
+          },
+          {
+            "title": "冷链物流技术与管理专业（专本贯通） - 你的浏览器版本过低，可能导致网站不能正常访问",
+            "url": "http://www.sict.edu.cn/jg_xllwl/zsjy/zsgz/zszy/2026/0617/55889.html#1"
+          }
+        ],
+        "summaries": [
+          "**研究生办公与活动地点（官方通知）**：学院2024年夏令营通知与2023年导学团队通知均以“青岛校区”标注学院办公/研究生招生联系方式，地址同为青岛市即墨区滨海路72号；2018年博士招生日程表亦注明青岛校区计算机学院N3楼。以上为2018—2025年公开材料，2026年考研各专业实际培养校区与是否分校区培养，须以山东大学研究生招生简章及学院当年通知为准，暂标记待核实。https://www.cs.sdu.edu.cn/info/1068/6284.htm",
+          "已获取事实：山大专业目录按院系列出考试科目与备注，备注中含\"同等学力加试\"等限制项，说明同等学力考生须加试（属较早年度版本，非2026年）。2026年（及2026年12月初试对应年度）对学历、专业、推免/统考比例等报考限制原文本次未取得，标记待核实。来源：https://yz.sdu.edu.cn/shandongdaxue2023nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf\n\n另一返回件为2022年目录，备注栏同样仅体现同等学力加试等单项要求，未见完整学历报考条款。按官方资料核实原则，本次不足以确认用户（在读、本科身份待核）是否具备报考资格，需另行查阅当年招生章程原文。来源：https://www.yz.sdu.edu.cn/2022/211026shandongdaxue2022nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf",
+          "URL：https://hudong.moe.gov.cn/srcsite/A15/moe_778/s3261/202609/t20260923_1451734.html\n\nURL：https://hudong.moe.gov.cn/srcsite/A15/moe_778/s3261/202609/t20260923_1451734.html",
+          "本轮仅检索到该校冷链物流技术与管理专业\"专本贯通\"资料：2024年起招生，与临沂大学物流工程联合开展\"3+2\"分段培养，前3年专科、通过转段考试后进入本科阶段学习2年。该文件年度为2025年，发布日期2025-07-02，适用于该专业，与用户所填计算机科学与技术、本科大四不对应。\nhttp://www.sict.edu.cn/jg_xllwl/rcpy/zysz/2025/0702/51414.html\n\n同一专业招生页更新于2026-06-17，仅说明专科升本科需经转段考试，未涉及普通考研报考资格，也未涉及计算机类专业。用户\"已取得本科学历\"及应届本科毕业生身份在本轮资料中无官方依据，须以学籍证明和中国研究生招生信息网发布的当年度招生管理规定核实；2026年报考条件以主管部门正式公告为准，属待核实。\nhttp://www.sict.edu.cn/jg_xllwl/zsjy/zsgz/zszy/2026/0617/55889.html",
+          "2025年度《山东大学硕士研究生招生专业目录》中，计算机科学与技术学院 081200 计算机科学与技术（学硕）列 10 个研究方向：大数据与机器学习、计算机网络与边缘计算、计算机图形与三维视觉、人机交互与数据可视化、区块链与信息安全、人机融合智能和移动系统、体系结构与嵌入式系统、智能计算理论与技术、自然语言处理与信息检索、智能感知与多媒体处理；该页标注拟招 2 人。\nhttps://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#25#15\n\n同页初试科目为①101 思想政治理论②201 英语（一）③301 数学（一）④408 计算机学科专业基础；复试含上机、笔试（离散数学、数据库原理）与面试。此为 2025 年度版本，培养地点与最终科目以官方后续通知为准。\nhttps://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#25#15\n\n2026 年度硕士招生专业目录是否已发布，未在官方页面核实到，标记待核实，不得据现有版本推断报考资格。本轮搜索另返回 2023 年博士招生目录，培养层级不同，不适用。\nhttps://yz.sdu.edu.cn/2023/shandongdaxue2023nianboshiyanjiushengzhaoshengzhuanyemulu.pdf#20#11",
+          "**初试科目（官方目录）**：山东大学2024年硕士研究生招生专业目录载明，081200计算机科学与技术初试为①101思想政治理论②201英语（一）③301数学（一）④408计算机学科专业基础；2025年目录同专业科目一致。https://www.yz.sdu.edu.cn/2024/shandongdaxue2024nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#29#15\n\n**复试科目（2025年目录）**：该专业复试为笔试数据库原理（参考《数据库系统概论》第5版等），面试含英语听力及口语、专业综合知识面试及机试；同等学力加试程序设计、编译原理。https://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#25#24\n\n**2027年目录与待核实项**：山东大学2027年硕士研究生招生专业目录由官方研招网于2026-09-30公布，对应2026年10月报名、12月初试版本，计算机类具体科目及人数须查该页附件。本次检索未获得2027年招生简章及报考资格条款，408自命题口径、山东商业职业技术大学在读生的报考资格均待核实。https://yz.sdu.edu.cn/info/1022/1491.htm"
+        ]
+      },
+      "tasks": 16,
+      "sources": 7,
+      "recommendations": 0
+    },
+    {
+      "profile": "named",
+      "index": 3,
+      "startedAt": "2026-10-09T04:58:13.901Z",
+      "success": true,
+      "searchMs": 14760.091600000014,
+      "generationMs": 35744.4535,
+      "totalMs": 50504.544200000004,
+      "firstSourceMs": 2072.327099999995,
+      "searches": 7,
+      "requests": 8,
+      "maxConcurrency": 6,
+      "repairs": 0,
+      "progress": {
+        "tasks": [
+          {
+            "id": "policy",
+            "title": "国家政策与考试日期",
+            "status": "complete"
+          },
+          {
+            "id": "eligibility",
+            "title": "学历与升学资格",
+            "status": "complete"
+          },
+          {
+            "id": "directory",
+            "title": "目标院校专业目录",
+            "status": "complete"
+          },
+          {
+            "id": "subjects",
+            "title": "目标院校考试科目",
+            "status": "complete"
+          },
+          {
+            "id": "restrictions",
+            "title": "目标院校报考限制",
+            "status": "complete"
+          },
+          {
+            "id": "campus",
+            "title": "目标院校培养校区",
+            "status": "complete"
+          }
+        ],
+        "sources": [
+          {
+            "title": "专业代码、名称及研究方向 招生团队 招生人数 考试科目 加试科目 备注 080104 工程力学 01 智...",
+            "url": "https://yz.sdu.edu.cn/2023/shandongdaxue2023nianboshiyanjiushengzhaoshengzhuanyemulu.pdf#20#11"
+          },
+          {
+            "title": "083100生物医学工程 01生物医学测量及仪器 02生物医学信号与图像处理 03医学人工智能技术及应用 04生物信息与机器学习 团队招生 ①501英语 ...",
+            "url": "https://www.yz.sdu.edu.cn/2025boshimulu.pdf#20#11"
+          },
+          {
+            "title": "招生专业代码、名称及研究方向 招生人数 初试考试科目 复试考核内容 复试笔试参考书目 备注 081200 计算机...",
+            "url": "https://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#25#15"
+          },
+          {
+            "title": "湖北省2027年全国硕士研究生招生考试报名须知",
+            "url": "https://yz.chsi.com.cn/sch/viewZbBulletin--schId-369147,infoId-3552096243,categoryId-433156,mindex-10.dhtml"
+          },
+          {
+            "title": "广东外语外贸大学（招生单位11846）2027年硕士研究生招生考试网报公告（二）",
+            "url": "https://yz.chsi.com.cn/sswbgg/pages/msgdetail.do?dwdm=11846&msg_id=654533"
+          },
+          {
+            "title": "2027年全国硕士研究生招生考试公告",
+            "url": "https://yz.chsi.com.cn/kyzx/other/202609/20260927/2293973606.html#1"
+          },
+          {
+            "title": "中国航天科工集团第三研究院(8358所)_院校信息_中国研究生招生信息网",
+            "url": "https://yz.chsi.com.cn/sch/viewBulletin--schId-367942,infoId-3552305645,categoryId-446862,mindex-10.dhtml"
+          },
+          {
+            "title": "河南：2027年研考报名60问",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977279.html"
+          },
+          {
+            "title": "华东理工大学2027年硕士研究生招生简章",
+            "url": "https://yz.chsi.com.cn/wap/sch/detail?categoryId=10461192&infoId=3550533513&schId=368142"
+          },
+          {
+            "title": "山东大学2026年工程管理硕士（MEM）招生简章",
+            "url": "http://www.suz.sdu.edu.cn/info/1086/5173.htm#1#1"
+          },
+          {
+            "title": "山东大学2026年工商管理专业学位研究生（MBA方向）招生简章 - 招生动态",
+            "url": "http://www.mba.sdu.edu.cn/info/1010/1565.htm#1"
+          },
+          {
+            "title": "山东大学计算机科学与技术流动站简介",
+            "url": "https://rsc.qd.sdu.edu.cn/PDF/shandongdaxuejisuanjikexueyujishuboshihouliudongzhanjianjie.pdf#1#1"
+          },
+          {
+            "title": "2018年计算机科学与技术学院专业学位博士研究生招生工作日程表",
+            "url": "https://www.cs.sdu.edu.cn/info/1058/2738.htm"
+          },
+          {
+            "title": "山大计算机科学与技术学院",
+            "url": "https://www.cs.sdu.edu.cn/ssjg.jsp?wbtreeid=1082&searchScope=0&currentnum=11&newskeycode2=5aSn5pWw5o2uIOW5tuihjOiuoeeulzIwMTk%3D"
+          },
+          {
+            "title": "计算机科学与技术学院关于举办“2026年全国优秀大学生暑期夏令营”活动的通知",
+            "url": "https://www.cs.sdu.edu.cn/info/1068/6855.htm"
+          },
+          {
+            "title": "计算机科学与技术学院/浪潮人工智能学院关于举办“2024年全国优秀大学生暑期夏令营”活动的通知 - 研究生教育",
+            "url": "https://www.cs.sdu.edu.cn/info/1068/6284.htm#1"
+          },
+          {
+            "title": "计算机科学与技术学院2020年以“申请-考核”方式招收博士研究生简章 - 研究生教育",
+            "url": "https://www.cs.sdu.edu.cn/info/1068/3109.htm#1"
+          },
+          {
+            "title": "【研究生】计算机科学与技术学院2019年3月一志愿硕士研究生进入复试的初试成绩调整说明及进入复试公示名单",
+            "url": "https://www.cs.sdu.edu.cn/info/1058/2674.htm"
+          },
+          {
+            "title": "2015年计算机科学与技术学院博士研究生招生工作日程表",
+            "url": "https://www.cs.sdu.edu.cn/info/1058/2530.htm"
+          },
+          {
+            "title": "计算机学院举行2017级研究生院领导见面会",
+            "url": "https://www.view.sdu.edu.cn/info/1023/94647.htm"
+          },
+          {
+            "title": "计算机学院开展2023级研究生新生入学教育系列活动-山东大学（青岛）",
+            "url": "https://www.qdxq.sdu.edu.cn/info/1820/54443.htm"
+          },
+          {
+            "title": "《2026年全国硕士研究生招生工作管理规定》",
+            "url": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-4.html#1"
+          },
+          {
+            "title": "招生政策_全国硕士研究生招生信息公开平台",
+            "url": "https://yz.chsi.com.cn/zsgs/zsinfo/queryzszc.action"
+          },
+          {
+            "title": "复试录取办法_全国硕士研究生招生信息公开平台",
+            "url": "https://yz.chsi.com.cn/zsgs/fslq/detail.action?zsgsId=3541433080&schCode=13023#1"
+          },
+          {
+            "title": "新疆：2026年全国硕士研究生招生考试报名公告 - 新疆：2026年全国硕士研究生招生考试报名公告",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202510/20251009/2293437618.html#1"
+          },
+          {
+            "title": "贵州省2026年全国硕士研究生招生考试报名通告",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202509/20250930/2293436094.html;jsessionid=8858C90EB8CA4852EF36D876C671159C"
+          }
+        ],
+        "summaries": [
+          "https://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf",
+          "已公布资料（博士层次）：047 计算机科学与技术学院设 081200 计算机科学与技术、085404 计算机技术；048 软件学院设 085405 软件工程、085410 人工智能，均为团队招生，考试科目为 501 英语＋700 材料审核＋922 专业素质，同等学力加试计算机系统结构、离散数学、思想政治理论。该目录属博士招考，**不适用于硕士报考**，年份与专业方向需以最新硕士简章为准。\nhttps://yz.sdu.edu.cn/2023/shandongdaxue2023nianboshiyanjiushengzhaoshengzhuanyemulu.pdf\nhttps://www.yz.sdu.edu.cn/2025boshimulu.pdf",
+          "**国家初试日期（官方已公布）**\n研招网《2027年全国硕士研究生招生考试公告》（2026年9月27日发布）及《2027年全国硕士研究生招生工作管理规定》：2027年研考初试定于2026年12月19日至20日（每天8:30-11:30、14:00-17:00），报名时间2026年10月15日至24日，预报名10月9日至12日，每日9:00-22:00。该日期适用于全国统考，不含单独考试等特殊安排。https://yz.chsi.com.cn/kyzx/other/202609/20260927/2293973606.html#1\n\n**省级与招生单位口径印证**\n湖北省教育考试院报名须知（2026-10-08）：2027年研考初试定于2026年12月19日至20日举行，报名与缴费按省级公告执行，报考点选择以山东省等省级机构公布为准。https://yz.chsi.com.cn/sch/viewZbBulletin--schId-369147,infoId-3552096243,categoryId-433156,mindex-10.dhtml\n\n**用户报考资格待核实**\n上述公告未涉及职业本科在校生（山东商业职业技术大学）报考资格与应届身份认定，须以教育部管理规定及山东省教育招生考试院当年公告为准；2028年及以后年度要求尚未公布，标记待核实。https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977279.html",
+          "已核实事实：山东大学2026年工程管理硕士（MEM）简章，发布日期2025-10-01，报考条件要求\"本科毕业后有3年以上工作经验\"，专科或本科结业须达同等学力并有5年以上工作经验，详见 http://www.suz.sdu.edu.cn/info/1086/5173.htm\n\n山东大学2026年MBA方向简章，发布日期2025-09-21，要求本科毕业3年以上工作经验（2023年9月1日前获证），非全日制考生只能录取为定向就业，详见 http://www.mba.sdu.edu.cn/info/1010/1565.htm",
+          "官方资料显示：该学院2017年由济南搬迁至**青岛校区**，院址为山东省青岛市即墨区滨海公路72号（山东大学（青岛）第周苑C座），研究生办公室、复试与考核均在该校区举行；2026年夏令营通知亦标注\"计算机科学与技术学院（青岛校区）\"，说明现行研究生培养地点在青岛，而非济南各校区。学院现设计算机科学与技术学术硕/博、计算机技术专业硕/博及博士后流动站。2026年考研各专业具体录取校区仍以当年招生简章与复试通知为准，属待核实。\nhttps://www.cs.sdu.edu.cn/info/1068/6855.htm\nhttps://rsc.qd.sdu.edu.cn/PDF/shandongdaxuejisuanjikexueyujishuboshihouliudongzhanjianjie.pdf\n\n上述信息适用于计算机科学与技术学院（含人工智能相关方向）研究生培养，来源含发布于2018—2023年的招生日程、新生教育及2026年夏令营通知，均指向青岛校区。用户为在读职业院校背景，报考资格、专业限制及山东大学软件学院等其他计算机相关单位的培养校区本轮未搜索，均待核实，不作推断。\nhttps://www.qdxq.sdu.edu.cn/info/1820/54443.htm\nhttps://www.cs.sdu.edu.cn/info/1058/2738.htm",
+          "**一、政策依据（最新国家规定）**\n《2026年全国硕士研究生招生工作管理规定》（教学〔2025〕2号），2025年9月25日由教育部发布、研招网刊载。该规定覆盖2025年10月报名的2026年招生年度；用户初试目标为2026年12月，属2027年招生年度，相应规定与报名时间尚未公布，待核实。\nhttps://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-4.html#1\n\n**二、学历资格口径（第十五条）**\n可报考情形为：①国家承认学历的应届本科毕业生（含成人高校、自考/网络教育届时可毕业本科生）；②已具国家承认本科毕业学历；③高职（专科）毕业满2年及以上（至录取当年入学前）或本科结业生，且符合招生单位具体学业要求，按本科毕业同等学力报考。专科身份不能直接视为已获本科资格。\nhttps://yz.chsi.com.cn/zsgs/zsinfo/queryzszc.action\n\n**三、对本人的适用与待核实项**\n若在读职业本科/专升本，须以“国家承认学历的应届本科毕业生、届时可毕业”身份报考，学籍层次与培养安排须以学校官方文件核实，不得推定；若为专科层次，则走专升本毕业后报考，或专科毕业满2年按同等学力报考。山东大学是否接收同等学力、加试要求属招生单位自定，需查其研究生招生官网简章，本轮未核实。\nhttps://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-4.html#1"
+        ]
+      },
+      "tasks": 16,
+      "sources": 8,
+      "recommendations": 1
+    },
+    {
+      "profile": "local",
+      "index": 1,
+      "startedAt": "2026-10-09T04:59:04.406Z",
+      "success": true,
+      "searchMs": 21577.916100000002,
+      "generationMs": 52043.4823,
+      "totalMs": 73621.39750000002,
+      "firstSourceMs": 3033.6805999999924,
+      "searches": 16,
+      "requests": 11,
+      "maxConcurrency": 6,
+      "repairs": 0,
+      "progress": {
+        "tasks": [
+          {
+            "id": "policy",
+            "title": "国家政策与考试日期",
+            "status": "complete"
+          },
+          {
+            "id": "eligibility",
+            "title": "学历与升学资格",
+            "status": "complete"
+          },
+          {
+            "id": "discovery",
+            "title": "发现符合条件的院校",
+            "status": "complete"
+          },
+          {
+            "id": "school-0-program",
+            "title": "济南大学 · 专业与报考要求",
+            "status": "complete"
+          },
+          {
+            "id": "school-0-location",
+            "title": "济南大学 · 校区与历史层次",
+            "status": "complete"
+          },
+          {
+            "id": "school-1-program",
+            "title": "山东师范大学 · 专业与报考要求",
+            "status": "complete"
+          },
+          {
+            "id": "school-1-location",
+            "title": "山东师范大学 · 校区与历史层次",
+            "status": "complete"
+          },
+          {
+            "id": "school-2-program",
+            "title": "山东财经大学 · 专业与报考要求",
+            "status": "complete"
+          },
+          {
+            "id": "school-2-location",
+            "title": "山东财经大学 · 校区与历史层次",
+            "status": "complete"
+          }
+        ],
+        "sources": [
+          {
+            "title": "2024年山东省成人高考报名办法解读（25问） - 2024年山东省成人高考报名办法解读（25问）",
+            "url": "https://cdn.sdzk.cn/NewsInfo.aspx?NewsID=6687#1"
+          },
+          {
+            "title": "2024年山东省成人高考报名办法解读（25问）",
+            "url": "https://www.sdzk.cn/NewsInfo.aspx?NewsID=6687#1"
+          },
+          {
+            "title": "山东省2023年4月高等教育自学考试报名工作政策解读",
+            "url": "https://www.sdzk.cn/Floadup/file/20221205/6380585726384395662411336.pdf#1#1"
+          },
+          {
+            "title": "附件",
+            "url": "https://www.sdzk.cn/Floadup/file/20210827/6376567737800605695953204.docx#1#1"
+          },
+          {
+            "title": "关于做好2022年成人高校招生考试报名工作的通知 - 关于做好2022年成人高校招生考试报名工作的通知",
+            "url": "https://www.sdzk.cn/NewsInfo.aspx?NewsID=5891#1"
+          },
+          {
+            "title": "2025年普通专升本考试报名问题解答（30问） - 2025年普通专升本考试报名问题解答（30问）",
+            "url": "https://www.sdzk.cn/newsinfo.aspx?newsid=6772#1"
+          },
+          {
+            "title": "2026年普通专升本考试报名问题解答（30问）",
+            "url": "https://cdn.sdzk.cn/NewsInfo.aspx?NewsID=7119#1"
+          },
+          {
+            "title": "关于做好2022年普通高等教育专科升本科考试招生工作的通知",
+            "url": "https://www.sdzk.cn/NewsInfo.aspx?NewsID=5647#1"
+          },
+          {
+            "title": "关于做好山东省2020年普通高等教育专科升本科招生考试报名工作的通知 - 关于做好山东省2020年普通高等教育专科升本科招生考试报名工作的通知",
+            "url": "https://www.sdzk.cn/NewsInfo.aspx?NewsID=4732#1"
+          },
+          {
+            "title": "2026年山东省成人高考报名公告",
+            "url": "https://www.sdzk.cn/NewsInfo.aspx?NewsID=7345#1"
+          },
+          {
+            "title": "山东省2026年普通类常规批第1次志愿投档情况表",
+            "url": "https://cdn.sdzk.cn/NewsInfo.aspx?BCID=20&CID=1204&NewsID=7312"
+          },
+          {
+            "title": "教育部关于印发《2025年全国硕士研究生招生工作管理规定》的通知 - 教育部关于印发《2025年全国硕士研究生招生工作管理规定》的通知",
+            "url": "https://yz.chsi.com.cn/kyzx/jybzc/202410/20241008/2293342617.html#1"
+          },
+          {
+            "title": "《2026年全国硕士研究生招生工作管理规定》",
+            "url": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-9.html"
+          },
+          {
+            "title": "2021年全国硕士研究生招生考试公告 - 2021年全国硕士研究生招生考试公告",
+            "url": "https://yz.chsi.com.cn/kyzx/jybzc/202009/20200921/1979666132.html?ivk_sa=1024320u#1"
+          },
+          {
+            "title": "河南：2027年研考报名60问",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977279.html"
+          },
+          {
+            "title": "教育部关于印发《2022年全国硕士研究生招生工作管理规定》的通知 - 第六十条 考生体检工作由招生单位在考生拟录取后组织进行",
+            "url": "https://yz.chsi.com.cn/kyzx/jybzc/202109/20210903/2105941509.html#3"
+          },
+          {
+            "title": "2027年全国硕士研究生招生考试公告",
+            "url": "https://yz.chsi.com.cn/kyzx/other/202609/20260927/2293973606.html#1"
+          },
+          {
+            "title": "成都大学2026年硕士研究生招生调剂工作办法",
+            "url": "https://yz.chsi.com.cn/sch/tjzc--method-viewPub,infoId-3541438084,categoryId-671935,schId-368470,mindex-11.dhtml"
+          },
+          {
+            "title": "中国航天科工集团第三研究院(8358所)_院校信息_中国研究生招生信息网",
+            "url": "https://yz.chsi.com.cn/sch/viewBulletin--schId-367942,infoId-3552305645,categoryId-446862,mindex-10.dhtml"
+          },
+          {
+            "title": "华东理工大学2026年硕士研究生招生简章",
+            "url": "https://yz.chsi.com.cn/wap/sch/detail?categoryId=10461192&infoId=3421171088&schId=368142#1#1#1"
+          },
+          {
+            "title": "招生政策_全国硕士研究生招生信息公开平台",
+            "url": "https://yz.chsi.com.cn/zsgs/zsinfo/queryzszc.action"
+          },
+          {
+            "title": "保险学院2024届硕士研究生学位论文答辩安排",
+            "url": "https://insurance.sdufe.edu.cn/info/1059/4589.htm"
+          },
+          {
+            "title": "保险硕士（MI）专业学位研究生培养方案2021版",
+            "url": "http://insurance.sdufe.edu.cn/info/1028/3572.htm"
+          },
+          {
+            "title": "【中国山东网】山东财大主校区在章丘圣井开建 2020年可容纳3万在校生-山东财经大学新闻网",
+            "url": "https://news.sdufe.edu.cn/info/1022/9135.htm"
+          },
+          {
+            "title": "我校主校区建设开工仪式在圣井校区隆重举行",
+            "url": "https://shengjing.sdufe.edu.cn/info/1051/1203.htm"
+          },
+          {
+            "title": "【齐鲁晚报】山财大圣井主校区开建 明年秋季所有新生集体入驻-山东财经大学新闻网",
+            "url": "https://news.sdufe.edu.cn/info/1022/9133.htm"
+          },
+          {
+            "title": "山东财经大学保险学院",
+            "url": "https://insurance.sdufe.edu.cn/jsks.jsp?a216369t=3&a216369p=1&a216369c=10&wbtreeid=1244"
+          },
+          {
+            "title": "统计学院组织2019级研究生参观圣井校区",
+            "url": "http://student.sdufe.edu.cn/info/1012/1313.htm"
+          },
+          {
+            "title": "shengjing",
+            "url": "http://shengjing.sdufe.edu.cn/info/1050/1516.htm"
+          },
+          {
+            "title": "访学交流-山东财经大学保险学院",
+            "url": "http://insurance.sdufe.edu.cn/xtgz/fxjl/2.htm"
+          },
+          {
+            "title": "第九届省级教学成果奖（高等教育类）支撑材料-成果宣传与推广",
+            "url": "https://jxcgj2021.sdufe.edu.cn/__local/7/39/A5/042A0F89E00838C81C8820F656F_A9D9203D_229F9B.pdf#1#1"
+          },
+          {
+            "title": "招生单位名称 专业代码 专业名称 研究方向 拟调 剂数 调剂系统开放时间 调剂复试 方式 基本要求",
+            "url": "http://www.yjszs.sdnu.edu.cn/system/resource/pdfjs/viewer.html?file=%2F__local%2FA%2F3B%2F15%2F3EC57960EF2CA39364E5046E1E0_F176C514_3499E.pdf&_x_output_type_b6db407c4_=embedded_pdf#4#4"
+          },
+          {
+            "title": "一、拟调剂专业与计划",
+            "url": "https://www.ischool.sdnu.edu.cn/system/resource/pdfjs/viewer.html?file=%2F__local%2FD%2F81%2F10%2F82D1E1505FCA56F87616774B9B9_1AADDCDB_30DC4.pdf#1#1"
+          },
+          {
+            "title": "山东师范大学关于2026年硕士研究生招生考试部分专业考试科目调整的公告",
+            "url": "https://www.yjszs.sdnu.edu.cn/system/resource/pdfjs/viewer.html?file=%2F__local%2F8%2FC1%2F90%2F6486FCB6BEE008D2F23F41BC4E3_846DC92C_2C34B.pdf&_x_output_type_b6db407c4_=embedded_pdf#2#1"
+          },
+          {
+            "title": "专硕招生专业-山东师范大学信息科学与工程学院",
+            "url": "https://ischool.sdnu.edu.cn/jyjx/yjsjy/zszy/zszszy.htm"
+          },
+          {
+            "title": "1.8 0451 教育硕士 045108 学科教学（英语） 1.9 0451 ...",
+            "url": "http://www.xxgk.sdnu.edu.cn/__local/B/C6/8E/516F0CAEC96718B45D467775B9E_C421715B_4ECA66.pdf#14#2"
+          },
+          {
+            "title": "序号 专业学位代码 专业学位名称 专业领域代码 专业领域名称 批准时间 1 0451 <...",
+            "url": "http://www.xxgk.sdnu.edu.cn/__local/3/0F/BA/75FC4CD2C3A3A53830A978922C2_17BACCFE_33CAA3.pdf#16#4"
+          },
+          {
+            "title": "研究生教育发展质量年度报告",
+            "url": "http://www.xxgk.sdnu.edu.cn/__local/1/BD/D5/0F9CA2A080A7C6E728699654B1F_A2CD3142_194402.pdf#8#1"
+          },
+          {
+            "title": "英语授课项目-山东师范大学国际教育学院",
+            "url": "https://cie.sdnu.edu.cn/lxsgz/zsxx/yyskxm.htm"
+          },
+          {
+            "title": "2026年硕士研究生招生章程",
+            "url": "http://www.yjszs.sdnu.edu.cn/info/1009/4765.htm#2#2#1"
+          },
+          {
+            "title": "山东师范大学2026年公共管理硕士（MPA）专业学位研究生招生简章-山东师范大学公共管理学院 - 山东师范大学2026年公共管理硕士（MPA）专业学位研究生招生简章",
+            "url": "http://www.gggl.sdnu.edu.cn/info/1242/29287.htm#1"
+          },
+          {
+            "title": "2025年硕士研究生招生章程 - （一）考生务必认真、详尽、准确填写联系方式，如因考生填写联系方式有误，造成无法联系考生而影响考生复试录取等事宜，我校概不负责",
+            "url": "http://www.yjszs.sdnu.edu.cn/info/1009/4095.htm?s=1102#2"
+          },
+          {
+            "title": "本学位点积极打造复合型、创新型和应用型专业学位研究生人才培养的平台",
+            "url": "http://www.yjs.sdnu.edu.cn/images/2022ndbg.pdf#264#252"
+          },
+          {
+            "title": "建设等方面下功夫，锤炼办学特色，培养优秀人才，服务山东发展",
+            "url": "http://www.yjs.sdnu.edu.cn/__local/6/40/B2/3B3DDFB5C8BF22B13506D25066B_D09C8157_12AD8F9.pdf#244#233"
+          },
+          {
+            "title": "2024年硕士研究生招生简章 - - 硕士招生简章 当前位置： 网站首页 >> 招生简章 >> 硕士招生简章 >> 正文",
+            "url": "http://www.yjszs.sdnu.edu.cn/info/1009/3355.htm#1"
+          },
+          {
+            "title": "各位考生：",
+            "url": "http://www.yjszs.sdnu.edu.cn/system/resource/pdfjs/viewer.html?file=%2F__local%2F5%2F10%2F88%2FBDC353410C175C68B89B67D6F38_4C71A90E_13C82.pdf&_x_output_type_b6db407c4_=embedded_pdf#1#1"
+          },
+          {
+            "title": "济南大学2018年硕士研究生招生章程",
+            "url": "http://yz.ujn.edu.cn/info/1014/1201.htm"
+          },
+          {
+            "title": "济南大学2017年硕士研究生招生章程 - 站内搜索：",
+            "url": "https://yz.ujn.edu.cn/info/1033/1057.htm#1"
+          },
+          {
+            "title": "济南大学2024年普通高等教育招生章程",
+            "url": "https://admission.ujn.edu.cn/__local/C/77/9C/DAE2E9A1A73127D221A670DDF00_A7741B56_1E119.pdf#1#1"
+          },
+          {
+            "title": "通讯地址：山东省济南市南辛庄西路336号 咨询电话：0531- 82765900 图文传真：0531- 82765901 电子邮箱：zsb@ujn",
+            "url": "https://admission.ujn.edu.cn/info/1024/2532.htm?_x_output_type_b6db407c4_=embedded_pdf#2#1"
+          },
+          {
+            "title": "济南大学125300会计（MPAcc）专业学位硕士点简介 - 济南大学125300会计（MPAcc）专业学位硕士点简介",
+            "url": "http://sxy.ujn.edu.cn/info/1403/9627.htm#1"
+          },
+          {
+            "title": "基建动态-济南大学基建处",
+            "url": "http://jjc.ujn.edu.cn/jjdt.htm"
+          },
+          {
+            "title": "文化和旅游学院“开学第一课”扎实推进安全有序复学",
+            "url": "http://lwxy.ujn.edu.cn/info/1026/2901.htm"
+          },
+          {
+            "title": "关于2017年寒假留校学生住宿的通知",
+            "url": "http://hqc.ujn.edu.cn/info/1032/1659.htm"
+          },
+          {
+            "title": "学校制度-济南大学基建处",
+            "url": "http://jjc.ujn.edu.cn/gzzd/xxzd.htm"
+          },
+          {
+            "title": "学校领导走入思政课堂，我校师生迎来开学第一课",
+            "url": "http://sqa.ujn.edu.cn/phone/jwgl/393.html"
+          },
+          {
+            "title": "学校2016年普通高考本科招生录取工作圆满结束-山东财经大学新闻网",
+            "url": "http://news.sdufe.edu.cn/info/1071/20616.htm"
+          },
+          {
+            "title": "济南大学研究生处-导师列表",
+            "url": "https://yanzhao.ujn.edu.cn/gms/ds/dszlgl/enterViewDszl4Sd?userId=4028818e84f4507b0184f46a4b4417c7&xkbh=4028818e847de7f401847e0269a2001f&yxsh=4028818e846f04af01846f0764ca0013#1#1"
+          },
+          {
+            "title": "济南大学“计算机科学与技术”一级学科硕士学位研究生",
+            "url": "https://yjs.ujn.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1485039247&wbfileid=FA754AE8126EC6BC2F933845989AA240#1#1"
+          },
+          {
+            "title": "培养单位 学科（领域） 导师姓名 信息科学与工程学院 081000 | 信息与通信工程(8 人) 高嵩 ...",
+            "url": "http://yjs.ujn.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1485039247&wbfileid=0A7FA685ACA448135D98CC282AF98BEC#3#3"
+          },
+          {
+            "title": "Graduate Programs",
+            "url": "http://isao.ujn.edu.cn/English/PROGRAMS/Graduate_Programs.htm"
+          },
+          {
+            "title": "719 教育与心理科学学院 045400 应用心理 02 组织管理与社会心理服务 全日制 721...",
+            "url": "http://yz.ujn.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1499064724&wbfileid=27B4834168D7C4F81BCAC05920527E83#1#1"
+          },
+          {
+            "title": "济南大学卓越工程师学院2025年硕士研究生招生简章",
+            "url": "http://yz.ujn.edu.cn/info/1032/3214.htm#1"
+          },
+          {
+            "title": "705外国语学院 （联系电话：0531- 82767743） 050201 英语语言文学 学术学位 全日制 4...",
+            "url": "http://yz.ujn.edu.cn/system/resource/pdfjs/viewer.html?file=%2F__local%2F1%2FED%2FAF%2F6CCEC03033132AA9D3C11919504_38606EC0_15EEC.pdf&_x_output_type_b6db407c4_=embedded_pdf#1#1"
+          },
+          {
+            "title": "“计算机科学与技术”一级学科硕士学位研究生培养方案",
+            "url": "https://yjs.ujn.edu.cn/__local/6/75/E9/801D18EBCA53A4D4C8DF6BEB584_AD854E83_1C49A.pdf?e=.pdf#1#1"
+          },
+          {
+            "title": "|070300|化学|全日制|理学硕士|学术型|36|",
+            "url": "https://xxgk.ujn.edu.cn/__local/9/44/71/5EB6DAE81F0F70C15E45DB1B086_D731A272_16FD49.pdf#9#4"
+          },
+          {
+            "title": "济南大学学位点建设情况",
+            "url": "http://xkc.ujn.edu.cn/__local/7/55/81/569B48AB5004C49D3836FFDD033_0138225D_18B19.pdf#1#1"
+          },
+          {
+            "title": "山东财经大学学位授权点建设年度报告（2023年）",
+            "url": "https://xkjsbgs.sdufe.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1238845608&wbfileid=4726263#1#1"
+          },
+          {
+            "title": "12 法学院 诉讼法学 100.00 法学理论 100.00 ...",
+            "url": "https://yjsy.sdufe.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1542346327&wbfileid=3650911#6#5"
+          },
+          {
+            "title": "山东财经大学",
+            "url": "https://xkjsbgs.sdufe.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1238845608&wbfileid=3819424#1#1"
+          },
+          {
+            "title": "欢迎报考智能科学与技术学院2025年硕士研究生 - 欢迎报考智能科学与技术学院2025年硕士研究生",
+            "url": "https://sais.sdufe.edu.cn/info/1010/2378.htm#1"
+          },
+          {
+            "title": "山东财经大学英语授课学位项目 Shandong university of finance and economics English-taught Degree Programs",
+            "url": "http://sie.sdufe.edu.cn/info/1209/79551.htm"
+          },
+          {
+            "title": "授，研究方向主要包括人工智能、深度学习、计算机视觉，累计发表",
+            "url": "https://cs.sdufe.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1224051943&wbfileid=4749751#7#6"
+          },
+          {
+            "title": "培养方案-计算机与人工智能学院",
+            "url": "https://cs.sdufe.edu.cn/rcpy/yjsjy1/pyfa.htm"
+          },
+          {
+            "title": "计算机科学与技术学院",
+            "url": "https://yjszs.sdufe.edu.cn/zyjs/jsjkxyjsxy.htm"
+          },
+          {
+            "title": "序号 学院名称 招生专业代码及名称 拟招生数 初试科目 复试科目 同等学力 加试科目 学院联系电话",
+            "url": "https://yjszs.sdufe.edu.cn/__local/4/C9/D7/CFAF57AF24D716CD772295B370F_F5565F72_FAB3B.pdf#3#1"
+          },
+          {
+            "title": "2026年研究生新生入学报到须知",
+            "url": "http://www.yjs.sdnu.edu.cn/info/1101/70576.htm?_x_output_type_b6db407c4_=embedded_pdf#1#1"
+          },
+          {
+            "title": "2024级研究生入学须知-山东师范大学迎新网 - 通知公告 Notice",
+            "url": "http://2025yx.sdnu.edu.cn/info/1021/1351.htm#1"
+          },
+          {
+            "title": "关于2025级拟录取博士研究生办理相关手续的说明",
+            "url": "https://www.yjszs.sdnu.edu.cn/system/resource/pdfjs/viewer.html?file=%2F__local%2F1%2F87%2FFD%2FD5FE81DFFBE54156642FBAA275A_CB940034_1A5A9.pdf&_x_output_type_b6db407c4_=embedded_pdf#1#1"
+          },
+          {
+            "title": "长清湖校区与千佛山校区的详细地址-山东师范大学迎新网",
+            "url": "https://2025yx.sdnu.edu.cn/info/1061/1781.htm"
+          },
+          {
+            "title": "体育学院",
+            "url": "https://ty.sdnu.edu.cn/info/1027/6942.htm"
+          },
+          {
+            "title": "山东师范大学2017级研究生入学须知",
+            "url": "http://www.mpacc.sdnu.edu.cn/info/1093/1732.htm"
+          },
+          {
+            "title": "机构设置-山东师范大学研究生工作部",
+            "url": "http://yjsdy.sdnu.edu.cn/bmjj/jgsz.htm"
+          },
+          {
+            "title": "2019年接收推荐免试硕士研究生工作日程表-山东师范大学研究生招生信息网 - - 招生录取信息公示 当前位置： 网站首页 >> 信息公开 >> 招生录取信息公示 >> 正文",
+            "url": "http://www.yjszs.sdnu.edu.cn/info/1026/1098.htm#1"
+          },
+          {
+            "title": "【迎新】学校各培养单位2017级研究生辅导员联系方式 -山东师范大学研究生工作部",
+            "url": "http://yjsdy.sdnu.edu.cn/info/1047/1275.htm"
+          },
+          {
+            "title": "【通知】关于做好2022级研究生入学各项工作的通知-山东师范大学研究生工作部 - 通知",
+            "url": "http://yjsdy.sdnu.edu.cn/info/1047/9443.htm#1"
+          },
+          {
+            "title": "济南大学2016年全国各省（市、自治区）普通文理录取分数线",
+            "url": "https://xxgk.ujn.edu.cn/__local/2/D4/61/18EB3CE24CAB055ADA7C69E792C_BBC62789_218FF.pdf#2#1"
+          },
+          {
+            "title": "考生个人录取信息查询渠道和办法，分批次、分科类录取人数和录取最低分-济南大学信息公开网",
+            "url": "https://xxgk.ujn.edu.cn/xxgkml/xwgk/zsksxx/ksgrlqxxcxqdhbf/1.htm"
+          },
+          {
+            "title": "济南大学2026年硕士研究生招生章程",
+            "url": "https://yz.ujn.edu.cn/info/1032/3944.htm#1#1#1"
+          },
+          {
+            "title": "济南大学2026年MBA招生简章",
+            "url": "https://sxy.ujn.edu.cn/info/1463/24430.htm#1"
+          },
+          {
+            "title": "济南大学2026年申请考核博士研究生招生简章",
+            "url": "http://yz.ujn.edu.cn/info/1037/4364.htm#1"
+          },
+          {
+            "title": "欢迎报考2026年济南大学公共管理硕士（MPA）专业学位研究生！",
+            "url": "https://spl.ujn.edu.cn/info/1181/67571.htm#1"
+          },
+          {
+            "title": "济南大学2026年硕士研究生招生提醒",
+            "url": "http://yz.ujn.edu.cn/info/1032/3874.htm"
+          },
+          {
+            "title": "济南大学商学院2026年同等学力人员申请硕士学位招生简章",
+            "url": "http://sxy.ujn.edu.cn/info/1133/10446.htm#1#1#1"
+          },
+          {
+            "title": "硕士报考信息-济南大学研究生招生",
+            "url": "https://yz.ujn.edu.cn/yzgz/ssbkxx.htm"
+          },
+          {
+            "title": "招生工作进展-济南大学研究生招生",
+            "url": "http://yz.ujn.edu.cn/yzgz/zsgzjz/25.htm"
+          },
+          {
+            "title": "济南大学生物科学与技术学院与卓越工程师学院制药工程2026硕士研究生调剂公告-济南大学生物学院",
+            "url": "http://bio.ujn.edu.cn/info/1058/11413.htm"
+          },
+          {
+            "title": "济南大学管理科学与工程学院2026年同等学力人员申请硕士学位招生简章",
+            "url": "http://iss.ujn.edu.cn/info/1024/10032.htm#1#1"
+          },
+          {
+            "title": "山东师范大学2019年本科招生录取工作结束-山东师范大学地理与环境学院",
+            "url": "http://www.pre.sdnu.edu.cn/info/1401/27391.htm"
+          },
+          {
+            "title": "齐鲁晚报：山东师大09年本科招生计划较去年增加800人 （2009-5-12）",
+            "url": "http://www.qlshx.sdnu.edu.cn/info/10434/91043.htm"
+          },
+          {
+            "title": "齐鲁晚报等：山师招493名免费师范生！过了二本线就能报(2016-06-06)",
+            "url": "http://www.qlshx.sdnu.edu.cn/info/10434/89383.htm"
+          },
+          {
+            "title": "山东师范大学2016年山东省外各专业招生录取情况 - 山东师范大学2016年山东省外各专业招生录取情况",
+            "url": "https://cie.sdnu.edu.cn/info/1072/1924.htm#1"
+          },
+          {
+            "title": "2015年（山东省外）录取进程-山东师范大学本科招生网",
+            "url": "http://www.zsb.sdnu.edu.cn/info/1003/1258.htm"
+          },
+          {
+            "title": "烟台日报：山师今年新增两个本科专业（2008-5-28）",
+            "url": "http://www.qlshx.sdnu.edu.cn/info/10434/91199.htm"
+          },
+          {
+            "title": "山东师范大学2016年山东省内录取批次及时间安排-山东师范大学本科招生网",
+            "url": "http://www.zsb.sdnu.edu.cn/info/1003/1202.htm"
+          },
+          {
+            "title": "山东师大在山东省本科一批次录取结束-山东师范大学本科招生网",
+            "url": "https://www.zsb.sdnu.edu.cn/info/1003/1209.htm"
+          },
+          {
+            "title": "关于评选山东师范大学2015年新生发展奖学金的通知-山东师范大学本科招生网",
+            "url": "http://www.zsb.sdnu.edu.cn/info/1003/1250.htm"
+          },
+          {
+            "title": "山东师范大学2011年招生喜获丰收-山东师范大学校长办公室",
+            "url": "http://www.xiaoban.sdnu.edu.cn/info/1061/37701.htm"
+          }
+        ],
+        "summaries": [
+          "**国家政策（最新已公布年度）**\n教育部现行《全国硕士研究生招生工作管理规定》最新为2027年版，2026年9月24日发布（2026年版发布于2025年9月24—25日）；规定初试由国家统一组织，教育部统一确定初试、复试时间，报考资格、加分与调剂以该规定为准。2029年版管理规定尚未公布，待核实，不得沿用往年要求。来源：https://yz.chsi.com.cn/zsgs/zsinfo/queryzszc.action\n\n**初试日期**\n2027年研考初试时间为2026年12月19日至20日（招生单位公告公示）；2026年为2025年12月20日至21日。2029年初试日期官方未公布，用户预留的2029年12月15日仅为暂定考试季安排，非官方日期，须待教育部当年公告确认。来源：https://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-9.html",
+          "山东省教育招生考试院《2026年普通专升本考试报名问题解答（30问）》（发布时间2025-12-22）载明：招生对象为我省2026年普通高校应届专科毕业生，以及应征入伍地为我省的退役大学生士兵；报名须同时满足5项基本条件（如专科阶段无记过及以上处分或报名前已解除）并具备校荐生、自荐生、建档立卡家庭考生、退役大学生士兵、大赛保送生之一资格；2026年全省统一报名时间为3月11日—13日。2029年对应年度政策尚未公布，属待核实。\nhttps://cdn.sdzk.cn/NewsInfo.aspx?NewsID=7119#1\n\n《2026年山东省成人高考报名公告》规定，报考专科起点升本科者须已取得经教育部审定核准的国民教育系列高等学校或自考机构颁发的专科毕业证书、本科结业证书或以上证书，且报考对象为国家承认学历的各类高、中等学校在校生以外人员，即在校期间不具备该项报考资格。用户所在校的培养层次、学制及专升本、考研报考资格，本次检索未获该校官方文件及研招报考条件文件，均待核实，不作本科资格推断。\nhttps://www.sdzk.cn/NewsInfo.aspx?NewsID=7345#1",
+          "本轮仅完成1次搜索（受本次任务上限约束），实际只返回1个官方页面：山东省教育招生考试院《山东省2026年普通类常规批第1次志愿投档情况表》，发布时间2026-07-19，属本科批次合并后的常规批投档口径，不能单独证明任一院校本科一批历史层次，也不能证明其设有计算机类硕士招生。故仅以济南市地域、计算机相关方向吻合作为候选线索列出济南大学、山东师范大学、山东财经大学，三校均为真实在济院校，但专业方向、培养校区与2017年前本科一/二批历史事实均未经本轮核实，属待核实事项，不作为推荐结论；建议后续对每校分别检索官方本科招生网历史招生计划/录取统计及最新招生专业目录。本轮唯一官方出处（三个候选共用，非各校已核实证据）：https://cdn.sdzk.cn/NewsInfo.aspx?BCID=20&CID=1204&NewsID=7312",
+          "官方资料显示，山东财经大学舜耕校区位于济南市市中区舜耕路40号，圣井校区位于济南市章丘区经十东路18602号；2017年3月校方宣布圣井校区为主校区，功能定位为本科生、研究生教育和高端财经培训，其地址均在济南市范围内。但本轮未检索到计算机相关专业研究生具体培养校区的官方专文，需按当年招生专业目录与培养单位公告核实。https://insurance.sdufe.edu.cn/info/1059/4589.htm",
+          "**一、计算机类招生专业与初试科目（以2026年为准）**\n山东师范大学2026年公告：信息科学与工程学院081200计算机科学与技术、085404计算机技术、085405软件工程、085410人工智能，专业课由\"数据结构\"调整为408计算机学科专业基础（国家统考）；085412网络与信息安全考101政治、204英语二、302数学二、408。该校曾发布2027年部分专业科目拟调整公告。以上为预通知，最终以当年招生章程、专业目录为准；2029年目录未公布，待核实。\nhttps://www.yjszs.sdnu.edu.cn/system/resource/pdfjs/viewer.html?file=%2F__local%2F8%2FC1%2F90%2F6486FCB6BEE008D2F23F41BC4E3_846DC92C_2C34B.pdf&_x_output_type_b6db407c4_=embedded_pdf\nhttp://www.yjszs.sdnu.edu.cn/system/resource/pdfjs/viewer.html?file=%2F__local%2F5%2F10%2F88%2FBDC353410C175C68B89B67D6F38_4C71A90E_13C82.pdf&_x_output_type_b6db407c4_=embedded_pdf\n\n**二、报考条件与资格适用范围**\n2026年招生章程规定：基本报考要求为国家承认学历的应届本科毕业生（含成人高校等）、已获本科毕业学历者、高职专科毕业满2年及以上者（按同等学力报考）、已获硕博学历学位者。法律、教育管理、工商管理等专业另有专业或工作经验限制；非全日制须定向就业。本人系本科在读，能否以应届本科身份报考、以及职业本科培养性质，须以教育部与该校当年章程核实，2029年入学要求待核实。\nhttp://www.yjszs.sdnu.edu.cn/info/1009/4765.htm",
+          "**校区城市（培养地点）**\n济南大学官方《2024年普通高等教育招生章程》载明：主校区（校本部）为山东省济南市南辛庄西路336号，舜耕校区为济南市舜耕路13号，两校区均位于济南市，符合\"济南本地\"培养地点要求。该校硕士招生章程（2017、2018年）同样标注上述两处地址。具体专业实际就读校区须按录取当年学校培养安排核实。\nhttps://admission.ujn.edu.cn/__local/C/77/9C/DAE2E9A1A73127D221A670DDF00_A7741B56_1E119.pdf\n\n**一本层次的历史批次证据**\n济南大学信息公开网\"分批次、分科类录取人数和录取最低分\"栏目公布：《济南大学2016年在山东省各专业录取情况》（2016-08-01）及2016年全国各省普通文理录取分数线。该年度数据仅作2016年山东省本科一批次（含济南走读本科一批次）的历史层次参考，不适用于其他省份、其他项目，亦不能作为2029年批次的依据。\nhttps://xxgk.ujn.edu.cn/xxgkml/xwgk/zsksxx/ksgrlqxxcxqdhbf/1.htm",
+          "**一、计算机相关招生专业与初试科目**\n济南大学2026年硕士招生中，计算机类含081200计算机科学与技术（学术型，分布于信息科学与工程学院、人工智能研究院、泛在智能计算重点实验室，2026年新增“智能交互与应用（智能立体交通工程）”方向），以及085404计算机技术、085410人工智能等专业学位。2026年085404计算机技术业务课二调整为408计算机学科专业基础（全国统一命题）。2029年目录与科目尚未公布，待核实（研招网已挂2027年科目调整提示）。\nhttp://yz.ujn.edu.cn/info/1032/3874.htm\n\n**二、报考条件与初试安排**\n《济南大学2026年硕士研究生招生章程》（2025年9月30日发布）：学业水平须为国家承认学历的应届本科毕业生、已获本科学历者，或高职专科毕业满2年及以上/本科结业生按本科毕业同等学力报考；在校研究生须经培养单位同意。初试2025年12月20—21日，408由全国统一命题，同等学力复试须加试。2029年条件待核实，不能据现就读学校推断其报考资格。\nhttps://yz.ujn.edu.cn/info/1032/3944.htm",
+          "《山东师范大学2016年山东省外各专业招生录取情况》显示该年度河北列本科一批、天津列本科一批B类，为分省证据；北京、山西、浙江等为其他批次，不可泛称全国一本。学校《2019年本科招生录取工作结束》（2019-08-16）称当年首次实现普通文理类计划全部省份本科一批次或普通本科批次招生。批次政策逐年变动，2029年在山东的招生批次须以当年省招办公布为准。\nhttps://cie.sdnu.edu.cn/info/1072/1924.htm\nhttp://www.pre.sdnu.edu.cn/info/1401/27391.htm",
+          "山东财经大学计算机类研究生招生单位为计算机与人工智能学院（研招系统中使用旧名称\"计算机科学与技术学院\"）。该院2025年硕士招生信息（2024-05-24发布）载明：学术型硕士设081202计算机软件与理论、081203计算机应用技术、0812Z1数字媒体技术、0812J1金融信息技术；专业型硕士设085400电子信息；均为全日制、学制三年。原页明确各专业招生名额及初试、复试考试科目\"以我校研究生招生信息官网公布的最新信息为准\"，故具体考试科目及2029年报考资格待核实。\nhttps://sais.sdufe.edu.cn/info/1010/2378.htm#1\n\n计算机与人工智能学院研究生培养栏目列有《关于2026年硕士研究生招生考试（初试）科目调整公告》，说明自2026年招考起调整初试专业科目；本轮未取得该公告正文，调整后科目名称待核实。学位授权点建设年度报告（2023年报，2024-04-10发布）载：计算机科学与技术学位点2023年计划招生30人（计算机应用技术12、计算机软件与理论10、数字媒体技术4、金融信息工程4），实际录取36人，按初试、复试、面试综合计分录取。2029年最新简章未公布，学历与报考限制须以官方后续文件核实。\nhttps://cs.sdufe.edu.cn/rcpy/yjsjy1/pyfa.htm\nhttps://xkjsbgs.sdufe.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1238845608&wbfileid=4726263#1#1"
+        ]
+      },
+      "tasks": 16,
+      "sources": 12,
+      "recommendations": 3
+    },
+    {
+      "profile": "local",
+      "index": 2,
+      "startedAt": "2026-10-09T05:00:18.029Z",
+      "success": false,
+      "searchMs": 2187.64300000004,
+      "generationMs": null,
+      "totalMs": 2187.64300000004,
+      "firstSourceMs": null,
+      "searches": 3,
+      "requests": 3,
+      "maxConcurrency": 3,
+      "repairs": 0,
+      "progress": {
+        "tasks": [
+          {
+            "id": "policy",
+            "title": "国家政策与考试日期",
+            "status": "searching"
+          },
+          {
+            "id": "eligibility",
+            "title": "学历与升学资格",
+            "status": "searching"
+          },
+          {
+            "id": "discovery",
+            "title": "发现符合条件的院校",
+            "status": "failed"
+          }
+        ],
+        "sources": [],
+        "summaries": []
+      },
+      "error": "检索超过限定次数，请缩小目标后重试。",
+      "failedStage": "search"
+    },
+    {
+      "profile": "local",
+      "index": 3,
+      "startedAt": "2026-10-09T05:00:20.218Z",
+      "success": false,
+      "searchMs": 13078.336100000015,
+      "generationMs": null,
+      "totalMs": 13078.336100000015,
+      "firstSourceMs": 7794.329599999997,
+      "searches": 6,
+      "requests": 5,
+      "maxConcurrency": 3,
+      "repairs": 0,
+      "progress": {
+        "tasks": [
+          {
+            "id": "policy",
+            "title": "国家政策与考试日期",
+            "status": "complete"
+          },
+          {
+            "id": "eligibility",
+            "title": "学历与升学资格",
+            "status": "searching"
+          },
+          {
+            "id": "discovery",
+            "title": "发现符合条件的院校",
+            "status": "failed"
+          }
+        ],
+        "sources": [
+          {
+            "title": "《2026年全国硕士研究生招生工作管理规定》",
+            "url": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170.html"
+          },
+          {
+            "title": "招生政策_全国硕士研究生招生信息公开平台",
+            "url": "https://yz.chsi.com.cn/zsgs/zsinfo/queryzszc.action"
+          },
+          {
+            "title": "教育部关于印发《2022年全国硕士研究生招生工作管理规定》的通知 - 第六十条 考生体检工作由招生单位在考生拟录取后组织进行",
+            "url": "https://yz.chsi.com.cn/kyzx/jybzc/202109/20210903/2105941509.html#3"
+          },
+          {
+            "title": "教育部部署2024年全国硕士研究生考试招生工作",
+            "url": "https://yz.chsi.com.cn/kyzx/jybzc/202309/20230915/2293123514.html"
+          },
+          {
+            "title": "2014年全国硕士学位研究生招生工作管理规定 - 2014年全国硕士学位研究生招生工作管理规定",
+            "url": "https://yz.chsi.com.cn/kyzx/zcdh/201309/20130911/508144605.html#1"
+          },
+          {
+            "title": "教育部部署做好2023年全国硕士研究生考试招生工作",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202209/20220906/2215453642.html"
+          },
+          {
+            "title": "中国研究生招生信息网",
+            "url": "https://yz.chsi.com.cn/?category_path=01.00.00.00.00.00&key2=%D2%D7%BB%DD%C6%BC&medium=01&sort_type=sort_score_desc"
+          },
+          {
+            "title": "2027年全国硕士研究生招生考试公告",
+            "url": "https://yz.chsi.com.cn/kyzx/other/202609/20260927/2293973606.html#1"
+          },
+          {
+            "title": "河南：2027年研考报名60问",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977279.html"
+          },
+          {
+            "title": "山东省2026年普通类常规批第1次志愿投档情况表",
+            "url": "https://cdn.sdzk.cn/NewsInfo.aspx?BCID=20&CID=1204&NewsID=7312"
+          },
+          {
+            "title": "河北省2027年全国硕士研究生招生考试百问百答（一）报名篇",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977251.html"
+          },
+          {
+            "title": "甘肃省2027年全国硕士研究生招生考试报名公告（第一号）",
+            "url": "https://yz.chsi.com.cn/sch/viewZbBulletin--schId-369158,infoId-3551215697,categoryId-433376,mindex-10.dhtml"
+          },
+          {
+            "title": "华东理工大学2026年硕士研究生招生简章",
+            "url": "https://yz.chsi.com.cn/wap/sch/detail?categoryId=10461192&infoId=3421171088&schId=368142#1#1#1"
+          },
+          {
+            "title": "四川省2026年全国硕士研究生招生考试网上报名公告",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202509/20250930/2293436385.html#1"
+          },
+          {
+            "title": "教育部关于印发《2025年全国硕士研究生招生工作管理规定》的通知 - 教育部关于印发《2025年全国硕士研究生招生工作管理规定》的通知",
+            "url": "https://yz.chsi.com.cn/kyzx/jybzc/202410/20241008/2293342617.html#1"
+          },
+          {
+            "title": "中国航天科工集团第三研究院(8358所)_院校信息_中国研究生招生信息网",
+            "url": "https://yz.chsi.com.cn/sch/viewBulletin--schId-367942,infoId-3552305645,categoryId-446862,mindex-10.dhtml"
+          },
+          {
+            "title": "烟台大学_在线咨询_中国研究生招生信息网 - 一、报考条件",
+            "url": "https://yz.chsi.com.cn/zxdy/forum--method-listBulletin,forumid-452213,year-2005,start-0.dhtml#1"
+          },
+          {
+            "title": "华南理工大学_院校信息_中国研究生招生信息网",
+            "url": "https://yz.chsi.com.cn/sch/viewZszc--infoId-3421805361,categoryId-10461554,schId-368416,mindex-12.dhtml#1"
+          },
+          {
+            "title": "MBA的报考条件",
+            "url": "https://yz.chsi.com.cn/kyzx/other/202410/20241008/2293342770.html"
+          }
+        ],
+        "summaries": [
+          "**国家政策（最新已公布年度）**：研招网招生政策栏目显示，教育部已印发《2027年全国硕士研究生招生工作管理规定》，发布日2026年9月24日；现行最新为2026年规定（教学〔2025〕2号，2025年9月25日发布）。2029年规定尚未公布，报名与初试日期均待核实，不得沿用往年日期。\nhttps://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170.html\nhttps://yz.chsi.com.cn/zsgs/zsinfo/queryzszc.action\n\n**报名安排（2027年考试公告，2026年9月27日）**：网上报名2026年10月15日至24日，预报名10月9日至12日，每日9:00—22:00；每名考生只能填报一个招生单位的一个专业志愿；应届本科毕业生原则上选择就读学校所在地省级机构指定的报考点。该公告正文未列出2027年初试具体日期。\nhttps://yz.chsi.com.cn/kyzx/other/202609/20260927/2293973606.html\n\n**报考资格（2026年规定第五条）**：招生对象主要为国家承认学历的应届本科毕业、本科毕业及具有本科毕业同等学力的中国公民；具体报名条件见第十五至十七条。你为职业本科大一在读，是否属“应届本科毕业”须以本人学籍及2029年规定核实，本任务不据此推断其已具备报考资格。济南院校与专业信息由其他任务负责。\nhttps://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170.html"
+        ]
+      },
+      "error": "检索超过限定次数，请缩小目标后重试。",
+      "failedStage": "search"
+    }
+  ],
+  "completedAt": "2026-10-09T05:00:33.297Z"
+}

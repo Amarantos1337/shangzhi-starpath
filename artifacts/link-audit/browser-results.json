@@ -1,0 +1,23 @@
+{
+  "routes": 16,
+  "pageVisits": 64,
+  "anchorsChecked": 1388,
+  "localHttpFiles": [
+    "/",
+    "/docs/ai-performance.md",
+    "/docs/codex-cloud.md",
+    "/docs/education-ai-flow.md",
+    "/docs/reports/ai-cache-performance/report.md",
+    "/docs/reports/ai-overlap-performance/report.md",
+    "/docs/reports/ai-overlap-performance/revised/report.md",
+    "/index.html",
+    "/materials/campus-guide.zip",
+    "/materials/campus-guide/reference/index.html",
+    "/materials/local-server.zip",
+    "/materials/local-server/reference/report.txt",
+    "/materials/study-stats.zip",
+    "/materials/study-stats/reference/expected.txt"
+  ],
+  "errors": [],
+  "externalScope": "外部网址未执行可用性探测；本次检查本地文件、路由、资源及文档链接"
+}

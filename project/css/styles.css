@@ -356,6 +356,16 @@ main:focus {
   font-weight:650;
 }
 
+.main-nav .mobile-growth-nav {
+  display:none;
+}
+
+.header-action[aria-current] {
+  background:var(--blue-wash);
+  color:var(--navy);
+  border-color:var(--navy);
+}
+
 .nav-dot {
   display:inline-block;
   width:5px;
@@ -3017,6 +3027,181 @@ main:focus {
   margin-top:22px;
 }
 
+.about-readme {
+  color:var(--muted);
+  font-size:13px;
+  line-height:2.15;
+  overflow-wrap:anywhere;
+}
+
+.about-readme>h2 {
+  color:var(--ink);
+  font-size:25px;
+}
+
+.about-readme>h3,
+.about-readme+section {
+  margin-top:34px;
+  padding-top:28px;
+  border-top:1px solid var(--line);
+}
+
+.about-readme h3 {
+  color:var(--ink);
+  font-size:21px;
+  margin-bottom:14px;
+}
+
+.about-readme h4 {
+  color:var(--ink);
+  font-size:16px;
+  margin:24px 0 12px;
+}
+
+.about-readme ul,
+.about-readme ol {
+  padding-left:1.7em;
+  margin:14px 0;
+}
+
+.about-readme li+li {
+  margin-top:8px;
+}
+
+.about-readme strong {
+  color:var(--ink);
+}
+
+.about-readme a {
+  color:var(--navy);
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+.about-readme code {
+  font-family:Consolas,"Courier New",monospace;
+  font-size:.95em;
+  background:var(--paper);
+  border-radius:4px;
+  padding:2px 4px;
+}
+
+.about-readme .copyable-code,
+.about-readme-table {
+  max-width:100%;
+  overflow-x:auto;
+  margin:18px 0;
+  border:1px solid var(--line);
+  border-radius:8px;
+}
+
+.copyable-code {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:12px;
+  min-width:0;
+  align-items:start;
+}
+
+.copyable-code pre {
+  min-width:0;
+}
+
+.copyable-code.code-display-only {
+  grid-template-columns:minmax(0,1fr);
+  gap:0;
+}
+
+.about-readme .code-display-only pre {
+  padding-right:14px;
+}
+
+.about-readme .copyable-code {
+  background:var(--paper);
+}
+
+.code-copy-button {
+  margin:10px 10px 10px 0;
+  padding:5px 10px;
+  min-height:32px;
+  border:1px solid var(--line);
+  border-radius:5px;
+  background:var(--white);
+  color:var(--navy);
+  font-size:12px;
+  line-height:1.5;
+  white-space:nowrap;
+}
+
+.code-copy-button:hover {
+  background:var(--blue-wash);
+}
+
+.example-block .code-copy-button {
+  margin-right:0;
+}
+
+.about-readme pre {
+  align-self:center;
+  padding:12px 0 12px 14px;
+  margin:0;
+  border:0;
+  border-radius:0;
+  overflow-x:auto;
+  background:none;
+  font-size:12px;
+  line-height:1.8;
+  white-space:pre;
+  overflow-wrap:normal;
+}
+
+.about-readme pre code {
+  display:block;
+  padding:0;
+  background:none;
+  border-radius:0;
+}
+
+.about-readme table {
+  width:100%;
+  min-width:540px;
+  border-collapse:collapse;
+  text-align:left;
+  line-height:1.9;
+}
+
+.about-readme th,
+.about-readme td {
+  padding:12px 14px;
+  vertical-align:top;
+}
+
+.about-readme th {
+  background:var(--paper);
+  color:var(--ink);
+  font-weight:650;
+}
+
+.about-readme td {
+  border-top:1px solid var(--line);
+}
+
+@media (max-width:600px) {
+  .about-readme {
+    font-size:12px;
+    line-height:2.1;
+  }
+  .about-readme>h2 {
+    font-size:22px;
+  }
+  .about-readme h3 {
+    font-size:19px;
+  }
+  .about-readme pre {
+    padding:12px 0 12px 12px;
+  }
+}
+
 .not-found {
   margin-top:25px;
 }
@@ -3843,17 +4028,23 @@ dialog::backdrop {
     gap:4px;
   }
   .main-nav a {
-    font-size:11px;
+    font-size:13px;
     flex:1;
+    min-width:0;
+    min-height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     text-align:center;
-    padding:8px 6px;
+    padding:8px 2px;
     line-height:1.5;
     border-radius:5px;
   }
+  .main-nav .mobile-growth-nav {
+    display:flex;
+  }
   .nav-dot {
-    width:4px;
-    height:4px;
-    margin-left:4px;
+    display:none;
   }
   .header-action {
     display:none;
@@ -4705,11 +4896,20 @@ dialog::backdrop {
     margin-top:18px;
   }
   .source-list li>span {
-    font-size:10px;
+    font-size:12px;
   }
   .source-list a {
-    font-size:11px;
+    font-size:13px;
+    line-height:1.8;
+    padding:6px 0;
     margin-top:5px;
+  }
+  .reading-links .inline-source,
+  .timeline .inline-source,
+  .photo-credit a {
+    font-size:13px;
+    line-height:1.8;
+    padding:6px 0;
   }
   .about-sections .button {
     font-size:11px;
@@ -4824,7 +5024,7 @@ dialog::backdrop {
     display:none;
   }
   .main-nav a {
-    font-size:10px;
+    font-size:12px;
     padding-left:3px;
     padding-right:3px;
   }

@@ -1,0 +1,13 @@
+[
+  "16 pages checked at 1440px and 390px over HTTP and file://; no overflow, broken loaded images or duplicate IDs",
+  "Alumni → route → practice → plan; hash/history, keyboard details, ZIP download, 12-task creation/edit/persistence, escaping, export/import/cancel and legacy v1 verified",
+  "Empty plan shows six methods and still accepts custom tasks",
+  "Direct-file plan creation, progress and refresh persistence verified",
+  "Web reference checked: all categories, matched/empty/cleared/combined searches",
+  "Web starter completed using the exact lesson snippet and supplied questions",
+  "Unavailable storage: notice and session-only plan creation remain usable",
+  "Growth selection over HTTP and file at 1440px/390px: all four link labels/targets, visible entries via keyboard, back/forward, no dialog or data changes; route plans retain cancel/Escape, creation/edit/completion/refresh, repeat creation, escaping and backups",
+  "Unavailable storage: growth selection navigates without creating a plan; explicit route creation keeps 12 tasks in session and shows backup notice",
+  "Page transition cleanup, focus and reduced-motion preference verified on anniversary navigation",
+  "No page or console errors during checked flows"
+]

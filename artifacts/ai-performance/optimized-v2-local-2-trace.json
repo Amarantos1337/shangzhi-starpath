@@ -1,0 +1,128 @@
+[
+  {
+    "stage": "search",
+    "stopReason": null,
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_SnEGbPhCoTNZs2Eid7Lo9554",
+        "name": "web_search",
+        "input": {
+          "query": "site:moe.gov.cn 2029年全国硕士研究生招生考试初试时间"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_SnEGbPhCoTNZs2Eid7Lo9554",
+        "content": []
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": null,
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_fGBSOwziJRlyzHfY3FRI3244",
+        "name": "web_search",
+        "input": {},
+        "caller": {
+          "type": "direct"
+        }
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": null,
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_Fbc79nZUu9et1WqJ04t36395",
+        "name": "web_search",
+        "input": {
+          "query": "site:ujn.edu.cn 济南大学 2015年 本科一批 招生计划 计算机"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "server_tool_use",
+        "id": "call_01_igxylCEJpYU6sZSGFS072843",
+        "name": "web_search",
+        "input": {
+          "query": "site:zsb.sdnu.edu.cn 山东师范大学 本科一批 录取 计算机"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_Fbc79nZUu9et1WqJ04t36395",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "这些文件有效地规范了日常教学环节，促进了教学工作的有效实施；同时，进一步明确了学生培养目标，优化了教师队伍，为学院高效地开展日常工作提供了前提保障",
+            "url": "https://xxgk.ujn.edu.cn/__local/5/C0/94/0593F49EE71AE8029F166A12DF4_0D41D8A3_E387BF.pdf#151#97",
+            "encrypted_content": "Cg97zHF8/hjMRpmzwRFQKoe3dSaH2Pkys7zKq3MBU/uSl1NEaL1dwe5fUrqWnHwrCpBb6cVQocTTR5EmX9IVrBEk8wkNgocVxG80t+TQlBDOsAX0D8ccuPHhLX9qfzfVc3Es3xI11VHL+AoVvGK8RVdmvrETre/zyFM3hatdryUBrOxrCH1wAhqT8K26G+IIuBomCTSxyRjo1rzqNEHX+yCmIKuq2BSP5sLNr6CT+bv/mQ1tSyNK9SvmP1T9LtpHm9lfJDYlI70AW8HDpdDT0+G/nBxgWXfQ2thRrIbNE3DGv86eDYw/uB7tcnulQcyLVQ9nvuv7l4A4qDU=",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "济南大学2015年本科招生计划-济南大学本科招生网",
+            "url": "http://admission.ujn.edu.cn/info/1007/1086.htm",
+            "encrypted_content": "3xwmE5Z2RPVoB0t4MIVau5HbjXZPPBIFV+/pB2oUjy/+XI85pV2MMSs1UymI8LoVsVpEXz3MHeanv2ViNlaivw+1GqblRNzBwSOKLQF6B3k=",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "大学十个省财政重点支持专业之一，2016年被评为计算机教指委“计算机类专业系统能力培养试点高校”，同年又获得高教研究会首批“面向工程教育本科计算机类专业课程改革项目”立项",
+            "url": "https://xxgk.ujn.edu.cn/__local/6/30/C7/73BECAF12EA7771EA268665D81D_B22C5825_C4D7E8.pdf#184#120",
+            "encrypted_content": "g9sqbN1O1KSbbBZoBFWLsdwypPYpgQrd1+ORAZNBUktVqVrDj3I90YEXNf4wMWPeMHby1h8AB30RMpsmz8MmiVZIjUqLczte9ul0H1B036W0SSU7rNX/2NwUGrSTwmyaHIoBoDPGg35PVOZzFjqco2Xtz4DNkUbV6fFSw6ZTEa7eqJ1WHkMybofyNss4GkOMV2LDOPmBu/ev+TJSPvIfPBWizcJUm0YdZFP6xM82A1orzDxiz1TglvgElmEM6NvYjrwL9JtdEAo2R2B5oyAPThXG7Pwm8Qs7nbhimwcw1NaZuZ8lALzZHeGKy4XJofMKX0YFfJRL3mrNp5bHK/Tb7FbdIzCAu8bE8CHC1iJ4LoUDTOYkcbavYhppRiTF8hfXnmHxOQyW6rPzwFwXMMfRf6dE/Wwda6aeioQwlHPjvPfnRcKnoJP4a8kpBp1RtWa5JNUQGciDMADEkyHbdJx5B6gjIsx4REYponX+kD49rU7/df/ExbSQQz6S5c6UVoqcEXSPcz5uc17Q/obYxQLUGkkJdSRSru52+Dw7A+eqqSOV/D4EGtDE7Fgq6PsEc5fOkMFwX6cFO7vI+zxAl+/hz0AZPK/TAfJKMUpuD+1q/5yc8DsMUdfsubLiQf62Kovx+LRZmvH3QCtc4pJ5Jt0fse8WGxQdRleh2b6JiUetTMXVFLV/FhRqOnj3teWQ3OU4gQd9lCBFEeZb+qw1SM9V8hlcWYU5N+WtnkUMqP+eW/QLWA7KuqjqusFekVFw8ndKC7B2sgqLahzFN5/4jQ9U9PHGb6qRyzbG4XS4j1W9klmTUfdcPFNdy0/mMAQUzQ==",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "舜网：舜网2015《招生面对面》 济南大学招办负责人谈招生政策 - 舜网：舜网2015《招生面对面》 济南大学招办负责人谈招生政策",
+            "url": "http://news.ujn.edu.cn/info/1015/17314.htm#1",
+            "encrypted_content": "bpukEJtlqpc+6Jchg/N41a/5fZ92EWp+MfAyf9cFxpyGkXbkxp3AqS9skuqwqwvPJIeO+jK7cdKFOI8R5rMZ0ebG42vqI+FGFKPCZgsuB0L19RR6cmXFBBeISNrhWLdQA8/8caRAyFFD3x0fcvixaGtzh8c5UuHNUI5a2Ev9AkhN5ipjzpazL++DTPIiT/ivzjSwh1SSZ6J1ErZz5ZIohP5F8jub3eZxPzdvah+SKb3bAUtYt6lLjLp/AkHQSBooeA0SzHu0bjeqEWGzn3zyA7T+mQWHIboFUi/txwuR0NbSld/bQnqzmG+m9OQnd6yu/qQY9gjIL65MpZmDV9uNa6hyx3EmYXKyl/F2eaf2Hcv7g3+u4CVY+xx0YEQmikQoOWmbd24BvwEbv+RQHCKCKnHWI3DnKtnebR4zV/qA30yQj5f47Yay7XiIN6H+LHf5MdE1jJynxHHcr0KtyEB/I8WnSuOHaRDs39vp2kY16UZ/3SxAIPQUx5/XbSENLOkPLQ2Pcq5hgEGi7xQpz+7nVvES74OsUMsJHalqHfdUdycp+pqDezltTmIGivWZ0cvBpOtn1FYHXndyszsZIWrCVbRDoIo8fODtc+3Wh/KGetjSGX771M+XJGSi2mELeW9HLg86PPYS1fEadpwr5ENCtAu7FfVUHMs9H6/kTK+ZBcK/vTxrFPUZUaf8w45YfRyqJIx9l4fbCA/n6wDdC+fl57xLSgKXfuJIjizXo8wKNlsI4/FvEKxyOYnHqseP/LIFr/r5NHemiyYm9vScYo5FsGAWFwoPtClqn7g64NdIz0+nIDi3J2rRHwNJPUMFmqMOVRc+opPSI3OaQ3eoY6opjSrryoU/kmxjfHxQxXCAWDSoghAjDzXg6FSooq5Va/c/MCtd1ZhF02qkG7lY+xB7IwU/au7ZRRKpP93jHbLGiJ2fSvLVBkAtlYFeor6SH/jOrJssAGOk1GMj8Rjt7jMIE9iYi4LDCAeJckJQgtG5Frn/kedA7LhLEJ26fFjx7gMMD3M/O690aap2bPwXl7oZvJx3lgv/jHgB9p/Ifa6kkGIvO5Jvbc655J93ybuXQHkrmo0G9NXSsHNEKeRp52jBxkDIIruSudFuzfFQAr1/llGU7Cdm/QZLBxafpQe8xM+KIBB3IniYIFL3oNQpo7cDMbmNEW9wkZBo9KALz4h+PLKilkT+88G/hfHLBP+alhFnBzs0AMBZcvtjeqtIefFwemhzEM2aSeOlCgSJ8YKjAHsiq+Flp6owmfAUt0wrjAwl/PXx6QGu2Dl8Zj30uJz/1YikVCSaR+9kTUHNyeEEjvYV26+y9/RWNJfO9tl/f3nDHxdDB96jmC3SsKskTJx8SBZbtTs4I1+ysrLcAz4GEfyFhpv3gftSuMcO66cILa7+/9wJrJCc2DwVt1yM1Oxly8fw70MC4CrRYN5om7CNA3/CatHhNNrXH+eBnZ2Wik4iLWumqqVlWVW14jgbcWBGI3YUKECGaZKlQvn5OY5SiOJgwKBDU4qFdI2tYzb0iLl/mWUV12XIV0LeafEDOtCjvnJH/NdVLEqN6/MzxR6bRyTFqPaY0d1YOasWa7pp3QV0ut3B5gsZTbsgFlG7A0L+W7vcB7kLTsZtKm5Y2shmAYRNIuhkDkczR3fSV60/ovovE7LgjZbJnwCFi97wmnC4PbAxrfblhmE3Uhwa8gaW8M5LA8iJfTbV9PcMXz1M8AIsiuIjCVKjLw8Hu+e0PLJztTgUGwZk0LGuV7HjRw==",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "通讯地址：山东省济南市南辛庄西路336号  咨询电话：0531- 82765900  图文传真：0531- 82765901  电子邮箱：zsb@ujn",
+            "url": "https://admission.ujn.edu.cn/info/1024/2532.htm?_x_output_type_b6db407c4_=embedded_pdf#2#1",
+            "encrypted_content": "tzS/4vt7f0603kEEhVp8tF28uDoJFun/0nPWCy3SLmPeGJ2n+ylWVXfexwe0I5MJFpOOm9+xQTOs9Z7RD3WW1go+R5JEO1rDzG9lrfmp0sQXF0SV5YvQKqaYyx1YYFvIF4MXG0MdYCCvMvRaAIHDU3dRNDd9jB8hU9/k2mnghukgQDELaL2HpgnTNO/TjNnlwOEywIcABz8cZ1A/H9tJ6ijNyUK7Qj0U3ATgYc32pd8PUhXz1ny8LvCR1t+1eotMWg6cQEylSUsCiGE2RMSLRDgYlF7uX6XNmwUYsOOoHIqu/5++gsQCS48iw1/lFjVN0dzEvU9NCv3Hzq96wW9pfvOOsOqqttwNGLU2HuS07+or23MlCyOKm6kPZamMvRFKLteu3aCpaJG1RcbA/wWFAfnvRXjT2xcTHxsQGCKunSLM7dm5we96ZeeAS53/iV9mIPJhAIc+hqmwZ6WZhFa6Q3Zdd42QvaFWigRD5xFZWFzVTqCABkmAb3Or2C7fXO4hofpp8POwieKVqlH9GT/5ltpyrLelx+q2MxHY6Rr7K0NLCW0Z8oDy2iuql2XPt/766wEoaUy48w0lTxGS2JdWHjmqM6jSp0qLpjPZfAAz+g/K6E20Toui87K36I35H4au3tsvhsv9tO0IxgNNWTKQC5kgYhT9i5enrTOOFoHn0Q8ercAI3ZRs6WiprRYhNYSXLNbVIOsUy76q6D0Iew7ip/dt+1CE9MgIh29SqkoW6aO+x3xAmiWf8XHVsnwYX997YeYmZQ33Z1EfsUQWrXbRqrQUKuJrpk1AE8OJ5unYgCHl0AkGrzFQgGxm/MR0PpGvwHttTCheyMhfWFqcHbqXQamYwy+jRksDZx8r5ztj1ep+zw==",
+            "page_age": null
+          },
+          {
+            "type": "web_search_result",
+            "title": "济南大学2015年本科招生报考指南-济南大学本科招生网",
+            "url": "https://admission.ujn.edu.cn/info/1024/1257.htm",
+            "encrypted_content": "3yxU4D25lmWsz8IBWenJvcfqpQ9C1sKwVcKz8egOdpgxc/V5o8E4ign4yD3SyDGXLocp1QVl/AHvuoF/sBiqJSn/ALqAh9tTqdnXfyP6f8hX4iwX+dnTzU8tnfe9V7/RlM0g6es5i2gglWq1WmbLcJ6okSxcoWjkYrmCvVoe9wMQQw==",
+            "page_age": null
+          }
+        ]
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_01_igxylCEJpYU6sZSGFS072843",
+        "content": [
+          {
+            "type": "web_search_tool_result_error",
+            "error_code": "max_uses_exceeded"
+          }
+        ]
+      }
+    ]
+  }
+]

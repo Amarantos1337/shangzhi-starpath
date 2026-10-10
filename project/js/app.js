@@ -78,6 +78,66 @@
     toastTimer = setTimeout(() => target.classList.remove('visible'), 4200);
   }
   function saved(persisted, message) { toast(persisted ? message : message + '（仅本次打开有效，请导出备份）'); }
+  function prepareCodeBlocks() {
+    main.querySelectorAll('pre').forEach(pre => {
+      const text = pre.querySelector('code') || pre;
+      text.textContent = text.textContent.trimEnd();
+      const wrapper = document.createElement('div');
+      wrapper.className = 'copyable-code';
+      pre.before(wrapper);
+      wrapper.append(pre);
+      if (pre.hasAttribute('data-no-copy')) {
+        wrapper.classList.add('code-display-only');
+        return;
+      }
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'code-copy-button';
+      button.dataset.action = 'copy-code';
+      button.textContent = '复制';
+      button.setAttribute('aria-label', '复制代码或命令');
+      wrapper.append(button);
+    });
+  }
+  function copyCodeFallback(text) {
+    const focused = document.activeElement;
+    const input = document.createElement('textarea');
+    input.value = text;
+    input.setAttribute('aria-hidden', 'true');
+    input.tabIndex = -1;
+    input.style.cssText = 'position:fixed;top:0;left:0;opacity:0;pointer-events:none;';
+    document.body.append(input);
+    try {
+      input.focus({ preventScroll: true });
+      input.select();
+      return document.execCommand('copy');
+    } finally {
+      input.remove();
+      if (focused && focused.isConnected) focused.focus({ preventScroll: true });
+    }
+  }
+  async function copyCode(button) {
+    if (button.dataset.copying) return;
+    const pre = button.closest('.copyable-code').querySelector('pre');
+    const text = (pre.querySelector('code') || pre).textContent;
+    button.dataset.copying = 'true';
+    try {
+      let copied = false;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        try { await navigator.clipboard.writeText(text); copied = true; }
+        catch (_) { /* 直接打开文件或剪贴板权限受限时尝试本地复制。 */ }
+      }
+      if (!copied) copied = copyCodeFallback(text);
+      if (!copied) throw new Error('未能复制，请选中文本后手动复制。');
+      button.textContent = '已复制';
+      toast('已复制到剪贴板');
+      setTimeout(() => { if (button.isConnected) button.textContent = '复制'; }, 2000);
+    } catch (error) {
+      toast(error.message || '未能复制，请选中文本后手动复制。');
+    } finally {
+      delete button.dataset.copying;
+    }
+  }
   function notice() {
     const target = document.getElementById('storage-notice');
     const status = store.status();
@@ -119,19 +179,19 @@
     return entries.map(event => '<li class="history-entry"><span class="history-year">' + esc(event.year) + '</span><div><h3>' + esc(event.title) + '</h3><p>' + esc(event.text) + '</p>' + sourceLink(event.source) + '</div></li>').join('');
   }
   function tributeSection() {
-    return '<section class="section tribute-section" aria-labelledby="tribute-title" hidden><div class="section-heading"><div><div class="eyebrow"><span></span>以成长，致母校</div><h2 id="tribute-title">把一份心意，变成三个行动。</h2><p>从了解母校，到认识榜样，再到完成自己的作品。</p></div></div><ol class="tribute-grid">' + data.anniversary.tribute.tasks.map((task, index) => '<li class="tribute-card"><div class="tribute-card-top">' + icon(task.icon) + '<span>0' + (index + 1) + '</span></div><h3>' + esc(task.stage) + '</h3><p>' + esc(task.description) + '</p><a class="card-link" href="' + esc(task.href) + '">' + esc(task.link) + icon('arrow') + '</a></li>').join('') + '</ol><div class="tribute-bottom"><div><strong>你的下一步，也是商职的新一页。</strong><p>行动为平台建议，完成情况由你自行记录；计划保存在本机。</p></div><button class="button primary" data-action="create-tribute">开启献礼计划' + icon('arrow') + '</button></div></section>';
+    return '<section class="section tribute-section" aria-labelledby="tribute-title" hidden><div class="section-heading"><div><div class="eyebrow"><span></span>以成长，致母校</div><h2 id="tribute-title">把一份心意，变成三个行动。</h2><p>从了解母校，到认识榜样，再到完成自己的作品。</p></div></div><ol class="tribute-grid">' + data.anniversary.tribute.tasks.map((task, index) => '<li class="tribute-card"><div class="tribute-card-top">' + icon(task.icon) + '<span>0' + (index + 1) + '</span></div><h3>' + esc(task.stage) + '</h3><p>' + esc(task.description) + '</p><a class="card-link" href="' + esc(task.href) + '">' + esc(task.link) + icon('arrow') + '</a></li>').join('') + '</ol><div class="tribute-bottom"><div><strong>你的下一步，也是商职的新一页。</strong><p>行动为平台建议，完成情况由你自行记录；计划保存在本机。</p></div><a class="button primary" href="index.html#/paths">选择成长计划' + icon('arrow') + '</a></div></section>';
   }
   function home() {
     const anniversary = data.anniversary;
     const educationIndex = data.routes.findIndex(route => route.id === 'education');
-    return '<div class="container home-page anniversary-home"><section class="anniversary-hero"><div class="anniversary-copy">' + eyebrow('商职星途 · 九秩校庆专题') + '<div class="anniversary-years">' + esc(anniversary.years) + '<span>薪火相传 · 共赴新程</span></div><h1>' + esc(anniversary.title) + '<br><span>' + esc(anniversary.subtitle) + '</span></h1><p class="anniversary-description">' + esc(anniversary.description) + '</p><div class="hero-actions"><a class="button primary" href="#/history" data-history-entry data-history-fill aria-label="回望校史">' + shineContent('回望校史') + '</a><button class="button secondary" data-action="create-tribute">开启献礼计划' + icon('spark') + '</button></div><p class="anniversary-signature"><span></span>回望来路，让每一份成长续写荣光。</p></div><figure class="anniversary-visual"><img src="assets/anniversary-90.svg" width="650" height="580" alt="金色数字90、年轮与向上生长的线条，纪念1936至2026九秩商职"><figcaption>九十载弦歌不辍，一代代向新而行。</figcaption></figure></section><div class="anniversary-index"><span>九秩回响 <small>A SHARED JOURNEY</small></span><a href="#/history" data-history-entry>01 回望校史' + icon('upRight') + '</a><a href="#/alumni">02 走近校友' + icon('upRight') + '</a><a href="#/paths">03 传承成长' + icon('upRight') + '</a></div>' +
+    return '<div class="container home-page anniversary-home"><section class="anniversary-hero"><div class="anniversary-copy">' + eyebrow('商职星途 · 九秩校庆专题') + '<div class="anniversary-years">' + esc(anniversary.years) + '<span>薪火相传 · 共赴新程</span></div><h1>' + esc(anniversary.title) + '<br><span>' + esc(anniversary.subtitle) + '</span></h1><p class="anniversary-description">' + esc(anniversary.description) + '</p><div class="hero-actions"><a class="button primary" href="#/history" data-history-entry data-history-fill aria-label="回望校史">' + shineContent('回望校史') + '</a><a class="button secondary" href="index.html#/paths">选择成长计划' + icon('spark') + '</a></div><p class="anniversary-signature"><span></span>回望来路，让每一份成长续写荣光。</p></div><figure class="anniversary-visual"><img src="assets/anniversary-90.svg" width="650" height="580" alt="金色数字90、年轮与向上生长的线条，纪念1936至2026九秩商职"><figcaption>九十载弦歌不辍，一代代向新而行。</figcaption></figure></section><div class="anniversary-index"><span>九秩回响 <small>A SHARED JOURNEY</small></span><a href="#/history" data-history-entry>01 回望校史' + icon('upRight') + '</a><a href="#/alumni">02 走近校友' + icon('upRight') + '</a><a href="#/paths">03 传承成长' + icon('upRight') + '</a></div>' +
       '<section class="section history-preview">' + sectionHead('THE YEARS THAT SHAPED US', '循着年轮，读懂来路', '从商科起点到职业本科，回望九秩发展中的重要坐标。', '<a class="text-link" href="#/history">走进九秩校史' + icon('arrow') + '</a>') + '<ol class="history-grid">' + historyEntries(data.anniversary.history.filter(event => event.featured)) + '</ol></section>' +
       '<section class="section">' + sectionHead('OUR PEOPLE, OUR STORIES', '岁月有光，校友有故事', '走近真实的商职校友，在他们的足迹里看见成长的力量。', '<a class="text-link" href="#/alumni">探索全部校友' + icon('arrow') + '</a>') + '<div class="people-grid">' + data.alumni.map(personCard).join('') + '</div></section>' +
       '<section class="section routes-section">' + sectionHead('CARRY THE SPIRIT FORWARD', '薪火相传，从你的下一步开始', '把榜样带来的启发，变成可以行动的成长路线。', '<a class="text-link" href="#/paths">进入成长传承' + icon('arrow') + '</a>') + '<div class="route-grid route-grid-large">' + pathsRouteCard(data.routes[educationIndex], educationIndex) + '</div><p class="template-note">' + icon('info') + '路线为平台学习建议，可按自己的节奏调整，不代表校友本人经历或承诺。</p></section>' + tributeSection() + '</div>';
   }
   function historyPage() {
     const anniversary = data.anniversary;
-    return '<div class="container inner-page history-page"><div class="history-intro"><div class="page-heading">' + eyebrow('九秩校史 · 回望来路') + '<h1>九秩薪火，照亮新的出发。</h1><p>沿着公开资料留下的坐标，认识母校的来路，也找到与自己有关的那一页。</p></div><div class="history-heading-art"><span>' + esc(anniversary.years) + '</span><p>历史有出处，成长有回响。</p></div></div><section class="section"><ol class="history-timeline">' + historyEntries() + '</ol></section><section class="commemoration"><div class="commemoration-year">' + esc(anniversary.theme.year) + '</div><div><h2>' + esc(anniversary.theme.title) + '</h2><p>' + esc(anniversary.theme.text) + '</p></div></section><section class="history-next"><div><span class="section-kicker">从母校的来路，走向自己的星途</span><h2>故事仍在继续，下一页有你。</h2><p>读一段校友经历，完成一份实践作品，让心意落在今天的行动里。</p></div><div class="hero-actions"><a class="button secondary" href="#/alumni" aria-label="走近校友故事">' + shineContent('走近校友故事') + '</a><button class="button primary" data-action="create-tribute">开启献礼计划' + icon('spark') + '</button></div><p class="template-note">献礼行动为平台建议，完成情况由用户自行记录。</p></section></div>';
+    return '<div class="container inner-page history-page"><div class="history-intro"><div class="page-heading">' + eyebrow('九秩校史 · 回望来路') + '<h1>九秩薪火，照亮新的出发。</h1><p>沿着公开资料留下的坐标，认识母校的来路，也找到与自己有关的那一页。</p></div><div class="history-heading-art"><span>' + esc(anniversary.years) + '</span><p>历史有出处，成长有回响。</p></div></div><section class="section"><ol class="history-timeline">' + historyEntries() + '</ol></section><section class="commemoration"><div class="commemoration-year">' + esc(anniversary.theme.year) + '</div><div><h2>' + esc(anniversary.theme.title) + '</h2><p>' + esc(anniversary.theme.text) + '</p></div></section><section class="history-next"><div><span class="section-kicker">从母校的来路，走向自己的星途</span><h2>故事仍在继续，下一页有你。</h2><p>读一段校友经历，完成一份实践作品，让心意落在今天的行动里。</p></div><div class="hero-actions"><a class="button secondary" href="#/alumni" aria-label="走近校友故事">' + shineContent('走近校友故事') + '</a><a class="button primary" href="index.html#/paths">选择成长计划' + icon('spark') + '</a></div><p class="template-note">献礼行动为平台建议，完成情况由用户自行记录。</p></section></div>';
   }
   function alumniPage() {
     const fields = [...new Set(data.alumni.map(person => person.field))];
@@ -322,8 +382,8 @@
     return html + '</div>';
   }
   function aboutPage() {
-    const sources = [...new Map([...data.anniversary.history.map(event => event.source), ...data.alumni.flatMap(person => person.sources), ...data.resources.map(resource => ({ ...resource, date: '延伸学习资料' }))].map(source => [source.url, source])).values()];
-    return '<div class="container inner-page about-page"><div class="page-heading">' + eyebrow('ABOUT STARPATH') + '<h1>每一个故事，都有真实的出处。</h1><p>商职星途·九秩校庆，是连接校史、校友故事与个人成长的学生创作专题。</p></div><div class="about-sections"><section><h2>九秩校庆专题</h2><p>校史更新：2026-09-29。时间轴收录1936—2026年间的9个发展节点，涵盖办学溯源、中专积淀、高职建校、示范建设、“双高计划”与职业本科发展。内容依据学校公开资料、教育部文件、《山东年鉴1987》、鲁商集团公告和《齐鲁晚报》访谈整理，每个节点附有资料日期和原文链接。</p><p>“2026·九秩同行”为本站纪念主题，不是官方活动公告。90周年数字与年轮主视觉为本项目原创设计，不是学校官方校庆标识。献礼行动为平台建议，由用户自行记录完成情况；原有校友、指南、实践材料和个人计划继续保留。</p></section><section><h2>关于这个项目</h2><p>我们希望把真实的校友成长经历变成可探索的故事，帮助你发现方向，再通过个人计划把启发转化为行动。本项目为学生创作，不是学校官方服务平台，也不代表校友本人观点。</p></section><section><h2>内容与图片</h2><p>人物经历依据学校公开报道整理，保留原文链接与报道日期。历史任职不代表当前任职，未披露的信息不作推断。人物导读与学习启发属于编辑提炼；成长路线属于平台建议，不承诺升学、获奖或就业结果。</p><p>校徽取自山东商业职业技术大学官网，使用原始标识的校徽部分。王宗宇、王功明和陈亮的照片来自下列官方人物介绍或讲座报道，保留原始文件，仅调整页面中的显示范围，未使用 AI 重绘人脸。石振邦使用学校2022年10月27日“优秀校友进校园”报道中的活动现场配图，非本人独照；报道未标注画面中人物姓名。原图保留在本地，未对画面人物作身份推断。星途插画为本项目原创。</p><p><a href="https://www.sict.edu.cn/" target="_blank" rel="noopener noreferrer">校徽来源：山东商业职业技术大学官网</a></p><ul class="source-list">' + sources.map(source => '<li><span>' + source.date + '</span><a href="' + source.url + '" target="_blank" rel="noopener noreferrer">' + source.title + icon('upRight') + '</a></li>').join('') + '</ul></section><section><h2>实践内容与更新说明</h2><p>学习内容更新：2026-09-26。三条路线、三个实践案例与六张方法卡为平台原创教学设计。校园问答与学习记录均为模拟数据，不是学校正式通知或真实学生资料。路线时长仅为首轮探索参考。</p><p>人物档案保留原有官方出处；2026-09-26内容深化时未能重新读取母校报道，未新增未经核实的人物经历。北京工业大学教师主页已复核博士、博士后和教学科研阶段；历史页面不能用来断言当前任职。事实、平台分析与学习建议在详情页分别标注。</p></section><section><h2>你的数据，由你保管</h2><p>无需注册。收藏和已保存的成长计划在当前浏览器管理。使用升学 AI 生成时，填写的个人情况将发送给 DeepSeek，用于联网检索和生成建议。清理浏览器数据、使用隐私模式、更换浏览器或移动网页文件可能影响保存。建议在“我的成长”定期导出 JSON 备份，换环境后可导入恢复。</p><p>网页的指南、练习材料和原始模板在本地；升学 AI 生成需要联网，主动打开学校报道或官方学习资料也会访问外部网站。Python 实践需先安装本地工具，首次安装需要联网。</p><a href="#/growth" class="button secondary">管理我的成长数据' + icon('arrow') + '</a></section></div></div>';
+    const readme = document.getElementById('about-readme').innerHTML;
+    return '<div class="container inner-page about-page"><div class="page-heading">' + eyebrow('ABOUT STARPATH') + '<h1>每一个故事，都有真实的出处。</h1><p>商职星途·九秩校庆，是连接校史、校友故事与个人成长的学生创作专题。</p></div><div class="about-sections">' + readme + '<section><h2>你的数据，由你保管</h2><p>无需注册。收藏和已保存的成长计划在当前浏览器管理。使用升学 AI 生成时，填写的个人情况将发送给 DeepSeek，用于联网检索和生成建议。清理浏览器数据、使用隐私模式、更换浏览器或移动网页文件可能影响保存。建议在“我的成长”定期导出 JSON 备份，换环境后可导入恢复。</p><p>网页的指南、练习材料和原始模板在本地；升学 AI 生成需要联网，主动打开学校报道或官方学习资料也会访问外部网站。Python 实践需先安装本地工具，首次安装需要联网。</p><a href="#/growth" class="button secondary">管理我的成长数据' + icon('arrow') + '</a></section></div></div>';
   }
   function notFound(title = '这段星途，暂时还没找到。', text = '链接可能已失效，回到探索页重新出发吧。', href = '#/alumni', label = '返回校友探索') {
     return '<div class="container inner-page"><div class="empty-state not-found"><span class="empty-icon">' + icon('compass') + '</span><h1>' + title + '</h1><p>' + text + '</p><a class="button primary" href="' + href + '">' + label + icon('arrow') + '</a></div></div>';
@@ -708,6 +768,7 @@
     if (modal.open && !options.keepModal) modal.close();
     if (animatePage && !alumniNavigation.motion) captureOutgoingPage(historyTransition);
     main.innerHTML = content;
+    prepareCodeBlocks();
     if (historyFill) {
       const fill = historyScreenFill;
       fill.classList.add('is-revealing');
@@ -724,8 +785,8 @@
     }
     renderedRoute = route;
     document.title = title + ' · 商职星途 · 九秩校庆';
-    document.querySelectorAll('[data-nav]').forEach(link => {
-      if (link.dataset.nav === (page === 'practice' ? 'paths' : page)) link.setAttribute('aria-current', 'page');
+    document.querySelectorAll('[data-nav], [data-nav-action]').forEach(link => {
+      if ((link.dataset.nav || link.dataset.navAction) === (page === 'practice' ? 'paths' : page)) link.setAttribute('aria-current', 'page');
       else link.removeAttribute('aria-current');
     });
     notice();
@@ -804,21 +865,73 @@
     return '<option value="">请选择年级</option>' + window.StarPath.ai.grades(level).map(grade => '<option' + (grade === selected ? ' selected' : '') + '>' + grade + '</option>').join('');
   }
   function aiDuration(seconds, prefix = '用时') {
-    return prefix + Math.floor(seconds / 60) + '分钟' + seconds % 60 + '秒';
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    if (minutes === 0) return prefix + remainingSeconds + '秒';
+    return prefix + minutes + '分钟' + (remainingSeconds === 0 ? '' : remainingSeconds + '秒');
+  }
+  function updateAiProgress(status, progress) {
+    const learning = status.querySelector('[data-ai-step="learning"]');
+    learning.hidden = !progress.learning;
+    if (progress.learning) {
+      const state = progress.learning.status;
+      learning.classList.toggle('is-active', state === 'generating');
+      learning.classList.toggle('is-complete', state === 'complete');
+      learning.querySelector('p').textContent = ({ waiting: '等待生成', generating: '正在根据年级和基础设计学习行动…', complete: '学习行动草稿完成，等待资料整合', failed: '学习行动生成失败' })[state];
+    }
+    if (progress.searchComplete) {
+      const search = status.querySelector('[data-ai-step="search"]');
+      search.classList.remove('is-active'); search.classList.add('is-complete');
+      search.querySelector('p').textContent = '官方资料检索完成';
+    }
+    status.querySelector('.ai-search-count').textContent = '已执行 ' + progress.searches + ' 次搜索 · 找到 ' + progress.sources.length + ' 条官方资料';
+    const labels = { waiting: '等待开始', searching: '搜索中', complete: '已完成', failed: '失败' };
+    const tasks = status.querySelector('.ai-search-tasks');
+    for (const task of progress.tasks) {
+      let item = Array.from(tasks.children).find(node => node.dataset.taskId === task.id);
+      if (!item) { item = document.createElement('li'); item.dataset.taskId = task.id; tasks.append(item); }
+      item.className = 'ai-task-' + task.status;
+      item.textContent = task.title + '：' + (labels[task.status] || '等待开始');
+    }
+    const section = status.querySelector('.ai-live-results');
+    section.hidden = !progress.sources.length;
+    const list = section.querySelector('.ai-live-source-list');
+    for (const source of progress.sources) {
+      const url = window.StarPath.ai.safeUrl(source.url);
+      if (!url || Array.from(list.children).some(node => node.dataset.sourceUrl === url)) continue;
+      const item = document.createElement('li');
+      item.dataset.sourceUrl = url;
+      const link = document.createElement('a');
+      link.href = url; link.target = '_blank'; link.rel = 'noopener noreferrer';
+      link.textContent = window.StarPath.ai.sourceTitle(source.title);
+      const address = document.createElement('small'); address.textContent = url;
+      item.append(link, address); list.prepend(item);
+    }
+    const toggle = section.querySelector('.ai-live-more');
+    const showAll = () => { Array.from(list.children).forEach((item, index) => { item.hidden = index >= 5 && !toggle.open; }); };
+    toggle.hidden = list.children.length <= 5;
+    toggle.ontoggle = showAll;
+    showAll();
+    const summaries = section.querySelector('.ai-live-summaries');
+    const signature = JSON.stringify(progress.summaries);
+    if (summaries.dataset.signature !== signature) {
+      summaries.dataset.signature = signature;
+      summaries.replaceChildren(...progress.summaries.map(value => { const paragraph = document.createElement('p'); paragraph.textContent = window.StarPath.ai.displayText(value); return paragraph; }));
+    }
   }
   function openAiProfile() {
     const values = aiProfile || { level: '', major: '', grade: '', baseline: '', goal: '', region: '山东', startDate: localDate() };
-    const input = (label, name, max, placeholder = '') => '<label class="form-field">' + label + '<input name="' + name + '" required maxlength="' + max + '" value="' + esc(values[name]) + '" placeholder="' + esc(placeholder) + '"></label>';
-    const textarea = (label, name, placeholder) => '<label class="form-field">' + label + '<textarea name="' + name + '" rows="3" maxlength="1000"' + (name === 'goal' ? '' : ' required') + ' placeholder="' + esc(placeholder) + '">' + esc(values[name]) + '</textarea></label>';
-    const status = '<div class="ai-status" role="status" aria-live="polite" hidden><ol class="ai-progress"><li data-ai-step="search"><span class="ai-progress-dot" aria-hidden="true"></span><div><strong>AI 搜索资料</strong><p>等待开始</p></div></li><li data-ai-step="generate"><span class="ai-progress-dot" aria-hidden="true"></span><div><strong>AI 思考并生成计划</strong><p>等待检索完成</p></div></li></ol><p class="ai-elapsed" role="timer" aria-live="off"></p></div>';
+    const input = (label, name, max, placeholder = '') => '<label class="form-field">' + label + ' *<input name="' + name + '" required maxlength="' + max + '" value="' + esc(values[name]) + '" placeholder="' + esc(placeholder) + '"></label>';
+    const textarea = (label, name, placeholder) => '<label class="form-field">' + label + (name === 'goal' ? '' : ' *') + '<textarea name="' + name + '" rows="3" maxlength="1000"' + (name === 'goal' ? '' : ' required') + ' placeholder="' + esc(placeholder) + '">' + esc(values[name]) + '</textarea></label>';
+    const status = '<div class="ai-status" hidden><p class="ai-elapsed" role="timer" aria-live="off"></p><ol class="ai-progress"><li data-ai-step="search"><span class="ai-progress-dot" aria-hidden="true"></span><div><strong>AI 搜索资料</strong><p>等待开始</p></div></li><li data-ai-step="learning" hidden><span class="ai-progress-dot" aria-hidden="true"></span><div><strong>AI 设计学习行动</strong><p>等待生成</p></div></li><li data-ai-step="generate"><span class="ai-progress-dot" aria-hidden="true"></span><div><strong>AI 思考并生成计划</strong><p>等待检索完成</p></div></li></ol><p class="ai-search-count" role="status" aria-live="polite"></p><ul class="ai-search-tasks"></ul><section class="ai-live-results" hidden><h3>已找到的官方资料</h3><ul class="ai-source-list ai-live-source-list"></ul><details class="ai-live-more" hidden><summary>展开全部资料</summary></details><h3>AI 根据资料整理</h3><div class="ai-live-summaries"></div><p class="inline-note">摘要随检索更新，院校候选仍需核对；资料和学习行动核验完成后统一预览。</p></section></div>';
     const body = '<form data-form="ai-profile"><div class="ai-step-label"><span class="is-current">01 填写情况</span><span>02 联网生成</span><span>03 预览保存</span></div>' +
-      '<p class="modal-description">告诉我们你的目标与基础，AI 会多次检索官方资料，生成可以修改的阶段计划。填写内容将发送给 AI。</p>' +
-      '<fieldset class="ai-fields"><div class="form-row"><label class="form-field">当前学历层次<select name="level" required autofocus><option value="">请选择</option>' +
+      '<p class="modal-description">告诉我们你的目标与基础，AI 会分工检索官方资料；未指定院校时同时设计学习行动，核验完成后生成可以修改的阶段计划。填写内容将发送给 AI。</p>' +
+      '<fieldset class="ai-fields"><div class="form-row"><label class="form-field">当前学历层次 *<select name="level" required autofocus><option value="">请选择</option>' +
       ['专科', '本科'].map(level => '<option' + (values.level === level ? ' selected' : '') + '>' + level + '</option>').join('') +
-      '</select></label>' + input('专业', 'major', 120, '例如：计算机网络技术') + '</div><div class="form-row"><label class="form-field">年级<select name="grade" required' + (values.level ? '' : ' disabled') + '>' +
+      '</select></label>' + input('专业', 'major', 120, '例如：计算机网络技术') + '</div><div class="form-row"><label class="form-field">年级 *<select name="grade" required' + (values.level ? '' : ' disabled') + '>' +
       aiGradeOptions(values.level, values.grade) + '</select></label>' + input('目标地区', 'region', 80, '例如：山东') + '</div>' +
-      textarea('当前学习基础', 'baseline', '例如：英语基础较弱，数学刚开始复习') + textarea('目标院校与专业', 'goal', '请输入心仪院校和专业') + '<p class="ai-school-note">可以写具体院校，也可以写筛选条件，例如“济南本地一本院校，计算机相关专业”。未指定具体学校时会推荐3–5所院校；一本/二本按批次取消前的历史招生层次参考。目标里的具体地点优先于目标地区，暂时没有目标院校也可以留空。</p>' +
-      '<label class="form-field">开始日期<input name="startDate" type="date" min="1900-01-01" max="9999-12-31" required value="' + esc(values.startDate) + '"></label>' +
+      textarea('当前学习基础', 'baseline', '例如：英语基础较弱，数学刚开始复习') + textarea('目标院校与专业', 'goal', '请输入心仪院校和专业') + '<p class="ai-school-note">可以写具体院校，也可以写筛选条件，例如“济南本地一本院校，计算机相关专业”。未指定具体学校时会推荐3–5所院校；由于需要先筛选并核实多所院校，生成计划可能需要更长时间。一本/二本按批次取消前的历史招生层次参考。目标里的具体地点优先于目标地区，暂时没有目标院校也可以留空。</p>' +
+      '<label class="form-field">开始日期 *<input name="startDate" type="date" min="1900-01-01" max="9999-12-31" required value="' + esc(values.startDate) + '"></label>' +
       '<p class="inline-note ai-period-note">本科按开始日期所在学年、四年制推算至大四考研；专科暂按三年专科衔接两年本科推算，路径与资格待核实。对应年度考试日期未公布时，日期仅为考试季暂定安排，公布后请调整。</p></fieldset>' +
       status + modalError + modalActions('检索并生成计划', '<button type="button" class="text-button" data-action="ai-template">使用原始模板</button>') + '</form>';
     openModal('为你规划升学路线', body);
@@ -853,6 +966,15 @@
       form.setAttribute('aria-busy', 'true');
       const status = form.querySelector('.ai-status');
       status.hidden = false;
+      status.querySelectorAll('.is-active, .is-complete').forEach(node => node.classList.remove('is-active', 'is-complete'));
+      status.querySelector('[data-ai-step="learning"]').hidden = true;
+      status.querySelector('.ai-search-tasks').replaceChildren();
+      status.querySelector('.ai-live-source-list').replaceChildren();
+      status.querySelector('.ai-live-summaries').replaceChildren();
+      delete status.querySelector('.ai-live-summaries').dataset.signature;
+      status.querySelector('.ai-live-results').hidden = true;
+      status.querySelector('.ai-live-more').open = false;
+      status.querySelector('.ai-search-count').textContent = '正在分配搜索任务…';
       const steps = form.querySelectorAll('.ai-step-label span');
       steps[0].classList.remove('is-current');
       steps[1].classList.add('is-current');
@@ -870,8 +992,11 @@
         search.classList.toggle('is-active', searching);
         search.classList.toggle('is-complete', !searching);
         thinking.classList.toggle('is-active', !searching);
-        search.querySelector('p').textContent = searching ? '正在多次核对官方考试政策和院校招生资料…' : '官方资料检索完成';
-        thinking.querySelector('p').textContent = searching ? '等待检索完成' : '正在分析你的情况，生成考前学习计划…';
+        search.querySelector('p').textContent = searching ? '正在核对官方政策和院校资料，最多八个请求并行处理…' : '官方资料检索完成';
+        thinking.querySelector('p').textContent = searching ? '等待资料与学习行动完成' : '正在整合已核验资料，完善考前学习计划…';
+      }, onProgress(progress) {
+        if (aiRequest !== controller || controller.signal.aborted || !modal.open || !form.isConnected) return;
+        updateAiProgress(status, progress);
       } });
       if (aiRequest !== controller || controller.signal.aborted || !modal.open || !form.isConnected) return;
       aiRequest = null;
@@ -879,7 +1004,18 @@
       aiDraft = draft;
       openAiPreview();
     } catch (error) {
-      if ((!controller || aiRequest === controller) && modal.open && form.isConnected && error.name !== 'AbortError') errorMessage(error);
+      if ((!controller || aiRequest === controller) && modal.open && form.isConnected && error.name !== 'AbortError') {
+        errorMessage(error);
+        if (controller) {
+          const status = form.querySelector('.ai-status');
+          status.querySelectorAll('.is-active').forEach(node => node.classList.remove('is-active'));
+          status.querySelector('[data-ai-step="search"] p').textContent = '搜索已停止，已找到的资料保留供查看';
+          status.querySelectorAll('.ai-task-searching, .ai-task-waiting').forEach(node => {
+            node.textContent = node.textContent.replace(/(?:搜索中|等待开始)$/, '已停止');
+            node.className = 'ai-task-waiting';
+          });
+        }
+      }
     } finally {
       clearInterval(timer);
       if (aiTimer === timer) aiTimer = null;
@@ -891,7 +1027,7 @@
           form.querySelector('[type="submit"]').disabled = false;
           form.querySelector('[data-action="ai-template"]').disabled = false;
           form.removeAttribute('aria-busy');
-          form.querySelector('.ai-status').hidden = true;
+          form.querySelector('.ai-status').hidden = !form.querySelector('.ai-live-source-list').children.length;
           form.querySelectorAll('.ai-step-label span')[0].classList.add('is-current');
           form.querySelectorAll('.ai-step-label span')[1].classList.remove('is-current');
           form.querySelector('[type="submit"]').focus();
@@ -1033,6 +1169,7 @@
     const button = event.target.closest('[data-action]');
     if (!button) return;
     const { action, person, value, template, plan, task } = button.dataset;
+    if (action === 'copy-code') { copyCode(button); return; }
     try {
       if (action === 'scroll-to') {
         const target = document.getElementById(value);
@@ -1177,7 +1314,29 @@
     if (modalReturnFocus && modalReturnFocus.isConnected) modalReturnFocus.focus({ preventScroll: true });
   });
   modal.addEventListener('click', event => { if (event.target === modal) { const rect = modal.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) modal.close(); } });
-  window.addEventListener('starpath:change', notice);
+  window.addEventListener('starpath:change', event => {
+    notice();
+    if (!event.detail.external) return;
+    if (current.page === 'growth') {
+      const focused = document.activeElement;
+      const returnAction = modalReturnFocus?.dataset.action;
+      const returnTask = modalReturnFocus?.dataset.task;
+      const focusSelector = main.contains(focused) && focused.dataset.task
+        ? '[data-task="' + focused.dataset.task + '"]' : null;
+      render({ keepScroll: true, keepModal: true, focusSelector });
+      if (modal.open && modalReturnFocus && !modalReturnFocus.isConnected) {
+        modalReturnFocus = (returnAction && main.querySelector('[data-action="' + returnAction + '"]' + (returnTask ? '[data-task="' + returnTask + '"]' : '')))
+          || main.querySelector('[data-action="add-task"]') || main.querySelector('[data-action="create-plan"]') || main;
+      }
+      const form = modal.open && modal.querySelector('form[data-plan]');
+      if (form) {
+        const plan = store.get().plans.find(item => item.id === form.dataset.plan);
+        if (!plan || (form.dataset.task && !plan.tasks.some(task => task.id === form.dataset.task))) {
+          errorMessage(new Error(!plan ? '这份计划已在其他页面删除，当前输入仍保留。' : '这项任务已在其他页面删除，当前输入仍保留。'));
+        }
+      }
+    } else refreshFavorites();
+  });
   modal.addEventListener('cancel', resetAi);
   window.addEventListener('hashchange', () => { resetAi(); render({ routeChange: true }); });
   window.addEventListener('resize', () => { clearAlumniTransition(true); clearReadingAnimations(); });

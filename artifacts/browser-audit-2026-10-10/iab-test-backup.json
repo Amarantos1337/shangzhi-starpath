@@ -1,0 +1,28 @@
+{
+  "app": "shangzhi-starpath",
+  "exportedAt": "2026-10-09T23:26:22.371Z",
+  "version": 1,
+  "favorites": [
+    "wang-zongyu",
+    "chen-liang"
+  ],
+  "plans": [
+    {
+      "id": "90898c6c-d73c-4d5b-854c-36c23d77cec2",
+      "templateId": null,
+      "title": "内置浏览器测试计划 <b>文本</b>",
+      "goal": "验证任务、日期、刷新保存",
+      "createdAt": "2026-10-09T23:22:22.974Z",
+      "updatedAt": "2026-10-09T23:23:13.198Z",
+      "tasks": [
+        {
+          "id": "65eead87-3bce-4455-8515-49eb80019f3a",
+          "title": "完成浏览器回归",
+          "stage": "验证阶段",
+          "dueDate": "2026-10-09",
+          "completed": true
+        }
+      ]
+    }
+  ]
+}

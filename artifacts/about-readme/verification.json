@@ -1,0 +1,396 @@
+{
+  "report": [
+    {
+      "origin": "file",
+      "width": 1440,
+      "overflow": false,
+      "exactHtml": true,
+      "copyButtons": 5,
+      "displayOnlyBlocks": 2,
+      "firstBlockHeight": 54,
+      "codeAlignment": [
+        {
+          "singleLine": true,
+          "topGap": 16.734375,
+          "bottomGap": 16.734375,
+          "buttonCenterOffset": 0
+        },
+        {
+          "singleLine": true,
+          "topGap": 16.734375,
+          "bottomGap": 16.734375,
+          "buttonCenterOffset": 0
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": true,
+          "topGap": 16.734375,
+          "bottomGap": 16.734375,
+          "buttonCenterOffset": 0
+        }
+      ],
+      "lastTitle": "你的数据，由你保管",
+      "lastParagraphs": [
+        "无需注册。收藏和已保存的成长计划在当前浏览器管理。使用升学 AI 生成时，填写的个人情况将发送给 DeepSeek，用于联网检索和生成建议。清理浏览器数据、使用隐私模式、更换浏览器或移动网页文件可能影响保存。建议在“我的成长”定期导出 JSON 备份，换环境后可导入恢复。",
+        "网页的指南、练习材料和原始模板在本地；升学 AI 生成需要联网，主动打开学校报道或官方学习资料也会访问外部网站。Python 实践需先安装本地工具，首次安装需要联网。"
+      ],
+      "tables": 7,
+      "headings": 24,
+      "codeBlocks": 7,
+      "brokenImages": 0,
+      "localLinks": 8,
+      "navigation": "passed",
+      "refresh": "passed"
+    },
+    {
+      "origin": "file",
+      "width": 1042,
+      "overflow": false,
+      "exactHtml": true,
+      "copyButtons": 5,
+      "displayOnlyBlocks": 2,
+      "firstBlockHeight": 54,
+      "codeAlignment": [
+        {
+          "singleLine": true,
+          "topGap": 16.734375,
+          "bottomGap": 16.734375,
+          "buttonCenterOffset": 0
+        },
+        {
+          "singleLine": true,
+          "topGap": 16.734375,
+          "bottomGap": 16.734375,
+          "buttonCenterOffset": 0
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": true,
+          "topGap": 16.734375,
+          "bottomGap": 16.734375,
+          "buttonCenterOffset": 0
+        }
+      ],
+      "lastTitle": "你的数据，由你保管",
+      "lastParagraphs": [
+        "无需注册。收藏和已保存的成长计划在当前浏览器管理。使用升学 AI 生成时，填写的个人情况将发送给 DeepSeek，用于联网检索和生成建议。清理浏览器数据、使用隐私模式、更换浏览器或移动网页文件可能影响保存。建议在“我的成长”定期导出 JSON 备份，换环境后可导入恢复。",
+        "网页的指南、练习材料和原始模板在本地；升学 AI 生成需要联网，主动打开学校报道或官方学习资料也会访问外部网站。Python 实践需先安装本地工具，首次安装需要联网。"
+      ],
+      "tables": 7,
+      "headings": 24,
+      "codeBlocks": 7,
+      "brokenImages": 0,
+      "localLinks": 8,
+      "navigation": "passed",
+      "refresh": "passed"
+    },
+    {
+      "origin": "file",
+      "width": 390,
+      "overflow": false,
+      "exactHtml": true,
+      "copyButtons": 5,
+      "displayOnlyBlocks": 2,
+      "firstBlockHeight": 54,
+      "codeAlignment": [
+        {
+          "singleLine": true,
+          "topGap": 16.734375,
+          "bottomGap": 16.734375,
+          "buttonCenterOffset": 0
+        },
+        {
+          "singleLine": true,
+          "topGap": 16.734375,
+          "bottomGap": 16.734375,
+          "buttonCenterOffset": 0
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": true,
+          "topGap": 16.734375,
+          "bottomGap": 16.734375,
+          "buttonCenterOffset": 0
+        }
+      ],
+      "lastTitle": "你的数据，由你保管",
+      "lastParagraphs": [
+        "无需注册。收藏和已保存的成长计划在当前浏览器管理。使用升学 AI 生成时，填写的个人情况将发送给 DeepSeek，用于联网检索和生成建议。清理浏览器数据、使用隐私模式、更换浏览器或移动网页文件可能影响保存。建议在“我的成长”定期导出 JSON 备份，换环境后可导入恢复。",
+        "网页的指南、练习材料和原始模板在本地；升学 AI 生成需要联网，主动打开学校报道或官方学习资料也会访问外部网站。Python 实践需先安装本地工具，首次安装需要联网。"
+      ],
+      "tables": 7,
+      "headings": 24,
+      "codeBlocks": 7,
+      "brokenImages": 0,
+      "localLinks": 8,
+      "navigation": "passed",
+      "refresh": "passed"
+    },
+    {
+      "origin": "http",
+      "width": 1440,
+      "overflow": false,
+      "exactHtml": true,
+      "copyButtons": 5,
+      "displayOnlyBlocks": 2,
+      "firstBlockHeight": 54,
+      "codeAlignment": [
+        {
+          "singleLine": true,
+          "topGap": 16.734375,
+          "bottomGap": 16.734375,
+          "buttonCenterOffset": 0
+        },
+        {
+          "singleLine": true,
+          "topGap": 16.734375,
+          "bottomGap": 16.734375,
+          "buttonCenterOffset": 0
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": true,
+          "topGap": 16.734375,
+          "bottomGap": 16.734375,
+          "buttonCenterOffset": 0
+        }
+      ],
+      "lastTitle": "你的数据，由你保管",
+      "lastParagraphs": [
+        "无需注册。收藏和已保存的成长计划在当前浏览器管理。使用升学 AI 生成时，填写的个人情况将发送给 DeepSeek，用于联网检索和生成建议。清理浏览器数据、使用隐私模式、更换浏览器或移动网页文件可能影响保存。建议在“我的成长”定期导出 JSON 备份，换环境后可导入恢复。",
+        "网页的指南、练习材料和原始模板在本地；升学 AI 生成需要联网，主动打开学校报道或官方学习资料也会访问外部网站。Python 实践需先安装本地工具，首次安装需要联网。"
+      ],
+      "tables": 7,
+      "headings": 24,
+      "codeBlocks": 7,
+      "brokenImages": 0,
+      "localLinks": 8,
+      "navigation": "passed",
+      "refresh": "passed"
+    },
+    {
+      "origin": "http",
+      "width": 1042,
+      "overflow": false,
+      "exactHtml": true,
+      "copyButtons": 5,
+      "displayOnlyBlocks": 2,
+      "firstBlockHeight": 54,
+      "codeAlignment": [
+        {
+          "singleLine": true,
+          "topGap": 16.734375,
+          "bottomGap": 16.734375,
+          "buttonCenterOffset": 0
+        },
+        {
+          "singleLine": true,
+          "topGap": 16.734375,
+          "bottomGap": 16.734375,
+          "buttonCenterOffset": 0
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": true,
+          "topGap": 16.734375,
+          "bottomGap": 16.734375,
+          "buttonCenterOffset": 0
+        }
+      ],
+      "lastTitle": "你的数据，由你保管",
+      "lastParagraphs": [
+        "无需注册。收藏和已保存的成长计划在当前浏览器管理。使用升学 AI 生成时，填写的个人情况将发送给 DeepSeek，用于联网检索和生成建议。清理浏览器数据、使用隐私模式、更换浏览器或移动网页文件可能影响保存。建议在“我的成长”定期导出 JSON 备份，换环境后可导入恢复。",
+        "网页的指南、练习材料和原始模板在本地；升学 AI 生成需要联网，主动打开学校报道或官方学习资料也会访问外部网站。Python 实践需先安装本地工具，首次安装需要联网。"
+      ],
+      "tables": 7,
+      "headings": 24,
+      "codeBlocks": 7,
+      "brokenImages": 0,
+      "localLinks": 8,
+      "navigation": "passed",
+      "refresh": "passed"
+    },
+    {
+      "origin": "http",
+      "width": 390,
+      "overflow": false,
+      "exactHtml": true,
+      "copyButtons": 5,
+      "displayOnlyBlocks": 2,
+      "firstBlockHeight": 54,
+      "codeAlignment": [
+        {
+          "singleLine": true,
+          "topGap": 16.734375,
+          "bottomGap": 16.734375,
+          "buttonCenterOffset": 0
+        },
+        {
+          "singleLine": true,
+          "topGap": 16.734375,
+          "bottomGap": 16.734375,
+          "buttonCenterOffset": 0
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": false,
+          "topGap": 13,
+          "bottomGap": 13,
+          "buttonCenterOffset": null
+        },
+        {
+          "singleLine": true,
+          "topGap": 16.734375,
+          "bottomGap": 16.734375,
+          "buttonCenterOffset": 0
+        }
+      ],
+      "lastTitle": "你的数据，由你保管",
+      "lastParagraphs": [
+        "无需注册。收藏和已保存的成长计划在当前浏览器管理。使用升学 AI 生成时，填写的个人情况将发送给 DeepSeek，用于联网检索和生成建议。清理浏览器数据、使用隐私模式、更换浏览器或移动网页文件可能影响保存。建议在“我的成长”定期导出 JSON 备份，换环境后可导入恢复。",
+        "网页的指南、练习材料和原始模板在本地；升学 AI 生成需要联网，主动打开学校报道或官方学习资料也会访问外部网站。Python 实践需先安装本地工具，首次安装需要联网。"
+      ],
+      "tables": 7,
+      "headings": 24,
+      "codeBlocks": 7,
+      "brokenImages": 0,
+      "localLinks": 8,
+      "navigation": "passed",
+      "refresh": "passed"
+    }
+  ],
+  "errors": [],
+  "copyChecks": "真实剪贴板、键盘复制、API 不可用、权限拒绝回退、复制失败提示及其他示例框通过"
+}

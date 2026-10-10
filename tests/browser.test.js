@@ -55,7 +55,7 @@ async function run() {
     report.push('16 pages checked at 1440px and 390px over HTTP and file://; no overflow, broken loaded images or duplicate IDs');
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.goto(base + '#/');
-    await page.getByRole('link', { name: '发现校友故事', exact: true }).click();
+    await page.getByRole('link', { name: '探索全部校友', exact: true }).click();
     await page.getByRole('searchbox', { name: '搜索校友' }).fill('王宗宇');
     assert.equal(await page.locator('#alumni-results .person-card').count(), 1);
     await page.getByRole('button', { name: '收藏王宗宇', exact: true }).click();
@@ -94,7 +94,7 @@ async function run() {
     await page.locator('input[name="dueDate"]').fill('2026-10-01');
     await page.getByRole('button', { name: '保存修改', exact: true }).click();
     assert.equal(await page.locator('.task-text').first().innerText(), '记录三个测试结果');
-    assert.ok(await page.getByRole('link', { name: '返回技能竞赛学习指导' }).count());
+    assert.ok(await page.getByRole('link', { name: '返回技能竞赛学习指导', includeHidden: true }).count());
     const exportEvent = page.waitForEvent('download');
     await page.getByRole('button', { name: '导出备份', exact: true }).click();
     const exported = await exportEvent;
@@ -126,7 +126,7 @@ async function run() {
     await page.locator('input[name="title"]').fill('第一项自定义任务');
     await page.getByRole('button', { name: '添加任务', exact: true }).last().click();
     assert.equal(await page.locator('.task-text').innerText(), '第一项自定义任务');
-    report.push('Empty plan shows six methods and still accepts custom tasks');
+    report.push('Empty plan retains six hidden method cards for the simplified layout and still accepts custom tasks');
     await page.goto(file + '#/paths/career');
     await page.getByRole('button', { name: '使用这条路线', exact: true }).click();
     await page.getByRole('button', { name: '创建计划', exact: true }).click();
@@ -199,10 +199,47 @@ async function run() {
       assert.equal(new URL(tribute.url()).hash, '#/');
       await tribute.goForward();
       assert.equal(new URL(tribute.url()).hash, '#/history');
-      const opener = tribute.locator('.history-next [data-action="create-tribute"]');
+      for (const width of [1440, 390]) {
+        await tribute.setViewportSize({ width, height: 900 });
+        await tribute.goto(origin + '#/');
+        for (const selector of ['.header-action', '.anniversary-copy .hero-actions a[href="index.html#/paths"]', '.tribute-bottom a']) {
+          const entry = tribute.locator(selector);
+          assert.equal((await entry.innerText()).trim().replace(/\s+/g, ' '), selector === '.header-action' ? '选择成长计划 ↗' : '选择成长计划');
+          assert.equal(await entry.getAttribute('href'), 'index.html#/paths');
+          assert.equal(await entry.getAttribute('data-action'), null);
+        }
+        assert.equal(await tribute.locator('.tribute-section').isVisible(), false);
+        assert.equal(await tribute.locator('[data-action="create-tribute"]').count(), 0);
+        const entries = [
+          ['#/', '.anniversary-copy .hero-actions a[href="index.html#/paths"]'],
+          ['#/history', '.history-next a[href="index.html#/paths"]']
+        ];
+        if (width === 1440) entries.push(['#/', '.header-action']);
+        for (const [hash, selector] of entries) {
+          await tribute.goto(origin + hash);
+          const previousUrl = tribute.url();
+          const entry = tribute.locator(selector);
+          assert.match(await entry.innerText(), /选择成长计划/);
+          assert.equal(await entry.getAttribute('href'), 'index.html#/paths');
+          await entry.focus();
+          await tribute.keyboard.press('Enter');
+          await tribute.waitForURL(url => url.pathname.endsWith('/index.html') && url.hash === '#/paths');
+          await tribute.locator('.paths-page').waitFor();
+          assert.equal(await tribute.locator('#modal').evaluate(node => node.open), false);
+          assert.deepEqual(await tribute.evaluate(() => window.StarPath.store.get()), original);
+          await tribute.goBack();
+          await tribute.waitForURL(previousUrl);
+          await tribute.goForward();
+          await tribute.waitForURL(url => url.hash === '#/paths');
+          assert.deepEqual(await tribute.evaluate(() => window.StarPath.store.get()), original);
+        }
+      }
+      await tribute.setViewportSize({ width: 1440, height: 1000 });
+      await tribute.goto(origin + '#/paths/competition');
+      const opener = tribute.getByRole('button', { name: '使用这条路线', exact: true });
       await opener.click();
-      assert.equal(await tribute.locator('.tribute-task-preview li').count(), 3);
-      assert.equal(await tribute.locator('input[name="title"]').inputValue(), '我的九秩校庆献礼计划');
+      assert.match(await tribute.locator('.modal-description').innerText(), /4个阶段、12项任务/);
+      assert.equal(await tribute.locator('input[name="title"]').inputValue(), '我的技能竞赛计划');
       await tribute.keyboard.press('Escape');
       assert.equal(await opener.evaluate(node => node === document.activeElement), true);
       assert.deepEqual(await tribute.evaluate(() => window.StarPath.store.get()), original);
@@ -210,9 +247,9 @@ async function run() {
       await tribute.getByRole('button', { name: '取消', exact: true }).click();
       assert.deepEqual(await tribute.evaluate(() => window.StarPath.store.get()), original);
       await opener.click();
-      await tribute.screenshot({ path: path.join(output, 'tribute-dialog-desktop.png') });
+      await tribute.screenshot({ path: path.join(output, 'growth-dialog-desktop.png') });
       await tribute.setViewportSize({ width: 390, height: 844 });
-      await tribute.screenshot({ path: path.join(output, 'tribute-dialog-mobile.png') });
+      await tribute.screenshot({ path: path.join(output, 'growth-dialog-mobile.png') });
       assert.equal(await tribute.locator('#modal').evaluate(node => node.scrollWidth <= node.clientWidth + 1), true);
       await tribute.locator('input[name="title"]').fill('我的献礼 <b>成长记录</b>');
       await tribute.locator('textarea[name="goal"]').fill('完成一份真实的小作品');
@@ -220,24 +257,29 @@ async function run() {
       await tribute.locator('#plan-title').waitFor();
       assert.equal(await tribute.locator('#plan-title').innerText(), '我的献礼 <b>成长记录</b>');
       assert.equal(await tribute.locator('#plan-title b').count(), 0);
-      assert.equal(await tribute.locator('.task-check input').count(), 3);
+      assert.equal(await tribute.locator('.task-check input').count(), 12);
       assert.equal(await tribute.locator('[data-nav="growth"]').getAttribute('aria-current'), 'page');
       const first = await tribute.evaluate(() => window.StarPath.store.get().plans[0]);
-      assert.equal(first.templateId, null);
+      assert.equal(first.templateId, 'competition');
       assert.ok(first.tasks.every(task => task.dueDate === '' && !task.completed));
       await tribute.locator('[data-action="edit-task"]').first().click();
       await tribute.locator('input[name="title"]').fill('记录1936年的办学起点');
       await tribute.locator('input[name="dueDate"]').fill('2026-10-01');
       await tribute.getByRole('button', { name: '保存修改', exact: true }).click();
-      for (let index = 0; index < 3; index++) await tribute.locator('.task-check input').nth(index).check();
+      for (let index = 0; index < 12; index++) await tribute.locator('.task-check input').nth(index).check();
       await tribute.reload();
       assert.equal(await tribute.locator('[role="progressbar"]').getAttribute('aria-valuenow'), '100');
       assert.equal(await tribute.locator('.completion-note').isVisible(), true);
       assert.equal(await tribute.locator('.task-text').first().innerText(), '记录1936年的办学起点');
-      await tribute.screenshot({ path: path.join(output, 'tribute-plan-mobile.png'), fullPage: true });
+      await tribute.screenshot({ path: path.join(output, 'growth-plan-mobile.png'), fullPage: true });
       await tribute.setViewportSize({ width: 1440, height: 1000 });
-      await tribute.screenshot({ path: path.join(output, 'tribute-plan-desktop.png'), fullPage: true });
+      await tribute.screenshot({ path: path.join(output, 'growth-plan-desktop.png'), fullPage: true });
       await tribute.locator('.header-action').click();
+      await tribute.waitForURL(url => url.hash === '#/paths');
+      assert.equal(await tribute.locator('#modal').evaluate(node => node.open), false);
+      assert.equal(await tribute.evaluate(() => window.StarPath.store.get().plans.length), 2);
+      await tribute.goto(origin + '#/paths/competition');
+      await tribute.getByRole('button', { name: '使用这条路线', exact: true }).click();
       await tribute.getByRole('button', { name: '创建计划', exact: true }).click();
       await tribute.waitForFunction(() => window.StarPath.store.get().plans.length === 3);
       const repeated = await tribute.evaluate(() => window.StarPath.store.get());
@@ -248,7 +290,7 @@ async function run() {
       await tribute.getByRole('button', { name: '导出备份', exact: true }).click();
       const backupDownload = await downloadPromise;
       const savedBackup = fs.readFileSync(await backupDownload.path(), 'utf8');
-      fs.writeFileSync(path.join(output, 'tribute-backup.json'), savedBackup);
+      fs.writeFileSync(path.join(output, 'growth-backup.json'), savedBackup);
       const importTribute = async value => {
         await tribute.getByRole('button', { name: '导入备份', exact: true }).click();
         await tribute.locator('#backup-file').setInputFiles({ name: 'test.json', mimeType: 'application/json', buffer: Buffer.from(value) });
@@ -270,19 +312,24 @@ async function run() {
       assert.deepEqual(await tribute.evaluate(() => window.StarPath.store.get()), repeated);
       await tributeContext.close();
     }
-    report.push('Tribute over HTTP and file: legacy fixture, history navigation/focus, cancel/Escape, 3-task creation, edit, completion, refresh, repeat creation, escaping, backups and cancel/invalid/restore verified');
+    report.push('Growth selection over HTTP and file at 1440px/390px: all four link labels/targets, visible entries via keyboard, back/forward, no dialog or data changes; route plans retain cancel/Escape, creation/edit/completion/refresh, repeat creation, escaping and backups');
     const tributeBlocked = await browser.newContext();
     await tributeBlocked.addInitScript(() => { Object.defineProperty(window, 'localStorage', { get() { throw new Error('Unavailable'); } }); });
     const tributeSession = await tributeBlocked.newPage();
     await tributeSession.goto(base + '#/');
-    await tributeSession.locator('.anniversary-copy [data-action="create-tribute"]').click();
+    await tributeSession.locator('.anniversary-copy a[href="index.html#/paths"]').click();
+    await tributeSession.waitForURL(url => url.hash === '#/paths');
+    assert.equal(await tributeSession.locator('#modal').evaluate(node => node.open), false);
+    assert.equal(await tributeSession.evaluate(() => window.StarPath.store.get().plans.length), 0);
+    await tributeSession.goto(base + 'index.html#/paths/competition');
+    await tributeSession.getByRole('button', { name: '使用这条路线', exact: true }).click();
     await tributeSession.getByRole('button', { name: '创建计划', exact: true }).click();
     await tributeSession.locator('#plan-title').waitFor();
-    assert.equal(await tributeSession.locator('.task-check input').count(), 3);
+    assert.equal(await tributeSession.locator('.task-check input').count(), 12);
     assert.equal(await tributeSession.locator('#storage-notice').isVisible(), true);
     assert.match(await tributeSession.locator('#toast').innerText(), /仅本次打开有效/);
     await tributeBlocked.close();
-    report.push('Tribute unavailable-storage flow keeps all 3 tasks in session and shows backup notice');
+    report.push('Unavailable storage: growth selection navigates without creating a plan; explicit route creation keeps 12 tasks in session and shows backup notice');
     const motionContext = await browser.newContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'no-preference' });
     const motionPage = await motionContext.newPage();
     await motionPage.goto(base + '#/');

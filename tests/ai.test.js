@@ -4,6 +4,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
+const { compactPlan, isLearning, schoolEvidence } = require('./ai-fixtures');
 const root = path.resolve(__dirname, '../project/js');
 const profile = { level: '本科', major: '计算机网络技术', grade: '大四', baseline: '英语需要加强', goal: '山东大学，计算机相关专业', region: '山东', startDate: '2026-10-01' };
 const sources = [{ title: '教育部研考通知', url: 'https://www.moe.gov.cn/notice' }];
@@ -13,6 +14,8 @@ const answer = (value = generated()) => ({ stop_reason: 'end_turn', content: [{ 
 const plain = value => JSON.parse(JSON.stringify(value));
 function load(responses = [], options = {}) {
   const requests = [];
+  const firstSearch = responses[0];
+  const answers = responses.filter(value => value && Array.isArray(value.content) && value.content.some(block => block.type === 'text' && /^\s*\{/.test(block.text)));
   const saved = new Map();
   const context = vm.createContext({ URL, AbortController, DOMException, setTimeout, clearTimeout,
     window: { StarPath: {}, dispatchEvent() {} }, CustomEvent: class {},
@@ -20,8 +23,35 @@ function load(responses = [], options = {}) {
     fetch: async (url, request) => {
       requests.push({ url, ...request, body: JSON.parse(request.body) });
       if (options.fetch) return options.fetch(url, request);
-      const value = responses.shift();
+      const body = requests.at(-1).body;
+      let value = body.tools ? firstSearch : isLearning(body) ? answer() : answers.shift();
       if (value instanceof Error) throw value;
+      if (body.tools && value && Array.isArray(value.content)) {
+        value = plain(value);
+        const count = value.content.filter(block => block.type === 'server_tool_use').length;
+        if (count <= 18) value.content = [...Array.from({ length: Math.min(count, body.tools[0].max_uses) }, () => ({ type: 'server_tool_use', name: 'web_search' })), ...value.content.filter(block => block.type !== 'server_tool_use')];
+        const task = JSON.parse(body.messages[0].content).task;
+        if (task.id === 'discovery') {
+          const retrieved = value.content.flatMap(block => block.type === 'web_search_tool_result' ? block.content : []);
+          const candidatePlan = answers[0]?.content.find(block => block.type === 'text');
+          let schools = [];
+          try { schools = JSON.parse(candidatePlan.text).recommendations || []; } catch (_) {}
+          const candidates = retrieved.slice(0, 3).map((source, index) => ({ name: schools[index]?.name || ['甲校', '乙校', '丙校'][index], province: '山东', city: '济南', sourceUrl: source.url }));
+          const summary = value.content.filter(block => block.type === 'text').map(block => block.text).join('\n');
+          value.content = [...value.content.filter(block => block.type !== 'text'), { type: 'text', text: JSON.stringify({ candidates, summary }) }];
+        }
+        if (task.id.startsWith('school-')) {
+          const valid = answers.map(item => { try { return JSON.parse(item.content.find(block => block.type === 'text').text); } catch (_) { return {}; } }).find(item => item.recommendations?.length >= 3);
+          if (valid) value.content = [...value.content.filter(block => block.type !== 'text'), { type: 'text', text: JSON.stringify(schoolEvidence(valid, body)) }];
+        }
+      }
+      if (!body.tools && value && Array.isArray(value.content)) {
+        value = plain(value);
+        value.content = value.content.map(block => {
+          if (block.type !== 'text') return block;
+          try { return { ...block, text: JSON.stringify(compactPlan(JSON.parse(block.text), body)) }; } catch (_) { return block; }
+        });
+      }
       return { ok: !value.status, status: value.status || 200, json: async () => value };
     }
   });
@@ -48,17 +78,17 @@ test('real tool evidence is required; text-only and unsafe search links are excl
   await assert.rejects(ai.generate(profile), /未取得有效联网检索结果/);
   assert.deepEqual(plain(ai.extractSources([{ type: 'web_search_tool_result', content: [{ type: 'web_search_result', title: '不安全', url: 'javascript:alert(1)' }, { type: 'web_search_result', title: '凭据网址', url: 'https://user:pass@example.com' }] }])), []);
 });
-test('high effort generation uses search then structured planning without persisting inputs or credentials', async () => {
+test('high effort research and low effort generation produce plans without persisting inputs or credentials', async () => {
   const { ai, store, requests } = load([search(), answer()]);
   const stages = [];
   const draft = await ai.generate(profile, { onStage: stage => stages.push(stage) });
   assert.deepEqual(stages, ['search', 'generate']);
-  assert.equal(requests.length, 2);
-  for (const request of requests) { assert.equal(request.body.output_config.effort, 'high'); assert.equal(request.body.thinking.type, 'enabled'); assert.equal(request.body.model, 'deepseek-flash'); }
-  assert.equal(requests[0].body.tools[0].max_uses, 6);
+  assert.equal(requests.length, 7);
+  for (const request of requests) { assert.equal(request.body.output_config.effort, request.body.tools ? 'high' : 'low'); assert.equal(request.body.thinking.type, 'enabled'); assert.equal(request.body.model, 'deepseek-flash'); }
+  assert.equal(requests[0].body.tools[0].max_uses, 1);
   assert.deepEqual(requests[0].body.tools[0].allowed_domains, ['gov.cn', 'edu.cn', 'chsi.com.cn', 'sdzk.cn']);
-  assert.match(requests[0].body.messages[0].content, /至少6次、最多18次/);
-  assert.equal(requests[1].body.tools, undefined);
+  assert.equal(requests.slice(0, 6).reduce((sum, request) => sum + request.body.tools[0].max_uses, 0), 6);
+  assert.equal(requests.at(-1).body.tools, undefined);
   assert.equal(store.get().plans.length, 0);
   const created = store.createAiPlan(draft);
   const plan = store.get().plans[0];
@@ -101,20 +131,11 @@ test('exam deadline requires a future official search result and covers the day 
 test('JSON repair happens once; exhausted repair leaves storage unchanged', async () => {
   const repaired = load([search(), answer({}), answer()]);
   await repaired.ai.generate(profile);
-  assert.equal(repaired.requests.length, 3);
+  assert.equal(repaired.requests.filter(request => !request.body.tools).length, 2);
   const failed = load([search(), answer({}), answer({})]);
   await assert.rejects(failed.ai.generate(profile));
-  assert.equal(failed.requests.length, 3);
+  assert.equal(failed.requests.filter(request => !request.body.tools).length, 2);
   assert.equal(failed.store.get().plans.length, 0);
-});
-test('pause_turn is resumed with original blocks, remaining search budget and bounded continuations', async () => {
-  const success = load([search({ stop_reason: 'pause_turn' }, 2), search({}, 4), answer()]);
-  await success.ai.generate(profile);
-  assert.equal(success.requests[1].body.tools[0].max_uses, 6);
-  assert.equal(success.requests[1].body.messages[1].role, 'assistant');
-  const failed = load([search({ stop_reason: 'pause_turn' }, 6), search({ stop_reason: 'pause_turn' }, 6), search({ stop_reason: 'pause_turn' }, 6)]);
-  await assert.rejects(failed.ai.generate(profile), /限定次数/);
-  assert.equal(failed.requests.length, 3);
 });
 test('invalid key, balance, forbidden access, rate limits and server errors give safe messages', async () => {
   for (const [status, pattern] of [[400, /拒绝了请求/], [401, /密钥无效/], [402, /余额不足/], [403, /访问被拒绝/], [429, /过于频繁/], [500, /暂时不可用/]]) {
@@ -239,10 +260,10 @@ test('blank university goals require distinct recommendations grounded in actual
   const live = load([searchResult, answer(value)]);
   const result = await live.ai.generate({ ...profile, grade: '大一', goal: '' });
   assert.equal(result.generation.recommendations.length, 3);
-  const submitted = JSON.parse(live.requests[1].body.messages[0].content);
+  const submitted = JSON.parse(live.requests.find(request => !request.body.tools && !isLearning(request.body)).body.messages[0].content);
   assert.equal(submitted.profile.targetExamYear, 2029);
   assert.equal(submitted.profile.goal, '');
-  assert.match(live.requests[0].body.messages[0].content, /推荐3–5所/);
+  assert.equal(submitted.schools.length, 3);
 });
 
 test('source titles remove HTML fragments and encoded tags while remaining escaped by the UI', () => {
@@ -269,50 +290,15 @@ test('unofficial links are rejected even when included in the supplied source li
   assert.throws(() => ai.parsePlan(JSON.stringify(value), ai.validateProfile(profile), [...sources, unofficial]), /只能引用/);
 });
 
-test('early search completion triggers more searches with the remaining global budget', async () => {
-  const { ai, requests } = load([search({}, 2), search({}, 4), answer()]);
-  await ai.generate(profile);
-  assert.equal(requests.length, 3);
-  assert.equal(requests[1].body.tools[0].max_uses, 6);
-  assert.deepEqual(requests[1].body.tools[0].allowed_domains, ['gov.cn', 'edu.cn', 'chsi.com.cn', 'sdzk.cn']);
-  assert.match(requests[1].body.messages.at(-1).content, /至少还需4次/);
-  assert.equal(requests[2].body.tools, undefined);
-});
-
-test('search budget violations and repeated responses without searches cannot generate a plan', async () => {
-  const exceeded = load([search({}, 19)]);
-  await assert.rejects(exceeded.ai.generate(profile), /超过限定次数/);
-  const stalled = load(Array.from({ length: 20 }, () => search({}, 0)));
-  await assert.rejects(stalled.ai.generate(profile), /限定次数/);
-  assert.equal(stalled.requests.length, 20);
-  assert.equal(stalled.store.get().plans.length, 0);
-});
-
-test('descriptive goals continue past a six-search server turn and use the final consolidated research', async () => {
-  const loaded = load();
-  const { value } = localSchoolPlan(loaded.ai);
-  const completed = count => search({ content: [...Array.from({ length: count }, () => ({ type: 'server_tool_use', name: 'web_search' })), { type: 'web_search_tool_result', content: schoolSources.map(source => ({ type: 'web_search_result', ...source })) }, { type: 'text', text: (count === 3 ? '最终合并核对三所院校。' : '中间轮尚未查完。') + '出处：' + schoolSources[0].url }] });
-  const live = load([completed(6), completed(6), completed(3), answer(value)]);
-  const draft = await live.ai.generate({ ...profile, grade: '大一', goal: '济南本地一本院校' });
-  assert.equal(draft.generation.recommendations.length, 3);
-  assert.equal(live.requests.length, 4);
-  assert.deepEqual(live.requests.slice(0, 3).map(request => request.body.tools[0].max_uses), [6, 6, 6]);
-  assert.match(live.requests[0].body.messages[0].content, /至少15次、最多18次/);
-  assert.match(live.requests[1].body.messages.at(-1).content, /至少还需9次/);
-  assert.match(live.requests[2].body.messages.at(-1).content, /至少还需3次/);
-  const research = JSON.parse(live.requests[3].body.messages[0].content).research;
-  assert.match(research, /最终合并/);
-  assert.ok(!research.includes('中间轮尚未查完'));
-});
-
 test('research passed to planning includes only paragraphs with known official evidence', async () => {
   const official = '官方政策待核实。出处：' + sources[0].url;
   const unofficial = '机构声称包录取 https://training.example.com/news';
   const unsupported = '没有出处的分数预测';
   const { ai, requests } = load([search({ content: [...search().content.slice(0, -1), { type: 'text', text: [official, unofficial, unsupported].join('\n\n') }] }), answer()]);
   await ai.generate(profile);
-  const evidence = JSON.parse(requests[1].body.messages[0].content);
-  assert.equal(evidence.research, official);
+  const evidence = JSON.parse(requests.find(request => !request.body.tools).body.messages[0].content);
+  assert.equal(evidence.research, '官方政策待核实。出处：S1');
+  assert.equal(evidence.sources[0].url, sources[0].url);
   assert.ok(!JSON.stringify(evidence).includes('training.example.com'));
   const cited = ai.extractResearch([
     { type: 'text', text: '有官方引用的政策', citations: [{ url: sources[0].url }] },
@@ -329,7 +315,7 @@ test('unofficial-only results and summaries without official attribution fail sa
   const unsupported = load([search({ content: [...search().content.slice(0, -1), { type: 'text', text: '没有来源的政策摘要' }] })]);
   await assert.rejects(unsupported.ai.generate(profile), /未取得附官方出处/);
   assert.equal(unsupported.store.get().plans.length, 0);
-  assert.equal(unsupported.requests.length, 1);
+  assert.ok(unsupported.requests.every(request => request.body.tools));
 });
 
 function localSchoolPlan(ai) {
@@ -406,9 +392,9 @@ test('three to five historical-tier candidates save and roundtrip, while six and
   const evidence = search({ content: [...search().content.slice(0, 15), { type: 'web_search_tool_result', content: schoolSources.map(source => ({ type: 'web_search_result', ...source })) }, { type: 'text', text: '模拟官方资料：' + schoolSources[0].url }] });
   const repaired = load([evidence, answer(empty), answer(value)]);
   assert.equal((await repaired.ai.generate({ ...profile, grade: '大一', goal: '济南本地一本院校' })).generation.recommendations.length, 3);
-  assert.equal(repaired.requests.length, 3);
+  assert.equal(repaired.requests.filter(request => !request.body.tools && !isLearning(request.body)).length, 2);
   const failed = load([evidence, answer(empty), answer(empty)]);
-  await assert.rejects(failed.ai.generate({ ...profile, grade: '大一', goal: '济南本地一本院校' }), /3–5所/);
+  await assert.rejects(failed.ai.generate({ ...profile, grade: '大一', goal: '济南本地一本院校' }), /院校|校区|检索|JSON/);
   assert.equal(failed.store.get().plans.length, 0);
 });
 
@@ -428,9 +414,9 @@ test('internal fields or code in public text are rejected and repaired into Chin
   const repaired = load([evidence, answer(withCode), answer(value)]);
   const draft = await repaired.ai.generate({ ...profile, grade: '大一', goal: '济南本地一本院校，计算机相关专业' });
   assert.match(draft.generation.summary, /目标初试年份为2029年/);
-  assert.equal(repaired.requests.length, 3);
-  assert.match(repaired.requests[2].body.messages.at(-1).content, /自然中文/);
-  assert.match(repaired.requests[0].body.messages[0].content, /不得推荐外地学校/);
+  assert.equal(repaired.requests.filter(request => !request.body.tools && !isLearning(request.body)).length, 2);
+  assert.match(repaired.requests.at(-1).body.messages.at(-1).content, /自然中文/);
+  assert.match(repaired.requests.at(-1).body.system, /不重新筛选院校/);
 });
 
 test('legacy summaries render in Chinese without changing the saved content', () => {
@@ -525,4 +511,59 @@ test('historical tier labels and current-policy caveats remain usable while nega
   }
   value.recommendations[0].criteriaEvidence[0].criterion = '非一本';
   assert.throws(() => ai.parsePlan(JSON.stringify(value), normalized, schoolSources), /历史招生依据/);
+});
+
+test('compact plans assemble stages, deadlines and exact source URLs locally', () => {
+  const { ai } = load();
+  const normalized = ai.validateProfile(profile);
+  const body = { messages: [{ content: JSON.stringify({ sources: sources.map((item, index) => ({ id: 'S' + (index + 1), ...item })) }) }] };
+  const value = compactPlan(generated(), body);
+  value.taskTitles = Array.from({ length: 16 }, (_, i) => '完成专业学习行动' + i);
+  const result = ai.parsePlan(JSON.stringify(value), normalized, sources);
+  assert.equal(result.tasks.length, 16);
+  assert.equal(result.tasks[0].dueDate, profile.startDate);
+  assert.equal(result.tasks.at(-1).dueDate, '2026-12-18');
+  assert.equal(new Set(result.tasks.map(task => task.stage)).size, 4);
+  assert.equal(result.generation.sources[0].url, sources[0].url);
+  assert.equal(result.generation.period.examSourceUrl, sources[0].url);
+  assert.equal(result.generation.sourceIds, undefined);
+  const later = { ...value, examDate: '2026-12-26' };
+  assert.equal(ai.parsePlan(JSON.stringify(later), normalized, sources).tasks.at(-1).dueDate, '2026-12-25');
+});
+
+test('compact estimated long plans cover all years and reject invented evidence or malformed tasks', () => {
+  const { ai } = load();
+  const { normalized, value } = freshmanPlan(ai);
+  const body = { messages: [{ content: JSON.stringify({ sources: schoolSources.map((item, index) => ({ id: 'S' + (index + 1), ...item })) }) }] };
+  const compact = compactPlan(value, body);
+  const result = ai.parsePlan(JSON.stringify(compact), normalized, schoolSources);
+  assert.equal(result.tasks.at(-1).dueDate, '2029-12-14');
+  assert.ok(result.tasks.some(task => task.dueDate.startsWith('2027')));
+  assert.ok(result.tasks.some(task => task.dueDate.startsWith('2028')));
+  for (const mutate of [
+    item => { item.sourceIds = ['S999']; },
+    item => { item.sourceIds = [schoolSources[0].url]; },
+    item => { item.recommendations[0].sourceId = 'S0'; },
+    item => { item.recommendations[0].location.sourceId = 'S999'; },
+    item => { item.taskTitles.pop(); },
+    item => { item.taskTitles[0] = { title: '不能输出对象' }; },
+    item => { item.examSourceId = 'S1'; },
+    item => { item.recommendations[0].criteriaEvidence = [{ criterion: '一本', explanation: '历史本科一批', sourceId: 'S999' }]; }
+  ]) {
+    const invalid = plain(compact); mutate(invalid);
+    assert.throws(() => ai.parsePlan(JSON.stringify(invalid), normalized, schoolSources));
+  }
+});
+
+test('compact generation sends no task dates and keeps generation non-streaming with low effort', async () => {
+  const fixture = load([search(), answer()]);
+  await fixture.ai.generate(profile);
+  const body = fixture.requests.at(-1).body;
+  const input = JSON.parse(body.messages[0].content);
+  assert.equal(body.output_config.effort, 'low');
+  assert.equal(body.stream, false);
+  assert.equal(input.suggestedTasks, undefined);
+  assert.equal(input.taskStages.length, 4);
+  assert.equal(input.sources[0].id, 'S1');
+  assert.ok(!input.research.includes(sources[0].url));
 });

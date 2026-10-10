@@ -1,0 +1,454 @@
+[
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_agNbcv0woVzYGrEWDBDJ2127",
+        "name": "web_search",
+        "input": {
+          "query": "site:moe.gov.cn 2026年全国硕士研究生招生考试 初试时间 2025年12月"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_agNbcv0woVzYGrEWDBDJ2127",
+        "content": []
+      },
+      null,
+      {
+        "type": "text",
+        "text": "**第1轮（唯一1次检索）：** 检索式 `site:moe.gov.cn 2026年全国硕士研究生招生考试 初试时间 2025年12月` 返回结果为空，未取得任何官方原始资料，故无可引用的官方 URL。\n\n**事实说明：** 未检索到教育部研招网（yz.chsi.com.cn）、教育部（moe.gov.cn）关于初试日期的官方页面。2027招生年度（对应2026年12月初试）初试日期尚未公布，标记为待核实；不得沿用往年日期推断。学历与报考资格要求本轮亦未获取官方依据，须以官方招生管理规定为准。\n\n**限制：** 本轮搜索次数已达上限（1次），无补充查询空间；上述结论基于0条返回结果，不做补造。"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_Sin2aUid34Q2GJMWjbZ87456",
+        "name": "web_search",
+        "input": {
+          "query": "site:sdu.edu.cn 计算机科学与技术 硕士研究生 招生 培养地点 校区"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_Sin2aUid34Q2GJMWjbZ87456",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "硕士研究生-山大计算机科学与技术学院",
+            "url": "https://www.cs.sdu.edu.cn/zsxx/ssyjs.htm"
+          },
+          {
+            "type": "web_search_result",
+            "title": "2026智能媒体研究中心iLearn（青岛校区）招生简介-山东大学智能媒体研究中心",
+            "url": "https://ilearn.qd.sdu.edu.cn/info/1038/2236.htm"
+          },
+          {
+            "type": "web_search_result",
+            "title": "生源基地-山大计算机科学与技术学院",
+            "url": "https://www.cs.sdu.edu.cn/zsxx/syjd.htm"
+          },
+          {
+            "type": "web_search_result",
+            "title": "计算机科学与技术学院2026年硕士研究生一志愿复试名单公示",
+            "url": "https://www.cs.sdu.edu.cn/info/1068/6777.htm"
+          },
+          {
+            "type": "web_search_result",
+            "title": "山大计算机科学与技术学院",
+            "url": "https://www.cs.sdu.edu.cn/ssjg.jsp?wbtreeid=1082&searchScope=0&currentnum=11&newskeycode2=5aSn5pWw5o2uIOW5tuihjOiuoeeulzIwMTk%3D"
+          },
+          {
+            "type": "web_search_result",
+            "title": "计算机科学与技术学院2027年预推免日程及其它事项说明",
+            "url": "http://www.cs.sdu.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1470795559&wbfileid=18218345#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "山东大学2025年国际学生（硕士）招生简章",
+            "url": "https://www.istudy.sdu.edu.cn/__local/8/69/E6/6C66D4CBA2FC6D5CB732A18BA13_8D0CF37D_328E3.pdf#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "学院简介-山大计算机科学与技术学院",
+            "url": "https://www.cs.sdu.edu.cn/gyxy/xyjj.htm?ivk_sa=1024320u"
+          },
+          {
+            "type": "web_search_result",
+            "title": "计算机科学与技术学院关于举办“2026年全国优秀大学生暑期夏令营”活动的通知",
+            "url": "https://www.cs.sdu.edu.cn/info/1068/6855.htm"
+          },
+          {
+            "type": "web_search_result",
+            "title": "【硕士招生考试】计算机科学与技术学院2023年硕士研究生一志愿复试名单公示",
+            "url": "https://www.cs.sdu.edu.cn/info/1068/5826.htm"
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "**培养校区（官方）**：山东大学计算机科学与技术学院2017年整体搬迁至山东大学青岛校区；学院通信地址为山东省青岛市即墨区滨海公路72号、山东大学（青岛）第周苑C座（学院简介更新日期2026年3月1日）。https://www.cs.sdu.edu.cn/gyxy/xyjj.htm?ivk_sa=1024320u\n\n**招生与复试地点（适用年度2026）**：学院2026年硕士统考计划为全日制学术型“计算机科学与技术”（081200）2人、全日制专业学位“计算机技术”（085404）47人（含委托招生、联培专项）；复试、机试、面试均在青岛校区第周苑C区进行。https://www.cs.sdu.edu.cn/info/1068/6777.htm\n\n**2027年度**：仅见2027年推免（预推免）说明，资格审查及考核地点同为青岛校区第周苑C区，属推免流程，非统考招生目录。2027年统考招生目录与培养地点未公布，待核实。http://www.cs.sdu.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1470795559&wbfileid=18218345#1#1"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_iCRlvCE0BEVZtyce0r980231",
+        "name": "web_search",
+        "input": {
+          "query": "site:yz.sdu.edu.cn 2026年硕士研究生招生专业目录 计算机科学与技术学院 初试科目"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_iCRlvCE0BEVZtyce0r980231",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>招生专业代码、名称及研究方向</td><td>招生人数</td><td>初试考试科目</td><td>复试考核内容</td><td>复试笔试参考书目</td><td>备注</td></tr><tr><td>081200 计算机...",
+            "url": "https://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#25#15"
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td colspan=\"6\">021 物理学院</td></tr><tr><td>招生专业代码、名称及研究方向</td><td>招生人数</td><td>初试考试科目</td><td>复试考核内容</td><td>复试笔试参考书目<...",
+            "url": "https://www.yz.sdu.edu.cn/2024/shandongdaxue2024nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#29#9"
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "**山东大学计算机学科初试/复试科目（可查最新官方资料为2025年招生年度目录；2027年目录尚未公布，待核实）**\n\n081200计算机科学与技术：初试①101思想政治理论②201英语（一）③301数学（一）④408计算机学科专业基础；复试为上机、笔试（离散数学、数据库原理）、面试，笔试参考书有《离散数学》（徐秋亮编著，山东大学出版社1994年版）。该科目设置属已公布年度目录信息，不适用于2027年报考资格的当然认定。\n\nhttps://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf\n\n同站可查的上一版为2024年招生专业目录，可用于比对科目变化；本轮未检索到2026、2027年招生目录，故复试科目、参考书目及培养地点的最新要求均待官方发布后核实。\n\nhttps://www.yz.sdu.edu.cn/2024/shandongdaxue2024nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_0HlnsAtHnnulMSTuU1ct8921",
+        "name": "web_search",
+        "input": {
+          "query": "site:yz.sdu.edu.cn 硕士研究生 招生简章 报考条件 计算机"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_0HlnsAtHnnulMSTuU1ct8921",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>085700 资源与环境<br>01 环境科学技术<br>02 环境化学工程<br>03 环境生态工程<br>04 生态环境大数据</td><td>12</td><td>①101 思想政治理论<br>②204 英语二<br>③...",
+            "url": "https://www.yz.sdu.edu.cn/2022/211026shandongdaxue2022nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#22#10"
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "搜索仅返回山东大学研究生招生网2022年硕士招生专业目录PDF，未获得报考条件或学历、专业限制原文，故2027年（2026年12月考试）报考限制无法核实。该PDF适用年度为2022年，其中含085700资源与环境等专业及考试科目，未涉及计算机科学与技术报考资格，不能用于推断2027年要求。用户学历、专业限制条"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_8O3MmYVEi0XS5euethzS9563",
+        "name": "web_search",
+        "input": {
+          "query": "site:yz.chsi.com.cn 全国硕士研究生招生工作管理规定 报考条件"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_8O3MmYVEi0XS5euethzS9563",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "河北省2027年全国硕士研究生招生考试百问百答（一）报名篇",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977251.html"
+          },
+          {
+            "type": "web_search_result",
+            "title": "河南：2027年研考报名60问",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977279.html"
+          },
+          {
+            "type": "web_search_result",
+            "title": "甘肃省2027年全国硕士研究生招生考试报名公告（第一号）",
+            "url": "https://yz.chsi.com.cn/sch/viewZbBulletin--schId-369158,infoId-3551215697,categoryId-433376,mindex-10.dhtml"
+          },
+          {
+            "type": "web_search_result",
+            "title": "华东理工大学2026年硕士研究生招生简章",
+            "url": "https://yz.chsi.com.cn/wap/sch/detail?categoryId=10461192&infoId=3421171088&schId=368142#1#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "四川省2026年全国硕士研究生招生考试网上报名公告",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202509/20250930/2293436385.html#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "教育部关于印发《2025年全国硕士研究生招生工作管理规定》的通知 - 教育部关于印发《2025年全国硕士研究生招生工作管理规定》的通知",
+            "url": "https://yz.chsi.com.cn/kyzx/jybzc/202410/20241008/2293342617.html#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "中国航天科工集团第三研究院(8358所)_院校信息_中国研究生招生信息网",
+            "url": "https://yz.chsi.com.cn/sch/viewBulletin--schId-367942,infoId-3552305645,categoryId-446862,mindex-10.dhtml"
+          },
+          {
+            "type": "web_search_result",
+            "title": "烟台大学_在线咨询_中国研究生招生信息网 - 一、报考条件",
+            "url": "https://yz.chsi.com.cn/zxdy/forum--method-listBulletin,forumid-452213,year-2005,start-0.dhtml#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "华南理工大学_院校信息_中国研究生招生信息网",
+            "url": "https://yz.chsi.com.cn/sch/viewZszc--infoId-3421805361,categoryId-10461554,schId-368416,mindex-12.dhtml#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "MBA的报考条件",
+            "url": "https://yz.chsi.com.cn/kyzx/other/202410/20241008/2293342770.html"
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "**一、报考资格（政策摘要，适用2027招生年度）**\n2027年研考报名资格已公布：国家承认学历的应届本科毕业生（含普通、成人高校及成人高等学历教育）及届时可毕业的自考、网教本科生可报考，录取当年入学前须取得本科毕业证书或留服认证书，否则录取资格无效；高职（专科）毕业后满2年及以上或本科结业生，符合招生单位具体学业要求者按本科毕业同等学力报考。\nhttps://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977251.html\n\n**二、条款依据**\n教育部《2025年全国硕士研究生招生工作管理规定》第十五条（现可见最新全文，2024年10月8日发布）载同一学业水平四类条件，并规定在读研究生报考须经培养单位同意。\nhttps://yz.chsi.com.cn/kyzx/jybzc/202410/20241008/2293342617.html\n\n**三、本人情形待核实**\n山东商业职业技术大学为职业本科院校，须以学信网学籍注册及学校培养安排核实是否属\"应届本科毕业生\"；若实际为专科层次，则适用毕业满2年同等学力路径及其他学业要求，2027年招生单位具体规定待招生简章公布。\nhttps://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977279.html"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_XkI3a9tUyDRcBlgVHxaP4338",
+        "name": "web_search",
+        "input": {
+          "query": "site:sdu.edu.cn 硕士研究生招生专业目录 计算机科学与技术学院"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_XkI3a9tUyDRcBlgVHxaP4338",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>招生专业代码、名称及研究方向</td><td>招生人数</td><td>初试考试科目</td><td>复试考核内容</td><td>复试笔试参考书目</td><td>备注</td></tr><tr><td>081200 计算机...",
+            "url": "https://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#25#15"
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>专业代码、名称及研究方向</td><td>招生团队</td><td>招生人数</td><td>考试科目</td><td>加试科目</td><td>备注</td></tr><tr><td>080104 工程力学<br/>01 智...",
+            "url": "https://yz.sdu.edu.cn/2023/shandongdaxue2023nianboshiyanjiushengzhaoshengzhuanyemulu.pdf#20#11"
+          },
+          {
+            "type": "web_search_result",
+            "title": "山东大学计算机科学与技术学院2026年接受同等学力人员申请硕士学位工作通知",
+            "url": "https://www.cs.sdu.edu.cn/info/1068/6741.htm#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "硕士研究生-山大计算机科学与技术学院",
+            "url": "https://www.cs.sdu.edu.cn/zsxx/ssyjs.htm"
+          },
+          {
+            "type": "web_search_result",
+            "title": "学位授权点建设年度报告",
+            "url": "https://www.cs.sdu.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1470795559&wbfileid=15996044#1#1"
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "**招生目录（专业方向）**：山东大学已公布资料中，2025年硕士研究生招生专业目录列有047计算机科学与技术学院 081200计算机科学与技术（学术型），研究方向10个：大数据与机器学习、计算机网络与边缘计算、计算机图形与三维视觉、人机交互与数据可视化、区块链与信息安全、人机融合智能和移动系统、体系结构与嵌入式系统、智能计算理论与技术、自然语言处理与信息检索、智能感知与多媒体处理；初试科目①101思想政治理论②201英语（一）③301数学（一）④408计算机学科专业基础；复试为上机、笔试（离散数学、数据库原理）、面试。此为2025年招生年度资料，2027年（对应2026年12月初试）目录尚未发布，待核实。https://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf\n\n**资格适用范围**：山东大学计算机科学与技术学院2026年接受同等学力人员申请硕士学位通知，面向同等学力申硕（08工学、0812计算机科学与技术一级学科），方向与上述10个相同，统考科目为英语与学科综合，不等同于硕士统考报考资格。https://www.cs.sdu.edu.cn/info/1068/6741.htm\n\n**说明**：本次检索未返回2026、2027年硕士统考专业目录原文，招生人数、方向及科目可能调整，须以后续官方发布为准。https://www.cs.sdu.edu.cn/zsxx/ssyjs.htm"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_RQec45FkDV02FkKlk13a6022",
+        "name": "web_search",
+        "input": {
+          "query": "site:yz.sdu.edu.cn 山东大学 硕士研究生招生简章 报考条件"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_RQec45FkDV02FkKlk13a6022",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>083100生物医学工程<br/>01生物医学测量及仪器<br/>02生物医学信号与图像处理<br/>03医学人工智能技术及应用<br/>04生物信息与机器学习</td><td>团队招生</td><td>①501英语<br/>...",
+            "url": "https://www.yz.sdu.edu.cn/2025boshimulu.pdf#20#11"
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>020200 应用经济学</td><td>13</td><td>①101 思想政治理论<br/>②201 英语(一)<br/>③303 数学(三)<br/>④807 经济学原理</td><td>笔试：试卷由以下各研究方向的专业...",
+            "url": "https://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#25#2"
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>085700 资源与环境<br>01 环境科学技术<br>02 环境化学工程<br>03 环境生态工程<br>04 生态环境大数据</td><td>12</td><td>①101 思想政治理论<br>②204 英语二<br>③...",
+            "url": "https://www.yz.sdu.edu.cn/2022/211026shandongdaxue2022nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#22#10"
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>081405防灾减灾工程及防护工程<br/>01基础设施病害智能检测与诊断<br/>02防护功能新材料<br/>03隧道与地下工程智慧运维管理<br/>04岩土工程数值模拟与仿真<br/>05地下工程大数据与智能化</td><...",
+            "url": "https://yz.sdu.edu.cn/2023/shandongdaxue2023nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#26#16"
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>020209 数量经济学<br/>01 计量经济学理论及其应用<br/>02 数理经济学<br/>03 数理金融<br/>04 金融计量分析</td><td>1</td><td>①101 思想政治理论<br/>②201 英语(...",
+            "url": "https://www.yz.sdu.edu.cn/2024/shandongdaxue2024nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#29#3"
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>0302Z1 统一战线学<br/>01 统一战线理论与实践<br/>02 中国政党制度<br/>03 参政党建设理论与实践<br/>04 统一战线中的民族与宗教理论<br/>05 人民政协与社会主义协商民主理论</td><td...",
+            "url": "https://yz.sdu.edu.cn/shandongdaxue2023nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#13#4"
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td colspan=\"6\">030 环境研究院</td></tr><tr><td>招生专业代码、名称及研究方向</td><td>招生人数</td><td>初试考试科目</td><td>复试考核内容</td><td>复试笔试参考书目...",
+            "url": "https://yz.sdu.edu.cn/2023/shandongdaxue2023nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#26#11"
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td colspan=\"6\">030 环境研究院</td></tr><tr><td>招生专业代码、名称及研究方向</td><td>招生人数</td><td>初试考试科目</td><td>复试考核内容</td><td>复试笔试参考书目...",
+            "url": "https://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#25#11"
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>030106诉讼法学<br/>01刑事诉讼法<br/>02民事诉讼法<br/>03证据法<br/>04司法学<br/>05监察法学</td><td>1</td><td>①101思想政治理论<br/>②201英语(一)或203日...",
+            "url": "https://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#25#3"
+          },
+          {
+            "type": "web_search_result",
+            "title": "<table><tr><td>招生专业代码、名称及研究方向</td><td>招生人数</td><td>初试考试科目</td><td>复试考核内容</td><td>复试笔试参考书目</td><td>备注</td></tr><tr><td>083000 环境科...",
+            "url": "https://www.yz.sdu.edu.cn/2024/shandongdaxue2024nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#29#11"
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "**一、本次检索未取得山东大学独立成文的报考条件公告**，仅返回该校历年硕士招生专业目录 PDF（2022—2025 年）。目标为 2026 年 12 月初试、对应 2027 年招生年度，其简章与专业目录尚未公布，学历、专业报考限制均待核实。\nhttps://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#25#2\n\n**二、已核实限制要点（均为目录备注，非报考条件专文）**：多数专业备注对同等学力考生设 2 门加试科目；部分专业标注培养地点（如青岛校区）或仅接收推免生（2022 年目录中 120202 企业管理 01、03 方向）；专项计划单列招生。上述适用年度为 2022—2025 年，2027 年度适用性待核实；全国硕士研究生招生工作管理规定本轮未检索。\nhttps://www.yz.sdu.edu.cn/2022/211026shandongdaxue2022nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#22#10\n\n**三、计算机相关专业缺口**：本轮返回内容未包含 047 计算机科学与技术学院对本科专业背景、同等学力、外语水平的具体限制原文，需以该院最新招生简章及研招网管理规定进一步核实。\nhttps://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#25#11"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_pufipxxx3ehkjrc2sWGM4772",
+        "name": "web_search",
+        "input": {
+          "query": "2027年全国硕士研究生招生工作管理规定 site:yz.chsi.com.cn"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_pufipxxx3ehkjrc2sWGM4772",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "招生政策_全国硕士研究生招生信息公开平台",
+            "url": "https://yz.chsi.com.cn/zsgs/zsinfo/queryzszc.action"
+          },
+          {
+            "type": "web_search_result",
+            "title": "中国研究生招生信息网",
+            "url": "https://yz.chsi.com.cn/?ticket=ST-93207-2WpBCMYIYFAgOVYhtIBj-cas"
+          },
+          {
+            "type": "web_search_result",
+            "title": "河北省2027年全国硕士研究生招生考试百问百答（一）报名篇",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977251.html"
+          },
+          {
+            "type": "web_search_result",
+            "title": "中国人民公安大学_在线咨询_中国研究生招生信息网 - 咨询报考 置顶",
+            "url": "https://yz.chsi.com.cn/zxdy/forum--method-listDefault,year-2005,forumid-455543,start-512.dhtml#1"
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "**一、国家政策文件（适用2027招生年度，即2026年12月初试）**：2026年9月24日教育部印发《2027年全国硕士研究生招生工作管理规定》，研招网招生信息公开平台已收录该文件；本次检索未返回文件全文，具体初试日期需按该文件正文核实，不得沿用往年日期。\nhttps://yz.chsi.com.cn/zsgs/zsinfo/queryzszc.action\n\n**二、报考资格（2027年度，来源河北省教育考试院）**：学业水平之一为\"国家承认学历的应届本科毕业生\"；专科毕业满2年或本科结业生按同等学力报考，须符合招生单位具体学业要求；加分项目含西部计划等，服务期满3年内加10分、不累加。该解读属省级，国家层面以管理规定为准，最终报考资格依招生单位章程。山东省考试院2027年公告待核实。\nhttps://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977251.html\n\n**三、考试日期**：仅见2026年9月24日文件发布信息，初试具体日期本次未获官方正文，标记待核实。研招网首页显示\"教育部部署2027年全国硕士研究生考试招生工作\"，可查具体安排。\nhttps://yz.chsi.com.cn/"
+      }
+    ]
+  },
+  {
+    "stage": "generate",
+    "stopReason": "end_turn",
+    "sources": [],
+    "text": [
+      {
+        "text": "{\n  \"title\": \"山东大学计算机相关专业考研学习规划（2026年12月初试·暂定时间安排）\",\n  \"goal\": \"以山东大学计算机相关专业（学术型计算机科学与技术或专业学位计算机技术）为报考方向，围绕思想政治理论、英语一、数学一与408计算机学科专业基础四科，在2026年12月初试前完成信息核对、强化梳理、真题计时训练与模拟冲刺，形成可比较的阶段分数目标与报考方向判断。\",\n  \"summary\": \"本计划面向2026年12月举行的硕士研究生初试（对应2027年招生入学年度），适合在读大四、准备报考山东大学计算机相关专业的考生。现有资料显示，2027年招生年度全国硕士研究生招生工作管理规定已印发并收录于研招网信息公开平台，但可获取内容未包含初试具体日期，故按12月第三个周六暂定为2026年12月19日，学习计划相应截止到2026年12月18日，这只是暂定规划参考，正式初试日期须以教育部、山东省教育考试院和研招网公告为准。已核实：山东大学计算机科学与技术学院在青岛校区办学，硕士招生含学术型计算机科学与技术（081200）与专业学位计算机技术（085404），复试含上机、笔试与面试；2027年招生简章、专业目录、招生人数与科目设置尚未公布，需持续关注。学习上建议10月完成信息核对与408、数学一强化梳理，11月转入真题计时训练与查漏，12月进行两轮模拟并调整作息，同时坚持英语词汇长难句与政治背诵。\",\n  \"dateStatus\": \"estimated\",\n  \"examDate\": \"\",\n  \"examSourceUrl\": \"\",\n  \"sourceUrls\": [\n    \"https://www.cs.sdu.edu.cn/zsxx/ssyjs.htm\",\n    \"https://www.cs.sdu.edu.cn/info/1068/6777.htm\",\n    \"https://www.cs.sdu.edu.cn/gyxy/xyjj.htm?ivk_sa=1024320u\",\n    \"https://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#25#3\",\n    \"https://www.yz.sdu.edu.cn/2024/shandongdaxue2024nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#29#11\",\n    \"http://www.cs.sdu.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1470795559&wbfileid=18218345#1#1\",\n    \"https://www.cs.sdu.edu.cn/info/1068/6741.htm#1#1\",\n    \"https://ilearn.qd.sdu.edu.cn/info/1038/2236.htm\",\n    \"https://yz.chsi.com.cn/zsgs/zsinfo/queryzszc.action\",\n    \"https://yz.chsi.com.cn/kyzx/jybzc/202410/20241008/2293342617.html#1#1\"\n  ],\n  \"recommendationNotice\": \"用户已明确指定目标院校为山东大学，本次不再推荐其他院校。建议以山东大学研究生招生信息网与计算机科学与技术学院官网发布的2027年招生简章、专业目录为准，核实招生人数、考试科目、同等学力加试要求与培养校区；初试正式日期以教育部、山东省教育考试院及研招网公告为准。\",\n  \"recommendations\": [],\n  \"tasks\": [\n    {\n      \"title\": \"登录研招网、山东大学研究生招生信息网与计算机科学与技术学院硕士招生页，核对2027年招生简章、专业目录、报考点与网上报名时间，建立待核实事项清单。\",\n      \"stage\": \"信息核对与基础\",\n      \"dueDate\": \"2026-10-01\"\n    },\n    {\n      \"title\": \"参照近年招生专业目录初步确认考试科目（思想政治理论、英语一、数学一、408计算机学科专业基础），梳理408四门课程与数学一的知识框架，做一次自测定位薄弱章节。\",\n      \"stage\": \"信息核对与基础\",\n      \"dueDate\": \"2026-10-06\"\n    },\n    {\n      \"title\": \"完成网上报名信息填写与报考点选择，核对学历学籍信息；同时确定英语一词汇与长难句的每日固定任务量，避免只背单词不读句子。\",\n      \"stage\": \"信息核对与基础\",\n      \"dueDate\": \"2026-10-11\"\n    },\n    {\n      \"title\": \"按自测结果调整四科时间配比：数学一薄弱章节进入基础补强，英语开始近年真题阅读精读，408完成数据结构与计算机组成原理的第一轮知识梳理。\",\n      \"stage\": \"信息核对与基础\",\n      \"dueDate\": \"2026-10-17\"\n    },\n    {\n      \"title\": \"数学一推进高等数学与线性代数强化章节训练并整理错题本；408推进操作系统与计算机网络的知识点串联，画出各章高频考点提纲。\",\n      \"stage\": \"系统学习与强化\",\n      \"dueDate\": \"2026-10-22\"\n    },\n    {\n      \"title\": \"408四门课程各完成一轮强化笔记，重点整理常考题型与算法思想；英语完成真题阅读精读并归纳错误类型，形成个人易错清单。\",\n      \"stage\": \"系统学习与强化\",\n      \"dueDate\": \"2026-10-27\"\n    },\n    {\n      \"title\": \"按报考点要求完成网上确认并上传材料，确认报名状态；政治开始马克思主义基本原理与中国近现代史纲要的选择题训练。\",\n      \"stage\": \"系统学习与强化\",\n      \"dueDate\": \"2026-11-01\"\n    },\n    {\n      \"title\": \"数学一进入综合题与真题分块训练，408按科目做历年真题选择题，建立错题归档与每周复盘节奏，记录每类题的正确率变化。\",\n      \"stage\": \"系统学习与强化\",\n      \"dueDate\": \"2026-11-06\"\n    },\n    {\n      \"title\": \"按考试时间完整做一套数学一真题并严格计时，逐题分析失分原因；英语一完成一套真题并复盘阅读与完型的作答节奏。\",\n      \"stage\": \"真题训练与查漏\",\n      \"dueDate\": \"2026-11-12\"\n    },\n    {\n      \"title\": \"完成408整套真题计时训练，固定各题型答题顺序与时间分配；同步了解山东大学计算机科学与技术学院复试包含上机、笔试与面试的形式，明确初试后的准备方向。\",\n      \"stage\": \"真题训练与查漏\",\n      \"dueDate\": \"2026-11-17\"\n    },\n    {\n      \"title\": \"政治完成毛泽东思想和中国特色社会主义理论体系概论、思想道德与法治及形势政策部分的框架与选择题训练；数学一针对高频薄弱专题做专项突破。\",\n      \"stage\": \"真题训练与查漏\",\n      \"dueDate\": \"2026-11-22\"\n    },\n    {\n      \"title\": \"整理高频错题与易混概念清单，英语作文模板与政治分析题背诵开始固定化，408完成第二遍真题回顾并重点攻克反复出错的章节。\",\n      \"stage\": \"真题训练与查漏\",\n      \"dueDate\": \"2026-11-27\"\n    },\n    {\n      \"title\": \"完成第一轮四科全真模拟，按暂定初试时间安排每日作息，复盘模拟中暴露的时间分配与知识点问题，调整后续两周复习重点。\",\n      \"stage\": \"模拟冲刺与调整\",\n      \"dueDate\": \"2026-12-02\"\n    },\n    {\n      \"title\": \"针对模拟暴露的薄弱点定点补漏：数学一与408以错题和真题为主，英语保持阅读手感并输出作文，政治继续背诵分析题要点。\",\n      \"stage\": \"模拟冲刺与调整\",\n      \"dueDate\": \"2026-12-08\"\n    },\n    {\n      \"title\": \"完成第二轮全真模拟，重点训练答题规范、书写速度与卷面安排，核对准考证信息，按考场要求准备证件与文具。\",\n      \"stage\": \"模拟冲刺与调整\",\n      \"dueDate\": \"2026-12-13\"\n    },\n    {\n      \"title\": \"确认准考证、身份证、考场与交通住宿安排，回看核心知识点与错题清单，调整生物钟并保证睡眠；同时关注教育部、山东省教育考试院与研招网是否公布正式初试日期。\",\n      \"stage\": \"模拟冲刺与调整\",\n      \"dueDate\": \"2026-12-18\"\n    }\n  ]\n}"
+      }
+    ],
+    "queries": []
+  }
+]

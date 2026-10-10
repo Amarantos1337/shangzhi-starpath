@@ -1,0 +1,305 @@
+[
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_zvQuRlJvSumaj4Cdfe6c6983",
+        "name": "web_search",
+        "input": {
+          "query": "site:moe.gov.cn 全国高等学校名单 山东省 济南市 本科 计算机科学与技术"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_zvQuRlJvSumaj4Cdfe6c6983",
+        "content": []
+      },
+      null,
+      {
+        "type": "text",
+        "text": "{\"candidates\":[],\"summary\":\"本轮唯一一次宽查询（site:moe.gov.cn 限定教育部官方域名，检索山东省济南市本科高校计算机类专业相关名单）未返回任何官方网页结果，因此本轮没有可核实的候选院校，也未获得任何官方完整网址，不引用未经返回的链接。济南大学、山东师范大学、山东财经大学等仅作为后续检索线索，其校名、城市与专业设置均待用官方来源核实。用户目标初试年为2029年、对应招生年度2030年，该年度招生目录与专业目录尚未公布，任何报考资格、培养地点与科目要求均标记待核实，需以目标年度官方招生简章为准。本轮未发现候选，建议后续以教育部或山东省教育厅公布的全国高等学校名单等官方名单重新检索后补充。\"}"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_Q1ZEdy8zUHQNSKoV1JQ15857",
+        "name": "web_search",
+        "input": {
+          "query": "2026年全国硕士研究生招生考试初试时间安排 教育部 site:moe.gov.cn"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_Q1ZEdy8zUHQNSKoV1JQ15857",
+        "content": []
+      },
+      null,
+      {
+        "type": "text",
+        "text": "本轮仅执行1次 site:moe.gov.cn 检索，工具返回结果为空，未获得任何可核验页面，故无官方 URL 可列（本轮实际返回：无 URL）。\n\n已核实情况：关于2030招生年度（对应2029年12月初试，暂定2029-12-15）的初试日期与报考政策，教育部、省级教育考试院及研招网均尚未在本轮检索中取得可确认的公布文件，具体日期与资格要求待核实，不得沿用往年日期或按往年惯例推定。\n\n学校层面：山东商业职业技术大学的报考资格、培养安排与是否具备本科应届生身份，须以校级官方培养方案和研招网报名条件为准，本任务未涉及，暂不作结论。"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_ZeoOKXYSOwu4ymYWTFAr9807",
+        "name": "web_search",
+        "input": {
+          "query": "site:yz.chsi.com.cn 全国硕士研究生招生工作管理规定 报考条件"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_ZeoOKXYSOwu4ymYWTFAr9807",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "河北省2027年全国硕士研究生招生考试百问百答（一）报名篇",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977251.html"
+          },
+          {
+            "type": "web_search_result",
+            "title": "河南：2027年研考报名60问",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977279.html"
+          },
+          {
+            "type": "web_search_result",
+            "title": "甘肃省2027年全国硕士研究生招生考试报名公告（第一号）",
+            "url": "https://yz.chsi.com.cn/sch/viewZbBulletin--schId-369158,infoId-3551215697,categoryId-433376,mindex-10.dhtml"
+          },
+          {
+            "type": "web_search_result",
+            "title": "华东理工大学2026年硕士研究生招生简章",
+            "url": "https://yz.chsi.com.cn/wap/sch/detail?categoryId=10461192&infoId=3421171088&schId=368142#1#1#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "四川省2026年全国硕士研究生招生考试网上报名公告",
+            "url": "https://yz.chsi.com.cn/kyzx/kydt/202509/20250930/2293436385.html#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "教育部关于印发《2025年全国硕士研究生招生工作管理规定》的通知 - 教育部关于印发《2025年全国硕士研究生招生工作管理规定》的通知",
+            "url": "https://yz.chsi.com.cn/kyzx/jybzc/202410/20241008/2293342617.html#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "中国航天科工集团第三研究院(8358所)_院校信息_中国研究生招生信息网",
+            "url": "https://yz.chsi.com.cn/sch/viewBulletin--schId-367942,infoId-3552305645,categoryId-446862,mindex-10.dhtml"
+          },
+          {
+            "type": "web_search_result",
+            "title": "烟台大学_在线咨询_中国研究生招生信息网 - 一、报考条件",
+            "url": "https://yz.chsi.com.cn/zxdy/forum--method-listBulletin,forumid-452213,year-2005,start-0.dhtml#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "华南理工大学_院校信息_中国研究生招生信息网",
+            "url": "https://yz.chsi.com.cn/sch/viewZszc--infoId-3421805361,categoryId-10461554,schId-368416,mindex-12.dhtml#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "MBA的报考条件",
+            "url": "https://yz.chsi.com.cn/kyzx/other/202410/20241008/2293342770.html"
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "**报考基本条件（最新已公布管理规定）**\n教育部《2025年全国硕士研究生招生工作管理规定》（2024-10-08发布，适用2025年招生）第十五条：学业水平须符合其一——国家承认学历的应届本科毕业生（录取当年入学前须取得本科毕业证书）、已获本科毕业学历人员、高职专科毕业满2年按本科同等学力报考者、已获硕博学位者。\nhttps://yz.chsi.com.cn/kyzx/jybzc/202410/20241008/2293342617.html\n\n**最新年度资料**\n已公布最新为2027年度：河北省2027年研考百问百答（2026-10-08）重述上述四类报考条件，并说明部分专业另有工作年限或前置专业要求，以当年管理规定和招生单位章程为准；河南2027报名问答亦指向教育部该规定第十五至十七条。\nhttps://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977251.html\nhttps://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977279.html\n\n**本人适用性**\n用户2029年12月初试、2030年入学，对应2030年招生年度，该年度管理规定与报考条件尚未公布，属待核实；其学籍是职业本科还是专科（需专升本衔接）须凭学信网学籍及学校官方培养文件确认，不推断已具本科报考资格。\nhttps://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977251.html"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_C96ZtwBIIhcEF0wOrPh97070",
+        "name": "web_search",
+        "input": {
+          "query": "site:yz.chsi.com.cn 2026年全国硕士研究生招生工作管理规定 初试时间"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "server_tool_use",
+        "id": "call_01_nt9YsJE0l1sG8a7OxNS06090",
+        "name": "web_search",
+        "input": {
+          "query": "site:moe.gov.cn 2026年全国硕士研究生招生工作管理规定 初试时间"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_C96ZtwBIIhcEF0wOrPh97070",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "《2026年全国硕士研究生招生工作管理规定》",
+            "url": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-9.html"
+          }
+        ]
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_01_nt9YsJE0l1sG8a7OxNS06090",
+        "content": [
+          {
+            "type": "web_search_tool_result_error",
+            "error_code": "max_uses_exceeded"
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "**一、国家规定（政策摘要）**\n目前最新已公布的国家层面文件为《2026年全国硕士研究生招生工作管理规定》，教育部2025年9月25日发布，适用2026年招生年度，含调剂申请须统一通过研招网调剂服务系统办理。对应2030年入学（2029年初试）的年度规定尚未公布，报考条件与流程待核实。\nhttps://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-9.html\n\n**二、初试日期**\n本次返回页面为规定第八章调剂部分，未包含2026年初试具体日期；预测中的2029年12月15日只能作为暂定考试季参考，不是官方日期，2030年招生年度初试时间待核实。\nhttps://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-9.html\n\n**三、学历与资格适用说明**\n在读本科生的报考资格须以初试对应招生年度的官方管理规定及招生单位招生简章为准，本任务不据此推断其已具备报考资格；济南院校及计算机类专业要求由其他任务检索，均待官方核实。\nhttps://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-9.html"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_rnTcbvaSEqtvNyH8hSMG2720",
+        "name": "web_search",
+        "input": {
+          "query": "site:sdzk.cn 山东省硕士研究生招生单位 济南 计算机"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_rnTcbvaSEqtvNyH8hSMG2720",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "山东省2025年硕士研究生招生单位联系方式",
+            "url": "https://www.sdzk.cn/Floadup/file/20250219/6387555894794843053532915.pdf#1#1"
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "{\"candidates\":[{\"name\":\"济南大学\",\"province\":\"山东省\",\"city\":\"济南市\",\"sourceUrl\":\"https://www.sdzk.cn/Floadup/file/20250219/6387555894794843053532915.pdf#1#1\"}],\"summary\":\"本轮仅执行一次搜索，取得山东省教育招生考试院《山东省2025年硕士研究生招生单位联系方式》（适用2025年招生年度，2025-02-19发布），其中济南地区可确认的招生单位为济南大学，其余条目涉及青岛等地，不符济南条件。候选仅1所、未达3所：山东师范大学、山东财经大学等济南高校本轮官方结果未返回，2030年招生年度（2029年初试）目录亦未公布，均标待核实，不补造事实。 https://www.sdzk.cn/Floadup/file/20250219/6387555894794843053532915.pdf#1#1\"}"
+      }
+    ]
+  },
+  {
+    "stage": "search",
+    "stopReason": "end_turn",
+    "blocks": [
+      null,
+      {
+        "type": "server_tool_use",
+        "id": "call_00_nGe8M8PtRXuAfhEoojtA7977",
+        "name": "web_search",
+        "input": {
+          "query": "site:yz.chsi.com.cn 山东 济南 计算机技术 硕士 招生单位"
+        },
+        "caller": {
+          "type": "direct"
+        }
+      },
+      {
+        "type": "web_search_tool_result",
+        "tool_use_id": "call_00_nGe8M8PtRXuAfhEoojtA7977",
+        "content": [
+          {
+            "type": "web_search_result",
+            "title": "齐鲁工业大学_在线咨询_中国研究生招生信息网",
+            "url": "https://yz.chsi.com.cn/zxdy/forum--method-listDefault,forumid-456191,year-2024,start-15.dhtml"
+          },
+          {
+            "type": "web_search_result",
+            "title": "山东师范大学_在线咨询_中国研究生招生信息网",
+            "url": "https://yz.chsi.com.cn/zxdy/forum--method-listDefault,year-2014,forumid-456207,start-1605.dhtml"
+          },
+          {
+            "type": "web_search_result",
+            "title": "济南大学_在线咨询_中国研究生招生信息网",
+            "url": "https://yz.chsi.com.cn/zxdy/forum--method-listDefault,forumid-456159,year-2023,start-255.dhtml"
+          },
+          {
+            "type": "web_search_result",
+            "title": "济南大学_在线咨询_中国研究生招生信息网 - 是否会改考408 置顶",
+            "url": "https://yz.chsi.com.cn/zxdy/forum--method-listDefault,year-2009,forumid-456159,start-2205.dhtml#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "齐鲁工业大学_在线咨询_中国研究生招生信息网 - 历年真题 置顶",
+            "url": "https://yz.chsi.com.cn/zxdy/forum--type-sch,forumid-456191,method-listDefault,year-2005,start-15.dhtml#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "山东师范大学_在线咨询_中国研究生招生信息网 - 请问复试保护第一志愿吗 置顶",
+            "url": "https://yz.chsi.com.cn/zxdy/forum--method-listDefault,forumid-456207,year-2018,start-60.dhtml#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "山东大学_在线咨询_中国研究生招生信息网 - 报考点 置顶",
+            "url": "https://yz.chsi.com.cn/zxdy/forum--method-listDefault,forumid-452383,year-2025,start-75.dhtml#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "山东工商学院_在线咨询_中国研究生招生信息网",
+            "url": "https://yz.chsi.com.cn/zxdy/forum--forumid-688909838,method-listDefault,year-2014,start-90.dhtml"
+          },
+          {
+            "type": "web_search_result",
+            "title": "在线咨询 - 在线咨询",
+            "url": "https://yz.chsi.com.cn/zxdy/search.do?kw=085410+408&start=480#1"
+          },
+          {
+            "type": "web_search_result",
+            "title": "济南大学：2023年硕士研究生招生专业及考试科目变化提示",
+            "url": "https://yz.chsi.com.cn/kyzx/yxzc/202207/20220728/2207707832.html"
+          }
+        ]
+      },
+      null,
+      {
+        "type": "text",
+        "text": "{\"candidates\":[{\"name\":\"济南大学\",\"province\":\"山东省\",\"city\":\"济南市\",\"sourceUrl\":\"https://yz.chsi.com.cn/zxdy/forum--method-listDefault,forumid-456159,year-2023,start-255.dhtml\"},{\"name\":\"齐鲁工业大学\",\"province\":\"山东省\",\"city\":\"济南市\",\"sourceUrl\":\"https://yz.chsi.com.cn/zxdy/forum--method-listDefault,forumid-456191,year-2024,start-15.dhtml\"},{\"name\":\"山东师范大学\",\"province\":\"山东省\",\"city\":\"济南市\",\"sourceUrl\":\"https://yz.chsi.com.cn/zxdy/forum--method-listDefault,forumid-456207,year-2014,start-1605.dhtml\"},{\"name\":\"山东大学\",\"province\":\"山东省\",\"city\":\"济南市\",\"sourceUrl\":\"https://yz.chsi.com.cn/zxdy/forum--method-listDefault,forumid-452383,year-2025,start-75.dhtml\"}],\"summary\":\"本轮换用研招网官方咨询页检索，发现济南4所设计算机类硕士招生单位的候选：济南大学（信息科学与工程学院，含085404计算机技术）、齐鲁工业大学（计算机科学与技术学部，085404及学硕）、山东师范大学（计算机与人工智能学院，0812学硕/计算机技术专硕）、山东大学（计算机科学与技术学院，085404等）。以上页面为2023—2026招生年度问答内容，属线索而非招生简章；2030年招生年度（2029年初试）目录未公布，报考资格与科目均待核实，不构成本科报考资格认定。同一来源页为本轮实际返回的官方（研招网）网址：https://yz.chsi.com.cn/zxdy/forum--method-listDefault,forumid-456159,year-2023,start-255.dhtml ；https://yz.chsi.com.cn/zxdy/forum--method-listDefault,forumid-456191,year-2024,start-15.dhtml ；https://yz.chsi.com.cn/zxdy/forum--method-listDefault,forumid-456207,year-2014,start-1605.dhtml ；https://yz.chsi.com.cn/zxdy/forum--method-listDefault,forumid-452383,year-2025,start-75.dhtml\"}"
+      }
+    ]
+  }
+]

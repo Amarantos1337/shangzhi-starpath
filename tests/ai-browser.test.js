@@ -4,10 +4,11 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const http = require('node:http');
+const { compactPlan, isLearning, schoolEvidence } = require('./ai-fixtures');
 const { pathToFileURL } = require('node:url');
 const { chromium, browserOptions } = require('../tools/browser-runtime');
 const root = path.resolve(__dirname, '../project');
-const output = path.resolve(__dirname, '../artifacts/ai-plan');
+const output = path.resolve(__dirname, '../artifacts/ai-plan/test-temp');
 const source = { title: '教育部研考通知 <img src=x onerror=alert(1)>', url: 'https://www.moe.gov.cn/notice' };
 const unofficialSource = { title: '培训机构预测', url: 'https://training.example.com/news' };
 const plan = { title: '我的升学计划 <img src=x onerror=alert(1)>', goal: '建立学习节奏，覆盖到考研初试前。', summary: '参考教育部研考日期；目标院校要求待核实，学习安排为 AI 建议。', examDate: '2026-12-19', examSourceUrl: source.url, sourceUrls: [source.url], tasks: Array.from({ length: 12 }, (_, index) => ({ title: '学习行动' + (index + 1), stage: ['核对信息', '盘点基础', '建立节奏', '自测调整'][Math.floor(index / 3)], dueDate: index === 11 ? '2026-12-18' : '2026-10-08' })) };
@@ -62,23 +63,39 @@ async function run() {
         page.on('pageerror', error => errors.push(error.message));
         let mode = 'success';
         let requests = 0;
-        let release;
+        const releases = [];
+        const schoolRounds = new Map();
+        const release = () => releases.splice(0).forEach(resolve => resolve());
         const efforts = [];
         await context.route('https://api.deepseek.com/anthropic/v1/messages', async route => {
           requests++;
           const body = route.request().postDataJSON();
           efforts.push(body.output_config.effort);
           if (body.tools) {
-            assert.equal(body.tools[0].max_uses, 6);
+            assert.ok(body.tools[0].max_uses >= 1 && body.tools[0].max_uses <= 2);
             assert.deepEqual(body.tools[0].allowed_domains, ['gov.cn', 'edu.cn', 'chsi.com.cn', 'sdzk.cn']);
           } else {
             assert.ok(!body.messages[0].content.includes(unofficialSource.url));
           }
-          if (mode === 'pending' || mode === 'timed' && body.tools) await new Promise(resolve => { release = resolve; });
+          if (mode === 'pending' || mode === 'timed' && body.tools || mode === 'live' && body.tools && JSON.parse(body.messages[0].content).task.id !== 'policy') await new Promise(resolve => { releases.push(resolve); });
+          if (mode === 'local-live' && (isLearning(body) || body.tools && JSON.parse(body.messages[0].content).task.id !== 'discovery')) await new Promise(resolve => { releases.push(resolve); });
           try {
             const status = mode === 'error' ? 401 : 200;
-            const candidate = mode === 'local-repair' ? (body.messages.length > 1 ? localPlan : wrongLocalPlan) : mode === 'code-repair' ? (body.messages.length > 1 ? localPlan : { ...localPlan, summary: wrongLocalPlan.summary }) : mode === 'local-shortage' ? (body.messages.length > 1 ? localPlan : { ...localPlan, recommendations: [], recommendationNotice: '济南本地院校的历史招生依据不足，暂不推荐外地学校作为替代。' }) : mode === 'freshman' ? freshmanPlan : plan;
-            const result = mode === 'text-only' ? { stop_reason: 'end_turn', content: [{ type: 'text', text: '自称已经检索，但没有真实工具结果。' }] } : mode === 'unofficial-only' ? { stop_reason: 'end_turn', content: [{ type: 'web_search_tool_result', content: [{ type: 'web_search_result', ...unofficialSource }] }] } : body.tools ? (mode === 'freshman' || mode.startsWith('local-') || mode === 'code-repair' ? freshmanSearch : search) : { stop_reason: 'end_turn', content: [{ type: 'text', text: JSON.stringify(candidate) }] };
+            const candidate = mode === 'local-live' || mode === 'local-repair' ? localPlan : mode === 'code-repair' ? (body.messages.length > 1 ? localPlan : { ...localPlan, summary: wrongLocalPlan.summary }) : mode === 'local-shortage' ? (body.messages.length > 1 ? localPlan : { ...localPlan, recommendations: [], recommendationNotice: '济南本地院校的历史招生依据不足，暂不推荐外地学校作为替代。' }) : mode === 'freshman' ? freshmanPlan : plan;
+            let result = mode === 'text-only' ? { stop_reason: 'end_turn', content: [{ type: 'text', text: '自称已经检索，但没有真实工具结果。' }] } : mode === 'unofficial-only' ? { stop_reason: 'end_turn', content: [{ type: 'web_search_tool_result', content: [{ type: 'web_search_result', ...unofficialSource }] }] } : body.tools ? (mode === 'freshman' || mode.startsWith('local-') || mode === 'code-repair' ? freshmanSearch : search) : { stop_reason: 'end_turn', content: [{ type: 'text', text: JSON.stringify(compactPlan(candidate, body)) }] };
+            if (body.tools && !['text-only', 'unofficial-only'].includes(mode)) {
+              const task = JSON.parse(body.messages[0].content).task;
+              result = { ...result, content: [...Array.from({ length: body.tools[0].max_uses }, () => ({ type: 'server_tool_use', name: 'web_search' })), ...result.content.filter(block => block.type !== 'server_tool_use')] };
+              if (mode === 'live' && task.id === 'policy') result.content.push({ type: 'web_search_tool_result', content: Array.from({ length: 5 }, (_, index) => ({ type: 'web_search_result', title: '官方资料' + index + ' <img src=x onerror=alert(1)>', url: 'https://www.moe.gov.cn/notice/' + index })) });
+              if (task.id === 'discovery') result.content = [...result.content.filter(block => block.type !== 'text'), { type: 'text', text: JSON.stringify({ candidates: schoolSources.map((source, index) => ({ name: ['甲校', '乙校', '丙校'][index], province: '山东', city: '济南', sourceUrl: source.url })), summary: '候选院校还需逐校核对。出处：' + schoolSources[0].url }) }];
+              if (task.id.startsWith('school-')) {
+                const evidence = schoolEvidence(mode === 'freshman' ? freshmanPlan : localPlan, body);
+                const round = schoolRounds.get(mode + task.id) || 0;
+                schoolRounds.set(mode + task.id, round + 1);
+                if (mode === 'local-repair' && task.id === 'school-0-location' && round === 0) evidence.location = { ...evidence.location, city: '上海' };
+                result.content = [...result.content.filter(block => block.type !== 'text'), { type: 'text', text: JSON.stringify(evidence) }];
+              }
+            }
             await route.fulfill({ status, contentType: 'application/json', headers: { 'access-control-allow-origin': '*' }, body: JSON.stringify(result) });
           } catch (_) { /* Request was aborted by closing or navigation. */ }
         });
@@ -101,17 +118,34 @@ async function run() {
         assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
         await page.locator('#modal').evaluate(dialog => { dialog.scrollTop = 0; });
         await page.screenshot({ path: path.join(output, name + '-form-' + width + '.png') });
+        // First finished worker is visible while five other workers are still searching.
+        mode = 'live';
+        await page.getByRole('button', { name: '检索并生成计划', exact: true }).click();
+        await waitForRelease(() => releases.length === 5);
+        await page.locator('.ai-live-source-list li').first().waitFor({ state: 'visible' });
+        assert.equal(await page.locator('.ai-live-source-list li:visible').count(), 5);
+        assert.equal(await page.locator('.ai-live-results img').count(), 0);
+        assert.match(await page.locator('.ai-live-summaries').innerText(), /已找到官方资料/);
+        assert.equal(await page.locator('.ai-task-searching').count(), 5);
+        await page.locator('.ai-live-more summary').click();
+        await page.waitForFunction(() => Array.from(document.querySelectorAll('.ai-live-source-list li')).filter(node => !node.hidden).length === 6);
+        assert.equal(await page.locator('.ai-live-source-list li:visible').count(), 6);
+        assert.equal(await page.locator('#modal').evaluate(dialog => dialog.scrollWidth <= dialog.clientWidth), true);
+        await page.screenshot({ path: path.join(output, name + '-live-results-' + width + '.png') });
+        await page.keyboard.press('Escape'); release();
+        mode = 'success';
+        await openForm(page, base); await fillForm(page);
         await page.clock.install();
         mode = 'timed';
         await page.getByRole('button', { name: '检索并生成计划', exact: true }).click();
-        await waitForRelease(() => release);
+        await waitForRelease(() => releases.length === 6);
         assert.equal(await page.locator('[data-ai-step="search"]').evaluate(node => node.classList.contains('is-active')), true);
         assert.equal(await page.getByText('AI 思考并生成计划', { exact: true }).isVisible(), true);
         assert.equal(await page.locator('fieldset').isVisible(), false);
         await page.clock.fastForward(65000);
         assert.match(await page.locator('.ai-elapsed').innerText(), /已用时1分钟5秒/);
         await page.screenshot({ path: path.join(output, name + '-progress-' + width + '.png') });
-        mode = 'success'; release(); release = undefined;
+        mode = 'success'; release();
         await page.locator('[data-form="ai-save"]').waitFor();
         assert.match(await page.locator('.ai-duration').innerText(), /用时1分钟5秒/);
         assert.match(await page.locator('.ai-period-summary').innerText(), /2026-12-18/);
@@ -183,20 +217,20 @@ async function run() {
         assert.equal(await page.getByRole('button', { name: '检索并生成计划', exact: true }).isDisabled(), true);
         await page.waitForFunction(() => true);
         // Wait for network interception rather than a fixed delay.
-        await waitForRelease(() => release);
-        assert.equal(requests, before + 1);
+        await waitForRelease(() => releases.length === 6);
+        assert.equal(requests, before + 6);
         await page.keyboard.press('Escape');
-        release(); release = undefined;
+        release();
         await page.waitForFunction(() => !document.querySelector('#modal').open);
         assert.equal(await page.evaluate(() => window.StarPath.store.get().plans.length), 1);
         // Cancel on hash navigation; no late preview should re-open.
         await openForm(page, base);
         await fillForm(page);
         await page.getByRole('button', { name: '检索并生成计划', exact: true }).click();
-        await waitForRelease(() => release);
+        await waitForRelease(() => releases.length === 6);
         await page.evaluate(() => { location.hash = '/alumni'; });
         await page.locator('#alumni-query').waitFor();
-        release(); release = undefined;
+        release();
         assert.equal(await page.locator('#modal').evaluate(dialog => dialog.open), false);
         assert.equal(await page.evaluate(() => window.StarPath.store.get().plans.length), 1);
         mode = 'success';
@@ -206,6 +240,19 @@ async function run() {
         await page.locator('#plan-title').waitFor();
         assert.equal(await page.evaluate(() => window.StarPath.store.get().plans[0].generation), undefined);
         // A blank goal generates school recommendations and a grade-based multi-year horizon.
+        mode = 'local-live';
+        await openForm(page, base); await fillForm(page);
+        await page.locator('[name="grade"]').selectOption('大一');
+        await page.locator('[name="goal"]').fill('');
+        await page.getByRole('button', { name: '检索并生成计划', exact: true }).click();
+        await waitForRelease(() => releases.length === 8);
+        assert.equal(await page.locator('[data-ai-step="learning"]').isVisible(), true);
+        assert.equal(await page.locator('[data-ai-step="learning"]').evaluate(node => node.classList.contains('is-active')), true);
+        assert.equal(await page.locator('.ai-task-searching').count(), 7);
+        assert.equal(await page.locator('[data-form="ai-save"]').count(), 0);
+        assert.equal(await page.locator('#modal').evaluate(dialog => dialog.scrollWidth <= dialog.clientWidth), true);
+        await page.screenshot({ path: path.join(output, name + '-parallel-learning-' + width + '.png') });
+        await page.keyboard.press('Escape'); release();
         mode = 'freshman';
         await openForm(page, base);
         await fillForm(page);
@@ -214,6 +261,7 @@ async function run() {
         await page.getByRole('button', { name: '检索并生成计划', exact: true }).click();
         await page.locator('[data-form="ai-save"]').waitFor();
         assert.match(await page.locator('.ai-period-summary').innerText(), /2029.*暂定安排/);
+        assert.equal(await page.locator('.ai-task-preview li').count(), 16);
         assert.equal(await page.locator('.ai-school-recommendations article').count(), 3);
         assert.equal(await page.locator('.ai-source-list a').first().innerText(), '甲校招生目录');
         assert.equal(await page.locator('#modal').evaluate(dialog => dialog.scrollWidth <= dialog.clientWidth), true);
@@ -240,7 +288,7 @@ async function run() {
           const before = requests;
           await page.getByRole('button', { name: '检索并生成计划', exact: true }).click();
           await page.locator('[data-form="ai-save"]').waitFor();
-          assert.equal(requests - before, 3);
+          assert.equal(requests - before, 12);
           const evidence = await page.locator('.ai-school-recommendations').innerText();
           assert.match(evidence, /筛选要求：济南/);
           assert.ok(!evidence.includes('上海'));
@@ -264,7 +312,8 @@ async function run() {
             assert.ok(!/profile\.|dateStatus|targetExamYear|estimatedExamDate/.test(readable));
           } else await page.getByRole('button', { name: '取消', exact: true }).click();
         }
-        assert.ok(efforts.every(effort => effort === 'high'));
+        assert.ok(efforts.includes('high') && efforts.includes('low'));
+        assert.ok(efforts.every(effort => ['high', 'low'].includes(effort)));
         assert.deepEqual(errors, []);
         report.push(name + ' ' + width + 'px: form, preview, editing, regenerate, save, progress, refresh, import/cancel, escaping, failure/retry, duplicate submit, cancellation, template fallback, city constraints, readable text repair, 3-school repair and legacy rendering passed');
         await context.close();
@@ -274,7 +323,11 @@ async function run() {
     const context = await browser.newContext();
     await context.addInitScript(() => Object.defineProperty(window, 'localStorage', { get() { throw new Error('Unavailable'); } }));
     const page = await context.newPage();
-    await context.route('https://api.deepseek.com/anthropic/v1/messages', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(route.request().postDataJSON().tools ? search : { stop_reason: 'end_turn', content: [{ type: 'text', text: JSON.stringify(plan) }] }) }));
+    await context.route('https://api.deepseek.com/anthropic/v1/messages', route => {
+      const body = route.request().postDataJSON();
+      const value = body.tools ? { ...search, content: [...Array.from({ length: body.tools[0].max_uses }, () => ({ type: 'server_tool_use', name: 'web_search' })), ...search.content.filter(block => block.type !== 'server_tool_use')] } : { stop_reason: 'end_turn', content: [{ type: 'text', text: JSON.stringify(compactPlan(plan, body)) }] };
+      return route.fulfill({ contentType: 'application/json', body: JSON.stringify(value) });
+    });
     await openForm(page, origins[1][1]);
     await fillForm(page);
     await page.getByRole('button', { name: '检索并生成计划', exact: true }).click();

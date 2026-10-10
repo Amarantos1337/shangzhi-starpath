@@ -5,7 +5,8 @@
 
 观察一：首页 / 新请求返回 200，正文显示“本地服务练习”。
 观察二：/missing.html 返回 404，服务仍然在运行。
-问题：首页“查看说明”指向 /info.html，返回 404。
+练习准备：在自己的副本中将首页链接临时从 about.html 改成 info.html。
+问题：修改后的首页“查看说明”指向 /info.html，返回 404。
 原因：文件列表中只有 about.html，没有 info.html。
 修改：把 index.html 的 href="info.html" 改成 href="about.html"。
 验证：点击链接，/about.html 返回 200，正文显示“说明页已找到”。

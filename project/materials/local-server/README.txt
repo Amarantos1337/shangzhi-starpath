@@ -9,8 +9,9 @@
 若 8777 被占用，改用 8778，浏览器地址也改用 8778；不结束未知进程。
 
 在网络面板观察首页 / 与 /missing.html 的状态。
-起始页“查看说明”故意指向不存在的 info.html。
-检查 site 中实际文件，将链接改为 about.html，然后验证。
+起始页“查看说明”指向现有的 about.html，先点击确认页面可以打开。
+在自己的练习副本中，将 index.html 的 href="about.html" 临时改成 href="info.html"，保存并点击，观察 404。
+检查 site 中实际文件，将链接改回 about.html，然后验证。
 填写 report-template.txt，与 reference/report.txt 比较。
 reference/site 是修复后的参考成品；可在 reference 目录用同一命令运行。
 

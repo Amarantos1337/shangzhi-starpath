@@ -1,0 +1,74 @@
+[
+  {
+    "profile": "named",
+    "baselineSuccesses": 4,
+    "optimizedSuccesses": 3,
+    "reliable": true,
+    "metrics": {
+      "searchMs": {
+        "baselineMs": 19936.357000000004,
+        "optimizedMs": 12631.0946,
+        "savedMs": 7305.262400000003,
+        "reductionPercent": 36.642915252771616,
+        "speedup": 1.5783554498910968
+      },
+      "generationMs": {
+        "baselineMs": 48783.2855,
+        "optimizedMs": 30338.15449999999,
+        "savedMs": 18445.13100000001,
+        "reductionPercent": 37.81035002244777,
+        "speedup": 1.6079846089517413
+      },
+      "totalMs": {
+        "baselineMs": 66696.5586,
+        "optimizedMs": 39435.6109,
+        "savedMs": 27260.947700000004,
+        "reductionPercent": 40.8730949125762,
+        "speedup": 1.691277428645083
+      },
+      "firstSourceMs": {
+        "baselineMs": 19935.367550000003,
+        "optimizedMs": 1962.3708999999944,
+        "savedMs": 17972.99665000001,
+        "reductionPercent": 90.15633448905238,
+        "speedup": 10.158817352010296
+      }
+    }
+  },
+  {
+    "profile": "local",
+    "baselineSuccesses": 3,
+    "optimizedSuccesses": 3,
+    "reliable": true,
+    "metrics": {
+      "searchMs": {
+        "baselineMs": 46615.17220000003,
+        "optimizedMs": 19610.646200000017,
+        "savedMs": 27004.526000000013,
+        "reductionPercent": 57.93076529705492,
+        "speedup": 2.377033970456312
+      },
+      "generationMs": {
+        "baselineMs": 44509.7573,
+        "optimizedMs": 66980.89129999996,
+        "savedMs": -22471.13399999996,
+        "reductionPercent": -50.48586054635702,
+        "speedup": 0.6645142582627894
+      },
+      "totalMs": {
+        "baselineMs": 91124.9288,
+        "optimizedMs": 83218.16810000001,
+        "savedMs": 7906.760699999984,
+        "reductionPercent": 8.676836080007982,
+        "speedup": 1.0950124339495042
+      },
+      "firstSourceMs": {
+        "baselineMs": 19998.384100000025,
+        "optimizedMs": 2094.8390000000363,
+        "savedMs": 17903.54509999999,
+        "reductionPercent": 89.5249586690355,
+        "speedup": 9.546501712064591
+      }
+    }
+  }
+]
