@@ -1,0 +1,225 @@
+{
+  "title": "山东计算机相关专业2029年初试备考整合计划",
+  "goal": "在山东省内计算机相关专业中逐步完成择校，优先加强英语和数学基础，按四阶段推进公共课与专业基础复习，于2029年暂定考试季参加初试，并在官方信息发布后校准科目与报考安排。",
+  "tasks": [
+    {
+      "title": "梳理本科计算机培养方案，标记高数、线代、概率、数据结构、操作系统等可能与考研相关的课程，建立课程成绩与复习优先级清单。",
+      "stage": "信息核对与基础",
+      "dueDate": "2026-10-01"
+    },
+    {
+      "title": "完成一次英语四级真题模考，记录听力、阅读、写作、翻译得分，制定每周词汇与长难句学习计划。",
+      "stage": "信息核对与基础",
+      "dueDate": "2026-12-18"
+    },
+    {
+      "title": "对照官方考试大纲梳理高数上册章节，完成课后基础题并建立错题本，数学复习从基础概念和计算准确率抓起。",
+      "stage": "信息核对与基础",
+      "dueDate": "2027-03-06"
+    },
+    {
+      "title": "制作山东大学、中国石油大学（华东）、曲阜师范大学计算机学硕与专硕对照表，记录已公布年份的专业目录、初试科目差异和报考条件，标注目标年度待核实项，据此缩小择校范围。",
+      "stage": "信息核对与基础",
+      "dueDate": "2027-05-23"
+    },
+    {
+      "title": "英语坚持每日词汇复习，每周精读两篇真题阅读并整理长难句，每月完成一次写作练习并请老师或同学批改。",
+      "stage": "系统学习与强化",
+      "dueDate": "2027-08-09"
+    },
+    {
+      "title": "完成高数上下册与线性代数基础复习，按章节做基础到中等难度题，标注薄弱知识点并安排回炉练习。",
+      "stage": "系统学习与强化",
+      "dueDate": "2027-10-26"
+    },
+    {
+      "title": "结合计算机核心课程系统复习数据结构与算法，完成章节习题和编程实现，整理常见题型与解题思路。",
+      "stage": "系统学习与强化",
+      "dueDate": "2028-01-12"
+    },
+    {
+      "title": "根据初步择校结果确定主攻学硕或专硕，列出对应数学、英语和专业课复习模块；目标年度目录公布前不把任一学校科目当作统一要求。",
+      "stage": "系统学习与强化",
+      "dueDate": "2028-03-30"
+    },
+    {
+      "title": "待择校明确数学一或数学二后，按对应科目分题型做近十年真题，限时完成并统计错因，回归教材补漏，提升计算速度与准确率。",
+      "stage": "真题训练与查漏",
+      "dueDate": "2028-06-16"
+    },
+    {
+      "title": "英语每周一套阅读与完形真题，精析错题并积累高频词汇和作文素材，每月进行一次限时模考。",
+      "stage": "真题训练与查漏",
+      "dueDate": "2028-09-02"
+    },
+    {
+      "title": "待确定目标院校和专业后，按该校当年专业目录指定科目收集专业课真题并分章训练；现阶段先比较各校科目差异，不按单一学校范围覆盖全部。",
+      "stage": "真题训练与查漏",
+      "dueDate": "2028-11-19"
+    },
+    {
+      "title": "每月汇总各科错题与薄弱点，调整复习计划，针对高频失分点安排专项训练并检查改进效果。",
+      "stage": "真题训练与查漏",
+      "dueDate": "2029-02-05"
+    },
+    {
+      "title": "按初试时间安排每周一次全科模拟，训练答题节奏与时间分配，模拟后当天复盘并记录改进项。",
+      "stage": "模拟冲刺与调整",
+      "dueDate": "2029-04-24"
+    },
+    {
+      "title": "依据目标年度官方目录和考试大纲确认政治、英语、数学的具体科目后系统学习，前期刷选择题打基础，后期集中背诵重点并定期自测。",
+      "stage": "模拟冲刺与调整",
+      "dueDate": "2029-07-11"
+    },
+    {
+      "title": "整理数学公式、英语作文、专业课核心概念，制定每日滚动背诵清单，用默写和口头复述检查掌握度。",
+      "stage": "模拟冲刺与调整",
+      "dueDate": "2029-09-27"
+    },
+    {
+      "title": "关注官方报名与确认通知，核对报考点要求，保持作息与心态稳定，按计划推进至大四上学期初试前。",
+      "stage": "模拟冲刺与调整",
+      "dueDate": "2029-12-14"
+    }
+  ],
+  "generation": {
+    "model": "deepseek-flash",
+    "generatedAt": "2026-10-30T06:49:51.827Z",
+    "summary": "你为计算机科学与技术本科大一，按四年制推算应在2030年入学，目标初试年份为2029年，暂按2029年12月15日前后考试季安排，正式初试首日尚未公布。现有政策资料中，2027年招生初试时间为2026年12月19日至20日，仅适用该年度，不能推定为2029年；2026年全国管理规定可作框架参考，山东报考点、网上确认和报名资格须待目标年度公告。院校方面，中国石油大学（华东）、山东大学、曲阜师范大学均位于山东，已核验计算机相关专业设置和地点；但专业目录年份不一，山东大学2024年目录显示学硕与专硕科目组合不同，中国石油大学（华东）2024年简章未明确计算机具体选考科目，曲阜师范大学2026年章程也未给出该专业完整科目组合，不能把任一学校科目当作统一要求。报考资格目前不能认定，需核验学籍、应届身份及目标年度简章；复习中先比较学硕专硕和院校科目差异，再确定数学英语科目和专业课范围。",
+    "sources": [
+      {
+        "title": "e8f5f142-8d4a-491b-ba5f-cda5fe9889a3.pdf - / 7",
+        "url": "https://computer.upc.edu.cn/_js/_portletPlugs/swfPlayer/pdfjs22228/web/viewer.html?file=%2F_upload%2Farticle%2Ffiles%2F55%2Ff2%2F8c484d9e48f297aa4a8fa1079fd5%2Fe8f5f142-8d4a-491b-ba5f-cda5fe9889a3.pdf&_x_output_type_b6db407c4_=embedded_pdf#1"
+      },
+      {
+        "title": "硕士研究生专业介绍-计算机学院",
+        "url": "https://jsj.qfnu.edu.cn/info/1018/1002.htm"
+      },
+      {
+        "title": "计算机学院2026年硕士研究生招生复试录取工作细则",
+        "url": "https://jsj.qfnu.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1310399144&wbfileid=17765651#1#1#1"
+      },
+      {
+        "title": "【鲁中晨报】石大今年计划招生5532人-中国石油大学新闻网",
+        "url": "https://news.upc.edu.cn/info/1445/85287.htm"
+      },
+      {
+        "title": "山东大学2026年硕士研究生招生章程",
+        "url": "https://www.chsi.com.cn/kyzx/zsjz/202510/20251010/2293437852.html#1#1"
+      },
+      {
+        "title": "硕士研究生-山大计算机科学与技术学院",
+        "url": "https://www.cs.sdu.edu.cn/zsxx/ssyjs.htm?eqid=9e4d6dc3000cbf6900000002648dcc1c"
+      },
+      {
+        "title": "招生专业代码、名称及研究方向 招生人数 初试考试科目 复试考核内容 复试笔试参考书目 备注 081200 计算机...",
+        "url": "https://www.yz.sdu.edu.cn/2024/shandongdaxue2024nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#15#29#15"
+      },
+      {
+        "title": "曲阜师范大学2026年硕士研究生招生章程 - 曲阜师范大学2026年硕士研究生招生章程",
+        "url": "https://yjs.qfnu.edu.cn/info/1044/4923.htm?theme=dark#1"
+      },
+      {
+        "title": "《2026年全国硕士研究生招生工作管理规定》",
+        "url": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-4.html#1"
+      },
+      {
+        "title": "教育部部署2027年全国硕士研究生考试招生工作",
+        "url": "https://yz.chsi.com.cn/kyzx/jybzc/202609/20260924/2293971512.html"
+      },
+      {
+        "title": "2026研招报名将启，关注浙江网报公告",
+        "url": "https://yz.chsi.com.cn/kyzx/kydt/202510/20251009/2293437475.html"
+      },
+      {
+        "title": "河北省2027年全国硕士研究生招生考试百问百答（一）报名篇 - 河北省2027年全国硕士研究生招生考试百问百答（一）报名篇",
+        "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977251.html#1"
+      },
+      {
+        "title": "中国石油大学（华东）2024年硕士研究生招生简章",
+        "url": "https://yz.upc.edu.cn/2023/0920/c25707a283115/page.htm#1#1#1"
+      },
+      {
+        "title": "2026年硕士研究生招生章程及专业目录",
+        "url": "https://yz.upc.edu.cn/2025/0930/c25704a283755/page.htm"
+      },
+      {
+        "title": "8b0f6df3-5990-4329-ac66-b68782dc955b.pdf",
+        "url": "https://yz.upc.edu.cn/_js/_portletPlugs/swfPlayer/pdfjs22228/web/viewer.html?file=/_upload/article/files/7b/1f/b76a6f4149c1864f9c3633895466/8b0f6df3-5990-4329-ac66-b68782dc955b.pdf"
+      },
+      {
+        "title": "中国石油大学（华东）2027年接收硕士推免生专业目录",
+        "url": "https://yz.upc.edu.cn/_upload/article/files/46/14/67396d8341bfa144becad6f7ee24/52d32a79-0772-40a4-94b4-6aa1e6aafdae.pdf#1#1#1"
+      }
+    ],
+    "recommendations": [
+      {
+        "name": "中国石油大学（华东）",
+        "reason": "你为计算机科学与技术本科在读、目标山东省内；该校青岛软件学院、计算机科学与技术学院已列计算机科学与技术学硕及计算机技术、人工智能、大数据技术与工程等专硕，专业匹配，可纳入山东省内候选。目标年度目录未公布，仅作专业设置参考，报考资格与考试科目须核验。",
+        "sourceUrl": "https://yz.upc.edu.cn/2025/0930/c25704a283755/page.htm",
+        "location": {
+          "province": "山东",
+          "city": "青岛",
+          "campus": "青岛软件学院、计算机科学与技术学院；具体培养校区待核实",
+          "sourceUrl": "https://computer.upc.edu.cn/_js/_portletPlugs/swfPlayer/pdfjs22228/web/viewer.html?file=%2F_upload%2Farticle%2Ffiles%2F55%2Ff2%2F8c484d9e48f297aa4a8fa1079fd5%2Fe8f5f142-8d4a-491b-ba5f-cda5fe9889a3.pdf&_x_output_type_b6db407c4_=embedded_pdf#1"
+        },
+        "criteriaEvidence": [
+          {
+            "criterion": "历史本科录取批次（仅作参考）",
+            "explanation": "2008年该校面向全国31个省级地区（含山东）招收普通本科生，普通本科生按本科一批录取，定向生按本科二批；该批次表述仅适用于2008年该校本科招生，不适用于硕士报考或后续年份。",
+            "sourceUrl": "https://news.upc.edu.cn/info/1445/85287.htm"
+          }
+        ]
+      },
+      {
+        "name": "山东大学",
+        "reason": "山东大学位于山东，计算机科学与技术是2024年硕士招生目录中的学术学位专业，方向覆盖机器学习、网络与信息安全等，与用户本科专业衔接紧密；可先按2026年章程核对学历身份，2029年目录、科目和计划待官方公布。",
+        "sourceUrl": "https://www.yz.sdu.edu.cn/2024/shandongdaxue2024nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#15#29#15",
+        "location": {
+          "province": "山东",
+          "city": "青岛",
+          "campus": "计算机科学与技术学院研究生培养位于青岛校区，地址为即墨区滨海公路72号第周苑C座。",
+          "sourceUrl": "https://www.cs.sdu.edu.cn/zsxx/ssyjs.htm?eqid=9e4d6dc3000cbf6900000002648dcc1c"
+        },
+        "criteriaEvidence": []
+      },
+      {
+        "name": "曲阜师范大学",
+        "reason": "该校计算机学院2026年复试按计算机科学与技术、计算机技术分别组织，与你当前计算机专业方向衔接较紧；2029年初试及2030年入学的目录、科目和资格待官方公布后核验。",
+        "sourceUrl": "https://jsj.qfnu.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1310399144&wbfileid=17765651#1#1#1",
+        "location": {
+          "province": "山东",
+          "city": "日照",
+          "campus": "日照校区（计算机学院，地址：山东省日照市烟台北路80号；目标年份硕士培养地点待核实）",
+          "sourceUrl": "https://jsj.qfnu.edu.cn/info/1018/1002.htm"
+        },
+        "criteriaEvidence": [
+          {
+            "criterion": "山东省内地域要求",
+            "explanation": "计算机学院官网硕士研究生专业介绍显示，学院开设计算机科学与技术学术型硕士专业，页面地址为山东省日照市烟台北路80号，可确认相关专业培养城市在山东日照，符合山东省内地域要求；该页面未标注适用招生年度，2029年招生培养地点须以当年招生简章和专业目录核实。",
+            "sourceUrl": "https://jsj.qfnu.edu.cn/info/1018/1002.htm"
+          }
+        ]
+      }
+    ],
+    "constraints": {
+      "location": {
+        "type": "province",
+        "name": "山东"
+      },
+      "tier": "",
+      "needsRecommendations": true
+    },
+    "recommendationNotice": "院校名单与地点已核验，仅作山东省内计算机相关专业候选；目标年度招生目录、考试科目和报考资格尚未公布，正式报考前须以教育部、山东省教育招生考试院及学校最新公告为准。历史本科批次仅作背景参考，不构成录取判断。",
+    "period": {
+      "startDate": "2026-10-01",
+      "endDate": "2029-12-14",
+      "examDate": "",
+      "examSourceUrl": "",
+      "targetExamYear": 2029,
+      "dateStatus": "estimated",
+      "planningBasis": "按开始日期所在学年、四年制本科推算，在大四上学期参加初试。"
+    }
+  }
+}

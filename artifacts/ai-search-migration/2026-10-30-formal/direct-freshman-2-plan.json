@@ -1,0 +1,228 @@
+{
+  "title": "山东计算机考研2029年初试学习行动整合稿",
+  "goal": "结合计算机科学与技术本科背景和山东地域，整合已核验院校与十六项学习行动，按四阶段推进英语、数学和专业基础，逐校核对2029年初试科目与资格，待官方目录发布后择校。",
+  "tasks": [
+    {
+      "title": "大一上学期梳理计算机专业培养方案与考研常见方向，建立个人学习档案，记录英语和数学基础情况，每月复盘一次。",
+      "stage": "信息核对与基础",
+      "dueDate": "2026-10-01"
+    },
+    {
+      "title": "英语基础每天背诵并复习四级核心词汇，每周完成两篇精读和一篇听力听写，建立错词与长难句本。",
+      "stage": "信息核对与基础",
+      "dueDate": "2026-12-18"
+    },
+    {
+      "title": "数学起步跟教材或基础课完成高等数学上册前两章，课后题按周完成并整理错题，重概念理解不追求速度。",
+      "stage": "信息核对与基础",
+      "dueDate": "2027-03-06"
+    },
+    {
+      "title": "通过学校官网和教育考试院官方目录了解考研基本流程与科目设置，暂不确定具体院校，只做方向清单并标注待核对。",
+      "stage": "信息核对与基础",
+      "dueDate": "2027-05-23"
+    },
+    {
+      "title": "大一下至大二上系统学习高数上下册与线性代数基础，每周固定四到五次学习，完成章节习题并月度自测。",
+      "stage": "系统学习与强化",
+      "dueDate": "2027-08-09"
+    },
+    {
+      "title": "英语从四级词汇过渡到考研核心词汇，每周精读外刊短文两篇，练习长难句翻译并积累写作句型。",
+      "stage": "系统学习与强化",
+      "dueDate": "2027-10-26"
+    },
+    {
+      "title": "认真学习数据结构与程序设计课程，完成课程实验和小项目，整理常用算法与复杂度笔记。",
+      "stage": "系统学习与强化",
+      "dueDate": "2028-01-12"
+    },
+    {
+      "title": "结合计算机专业课程体验列出两到三个感兴趣方向，查阅公开培养方案，形成院校初筛清单并注明需核对官方目录。",
+      "stage": "系统学习与强化",
+      "dueDate": "2028-03-30"
+    },
+    {
+      "title": "大二下至大三上开始考研数学系统强化，按章节做综合题，建立错题本并每两周回顾一次。",
+      "stage": "真题训练与查漏",
+      "dueDate": "2028-06-16"
+    },
+    {
+      "title": "英语在词汇和语法较稳后，每周做一篇早年阅读理解真题，逐句分析，不追求整套计时。",
+      "stage": "真题训练与查漏",
+      "dueDate": "2028-09-02"
+    },
+    {
+      "title": "根据初筛方向学习数据结构、操作系统、计算机网络等核心课，完成课后题和思维导图，具体考试科目以官方目录为准。",
+      "stage": "真题训练与查漏",
+      "dueDate": "2028-11-19"
+    },
+    {
+      "title": "收集山东大学、中国石油大学（华东）、曲阜师范大学往年招生目录与复试要求，逐校列出专业代码、初试科目和资格条件并比较差异；未公布内容标记待查，不轻信非官方信息。",
+      "stage": "真题训练与查漏",
+      "dueDate": "2029-02-05"
+    },
+    {
+      "title": "大三下起按三校最新官方目录逐校比较初试科目，先确认数学、英语和专业课差异再择校，制定全年复习表；数学进入强化与真题衔接，英语保持每日词汇和阅读。",
+      "stage": "模拟冲刺与调整",
+      "dueDate": "2029-04-24"
+    },
+    {
+      "title": "在确认目标院校科目后，每周完成数学真题或专题限时训练、英语阅读真题，专业课按已确认科目章节做历年题；不同院校科目不一致时先比较再定重点，所有错题归因并周末复盘。",
+      "stage": "模拟冲刺与调整",
+      "dueDate": "2029-07-11"
+    },
+    {
+      "title": "每月进行一次全科自测，统计薄弱章节和高频错误，调整下一月计划，英语继续补长难句和写作。",
+      "stage": "模拟冲刺与调整",
+      "dueDate": "2029-09-27"
+    },
+    {
+      "title": "大四上学期按初试时间安排模拟，每周一次全科或半科模拟，初试日期尚未公布时以官方通知调整，考前两周回归错题与基础。",
+      "stage": "模拟冲刺与调整",
+      "dueDate": "2029-12-14"
+    }
+  ],
+  "generation": {
+    "model": "deepseek-flash",
+    "generatedAt": "2026-10-30T06:53:32.524Z",
+    "summary": "现有资料多适用于2024年、2026年和2027年推免等年度，不能直接作为2029年招生依据。目标初试年份为2029年，按四年制本科推算，应在2029年大四上学期参加初试，入学年度为2030年，初试日期尚未公布。你为山东商业职业技术大学本科在读，能否按应届本科毕业生报考，需结合学籍培养层次、学制和预计毕业时间核实，录取入学前须取得本科毕业证书。待核实2029年教育部规定、报名考试日期、山东省报考点，以及三校2029年统考目录、科目和报考限制。中国石油大学（华东）相关学院在青岛，2027年推免目录有计算机类学硕和专硕，统考目录待查；山东大学计算机学院在青岛，2024年目录显示计算机学硕考408、计算机技术考832等历史科目差异；曲阜师范大学计算机学院在日照，2026年复试考C语言，初试科目待查。",
+    "sources": [
+      {
+        "title": "e8f5f142-8d4a-491b-ba5f-cda5fe9889a3.pdf - / 7",
+        "url": "https://computer.upc.edu.cn/_js/_portletPlugs/swfPlayer/pdfjs22228/web/viewer.html?file=%2F_upload%2Farticle%2Ffiles%2F55%2Ff2%2F8c484d9e48f297aa4a8fa1079fd5%2Fe8f5f142-8d4a-491b-ba5f-cda5fe9889a3.pdf&_x_output_type_b6db407c4_=embedded_pdf#1"
+      },
+      {
+        "title": "曲阜师范大学_阳光高考信息平台-院校信息管理",
+        "url": "https://gaokao.chsi.com.cn/sch/viewHireInfo--infoId-1202188,categoryId-41912,schId-349.dhtml"
+      },
+      {
+        "title": "硕士研究生专业介绍-计算机学院",
+        "url": "https://jsj.qfnu.edu.cn/info/1018/1002.htm"
+      },
+      {
+        "title": "计算机学院2026年硕士研究生招生复试录取工作细则",
+        "url": "https://jsj.qfnu.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1310399144&wbfileid=17765651#1#1#1"
+      },
+      {
+        "title": "山东大学2026年硕士研究生招生章程",
+        "url": "https://www.chsi.com.cn/kyzx/zsjz/202510/20251010/2293437852.html#1#1"
+      },
+      {
+        "title": "计算机科学与技术学院2026年硕士研究生一志愿复试名单公示",
+        "url": "https://www.cs.sdu.edu.cn/info/1068/6777.htm"
+      },
+      {
+        "title": "硕士研究生-山大计算机科学与技术学院",
+        "url": "https://www.cs.sdu.edu.cn/zsxx/ssyjs.htm?eqid=9e4d6dc3000cbf6900000002648dcc1c"
+      },
+      {
+        "title": "招生专业代码、名称及研究方向 招生人数 初试考试科目 复试考核内容 复试笔试参考书目 备注 081200 计算机...",
+        "url": "https://www.yz.sdu.edu.cn/2024/shandongdaxue2024nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#15#29#15"
+      },
+      {
+        "title": "曲阜师范大学2026年硕士研究生招生章程 - 曲阜师范大学2026年硕士研究生招生章程",
+        "url": "https://yjs.qfnu.edu.cn/info/1044/4923.htm?theme=dark#1"
+      },
+      {
+        "title": "《2026年全国硕士研究生招生工作管理规定》",
+        "url": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-4.html#1"
+      },
+      {
+        "title": "教育部部署2027年全国硕士研究生考试招生工作",
+        "url": "https://yz.chsi.com.cn/kyzx/jybzc/202609/20260924/2293971512.html"
+      },
+      {
+        "title": "2026研招报名将启，关注浙江网报公告",
+        "url": "https://yz.chsi.com.cn/kyzx/kydt/202510/20251009/2293437475.html"
+      },
+      {
+        "title": "河北省2027年全国硕士研究生招生考试百问百答（一）报名篇 - 河北省2027年全国硕士研究生招生考试百问百答（一）报名篇",
+        "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977251.html#1"
+      },
+      {
+        "title": "湖北省2027年全国硕士研究生招生考试报名须知",
+        "url": "https://yz.chsi.com.cn/sch/viewZbBulletin--schId-369147,infoId-3552096243,categoryId-433156,mindex-10.dhtml#1"
+      },
+      {
+        "title": "中国石油大学（华东）2024年硕士研究生招生简章",
+        "url": "https://yz.upc.edu.cn/2023/0920/c25707a283115/page.htm#1#1#1"
+      },
+      {
+        "title": "2026年硕士研究生招生章程及专业目录",
+        "url": "https://yz.upc.edu.cn/2025/0930/c25704a283755/page.htm"
+      },
+      {
+        "title": "中国石油大学（华东）2027年接收硕士推免生专业目录",
+        "url": "https://yz.upc.edu.cn/_upload/article/files/46/14/67396d8341bfa144becad6f7ee24/52d32a79-0772-40a4-94b4-6aa1e6aafdae.pdf#1#1#1"
+      }
+    ],
+    "recommendations": [
+      {
+        "name": "中国石油大学（华东）",
+        "reason": "用户为计算机科学与技术背景，与该校计算机科学与技术、软件工程、计算机技术等方向衔接较好；计算机相关学院为青岛软件学院、计算机科学与技术学院，符合山东地域关注。2029年初试及2030年入学的统考目录、考试科目和报考限制尚未公布，需逐项核实。",
+        "sourceUrl": "https://yz.upc.edu.cn/2025/0930/c25704a283755/page.htm",
+        "location": {
+          "province": "山东",
+          "city": "青岛",
+          "campus": "青岛软件学院、计算机科学与技术学院；唐岛湾或古镇口校区具体培养地点待核实",
+          "sourceUrl": "https://computer.upc.edu.cn/_js/_portletPlugs/swfPlayer/pdfjs22228/web/viewer.html?file=%2F_upload%2Farticle%2Ffiles%2F55%2Ff2%2F8c484d9e48f297aa4a8fa1079fd5%2Fe8f5f142-8d4a-491b-ba5f-cda5fe9889a3.pdf&_x_output_type_b6db407c4_=embedded_pdf#1"
+        },
+        "criteriaEvidence": []
+      },
+      {
+        "name": "山东大学",
+        "reason": "现阶段专业为计算机科学与技术，与山东大学计算机科学与技术、计算机技术、人工智能等方向衔接紧密；学校位于山东，符合地域要求。目标初试年份为2029年，入学为2030年，最新专业目录与报考资格需届时核实。",
+        "sourceUrl": "https://www.yz.sdu.edu.cn/2024/shandongdaxue2024nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#15#29#15",
+        "location": {
+          "province": "山东省",
+          "city": "青岛市",
+          "campus": "山东大学（青岛）校区，计算机科学与技术学院位于青岛市即墨区滨海公路72号；目标年度具体培养地点待核实。",
+          "sourceUrl": "https://www.cs.sdu.edu.cn/zsxx/ssyjs.htm?eqid=9e4d6dc3000cbf6900000002648dcc1c"
+        },
+        "criteriaEvidence": []
+      },
+      {
+        "name": "曲阜师范大学",
+        "reason": "你现读计算机科学与技术，报考该校计算机学院同名或相近专业衔接较顺；学校在山东，符合地域要求；2026年复试已明确考C语言和综合面试，可提前准备；2029年招生目录待核实。",
+        "sourceUrl": "https://jsj.qfnu.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1310399144&wbfileid=17765651#1#1#1",
+        "location": {
+          "province": "山东",
+          "city": "日照",
+          "campus": "曲阜师范大学日照校区计算机学院，地址为日照市烟台北路80号；硕士培养地点以录取当年招生专业目录和学院通知为准。",
+          "sourceUrl": "https://jsj.qfnu.edu.cn/info/1018/1002.htm"
+        },
+        "criteriaEvidence": [
+          {
+            "criterion": "地域要求：山东省",
+            "explanation": "计算机学院硕士研究生专业介绍页列有计算机科学与技术学术学位，并标注学院地址为山东省日照市烟台北路80号；可支持该专业培养城市在山东日照。实际校区及授课地点仍须以录取当年学校安排为准。",
+            "sourceUrl": "https://jsj.qfnu.edu.cn/info/1018/1002.htm"
+          },
+          {
+            "criterion": "历史层次线索（用户未限定层次）",
+            "explanation": "该校2004年各专业录取信息中，计算机科学与技术列入理工类本科二批，最高分614、最低分571；该页面未单列录取省份，故只能作为2004年该校该专业在该录取表中的历史线索，不能据此确认山东省批次，也不能泛化到其他年度、省份或专业。",
+            "sourceUrl": "https://gaokao.chsi.com.cn/sch/viewHireInfo--infoId-1202188,categoryId-41912,schId-349.dhtml"
+          }
+        ]
+      }
+    ],
+    "constraints": {
+      "location": {
+        "type": "province",
+        "name": "山东"
+      },
+      "tier": "",
+      "needsRecommendations": true
+    },
+    "recommendationNotice": "院校名单与地点已核验，仅用于学习规划，不代表录取判断。2029年招生简章、专业目录、考试科目和资格要求尚未公布，须以教育部、山东省教育招生考试院及学校官网最新通知为准；英语和数学基础薄弱时先按四阶段行动推进，不套用其他年度日期。",
+    "period": {
+      "startDate": "2026-10-01",
+      "endDate": "2029-12-14",
+      "examDate": "",
+      "examSourceUrl": "",
+      "targetExamYear": 2029,
+      "dateStatus": "estimated",
+      "planningBasis": "按开始日期所在学年、四年制本科推算，在大四上学期参加初试。"
+    }
+  }
+}

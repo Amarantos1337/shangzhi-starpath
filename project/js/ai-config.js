@@ -2,6 +2,8 @@
   'use strict';
   window.StarPath.aiConfig = Object.freeze({
     endpoint: 'https://api.deepseek.com/anthropic/v1/messages',
+    searchEndpoint: 'https://api.deepseek.com/v1/tools/search',
+    fetchEndpoint: 'https://api.deepseek.com/v1/tools/fetch',
     model: 'deepseek-flash',
     reasoningEffort: 'high',
     timeoutMs: 300000

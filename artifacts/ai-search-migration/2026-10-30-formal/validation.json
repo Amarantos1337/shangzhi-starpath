@@ -1,0 +1,47 @@
+{
+  "checkedAtUtc": "2026-10-30T06:56:54.084Z",
+  "sourceUnchangedAfterLiveRuns": true,
+  "commands": [
+    {
+      "command": "node tools/dev.js test",
+      "passed": true,
+      "nodeTests": 85,
+      "pythonTests": 4
+    },
+    {
+      "command": "node --test tests/ai-parallel.test.js",
+      "passed": true,
+      "tests": 20,
+      "note": "包含全套回归之后新增的一项报告持久化校验"
+    },
+    {
+      "command": "node tests/ai-browser.test.js",
+      "passed": true,
+      "origins": [
+        "file",
+        "http"
+      ],
+      "widths": [
+        390,
+        1042,
+        1440
+      ],
+      "note": "模拟 API 的完整 UI 回归，含编辑、保存、刷新、导入、取消、键盘与错误恢复"
+    },
+    {
+      "command": "node tools/ai-search-browser.js artifacts/ai-search-migration/2026-10-30-formal",
+      "passed": true,
+      "note": "真实 Search/Fetch 跨域检查；UI 使用成功计划回放，不是额外完整 AI 样本"
+    }
+  ],
+  "visualInspection": [
+    "file-390-preview.png",
+    "http-1440-preview.png"
+  ],
+  "publicationAtValidationTime": {
+    "pushed": false,
+    "committed": false,
+    "reason": "新方案完整流程耗时退步，未满足用户设定的更好才提交推送条件。"
+  },
+  "subsequentAuthorization": "用户随后明确要求提交并推送到 GitHub；按最新授权发布，测试结论保持不变。"
+}

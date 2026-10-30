@@ -21,8 +21,18 @@ function load(responses = [], options = {}) {
     window: { StarPath: {}, dispatchEvent() {} }, CustomEvent: class {},
     localStorage: { getItem(key) { return saved.get(key) ?? null; }, setItem(key, value) { if (options.blocked) throw new Error('Unavailable'); saved.set(key, value); }, removeItem(key) { saved.delete(key); } },
     fetch: async (url, request) => {
-      requests.push({ url, ...request, body: JSON.parse(request.body) });
       if (options.fetch) return options.fetch(url, request);
+      // Adapt the historical content fixtures; wire-format coverage lives in ai-parallel.test.js.
+      if (url.endsWith('/tools/search') || url.endsWith('/tools/fetch')) {
+        if (firstSearch instanceof Error) throw firstSearch;
+        if (firstSearch?.status) return { ok: false, status: firstSearch.status };
+        const retrieved = firstSearch?.content?.flatMap(block => block.type === 'web_search_tool_result' && Array.isArray(block.content) ? block.content : []) || [];
+        return { ok: true, json: async () => url.endsWith('/tools/fetch') ? { content: '' } : { results: retrieved.map(source => ({ ...source, content: '模拟官方资料正文，仅供自动测试。' })) } };
+      }
+      const logicalBody = JSON.parse(request.body);
+      const research = JSON.parse(logicalBody.messages[0].content).task;
+      if (research) logicalBody.tools = [{ max_uses: JSON.parse(logicalBody.messages[0].content).round.requiredSearches, allowed_domains: ['gov.cn', 'edu.cn', 'chsi.com.cn', 'sdzk.cn'] }];
+      requests.push({ url, ...request, body: logicalBody });
       const body = requests.at(-1).body;
       let value = body.tools ? firstSearch : isLearning(body) ? answer() : answers.shift();
       if (value instanceof Error) throw value;
@@ -164,7 +174,7 @@ test('JSON repair happens once; exhausted repair leaves storage unchanged', asyn
 });
 test('invalid key, balance, forbidden access, rate limits and server errors give safe messages', async () => {
   for (const [status, pattern] of [[400, /拒绝了请求/], [401, /密钥无效/], [402, /余额不足/], [403, /访问被拒绝/], [429, /过于频繁/], [500, /暂时不可用/]]) {
-    const { ai, store } = load([{ status }]);
+    const { ai, store } = load([{ status }], { timeoutMs: 5000 });
     await assert.rejects(ai.generate(profile), pattern);
     assert.equal(store.get().plans.length, 0);
   }

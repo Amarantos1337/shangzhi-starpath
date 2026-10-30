@@ -1,0 +1,1399 @@
+[
+  {
+    "phase": "baseline",
+    "profile": "named",
+    "sample": 1,
+    "success": true,
+    "totalMs": 30197.313400000003,
+    "searchMs": 11395.0797,
+    "learningMs": null,
+    "generationMs": 18802.233700000004,
+    "firstSourceMs": 2351.9639,
+    "searchRequestIntervalUnionMs": 11387.9392,
+    "learningRequestIntervalUnionMs": 0,
+    "generationRequestIntervalUnionMs": 18797.7854,
+    "repairMs": 0,
+    "retryWaitMs": 0,
+    "requests": 7,
+    "searchRequests": 0,
+    "fetchRequests": 0,
+    "usage": {
+      "requests": 7,
+      "measuredRequests": 7,
+      "missingUsageRequests": 0,
+      "cacheHitTokens": 21757,
+      "cacheMissTokens": 46801,
+      "measuredInputTokens": 68558,
+      "cacheHitRate": 0.31735173138072875,
+      "outputTokens": 10113,
+      "measuredOutputRequests": 7
+    },
+    "validation": {
+      "tasks": 16,
+      "stages": 4,
+      "targetExamYear": 2026,
+      "sources": [
+        {
+          "url": "http://www.moe.gov.cn/srcsite/A15/moe_778/s3261/202609/t20260923_1451734.html#2",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.yz.sdu.edu.cn/info/1003/1256.htm#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.yz.sdu.edu.cn/xqy.jsp?urltype=news.NewsContentUrl&wbnewsid=1245&wbtreeid=1004",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#15#25#15",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.cs.sdu.edu.cn/info/1068/6855.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "http://ce.sdu.edu.cn/info/1013/8594.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.qdxq.sdu.edu.cn/jbhg/jxyb.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.cs.sdu.edu.cn/info/1068/6778.htm#1#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-4.html#1",
+          "provenance": "本轮接口返回"
+        }
+      ],
+      "recommendations": []
+    }
+  },
+  {
+    "phase": "baseline",
+    "profile": "freshman",
+    "sample": 1,
+    "success": true,
+    "totalMs": 60311.6555,
+    "searchMs": 35951.9466,
+    "learningMs": 15790.930699999997,
+    "generationMs": 24359.708899999998,
+    "firstSourceMs": 2773.493500000004,
+    "searchRequestIntervalUnionMs": 35938.3995,
+    "learningRequestIntervalUnionMs": 15790.930699999997,
+    "generationRequestIntervalUnionMs": 24336.973400000003,
+    "repairMs": 0,
+    "retryWaitMs": 0,
+    "requests": 14,
+    "searchRequests": 0,
+    "fetchRequests": 0,
+    "usage": {
+      "requests": 14,
+      "measuredRequests": 14,
+      "missingUsageRequests": 0,
+      "cacheHitTokens": 78592,
+      "cacheMissTokens": 120393,
+      "measuredInputTokens": 198985,
+      "cacheHitRate": 0.39496444455612234,
+      "outputTokens": 24766,
+      "measuredOutputRequests": 14
+    },
+    "validation": {
+      "tasks": 16,
+      "stages": 4,
+      "targetExamYear": 2029,
+      "sources": [
+        {
+          "url": "https://cie.upc.edu.cn/info/1029/2361.htm#1#16#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://csun.upc.edu.cn/_t1756/2025/0822/c4443a469213/pagem.htm#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://hudong.moe.gov.cn/jyb_xwfb/gzdt_gzdt/s5987/202602/t20260228_1429541.html",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.cs.sdu.edu.cn/gyxy/xyjj.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.yz.sdu.edu.cn/2024/shandongdaxue2024nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#28#29#28",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.yz.sdu.edu.cn/xqy.jsp?urltype=news.NewsContentUrl&wbnewsid=1245&wbtreeid=1004",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yjs.ujn.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1485039247&wbfileid=FA754AE8126EC6BC2F933845989AA240#1#1#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/kydt/202510/20251009/2293437475.html",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.ujn.edu.cn/info/1036/3844.htm#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.upc.edu.cn/2025/0930/c25704a283755/page.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.upc.edu.cn/_js/_portletPlugs/swfPlayer/pdfjs22228/web/viewer.html?file=/_upload/article/files/7b/1f/b76a6f4149c1864f9c3633895466/8b0f6df3-5990-4329-ac66-b68782dc955b.pdf",
+          "provenance": "本轮接口返回"
+        }
+      ],
+      "recommendations": [
+        {
+          "name": "山东大学",
+          "location": {
+            "province": "山东",
+            "city": "青岛",
+            "campus": "山东大学青岛校区（青岛市即墨区滨海公路72号第周苑C座），计算机科学与技术学院所在地",
+            "sourceUrl": "https://www.cs.sdu.edu.cn/gyxy/xyjj.htm"
+          },
+          "criteriaEvidence": [
+            {
+              "criterion": "学校办学层次（985、211、双一流）",
+              "explanation": "学院简介（更新日期2026年3月1日）载明，2017年计算机科学与技术学院整体搬迁至青岛校区；学院设有计算机科学与技术一级硕士点、计算机技术专业硕士点。学校夏令营通知（2025年6月27日、2026年6月24日发布）称学校为“985工程”“211工程”和“双一流”建设高校，属学校整体层次表述，并非按分省招生批次给出；用户目标2029年入学，对应2029年招生目录及分省批次要求尚未公布，待核实。",
+              "sourceUrl": "https://www.cs.sdu.edu.cn/gyxy/xyjj.htm"
+            }
+          ]
+        },
+        {
+          "name": "中国石油大学（华东）",
+          "location": {
+            "province": "山东",
+            "city": "青岛",
+            "campus": "唐岛湾校区（青岛市黄岛区长江西路66号）为青岛软件学院、计算机科学与技术学院报到校区；部分研究生课程安排在古镇口校区（黄岛区海军路6号），具体专业的硕士培养地点待核实",
+            "sourceUrl": "https://csun.upc.edu.cn/_t1756/2025/0822/c4443a469213/pagem.htm#1"
+          },
+          "criteriaEvidence": [
+            {
+              "criterion": "办学层次（用户未指定录取批次偏好）",
+              "explanation": "2024年5月官方手册：教育部直属全国重点大学，“211工程”及“985优势学科创新平台”建设、设有研究生院，2017、2022年进入国家“双一流”；此为学校整体层次表述，不适用于具体专业录取批次。2025—2026学年课表显示，计算机科学与技术学院（青岛软件学院）硕士课程分设唐岛湾与古镇口教室，2029年入学对应培养地点待核实。历史录取批次（如2016年山东本科一批）仅见媒体转载，无官方原始公告，待核实。",
+              "sourceUrl": "https://cie.upc.edu.cn/info/1029/2361.htm#1#16#1"
+            }
+          ]
+        },
+        {
+          "name": "济南大学",
+          "location": {
+            "province": "山东",
+            "city": "济南",
+            "campus": "信息科学与工程学院计算机科学与技术硕士在西校区（主校区，市中区南辛庄西路336号）；2029年入学安排待核实",
+            "sourceUrl": "https://yz.ujn.edu.cn/info/1036/3844.htm#1"
+          },
+          "criteriaEvidence": []
+        }
+      ]
+    }
+  },
+  {
+    "phase": "baseline",
+    "profile": "local",
+    "sample": 1,
+    "success": false,
+    "totalMs": 14781.001700000008,
+    "searchMs": 14781.001700000008,
+    "learningMs": 14723.314899999998,
+    "generationMs": null,
+    "firstSourceMs": 3120.1416000000027,
+    "searchRequestIntervalUnionMs": 14758.105100000015,
+    "learningRequestIntervalUnionMs": 14723.314899999998,
+    "generationRequestIntervalUnionMs": 0,
+    "repairMs": 0,
+    "retryWaitMs": 0,
+    "requests": 10,
+    "searchRequests": 0,
+    "fetchRequests": 0,
+    "usage": {
+      "requests": 10,
+      "measuredRequests": 4,
+      "missingUsageRequests": 6,
+      "cacheHitTokens": 6912,
+      "cacheMissTokens": 26976,
+      "measuredInputTokens": 33888,
+      "cacheHitRate": 0.20396600566572237,
+      "outputTokens": 5337,
+      "measuredOutputRequests": 4
+    },
+    "validation": {
+      "error": "学习行动草稿需要16项任务。",
+      "failedStage": "search"
+    }
+  },
+  {
+    "phase": "baseline",
+    "profile": "named",
+    "sample": 2,
+    "success": true,
+    "totalMs": 34950.72300000001,
+    "searchMs": 10905.262600000002,
+    "learningMs": null,
+    "generationMs": 24045.46040000001,
+    "firstSourceMs": 2245.275099999999,
+    "searchRequestIntervalUnionMs": 10888.625100000005,
+    "learningRequestIntervalUnionMs": 0,
+    "generationRequestIntervalUnionMs": 24035.940599999987,
+    "repairMs": 0,
+    "retryWaitMs": 0,
+    "requests": 7,
+    "searchRequests": 0,
+    "fetchRequests": 0,
+    "usage": {
+      "requests": 7,
+      "measuredRequests": 7,
+      "missingUsageRequests": 0,
+      "cacheHitTokens": 24829,
+      "cacheMissTokens": 45638,
+      "measuredInputTokens": 70467,
+      "cacheHitRate": 0.35234932663516255,
+      "outputTokens": 10407,
+      "measuredOutputRequests": 7
+    },
+    "validation": {
+      "tasks": 16,
+      "stages": 4,
+      "targetExamYear": 2026,
+      "sources": [
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/jybzc/202609/20260924/2293971511.html#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/other/202609/20260927/2293973606.html#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.yz.sdu.edu.cn/info/1022/1257.htm#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.yz.sdu.edu.cn/xqy.jsp?urltype=news.NewsContentUrl&wbnewsid=1245&wbtreeid=1004",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.yz.sdu.edu.cn/2025/shandongdaxue2025nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#15#25#15",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.cs.sdu.edu.cn/info/1068/6777.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.cs.sdu.edu.cn/info/1068/6855.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://rsc.qd.sdu.edu.cn/PDF/shandongdaxuejisuanjikexueyujishuboshihouliudongzhanjianjie.pdf#1#1#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.cs.sdu.edu.cn/info/1068/6494.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.cs.sdu.edu.cn/zsxx/ssyjs.htm?eqid=9e4d6dc3000cbf6900000002648dcc1c",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-4.html#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/jybzc/202609/20260924/2293971512.html",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/?opentype=browser",
+          "provenance": "本轮接口返回"
+        }
+      ],
+      "recommendations": []
+    }
+  },
+  {
+    "phase": "baseline",
+    "profile": "freshman",
+    "sample": 2,
+    "success": true,
+    "totalMs": 60910.172499999986,
+    "searchMs": 28969.855699999986,
+    "learningMs": 15245.135299999994,
+    "generationMs": 31940.3168,
+    "firstSourceMs": 2039.0585999999894,
+    "searchRequestIntervalUnionMs": 28948.94530000002,
+    "learningRequestIntervalUnionMs": 15245.135299999994,
+    "generationRequestIntervalUnionMs": 31920.19649999999,
+    "repairMs": 0,
+    "retryWaitMs": 0,
+    "requests": 14,
+    "searchRequests": 0,
+    "fetchRequests": 0,
+    "usage": {
+      "requests": 14,
+      "measuredRequests": 14,
+      "missingUsageRequests": 0,
+      "cacheHitTokens": 50432,
+      "cacheMissTokens": 83723,
+      "measuredInputTokens": 134155,
+      "cacheHitRate": 0.37592337221870226,
+      "outputTokens": 23443,
+      "measuredOutputRequests": 14
+    },
+    "validation": {
+      "tasks": 16,
+      "stages": 4,
+      "targetExamYear": 2029,
+      "sources": [
+        {
+          "url": "http://ise.ujn.edu.cn/info/1085/3372.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "http://yz.ujn.edu.cn/info/1032/3874.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://hudong.moe.gov.cn/jyb_xwfb/gzdt_gzdt/s5987/202512/t20251219_1423895.html",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://jsj.sdtbu.edu.cn/info/2103/3074.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://jsj.sdtbu.edu.cn/info/2182/4470.htm#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yjs.sdtbu.edu.cn/info/1046/3990.htm#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yjszs.qlu.edu.cn/2023/0811/c6602a225995/page.htm#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yjszs.qlu.edu.cn/2026/0930/c6601a284168/page.htm#5#6#5",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yjszs.qlu.edu.cn/2026/0930/c6760a284279/page.htm#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-4.html#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.ujn.edu.cn/info/1032/3804.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.ujn.edu.cn/info/1032/3944.htm#1#1#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.ujn.edu.cn/info/1036/3844.htm#1",
+          "provenance": "本轮接口返回"
+        }
+      ],
+      "recommendations": [
+        {
+          "name": "济南大学",
+          "location": {
+            "province": "山东",
+            "city": "济南",
+            "campus": "主校区（西校区，济南市市中区南辛庄西路336号）；根据2025级研究生入学须知，除商学院、文化和旅游学院、管理科学与工程学院外，其余学院均在该校区报到，计算机专业2029年硕士培养地点待核实",
+            "sourceUrl": "https://yz.ujn.edu.cn/info/1036/3844.htm#1"
+          },
+          "criteriaEvidence": [
+            {
+              "criterion": "目标专业硕士培养单位（用户未提出历史层次要求）",
+              "explanation": "《2023年硕士研究生招生专业目录》（2023年3月10日发布，仅适用2023年招生年度，山东省内考生参考）载明：信息科学与工程学院招收081200计算机科学与技术，全日制，学制3年；学院地址为济南市南辛庄西路336号。该目录未覆盖2029年招生年度，因此2029年的专业目录、培养校区及招生要求均待核实。",
+              "sourceUrl": "http://ise.ujn.edu.cn/info/1085/3372.htm"
+            }
+          ]
+        },
+        {
+          "name": "山东工商学院",
+          "location": {
+            "province": "山东",
+            "city": "烟台",
+            "campus": "校址为烟台市莱山区滨海中路191号，计算机科学与技术学院活动见于东、西校区；仅可视为校区参考，硕士具体培养地点待核实，实际培养地点以2029年招生目录（2030年入学）为准。",
+            "sourceUrl": "https://jsj.sdtbu.edu.cn/info/2103/3074.htm"
+          },
+          "criteriaEvidence": []
+        },
+        {
+          "name": "齐鲁工业大学（山东省科学院）",
+          "location": {
+            "province": "山东",
+            "city": "济南",
+            "campus": "长清校区（济南市长清区大学路3501号，主校区）。2021、2023级硕士入学须知均指定到长清校区相关学部报到，计算机科学与技术学部在长清校区；2029级培养地点待核实",
+            "sourceUrl": "https://yjszs.qlu.edu.cn/2023/0811/c6602a225995/page.htm#1"
+          },
+          "criteriaEvidence": []
+        }
+      ]
+    }
+  },
+  {
+    "phase": "baseline",
+    "profile": "local",
+    "sample": 2,
+    "success": true,
+    "totalMs": 64477.212,
+    "searchMs": 41541.47700000001,
+    "learningMs": 18540.692500000005,
+    "generationMs": 22935.734999999986,
+    "firstSourceMs": 2188.0506999999925,
+    "searchRequestIntervalUnionMs": 41496.85439999998,
+    "learningRequestIntervalUnionMs": 18540.692500000005,
+    "generationRequestIntervalUnionMs": 22904.568699999974,
+    "repairMs": 0,
+    "retryWaitMs": 0,
+    "requests": 14,
+    "searchRequests": 0,
+    "fetchRequests": 0,
+    "usage": {
+      "requests": 14,
+      "measuredRequests": 14,
+      "missingUsageRequests": 0,
+      "cacheHitTokens": 89980,
+      "cacheMissTokens": 124828,
+      "measuredInputTokens": 214808,
+      "cacheHitRate": 0.41888570258090946,
+      "outputTokens": 26567,
+      "measuredOutputRequests": 14
+    },
+    "validation": {
+      "tasks": 16,
+      "stages": 4,
+      "targetExamYear": 2029,
+      "sources": [
+        {
+          "url": "http://cs.sdufe.edu.cn/info/1057/2463.htm#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "http://cs.sdufe.edu.cn/info/1057/2474.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "http://news.sdufe.edu.cn/info/1071/20616.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "http://www.yjszs.sdnu.edu.cn/info/1009/3355.htm#2",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "http://yz.ujn.edu.cn/info/1032/3874.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://cie.sdnu.edu.cn/info/1072/1924.htm#2",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://cs.sdufe.edu.cn/info/1057/2464.htm#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://cs.sdufe.edu.cn/rcpy/yjsjy1/pyfa.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.ischool.sdnu.edu.cn/system/resource/pdfjs/viewer.html?file=%2F__local%2FD%2F81%2F10%2F82D1E1505FCA56F87616774B9B9_1AADDCDB_30DC4.pdf#1#1#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.ujn.edu.cn/xxgk/xxjj.htm#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.yjszs.sdnu.edu.cn/info/1009/4765.htm#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://xxgk.ujn.edu.cn/info/1012/1526.htm#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-4.html#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977279.html#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.ujn.edu.cn/info/1032/3944.htm#1#1#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.ujn.edu.cn/info/1032/3964.htm#1#1#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://zhaosheng.sdufe.edu.cn/f/newsCenter/article/8ab31ea931244432b39266219c8669af#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://news.sdufe.edu.cn/info/1071/20616.htm",
+          "provenance": "已有官方历史资料库"
+        },
+        {
+          "url": "https://xxgk.ujn.edu.cn/__local/2/D4/61/18EB3CE24CAB055ADA7C69E792C_BBC62789_218FF.pdf#2#2#2",
+          "provenance": "本轮接口返回"
+        }
+      ],
+      "recommendations": [
+        {
+          "name": "济南大学",
+          "location": {
+            "province": "山东",
+            "city": "济南",
+            "campus": "学校有主校区（市中区南辛庄西路336号）和舜耕校区（市中区舜耕路13号）两个校区；计算机类专业的实际培养校区及硕士培养地点待核实",
+            "sourceUrl": "https://www.ujn.edu.cn/xxgk/xxjj.htm#1"
+          },
+          "criteriaEvidence": [
+            {
+              "criterion": "一本",
+              "explanation": "济南大学官方2016年普通文理录取统计列有山东普通本科一批次及济南走读本科一批次，可作为历史一本参考层次；不表示所有项目、所有省份同一批次。 官方历史资料核验日期：2026年10月7日。",
+              "sourceUrl": "https://xxgk.ujn.edu.cn/__local/2/D4/61/18EB3CE24CAB055ADA7C69E792C_BBC62789_218FF.pdf#2#2#2"
+            }
+          ]
+        },
+        {
+          "name": "山东师范大学",
+          "location": {
+            "province": "山东",
+            "city": "济南",
+            "campus": "学校设千佛山校区（历下区文化东路88号）、长清湖校区（长清区大学科技园大学路1号）；计算机与人工智能学院硕士具体培养校区官方未在本轮结果中标明，待核实",
+            "sourceUrl": "http://www.yjszs.sdnu.edu.cn/info/1009/3355.htm#2"
+          },
+          "criteriaEvidence": [
+            {
+              "criterion": "一本",
+              "explanation": "学校官方2016年省外普通专业录取统计列有河北本科一批、天津本科一批B类，作为历史一本参考层次；北京、山西等地批次不同，不能泛称所有省份都是一本。 官方历史资料核验日期：2026年10月7日。",
+              "sourceUrl": "https://cie.sdnu.edu.cn/info/1072/1924.htm#2"
+            }
+          ]
+        },
+        {
+          "name": "山东财经大学",
+          "location": {
+            "province": "山东",
+            "city": "济南",
+            "campus": "燕山校区（济南市历下区二环东路7366号）：2022级计算机科学与技术学院新生报到校区；2029级培养校区安排待核实",
+            "sourceUrl": "https://zhaosheng.sdufe.edu.cn/f/newsCenter/article/8ab31ea931244432b39266219c8669af#1"
+          },
+          "criteriaEvidence": [
+            {
+              "criterion": "一本",
+              "explanation": "学校2016年8月29日官方招生总结记载省内普通本科一批招生，同时存在本科二批、中外合作等项目，可按历史一本参考层次择校，不能称所有专业都在一批。 官方历史资料核验日期：2026年10月7日。",
+              "sourceUrl": "https://news.sdufe.edu.cn/info/1071/20616.htm"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "phase": "direct",
+    "profile": "named",
+    "sample": 1,
+    "success": true,
+    "totalMs": 48150.3254,
+    "searchMs": 27032.3369,
+    "learningMs": null,
+    "generationMs": 21117.494100000004,
+    "firstSourceMs": 442.79409999999996,
+    "searchRequestIntervalUnionMs": 27024.955599999998,
+    "learningRequestIntervalUnionMs": 0,
+    "generationRequestIntervalUnionMs": 21112.466499999995,
+    "repairMs": 0,
+    "retryWaitMs": 0,
+    "requests": 13,
+    "searchRequests": 6,
+    "fetchRequests": 0,
+    "usage": {
+      "requests": 7,
+      "measuredRequests": 7,
+      "missingUsageRequests": 0,
+      "cacheHitTokens": 1024,
+      "cacheMissTokens": 70835,
+      "measuredInputTokens": 71859,
+      "cacheHitRate": 0.014250128724307323,
+      "outputTokens": 21134,
+      "measuredOutputRequests": 7
+    },
+    "validation": {
+      "tasks": 16,
+      "stages": 4,
+      "targetExamYear": 2026,
+      "sources": [
+        {
+          "url": "https://ce.sdu.edu.cn/info/1013/8594.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://faculty.sdu.edu.cn/yuruixuan/zh_CN/zsxx/1565797/content/3454.htm#zsxx",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.chsi.com.cn/kyzx/zsjz/202510/20251010/2293437852.html#1#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.sc.sdu.edu.cn/info/1019/4823.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.yz.sdu.edu.cn/2024/shandongdaxue2024nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#15#29#15",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.yz.sdu.edu.cn/info/1022/1130.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.yz.sdu.edu.cn/info/1022/1251.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-4.html#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/jybzc/202609/20260924/2293971512.html",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yzst.chsi.com.cn/kyzx/zsjz/202510/20251010/2293437852.html#1",
+          "provenance": "本轮接口返回"
+        }
+      ],
+      "recommendations": []
+    }
+  },
+  {
+    "phase": "direct",
+    "profile": "freshman",
+    "sample": 1,
+    "success": true,
+    "totalMs": 77111.6092,
+    "searchMs": 52453.630000000005,
+    "learningMs": 11149.911800000002,
+    "generationMs": 24657.6893,
+    "firstSourceMs": 532.116200000004,
+    "searchRequestIntervalUnionMs": 52433.9936,
+    "learningRequestIntervalUnionMs": 11149.911800000002,
+    "generationRequestIntervalUnionMs": 24642.722800000003,
+    "repairMs": 0,
+    "retryWaitMs": 0,
+    "requests": 26,
+    "searchRequests": 15,
+    "fetchRequests": 0,
+    "usage": {
+      "requests": 11,
+      "measuredRequests": 11,
+      "missingUsageRequests": 0,
+      "cacheHitTokens": 3968,
+      "cacheMissTokens": 166616,
+      "measuredInputTokens": 170584,
+      "cacheHitRate": 0.023261267176288514,
+      "outputTokens": 39107,
+      "measuredOutputRequests": 11
+    },
+    "validation": {
+      "tasks": 16,
+      "stages": 4,
+      "targetExamYear": 2029,
+      "sources": [
+        {
+          "url": "https://computer.upc.edu.cn/_js/_portletPlugs/swfPlayer/pdfjs22228/web/viewer.html?file=%2F_upload%2Farticle%2Ffiles%2F55%2Ff2%2F8c484d9e48f297aa4a8fa1079fd5%2Fe8f5f142-8d4a-491b-ba5f-cda5fe9889a3.pdf&_x_output_type_b6db407c4_=embedded_pdf#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://jsj.qfnu.edu.cn/info/1018/1002.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://jsj.qfnu.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1310399144&wbfileid=17765651#1#1#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://news.upc.edu.cn/info/1445/85287.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.chsi.com.cn/kyzx/zsjz/202510/20251010/2293437852.html#1#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.cs.sdu.edu.cn/zsxx/ssyjs.htm?eqid=9e4d6dc3000cbf6900000002648dcc1c",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.yz.sdu.edu.cn/2024/shandongdaxue2024nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#15#29#15",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yjs.qfnu.edu.cn/info/1044/4923.htm?theme=dark#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-4.html#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/jybzc/202609/20260924/2293971512.html",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/kydt/202510/20251009/2293437475.html",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977251.html#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.upc.edu.cn/2023/0920/c25707a283115/page.htm#1#1#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.upc.edu.cn/2025/0930/c25704a283755/page.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.upc.edu.cn/_js/_portletPlugs/swfPlayer/pdfjs22228/web/viewer.html?file=/_upload/article/files/7b/1f/b76a6f4149c1864f9c3633895466/8b0f6df3-5990-4329-ac66-b68782dc955b.pdf",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.upc.edu.cn/_upload/article/files/46/14/67396d8341bfa144becad6f7ee24/52d32a79-0772-40a4-94b4-6aa1e6aafdae.pdf#1#1#1",
+          "provenance": "本轮接口返回"
+        }
+      ],
+      "recommendations": [
+        {
+          "name": "中国石油大学（华东）",
+          "location": {
+            "province": "山东",
+            "city": "青岛",
+            "campus": "青岛软件学院、计算机科学与技术学院；具体培养校区待核实",
+            "sourceUrl": "https://computer.upc.edu.cn/_js/_portletPlugs/swfPlayer/pdfjs22228/web/viewer.html?file=%2F_upload%2Farticle%2Ffiles%2F55%2Ff2%2F8c484d9e48f297aa4a8fa1079fd5%2Fe8f5f142-8d4a-491b-ba5f-cda5fe9889a3.pdf&_x_output_type_b6db407c4_=embedded_pdf#1"
+          },
+          "criteriaEvidence": [
+            {
+              "criterion": "历史本科录取批次（仅作参考）",
+              "explanation": "2008年该校面向全国31个省级地区（含山东）招收普通本科生，普通本科生按本科一批录取，定向生按本科二批；该批次表述仅适用于2008年该校本科招生，不适用于硕士报考或后续年份。",
+              "sourceUrl": "https://news.upc.edu.cn/info/1445/85287.htm"
+            }
+          ]
+        },
+        {
+          "name": "山东大学",
+          "location": {
+            "province": "山东",
+            "city": "青岛",
+            "campus": "计算机科学与技术学院研究生培养位于青岛校区，地址为即墨区滨海公路72号第周苑C座。",
+            "sourceUrl": "https://www.cs.sdu.edu.cn/zsxx/ssyjs.htm?eqid=9e4d6dc3000cbf6900000002648dcc1c"
+          },
+          "criteriaEvidence": []
+        },
+        {
+          "name": "曲阜师范大学",
+          "location": {
+            "province": "山东",
+            "city": "日照",
+            "campus": "日照校区（计算机学院，地址：山东省日照市烟台北路80号；目标年份硕士培养地点待核实）",
+            "sourceUrl": "https://jsj.qfnu.edu.cn/info/1018/1002.htm"
+          },
+          "criteriaEvidence": [
+            {
+              "criterion": "山东省内地域要求",
+              "explanation": "计算机学院官网硕士研究生专业介绍显示，学院开设计算机科学与技术学术型硕士专业，页面地址为山东省日照市烟台北路80号，可确认相关专业培养城市在山东日照，符合山东省内地域要求；该页面未标注适用招生年度，2029年招生培养地点须以当年招生简章和专业目录核实。",
+              "sourceUrl": "https://jsj.qfnu.edu.cn/info/1018/1002.htm"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "phase": "direct",
+    "profile": "local",
+    "sample": 1,
+    "success": true,
+    "totalMs": 84635.96660000001,
+    "searchMs": 74045.1378,
+    "learningMs": 11123.3128,
+    "generationMs": 10590.15360000002,
+    "firstSourceMs": 495.4340999999986,
+    "searchRequestIntervalUnionMs": 74005.654,
+    "learningRequestIntervalUnionMs": 11123.3128,
+    "generationRequestIntervalUnionMs": 10564.644,
+    "repairMs": 0,
+    "retryWaitMs": 0,
+    "requests": 28,
+    "searchRequests": 16,
+    "fetchRequests": 0,
+    "usage": {
+      "requests": 12,
+      "measuredRequests": 12,
+      "missingUsageRequests": 0,
+      "cacheHitTokens": 4860,
+      "cacheMissTokens": 192689,
+      "measuredInputTokens": 197549,
+      "cacheHitRate": 0.02460149127558226,
+      "outputTokens": 34678,
+      "measuredOutputRequests": 12
+    },
+    "validation": {
+      "tasks": 16,
+      "stages": 4,
+      "targetExamYear": 2029,
+      "sources": [
+        {
+          "url": "http://cs.sdufe.edu.cn/info/1057/2462.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "http://ise.ujn.edu.cn/info/1085/3372.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "http://www.qlshx.sdnu.edu.cn/info/10434/91170.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "http://www.zsb.sdnu.edu.cn/info/1003/1253.htm#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://cs.sdufe.edu.cn/info/1054/3023.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://news.sdufe.edu.cn/info/1071/19820.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.chsi.com.cn/kyzx/yxzc/202408/20240814/2293305025.html#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.yjszs.sdnu.edu.cn/info/1009/4765.htm#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.yjszs.sdnu.edu.cn/system/resource/pdfjs/viewer.html?file=%2F__local%2F8%2FC1%2F90%2F6486FCB6BEE008D2F23F41BC4E3_846DC92C_2C34B.pdf&_x_output_type_b6db407c4_=embedded_pdf#1#2#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yanzhao.ujn.edu.cn/zsml/enterViewZsml?nd=2026#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yjszs.sdufe.edu.cn/info/1032/2666.htm#1#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-4.html#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/jybzc/202609/20260924/2293971512.html",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977279.html#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.ujn.edu.cn/info/1032/3944.htm#1#1#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://xxgk.ujn.edu.cn/__local/2/D4/61/18EB3CE24CAB055ADA7C69E792C_BBC62789_218FF.pdf",
+          "provenance": "已有官方历史资料库"
+        },
+        {
+          "url": "https://cie.sdnu.edu.cn/info/1072/1924.htm",
+          "provenance": "已有官方历史资料库"
+        },
+        {
+          "url": "https://news.sdufe.edu.cn/info/1071/20616.htm",
+          "provenance": "已有官方历史资料库"
+        }
+      ],
+      "recommendations": [
+        {
+          "name": "济南大学",
+          "location": {
+            "province": "山东省",
+            "city": "济南",
+            "campus": "信息科学与工程学院位于济南市南辛庄西路336号；硕士培养地点待核实",
+            "sourceUrl": "http://ise.ujn.edu.cn/info/1085/3372.htm"
+          },
+          "criteriaEvidence": [
+            {
+              "criterion": "一本",
+              "explanation": "济南大学官方2016年普通文理录取统计列有山东普通本科一批次及济南走读本科一批次，可作为历史一本参考层次；不表示所有项目、所有省份同一批次。 官方历史资料核验日期：2026年10月7日。",
+              "sourceUrl": "https://xxgk.ujn.edu.cn/__local/2/D4/61/18EB3CE24CAB055ADA7C69E792C_BBC62789_218FF.pdf"
+            }
+          ]
+        },
+        {
+          "name": "山东师范大学",
+          "location": {
+            "province": "山东",
+            "city": "济南",
+            "campus": "长清湖校区为信息科学与工程学院全日制研究生2024级报到地；2030年入学具体培养校区待核实",
+            "sourceUrl": "https://www.chsi.com.cn/kyzx/yxzc/202408/20240814/2293305025.html#1"
+          },
+          "criteriaEvidence": [
+            {
+              "criterion": "一本",
+              "explanation": "学校官方2016年省外普通专业录取统计列有河北本科一批、天津本科一批B类，作为历史一本参考层次；北京、山西等地批次不同，不能泛称所有省份都是一本。 官方历史资料核验日期：2026年10月7日。",
+              "sourceUrl": "https://cie.sdnu.edu.cn/info/1072/1924.htm"
+            }
+          ]
+        },
+        {
+          "name": "山东财经大学",
+          "location": {
+            "province": "山东省",
+            "city": "济南市",
+            "campus": "燕山校区；现有资料显示该学院2025年硕士复试安排在此，具体培养地点以当年安排为准。",
+            "sourceUrl": "http://cs.sdufe.edu.cn/info/1057/2462.htm"
+          },
+          "criteriaEvidence": [
+            {
+              "criterion": "一本",
+              "explanation": "学校2016年8月29日官方招生总结记载省内普通本科一批招生，同时存在本科二批、中外合作等项目，可按历史一本参考层次择校，不能称所有专业都在一批。 官方历史资料核验日期：2026年10月7日。",
+              "sourceUrl": "https://news.sdufe.edu.cn/info/1071/20616.htm"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "phase": "direct",
+    "profile": "named",
+    "sample": 2,
+    "success": true,
+    "totalMs": 63289.938399999985,
+    "searchMs": 42143.1765,
+    "learningMs": null,
+    "generationMs": 21146.541699999972,
+    "firstSourceMs": 389.03270000001066,
+    "searchRequestIntervalUnionMs": 42108.3713,
+    "learningRequestIntervalUnionMs": 0,
+    "generationRequestIntervalUnionMs": 21124.997599999973,
+    "repairMs": 0,
+    "retryWaitMs": 0,
+    "requests": 13,
+    "searchRequests": 6,
+    "fetchRequests": 0,
+    "usage": {
+      "requests": 7,
+      "measuredRequests": 7,
+      "missingUsageRequests": 0,
+      "cacheHitTokens": 69760,
+      "cacheMissTokens": 2461,
+      "measuredInputTokens": 72221,
+      "cacheHitRate": 0.9659240387145013,
+      "outputTokens": 25979,
+      "measuredOutputRequests": 7
+    },
+    "validation": {
+      "tasks": 16,
+      "stages": 4,
+      "targetExamYear": 2026,
+      "sources": [
+        {
+          "url": "http://www.ai.sdu.edu.cn/info/1079/1121.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://ce.sdu.edu.cn/info/1013/8594.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://faculty.sdu.edu.cn/yuruixuan/zh_CN/zsxx/1565797/content/3454.htm#zsxx",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://ie.wh.sdu.edu.cn/info/1007/14342.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.chsi.com.cn/kyzx/zsjz/202510/20251010/2293437852.html#1#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.sc.sdu.edu.cn/info/1019/4823.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.yz.sdu.edu.cn/2024/shandongdaxue2024nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#15#29#15",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.yz.sdu.edu.cn/info/1022/1130.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.yz.sdu.edu.cn/info/1022/1251.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-4.html#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/jybzc/202609/20260924/2293971512.html",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977251.html#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977279.html#1",
+          "provenance": "本轮接口返回"
+        }
+      ],
+      "recommendations": []
+    }
+  },
+  {
+    "phase": "direct",
+    "profile": "freshman",
+    "sample": 2,
+    "success": true,
+    "totalMs": 72728.22000000003,
+    "searchMs": 48813.922700000054,
+    "learningMs": 11111.775000000023,
+    "generationMs": 23914.022400000016,
+    "firstSourceMs": 550.3381000000518,
+    "searchRequestIntervalUnionMs": 48746.290200000105,
+    "learningRequestIntervalUnionMs": 11111.775000000023,
+    "generationRequestIntervalUnionMs": 23885.79920000001,
+    "repairMs": 0,
+    "retryWaitMs": 0,
+    "requests": 26,
+    "searchRequests": 15,
+    "fetchRequests": 0,
+    "usage": {
+      "requests": 11,
+      "measuredRequests": 11,
+      "missingUsageRequests": 0,
+      "cacheHitTokens": 96512,
+      "cacheMissTokens": 72840,
+      "measuredInputTokens": 169352,
+      "cacheHitRate": 0.5698899333931693,
+      "outputTokens": 37325,
+      "measuredOutputRequests": 11
+    },
+    "validation": {
+      "tasks": 16,
+      "stages": 4,
+      "targetExamYear": 2029,
+      "sources": [
+        {
+          "url": "https://computer.upc.edu.cn/_js/_portletPlugs/swfPlayer/pdfjs22228/web/viewer.html?file=%2F_upload%2Farticle%2Ffiles%2F55%2Ff2%2F8c484d9e48f297aa4a8fa1079fd5%2Fe8f5f142-8d4a-491b-ba5f-cda5fe9889a3.pdf&_x_output_type_b6db407c4_=embedded_pdf#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://gaokao.chsi.com.cn/sch/viewHireInfo--infoId-1202188,categoryId-41912,schId-349.dhtml",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://jsj.qfnu.edu.cn/info/1018/1002.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://jsj.qfnu.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1310399144&wbfileid=17765651#1#1#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.chsi.com.cn/kyzx/zsjz/202510/20251010/2293437852.html#1#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.cs.sdu.edu.cn/info/1068/6777.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.cs.sdu.edu.cn/zsxx/ssyjs.htm?eqid=9e4d6dc3000cbf6900000002648dcc1c",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.yz.sdu.edu.cn/2024/shandongdaxue2024nianshuoshiyanjiushengzhaoshengzhuanyemulu.pdf#15#29#15",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yjs.qfnu.edu.cn/info/1044/4923.htm?theme=dark#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-4.html#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/jybzc/202609/20260924/2293971512.html",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/kydt/202510/20251009/2293437475.html",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977251.html#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/sch/viewZbBulletin--schId-369147,infoId-3552096243,categoryId-433156,mindex-10.dhtml#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.upc.edu.cn/2023/0920/c25707a283115/page.htm#1#1#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.upc.edu.cn/2025/0930/c25704a283755/page.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.upc.edu.cn/_upload/article/files/46/14/67396d8341bfa144becad6f7ee24/52d32a79-0772-40a4-94b4-6aa1e6aafdae.pdf#1#1#1",
+          "provenance": "本轮接口返回"
+        }
+      ],
+      "recommendations": [
+        {
+          "name": "中国石油大学（华东）",
+          "location": {
+            "province": "山东",
+            "city": "青岛",
+            "campus": "青岛软件学院、计算机科学与技术学院；唐岛湾或古镇口校区具体培养地点待核实",
+            "sourceUrl": "https://computer.upc.edu.cn/_js/_portletPlugs/swfPlayer/pdfjs22228/web/viewer.html?file=%2F_upload%2Farticle%2Ffiles%2F55%2Ff2%2F8c484d9e48f297aa4a8fa1079fd5%2Fe8f5f142-8d4a-491b-ba5f-cda5fe9889a3.pdf&_x_output_type_b6db407c4_=embedded_pdf#1"
+          },
+          "criteriaEvidence": []
+        },
+        {
+          "name": "山东大学",
+          "location": {
+            "province": "山东省",
+            "city": "青岛市",
+            "campus": "山东大学（青岛）校区，计算机科学与技术学院位于青岛市即墨区滨海公路72号；目标年度具体培养地点待核实。",
+            "sourceUrl": "https://www.cs.sdu.edu.cn/zsxx/ssyjs.htm?eqid=9e4d6dc3000cbf6900000002648dcc1c"
+          },
+          "criteriaEvidence": []
+        },
+        {
+          "name": "曲阜师范大学",
+          "location": {
+            "province": "山东",
+            "city": "日照",
+            "campus": "曲阜师范大学日照校区计算机学院，地址为日照市烟台北路80号；硕士培养地点以录取当年招生专业目录和学院通知为准。",
+            "sourceUrl": "https://jsj.qfnu.edu.cn/info/1018/1002.htm"
+          },
+          "criteriaEvidence": [
+            {
+              "criterion": "地域要求：山东省",
+              "explanation": "计算机学院硕士研究生专业介绍页列有计算机科学与技术学术学位，并标注学院地址为山东省日照市烟台北路80号；可支持该专业培养城市在山东日照。实际校区及授课地点仍须以录取当年学校安排为准。",
+              "sourceUrl": "https://jsj.qfnu.edu.cn/info/1018/1002.htm"
+            },
+            {
+              "criterion": "历史层次线索（用户未限定层次）",
+              "explanation": "该校2004年各专业录取信息中，计算机科学与技术列入理工类本科二批，最高分614、最低分571；该页面未单列录取省份，故只能作为2004年该校该专业在该录取表中的历史线索，不能据此确认山东省批次，也不能泛化到其他年度、省份或专业。",
+              "sourceUrl": "https://gaokao.chsi.com.cn/sch/viewHireInfo--infoId-1202188,categoryId-41912,schId-349.dhtml"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "phase": "direct",
+    "profile": "local",
+    "sample": 2,
+    "success": true,
+    "totalMs": 76189.90659999999,
+    "searchMs": 51056.86930000002,
+    "learningMs": 14853.539400000009,
+    "generationMs": 25132.38659999997,
+    "firstSourceMs": 468.49949999997625,
+    "searchRequestIntervalUnionMs": 51003.459900000016,
+    "learningRequestIntervalUnionMs": 14853.539400000009,
+    "generationRequestIntervalUnionMs": 25095.656499999983,
+    "repairMs": 0,
+    "retryWaitMs": 0,
+    "requests": 26,
+    "searchRequests": 15,
+    "fetchRequests": 0,
+    "usage": {
+      "requests": 11,
+      "measuredRequests": 11,
+      "missingUsageRequests": 0,
+      "cacheHitTokens": 109818,
+      "cacheMissTokens": 61758,
+      "measuredInputTokens": 171576,
+      "cacheHitRate": 0.6400545530843474,
+      "outputTokens": 40982,
+      "measuredOutputRequests": 11
+    },
+    "validation": {
+      "tasks": 16,
+      "stages": 4,
+      "targetExamYear": 2029,
+      "sources": [
+        {
+          "url": "http://ise.ujn.edu.cn/info/1085/3372.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "http://www.yjszs.sdnu.edu.cn/info/1009/4095.htm?s=106#2",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://cs.sdufe.edu.cn/info/1054/3023.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://cs.sdufe.edu.cn/rcpy/yjsjy1/pyfa.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://news.sdufe.edu.cn/info/1071/19820.htm",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.yjszs.sdnu.edu.cn/info/1009/4765.htm#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://www.yjszs.sdnu.edu.cn/system/resource/pdfjs/viewer.html?file=%2F__local%2F8%2FC1%2F90%2F6486FCB6BEE008D2F23F41BC4E3_846DC92C_2C34B.pdf&_x_output_type_b6db407c4_=embedded_pdf#1#2#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://xkjsbgs.sdufe.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1238845608&wbfileid=4726263#1#1#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yanzhao.ujn.edu.cn/zsml/enterViewZsml?nd=2026#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yjszs.sdufe.edu.cn/info/1032/2666.htm#1#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250925/2293432170-4.html#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/jybzc/202609/20260924/2293971512.html",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977251.html#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.chsi.com.cn/kyzx/kydt/202610/20261008/2293977279.html#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://yz.ujn.edu.cn/info/1032/3944.htm#1#1#1",
+          "provenance": "本轮接口返回"
+        },
+        {
+          "url": "https://xxgk.ujn.edu.cn/__local/2/D4/61/18EB3CE24CAB055ADA7C69E792C_BBC62789_218FF.pdf",
+          "provenance": "已有官方历史资料库"
+        },
+        {
+          "url": "https://cie.sdnu.edu.cn/info/1072/1924.htm",
+          "provenance": "已有官方历史资料库"
+        },
+        {
+          "url": "https://news.sdufe.edu.cn/info/1071/20616.htm",
+          "provenance": "已有官方历史资料库"
+        }
+      ],
+      "recommendations": [
+        {
+          "name": "济南大学",
+          "location": {
+            "province": "山东",
+            "city": "济南",
+            "campus": "信息科学与工程学院，地址为济南市南辛庄西路336号；目录未明确校区名称，具体培养地点待核实",
+            "sourceUrl": "http://ise.ujn.edu.cn/info/1085/3372.htm"
+          },
+          "criteriaEvidence": [
+            {
+              "criterion": "一本",
+              "explanation": "济南大学官方2016年普通文理录取统计列有山东普通本科一批次及济南走读本科一批次，可作为历史一本参考层次；不表示所有项目、所有省份同一批次。 官方历史资料核验日期：2026年10月7日。",
+              "sourceUrl": "https://xxgk.ujn.edu.cn/__local/2/D4/61/18EB3CE24CAB055ADA7C69E792C_BBC62789_218FF.pdf"
+            }
+          ]
+        },
+        {
+          "name": "山东师范大学",
+          "location": {
+            "province": "山东",
+            "city": "济南",
+            "campus": "信息科学与工程学院硕士培养参考长清湖校区，位于济南市长清区；2030年入学具体培养地点待核实。",
+            "sourceUrl": "http://www.yjszs.sdnu.edu.cn/info/1009/4095.htm?s=106#2"
+          },
+          "criteriaEvidence": [
+            {
+              "criterion": "济南本地培养地点",
+              "explanation": "学校2025年硕士招生章程载明，除教育学部、文学院等指定学院在千佛山校区外，其他招生学院（部）均在长清湖校区；信息科学与工程学院不在例外名单，硕士培养地点可参考长清湖校区，位于济南。目标入学年度为2030年，届时具体培养地点待学校当年招生安排核实。",
+              "sourceUrl": "http://www.yjszs.sdnu.edu.cn/info/1009/4095.htm?s=106#2"
+            },
+            {
+              "criterion": "一本",
+              "explanation": "学校官方2016年省外普通专业录取统计列有河北本科一批、天津本科一批B类，作为历史一本参考层次；北京、山西等地批次不同，不能泛称所有省份都是一本。 官方历史资料核验日期：2026年10月7日。",
+              "sourceUrl": "https://cie.sdnu.edu.cn/info/1072/1924.htm"
+            }
+          ]
+        },
+        {
+          "name": "山东财经大学",
+          "location": {
+            "province": "山东",
+            "city": "济南",
+            "campus": "计算机与人工智能学院，地址为济南市二环东路7366号；硕士培养具体校区以当年招生简章为准",
+            "sourceUrl": "https://cs.sdufe.edu.cn/rcpy/yjsjy1/pyfa.htm"
+          },
+          "criteriaEvidence": [
+            {
+              "criterion": "一本",
+              "explanation": "学校2016年8月29日官方招生总结记载省内普通本科一批招生，同时存在本科二批、中外合作等项目，可按历史一本参考层次择校，不能称所有专业都在一批。 官方历史资料核验日期：2026年10月7日。",
+              "sourceUrl": "https://news.sdufe.edu.cn/info/1071/20616.htm"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

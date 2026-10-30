@@ -1,0 +1,72 @@
+[
+  {
+    "origin": "file",
+    "width": 390,
+    "errors": [],
+    "startedAt": "2026-10-30T06:55:03.343Z",
+    "savedAndReloaded": true,
+    "overflow": false,
+    "brokenImages": [],
+    "endedAt": "2026-10-30T06:55:04.851Z"
+  },
+  {
+    "origin": "file",
+    "width": 1440,
+    "errors": [],
+    "startedAt": "2026-10-30T06:55:05.051Z",
+    "transport": [
+      {
+        "name": "search",
+        "status": 200,
+        "durationMs": 442.90000000596046,
+        "resultCount": 1,
+        "hasContent": false
+      },
+      {
+        "name": "fetch",
+        "status": 200,
+        "durationMs": 4886.200000017881,
+        "hasContent": true
+      }
+    ],
+    "savedAndReloaded": true,
+    "overflow": false,
+    "brokenImages": [],
+    "endedAt": "2026-10-30T06:55:11.870Z"
+  },
+  {
+    "origin": "http",
+    "width": 390,
+    "errors": [],
+    "startedAt": "2026-10-30T06:55:12.032Z",
+    "savedAndReloaded": true,
+    "overflow": false,
+    "brokenImages": [],
+    "endedAt": "2026-10-30T06:55:13.432Z"
+  },
+  {
+    "origin": "http",
+    "width": 1440,
+    "errors": [],
+    "startedAt": "2026-10-30T06:55:13.597Z",
+    "transport": [
+      {
+        "name": "search",
+        "status": 200,
+        "durationMs": 457.2000000178814,
+        "resultCount": 1,
+        "hasContent": false
+      },
+      {
+        "name": "fetch",
+        "status": 200,
+        "durationMs": 187.90000000596046,
+        "hasContent": true
+      }
+    ],
+    "savedAndReloaded": true,
+    "overflow": false,
+    "brokenImages": [],
+    "endedAt": "2026-10-30T06:55:15.745Z"
+  }
+]

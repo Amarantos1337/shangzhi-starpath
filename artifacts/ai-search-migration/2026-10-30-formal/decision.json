@@ -1,0 +1,7 @@
+{
+  "complete": true,
+  "adequate": false,
+  "faster": false,
+  "timingPass": false,
+  "note": "只有完整样本、每场景成功率不降低且耗时中位数均不退步，至少一个场景变快，才通过性能门槛；推送还需全部回归及浏览器验证通过、人工检查证据质量。"
+}

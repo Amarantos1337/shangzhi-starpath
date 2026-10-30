@@ -901,7 +901,7 @@
       search.classList.remove('is-active'); search.classList.add('is-complete');
       search.querySelector('p').textContent = '官方资料检索完成';
     }
-    status.querySelector('.ai-search-count').textContent = '已执行 ' + progress.searches + ' 次搜索 · 找到 ' + progress.sources.length + ' 条官方资料';
+    status.querySelector('.ai-search-count').textContent = '已完成 ' + progress.searches + ' 次搜索' + (progress.fetchRequests ? ' · 抓取 ' + progress.fetchRequests + ' 次正文' : '') + ' · 找到 ' + progress.sources.length + ' 条官方资料';
     const labels = { waiting: '等待开始', searching: '搜索中', complete: '已完成', failed: '失败' };
     const tasks = status.querySelector('.ai-search-tasks');
     for (const task of progress.tasks) {

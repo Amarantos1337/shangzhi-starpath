@@ -1,0 +1,116 @@
+[
+  {
+    "profile": "named",
+    "attempts": [
+      2,
+      2
+    ],
+    "successes": [
+      2,
+      2
+    ],
+    "metrics": {
+      "totalMs": {
+        "baseline": 32574.018200000006,
+        "direct": 55720.13189999999,
+        "reductionPercent": -71.0569803144519
+      },
+      "searchMs": {
+        "baseline": 11150.171150000002,
+        "direct": 34587.7567,
+        "reductionPercent": -210.19933447389275
+      },
+      "learningMs": {
+        "baseline": null,
+        "direct": null,
+        "reductionPercent": null
+      },
+      "generationMs": {
+        "baseline": 21423.847050000008,
+        "direct": 21132.017899999988,
+        "reductionPercent": 1.362169685579507
+      },
+      "firstSourceMs": {
+        "baseline": 2298.6195,
+        "direct": 415.9134000000053,
+        "reductionPercent": 81.90594833116114
+      }
+    }
+  },
+  {
+    "profile": "freshman",
+    "attempts": [
+      2,
+      2
+    ],
+    "successes": [
+      2,
+      2
+    ],
+    "metrics": {
+      "totalMs": {
+        "baseline": 60610.91399999999,
+        "direct": 74919.91460000002,
+        "reductionPercent": -23.60796044091998
+      },
+      "searchMs": {
+        "baseline": 32460.901149999994,
+        "direct": 50633.77635000003,
+        "reductionPercent": -55.98389002210445
+      },
+      "learningMs": {
+        "baseline": 15518.032999999996,
+        "direct": 11130.843400000012,
+        "reductionPercent": 28.271557355239445
+      },
+      "generationMs": {
+        "baseline": 28150.01285,
+        "direct": 24285.855850000007,
+        "reductionPercent": 13.727016824434566
+      },
+      "firstSourceMs": {
+        "baseline": 2406.2760499999968,
+        "direct": 541.2271500000279,
+        "reductionPercent": 77.50768661808239
+      }
+    }
+  },
+  {
+    "profile": "local",
+    "attempts": [
+      2,
+      2
+    ],
+    "successes": [
+      1,
+      2
+    ],
+    "metrics": {
+      "totalMs": {
+        "baseline": 64477.212,
+        "direct": 80412.9366,
+        "reductionPercent": null
+      },
+      "searchMs": {
+        "baseline": 41541.47700000001,
+        "direct": 62551.00355000001,
+        "reductionPercent": null
+      },
+      "learningMs": {
+        "baseline": 18540.692500000005,
+        "direct": 12988.426100000004,
+        "reductionPercent": null
+      },
+      "generationMs": {
+        "baseline": 22935.734999999986,
+        "direct": 17861.270099999994,
+        "reductionPercent": null
+      },
+      "firstSourceMs": {
+        "baseline": 2188.0506999999925,
+        "direct": 481.9667999999874,
+        "reductionPercent": null
+      }
+    }
+  }
+]

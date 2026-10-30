@@ -68,11 +68,23 @@ async function run() {
         const schoolRounds = new Map();
         const release = () => releases.splice(0).forEach(resolve => resolve());
         const efforts = [];
+        await context.route('https://api.deepseek.com/v1/tools/*', async route => {
+          assert.equal(route.request().headers().authorization, 'Bearer test-browser-only');
+          const body = route.request().postDataJSON();
+          const status = mode === 'error' ? 401 : 200;
+          let results = mode === 'text-only' ? [] : mode === 'unofficial-only' ? [unofficialSource] : mode === 'freshman' || mode.startsWith('local-') || mode === 'code-repair' ? schoolSources : [source, unofficialSource];
+          if (mode === 'live') results = [source, ...Array.from({ length: 4 }, (_, index) => ({ title: '官方资料' + index, url: 'https://www.moe.gov.cn/notice/' + index }))];
+          if (mode === 'live' && body.query?.includes('报考条件')) results = [source, { title: '官方资料4', url: 'https://www.moe.gov.cn/notice/4' }];
+          await route.fulfill({ status, contentType: 'application/json', body: JSON.stringify(body.query ? { results: results.map(item => ({ ...item, content: '模拟官方正文，未来要求待核实。' })) } : { content: '' }) });
+        });
         await context.route('https://api.deepseek.com/anthropic/v1/messages', async route => {
           requests++;
           assert.equal(route.request().headers()['x-api-key'], 'test-browser-only');
           assert.ok(!route.request().postData().includes('test-browser-only'));
           const body = route.request().postDataJSON();
+          assert.equal(body.tools, undefined);
+          // Keep the established UI scenarios while supplying Search API evidence separately.
+          if (JSON.parse(body.messages[0].content).task) body.tools = [{ max_uses: JSON.parse(body.messages[0].content).round.requiredSearches, allowed_domains: ['gov.cn', 'edu.cn', 'chsi.com.cn', 'sdzk.cn'] }];
           efforts.push(body.output_config.effort);
           if (body.tools) {
             assert.ok(body.tools[0].max_uses >= 1 && body.tools[0].max_uses <= 2);
@@ -353,8 +365,10 @@ async function run() {
     const context = await browser.newContext();
     await context.addInitScript(() => Object.defineProperty(window, 'localStorage', { get() { throw new Error('Unavailable'); } }));
     const page = await context.newPage();
+    await context.route('https://api.deepseek.com/v1/tools/*', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ results: [{ ...source, content: '模拟官方正文' }] }) }));
     await context.route('https://api.deepseek.com/anthropic/v1/messages', route => {
       const body = route.request().postDataJSON();
+      if (JSON.parse(body.messages[0].content).task) body.tools = [{ max_uses: 1 }];
       const value = body.tools ? { ...search, content: [...Array.from({ length: body.tools[0].max_uses }, () => ({ type: 'server_tool_use', name: 'web_search' })), ...search.content.filter(block => block.type !== 'server_tool_use')] } : { stop_reason: 'end_turn', content: [{ type: 'text', text: JSON.stringify(compactPlan(plan, body)) }] };
       return route.fulfill({ contentType: 'application/json', body: JSON.stringify(value) });
     });
