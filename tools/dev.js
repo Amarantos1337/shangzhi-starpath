@@ -36,7 +36,7 @@ function main() {
   if (command === 'test' && args.length === 0) {
     check();
     run(process.execPath, ['tools/check-links.js']);
-    run(process.execPath, ['--test', '--test-isolation=none', 'tests/content.test.js', 'tests/storage-multitab.test.js', 'tests/ai.test.js', 'tests/ai-parallel.test.js', 'tests/ai-performance.test.js']);
+    run(process.execPath, ['--test', '--test-isolation=none', 'tests/content.test.js', 'tests/storage-multitab.test.js', 'tests/ai.test.js', 'tests/ai-credentials.test.js', 'tests/ai-parallel.test.js', 'tests/ai-performance.test.js']);
     run(python(), ['tests/practice.test.py']);
     return;
   }

@@ -58,7 +58,8 @@ function load(responses = [], options = {}) {
   for (const name of ['data', 'learning', 'storage']) vm.runInContext(fs.readFileSync(path.join(root, name + '.js'), 'utf8'), context);
   context.window.StarPath.aiConfig = { endpoint: 'https://api.deepseek.com/anthropic/v1/messages', model: 'deepseek-flash', apiKey: 'test-only', reasoningEffort: 'high', timeoutMs: options.timeoutMs || 1000 };
   vm.runInContext(fs.readFileSync(path.join(root, 'ai.js'), 'utf8'), context);
-  return { ...context.window.StarPath, requests, saved };
+  const app = context.window.StarPath;
+  return { ...app, ai: { ...app.ai, generate: (input, options) => app.ai.generate(input, { apiKey: 'test-only', ...options }) }, requests, saved };
 }
 test('profiles accept the simplified form and validate degree-linked grades and dates', () => {
   const { ai } = load();

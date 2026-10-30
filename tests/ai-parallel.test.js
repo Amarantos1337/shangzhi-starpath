@@ -32,7 +32,8 @@ function load(fetcher, input = profile, timeoutMs = 2000) {
       return new Response(JSON.stringify(body.tools ? result(body) : { stop_reason: 'end_turn', content: [{ type: 'text', text: JSON.stringify(compactPlan(plan(input), body)) }] }), { headers: { 'content-type': 'application/json' } });
     } });
   vm.runInContext(fs.readFileSync(path.resolve(__dirname, '../project/js/ai.js'), 'utf8'), context);
-  return { ai: context.window.StarPath.ai, requests };
+  const ai = context.window.StarPath.ai;
+  return { ai: { ...ai, generate: (input, options) => ai.generate(input, { apiKey: 'test-only', ...options }) }, requests };
 }
 function sse(value, truncate = false) {
   const events = [{ type: 'message_start', message: { content: [], stop_reason: null } }];

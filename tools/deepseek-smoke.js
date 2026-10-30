@@ -5,7 +5,8 @@ const vm = require('node:vm');
 const path = require('node:path');
 const context = vm.createContext({ window: { StarPath: {} } });
 vm.runInContext(fs.readFileSync(path.join(__dirname, '../project/js/ai-config.js'), 'utf8'), context);
-const config = context.window.StarPath.aiConfig;
+let config;
+try { config = require('./deepseek-config')(); } catch (error) { console.error(error.message); process.exit(1); }
 const freshman = process.argv.includes('--freshman');
 const localSchools = process.argv.includes('--local');
 (async () => {
@@ -28,6 +29,7 @@ const localSchools = process.argv.includes('--local');
       page.on('pageerror', error => errors.push(error.name));
       await page.goto(pathToFileURL(path.join(__dirname, '../project/index.html')).href + '#/paths/education');
       await page.getByRole('button', { name: '使用这条路线', exact: true }).click();
+      await page.locator('#ai-api-key').fill(config.apiKey);
       await page.locator('[name="level"]').selectOption('本科');
       await page.locator('[name="grade"]').selectOption(freshman ? '大一' : '大四');
       for (const [name, value] of Object.entries({ major: '计算机科学与技术', baseline: '英语需要加强，数学刚开始复习', goal: freshman ? '' : '山东大学，计算机相关专业', startDate: '2026-10-01' })) await page.locator('[name="' + name + '"]').fill(value);
@@ -84,7 +86,7 @@ const localSchools = process.argv.includes('--local');
       return response;
     }, URL, AbortController, DOMException, setTimeout, clearTimeout });
     vm.runInContext(fs.readFileSync(path.join(__dirname, '../project/js/ai.js'), 'utf8'), context);
-    const draft = await context.window.StarPath.ai.generate({ level: '本科', major: localSchools ? '计算机网络技术' : '计算机科学与技术', grade: localSchools || freshman ? '大一' : '大四', baseline: '英语基础较弱，数学刚开始复习。', goal: localSchools ? '济南本地一本院校，计算机相关专业' : freshman ? '' : '山东大学，计算机相关专业', region: '山东', startDate: localSchools ? '2026-10-07' : '2026-10-01' }, { onStage: stage => console.log('Stage: ' + stage) });
+    const draft = await context.window.StarPath.ai.generate({ level: '本科', major: localSchools ? '计算机网络技术' : '计算机科学与技术', grade: localSchools || freshman ? '大一' : '大四', baseline: '英语基础较弱，数学刚开始复习。', goal: localSchools ? '济南本地一本院校，计算机相关专业' : freshman ? '' : '山东大学，计算机相关专业', region: '山东', startDate: localSchools ? '2026-10-07' : '2026-10-01' }, { apiKey: config.apiKey, onStage: stage => console.log('Stage: ' + stage) });
     const output = path.join(__dirname, '../artifacts/ai-plan');
     fs.mkdirSync(output, { recursive: true });
     fs.writeFileSync(path.join(output, localSchools ? 'live-local-plan.json' : 'live-plan.json'), JSON.stringify(draft, null, 2));

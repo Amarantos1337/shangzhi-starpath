@@ -244,7 +244,7 @@ JavaScript 使用经典脚本，按 `data → learning → storage → ai-config
 | 路由、页面与交互 | `js/app.js`、`index.html`；保持 Hash 路由和经典脚本加载顺序 |
 | 布局与视觉 | `css/styles.css` 及相关专题样式；复用设计变量，检查手机与桌面布局 |
 | 存储、导入导出和计划操作 | `js/storage.js`；保持 v1 备份兼容，修改前核对校验与确认替换流程 |
-| AI 配置与生成流程 | `js/ai-config.js` 管理服务配置，`js/ai.js` 处理请求、调度与结果校验；配置含比赛密钥，维护时不要输出密钥，仓库保持私有 |
+| AI 配置与生成流程 | `js/ai-config.js` 管理服务配置，`js/ai.js` 处理请求、调度与结果校验；配置不含密钥；在升学规划弹窗输入并管理 API Key，仅保存在当前浏览器，不随成长备份导出 |
 | 图片与教学材料 | `assets/`、`materials/`；使用本地相对路径，保留官方照片来源，案例源文件与 ZIP 同步维护 |
 
 ### 检查命令

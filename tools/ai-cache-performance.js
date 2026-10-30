@@ -47,6 +47,7 @@ function reportMarkdown(report) {
 }
 async function main({ kind = 'cache' } = {}) {
   if (!['cache', 'speed'].includes(kind)) throw new Error('未知实测类型。');
+  const config = require('./deepseek-config')();
   const output = path.join(root, 'artifacts/ai-' + kind + '-performance');
   fs.mkdirSync(output, { recursive: true });
   const filename = path.join(output, 'results.json');
@@ -54,9 +55,6 @@ async function main({ kind = 'cache' } = {}) {
   const baselineSource = fs.readFileSync(path.join(output, 'baseline-ai.js'), 'utf8');
   const optimizedSource = fs.readFileSync(path.join(root, 'project/js/ai.js'), 'utf8');
   fs.writeFileSync(path.join(output, 'optimized-ai.js'), optimizedSource);
-  const setup = vm.createContext({ window: { StarPath: {} } });
-  vm.runInContext(fs.readFileSync(path.join(root, 'project/js/ai-config.js'), 'utf8'), setup);
-  const config = setup.window.StarPath.aiConfig;
   const observer = load(optimizedSource, config);
   const report = { kind, startedAt: new Date().toISOString(), config: { model: config.model, effort: config.reasoningEffort, timeoutMs: config.timeoutMs },
     sourceSha256: { baseline: hash(baselineSource), optimized: hash(optimizedSource) }, profiles, runs: [] };
@@ -107,7 +105,7 @@ async function main({ kind = 'cache' } = {}) {
     const ai = load(version === 'baseline' ? baselineSource : optimizedSource, config, measuredFetch);
     console.log(profile.id + ' ' + version + ' ' + sample + '/2 started');
     try {
-      const draft = await ai.generate(profile.input, {
+      const draft = await ai.generate(profile.input, { apiKey: config.apiKey,
         onStage(value) { if (value === 'generate' && generationAt === null) generationAt = performance.now(); },
         onProgress(value) { run.searches = value.searches; if (firstSourceAt === null && value.sources.length) firstSourceAt = performance.now(); }
       });

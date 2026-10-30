@@ -37,6 +37,7 @@ async function openForm(page, base) {
   await page.locator('[data-form="ai-profile"]').waitFor();
 }
 async function fillForm(page) {
+  await page.locator('#ai-api-key').fill('test-browser-only');
   await page.locator('[name="level"]').selectOption('本科');
   await page.locator('[name="grade"]').selectOption('大四');
   for (const [name, value] of Object.entries({ major: '计算机网络技术', baseline: '英语需要加强', goal: '山东大学，计算机相关专业', startDate: '2026-10-01' })) await page.locator('[name="' + name + '"]').fill(value);
@@ -69,6 +70,8 @@ async function run() {
         const efforts = [];
         await context.route('https://api.deepseek.com/anthropic/v1/messages', async route => {
           requests++;
+          assert.equal(route.request().headers()['x-api-key'], 'test-browser-only');
+          assert.ok(!route.request().postData().includes('test-browser-only'));
           const body = route.request().postDataJSON();
           efforts.push(body.output_config.effort);
           if (body.tools) {
@@ -116,6 +119,29 @@ async function run() {
         await page.getByRole('button', { name: '检索并生成计划', exact: true }).click();
         assert.equal(requests, 0);
         await fillForm(page);
+        // Credentials are managed in the dialog and stay out of profile/backup data.
+        await page.locator('#ai-api-key').fill('');
+        await page.getByRole('button', { name: '检索并生成计划', exact: true }).click();
+        assert.equal(requests, 0);
+        assert.match(await page.locator('#modal-error').innerText(), /请先填写 DeepSeek API Key/);
+        assert.equal(await page.locator('#ai-api-key').evaluate(field => field === document.activeElement), true);
+        await page.locator('#ai-api-key').fill('test-replacement-only');
+        await page.locator('[data-action="ai-key-toggle"]').click();
+        assert.equal(await page.locator('#ai-api-key').getAttribute('type'), 'text');
+        await page.locator('[data-action="ai-key-save"]').click();
+        assert.equal(await page.locator('#ai-api-key').inputValue(), '');
+        assert.equal(await page.locator('#ai-api-key').getAttribute('type'), 'password');
+        assert.match(await page.locator('[data-api-key-status]').innerText(), /已配置/);
+        await page.reload();
+        await page.getByRole('button', { name: '使用这条路线', exact: true }).click();
+        assert.equal(await page.evaluate(() => window.StarPath.aiCredentials.get()), 'test-replacement-only');
+        assert.equal(await page.locator('#ai-api-key').inputValue(), '');
+        await page.locator('[data-action="ai-key-clear"]').click();
+        assert.equal(await page.evaluate(() => window.StarPath.aiCredentials.get()), '');
+        assert.match(await page.locator('[data-api-key-status]').innerText(), /尚未配置/);
+        await fillForm(page);
+        await page.locator('[data-action="ai-key-save"]').click();
+        assert.equal(await page.evaluate(() => window.StarPath.store.exportBackup().includes('test-browser-only')), false);
         assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
         await page.locator('#modal').evaluate(dialog => { dialog.scrollTop = 0; });
         await page.screenshot({ path: path.join(output, name + '-form-' + width + '.png') });

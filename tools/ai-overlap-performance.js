@@ -50,6 +50,7 @@ function markdown(report) {
     '\n\n检索按开始至检索完成的墙钟时间计；草稿及整合包含实际请求和思考。重叠为草稿请求与全部检索请求时间区间交集的并集，不重复累计并发搜索。总耗时直接测量，不能将检索、草稿和整合简单相加；失败不计入成功耗时中位数，但纳入成功率。缺少对应阶段时标为不可用。指定院校各一个样本只作兼容观察。用量、阶段、任务ID、状态和时间落盘，不保存密钥、请求头、响应文本或思考内容。小样本不能保证每次请求达到同样幅度。\n';
 }
 async function main({ revised = false } = {}) {
+  const config = require('./deepseek-config')();
   const output = revised ? path.join(outputRoot, 'revised') : outputRoot;
   fs.mkdirSync(output, { recursive: true });
   const filename = path.join(output, 'results.json');
@@ -57,9 +58,6 @@ async function main({ revised = false } = {}) {
   const baseline = fs.readFileSync(path.join(outputRoot, 'baseline-ai.js'), 'utf8');
   const optimized = fs.readFileSync(path.join(root, 'project/js/ai.js'), 'utf8');
   fs.writeFileSync(path.join(output, 'optimized-ai.js'), optimized);
-  const context = vm.createContext({ window: { StarPath: {} } });
-  vm.runInContext(fs.readFileSync(path.join(root, 'project/js/ai-config.js'), 'utf8'), context);
-  const config = context.window.StarPath.aiConfig;
   const observer = load(optimized, config);
   const redact = value => String(value).replaceAll(config.apiKey, '[redacted]');
   const selectedProfiles = revised ? profiles.filter(profile => profile.id === 'local') : profiles;
@@ -99,7 +97,7 @@ async function main({ revised = false } = {}) {
     ai = load(version === 'baseline' ? baseline : optimized, config, measuredFetch);
     console.log(profile.id + ' ' + version + ' ' + sample + '/' + profile.samples + ' started');
     try {
-      const draft = await ai.generate(profile.input, {
+      const draft = await ai.generate(profile.input, { apiKey: config.apiKey,
         onStage(stage) { if (stage === 'generate' && searchEnded === null) searchEnded = performance.now() - started; },
         onProgress(progress) { run.searches = progress.searches; if (progress.searchComplete && searchEnded === null) searchEnded = performance.now() - started; if (progress.sources.length && run.firstSourceMs === null) run.firstSourceMs = performance.now() - started; }
       });

@@ -62,15 +62,13 @@ async function main() {
     return;
   }
   if (!['baseline', 'optimized'].includes(phase)) throw new Error('用法：node tools/ai-performance.js baseline|optimized|compare');
+  const config = require('./deepseek-config')();
   fs.mkdirSync(output, { recursive: true });
   const filename = path.join(output, phase + '.json');
   const append = process.argv.includes('--append');
   if (fs.existsSync(filename) && !append) throw new Error('结果文件已存在，请先保留历史结果再重新测速。');
   const source = fs.readFileSync(phase === 'baseline' && append ? path.join(output, 'baseline-ai.js') : path.join(root, 'project/js/ai.js'), 'utf8');
   if (phase === 'baseline') fs.writeFileSync(path.join(output, 'baseline-ai.js'), source);
-  const setup = vm.createContext({ window: { StarPath: {} } });
-  vm.runInContext(fs.readFileSync(path.join(root, 'project/js/ai-config.js'), 'utf8'), setup);
-  const config = setup.window.StarPath.aiConfig;
   let report = { phase, startedAt: new Date().toISOString(), sourceSha256: crypto.createHash('sha256').update(source).digest('hex'),
     config: { model: config.model, effort: config.reasoningEffort, timeoutMs: config.timeoutMs }, profiles, runs: [] };
   if (append) {
@@ -162,7 +160,7 @@ async function main() {
     api = context.window.StarPath.ai;
     console.log(phase + ' ' + profile.id + ' ' + index + '/3 started');
     try {
-      const draft = await api.generate(profile.input, { onStage(value) {
+      const draft = await api.generate(profile.input, { apiKey: config.apiKey, onStage(value) {
         stage = value;
         if (value === 'generate' && generationAt === null) { generationAt = performance.now(); run.searchMs = generationAt - started; }
       }, onProgress(value) {

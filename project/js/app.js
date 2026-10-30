@@ -936,6 +936,21 @@
       summaries.replaceChildren(...progress.summaries.map(value => { const paragraph = document.createElement('p'); paragraph.textContent = window.StarPath.ai.displayText(value); return paragraph; }));
     }
   }
+  function updateApiKeyStatus(message = '') {
+    const state = window.StarPath.aiCredentials.status();
+    const target = modal.querySelector('[data-api-key-status]');
+    if (target) target.textContent = message || (state.configured ? '已配置 API Key。' : '尚未配置 API Key。') + (state.memoryOnly ? ' 浏览器存储不可用，仅本次打开有效。' : ' 密钥仅保存在当前浏览器，直到手动清除，不随成长备份导出。');
+  }
+  function saveApiKey() {
+    const field = modal.querySelector('#ai-api-key');
+    window.StarPath.aiCredentials.save(field.value);
+    field.value = '';
+    field.type = 'password';
+    modal.querySelector('[data-action="ai-key-toggle"]').textContent = '显示';
+    modal.querySelector('[data-action="ai-key-toggle"]').setAttribute('aria-pressed', 'false');
+    modal.querySelector('#modal-error').hidden = true;
+    updateApiKeyStatus();
+  }
   function openAiProfile() {
     const values = aiProfile || { level: '', major: '', grade: '', baseline: '', goal: '', region: '山东', startDate: localDate() };
     const input = (label, name, max, placeholder = '') => '<label class="form-field">' + label + ' *<input name="' + name + '" required maxlength="' + max + '" value="' + esc(values[name]) + '" placeholder="' + esc(placeholder) + '"></label>';
@@ -943,7 +958,7 @@
     const status = '<div class="ai-status" hidden><p class="ai-elapsed" role="timer" aria-live="off"></p><ol class="ai-progress"><li data-ai-step="search"><span class="ai-progress-dot" aria-hidden="true"></span><div><strong>AI 搜索资料</strong><p>等待开始</p></div></li><li data-ai-step="learning" hidden><span class="ai-progress-dot" aria-hidden="true"></span><div><strong>AI 设计学习行动</strong><p>等待生成</p></div></li><li data-ai-step="generate"><span class="ai-progress-dot" aria-hidden="true"></span><div><strong>AI 思考并生成计划</strong><p>等待检索完成</p></div></li></ol><p class="ai-search-count" role="status" aria-live="polite"></p><ul class="ai-search-tasks"></ul><section class="ai-live-results" hidden><h3>已找到的官方资料</h3><ul class="ai-source-list ai-live-source-list"></ul><details class="ai-live-more" hidden><summary>展开全部资料</summary></details><h3>AI 根据资料整理</h3><div class="ai-live-summaries"></div><p class="inline-note">摘要随检索更新，院校候选仍需核对；资料和学习行动核验完成后统一预览。</p></section></div>';
     const body = '<form data-form="ai-profile"><div class="ai-step-label"><span class="is-current">01 填写情况</span><span>02 联网生成</span><span>03 预览保存</span></div>' +
       '<p class="modal-description">告诉我们你的目标与基础，AI 会分工检索官方资料；未指定院校时同时设计学习行动，核验完成后生成可以修改的阶段计划。填写内容将发送给 AI。</p>' +
-      '<fieldset class="ai-fields"><div class="form-row"><label class="form-field">当前学历层次 *<select name="level" required autofocus><option value="">请选择</option>' +
+      '<fieldset class="ai-fields"><section class="ai-key-manager" aria-label="DeepSeek API Key 管理"><label class="form-field" for="ai-api-key">DeepSeek API Key<input id="ai-api-key" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="512" placeholder="输入新密钥；已配置时留空可继续使用" aria-describedby="ai-api-key-status"></label><div class="ai-key-actions"><button type="button" class="button secondary small" data-action="ai-key-toggle" aria-controls="ai-api-key" aria-pressed="false">显示</button><button type="button" class="button secondary small" data-action="ai-key-save">保存/更换</button><button type="button" class="text-button" data-action="ai-key-clear">清除</button></div><p id="ai-api-key-status" class="ai-school-note" data-api-key-status role="status" aria-live="polite"></p></section><div class="form-row"><label class="form-field">当前学历层次 *<select name="level" required autofocus><option value="">请选择</option>' +
       ['专科', '本科'].map(level => '<option' + (values.level === level ? ' selected' : '') + '>' + level + '</option>').join('') +
       '</select></label>' + input('专业', 'major', 120, '例如：计算机网络技术') + '</div><div class="form-row"><label class="form-field">年级 *<select name="grade" required' + (values.level ? '' : ' disabled') + '>' +
       aiGradeOptions(values.level, values.grade) + '</select></label>' + input('目标地区', 'region', 80, '例如：山东') + '</div>' +
@@ -953,6 +968,7 @@
       status + modalError + modalActions('检索并生成计划', '<button type="button" class="text-button" data-action="ai-template">使用原始模板</button>') + '</form>';
     openModal('为你规划升学路线', body);
     modal.classList.add('ai-modal');
+    updateApiKeyStatus();
   }
   function openAiPreview() {
     if (!aiDraft) throw new Error('没有可保存的 AI 计划，请重新生成。');
@@ -968,8 +984,16 @@
     let timer;
     try {
       if (store.get().plans.length >= 20) throw new Error('最多可保存20份计划，请先整理已有计划。');
-      aiProfile = Object.fromEntries(new FormData(form));
+      const fields = new FormData(form);
+      aiProfile = Object.fromEntries(['level', 'major', 'grade', 'baseline', 'goal', 'region', 'startDate'].map(name => [name, fields.get(name)]));
       window.StarPath.ai.validateProfile(aiProfile);
+      const keyField = form.querySelector('#ai-api-key');
+      if (keyField.value.trim()) saveApiKey();
+      const apiKey = window.StarPath.aiCredentials.get();
+      if (!apiKey) {
+        keyField.focus();
+        throw new Error('请先填写 DeepSeek API Key。');
+      }
       aiDraft = null;
       controller = new AbortController();
       aiRequest = controller;
@@ -1001,7 +1025,7 @@
       timer = setInterval(updateTime, 1000);
       aiTimer = timer;
       modal.scrollTop = 0;
-      const draft = await window.StarPath.ai.generate(aiProfile, { signal: controller.signal, onStage(stage) {
+      const draft = await window.StarPath.ai.generate(aiProfile, { apiKey, signal: controller.signal, onStage(stage) {
         if (aiRequest !== controller || !modal.open || !form.isConnected) return;
         const searching = stage === 'search';
         const search = status.querySelector('[data-ai-step="search"]');
@@ -1305,6 +1329,24 @@
       else if (action === 'reset-filters') { Object.assign(filters, { query: '', field: 'all', direction: 'all', favorites: false }); syncAlumniFilters(); updateAlumniResults(); document.getElementById('alumni-query').focus({ preventScroll: true }); }
       else if (action === 'create-plan') { if (template === 'education') { resetAi(); openAiProfile(); } else openCreate(template || null); }
       else if (action === 'ai-template') { resetAi(); openCreate('education'); }
+      else if (action === 'ai-key-save') { if (!aiRequest) saveApiKey(); }
+      else if (action === 'ai-key-clear') {
+        if (aiRequest) return;
+        const field = modal.querySelector('#ai-api-key');
+        field.value = ''; field.type = 'password';
+        const toggle = modal.querySelector('[data-action="ai-key-toggle"]');
+        toggle.textContent = '显示'; toggle.setAttribute('aria-pressed', 'false');
+        window.StarPath.aiCredentials.clear();
+        modal.querySelector('#modal-error').hidden = true;
+        updateApiKeyStatus();
+      }
+      else if (action === 'ai-key-toggle') {
+        if (aiRequest) return;
+        const field = modal.querySelector('#ai-api-key');
+        field.type = field.type === 'password' ? 'text' : 'password';
+        button.textContent = field.type === 'password' ? '显示' : '隐藏';
+        button.setAttribute('aria-pressed', String(field.type === 'text'));
+      }
       else if (action === 'ai-edit') { aiDraft = null; openAiProfile(); }
       else if (action === 'ai-regenerate') { aiDraft = null; openAiProfile(); startAiGeneration(modal.querySelector('form')); }
       else if (action === 'create-tribute') openCreate(null, true);

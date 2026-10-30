@@ -1,4 +1,19 @@
 /* 升学 AI 表单、预览与来源，沿用校庆主题。 */
+.ai-key-manager {
+  margin-bottom:24px;
+  padding:16px;
+  border:1px solid var(--line);
+  border-radius:12px;
+}
+.ai-key-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:12px;
+}
+.ai-key-manager .form-field {
+  margin:0;
+}
 .ai-modal {
   width:min(720px,calc(100% - 32px));
   scrollbar-width:thin;

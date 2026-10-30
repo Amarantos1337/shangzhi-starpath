@@ -4,7 +4,7 @@
 
 ## 接入 GitHub 与云端环境
 
-1. 将项目完整上传到 GitHub，包括 `project/assets/`、`project/materials/`、`tests/`、`tools/` 和根目录 `AGENTS.md`。保留素材出处与既有验证报告。当前 `project/js/ai-config.js` 含比赛使用的前端密钥，因此仓库应保持私有；不要把密钥打印到日志、任务回复或截图。
+1. 将项目完整上传到 GitHub，包括 `project/assets/`、`project/materials/`、`tests/`、`tools/` 和根目录 `AGENTS.md`。保留素材出处与既有验证报告。`project/js/ai-config.js` 不含 API Key。网页密钥由用户在升学规划弹窗管理，仅保存在浏览器；不要把密钥打印到日志、任务回复或截图。
 2. 在 ChatGPT/Codex 中选择 **Work in → Cloud → Select environment → Create environment**（也可从 **Settings → Codex Cloud → Environments** 进入）。连接 GitHub，授权这个仓库并选中它。
 3. 在环境准备对话中发送以下说明，让 Codex 配置并验证安装和启动流程：
 
@@ -65,7 +65,7 @@ node tools/dev.js browser
 
 ## 网络与数据
 
-基础功能和模拟回归不需要 DeepSeek 或 OpenAI API Key。真实 AI 生成需要访问现有 DeepSeek 接口，普通开发不必开启模型联网或调用真实 smoke 命令。云端环境变量不会自动进入静态网页；只在环境中设置密钥不会替换 `ai-config.js`。如将来改为公开仓库，应先更换已经写入源码的密钥，并调整前端密钥交付方案。
+基础功能和模拟回归不需要 DeepSeek 或 OpenAI API Key。真实 AI 生成需要访问现有 DeepSeek 接口，普通开发不必开启模型联网或调用真实 smoke 命令。云端环境变量不会自动进入静态网页；网页使用升学规划弹窗输入的密钥。显式运行真实集成或性能测试前需设置 `DEEPSEEK_API_KEY` 环境变量。
 
 收藏、计划等 localStorage 数据按浏览器和访问地址保存，不会随 GitHub 上传或自动同步到云端。迁移个人记录使用网页的 JSON 导出/导入。
 

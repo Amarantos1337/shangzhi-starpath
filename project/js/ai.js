@@ -386,6 +386,8 @@
     return { inputTokens, cacheHitTokens, cacheMissTokens, outputTokens, cacheHitRate };
   }
   async function generate(input, options = {}) {
+    const apiKey = typeof options.apiKey === 'string' ? options.apiKey.trim() : '';
+    if (!apiKey || apiKey.length > 512 || /\s/.test(apiKey)) fail('请先在升学规划弹窗中填写有效的 DeepSeek API Key。');
     const profile = validateProfile(input);
     const requiredSearches = profile.constraints.needsRecommendations ? 15 : minSearches;
     const references = profile.constraints.tier === '一本' && ['济南', '山东'].includes(profile.constraints.location.name) ? historicalReferences : [];
@@ -403,12 +405,12 @@
     async function request(body, onBlock, metadata = {}) {
       const response = await fetch(config.endpoint, {
         method: 'POST', credentials: 'omit', signal: controller.signal,
-        headers: { 'content-type': 'application/json', 'x-api-key': config.apiKey, 'anthropic-version': '2023-06-01' },
+        headers: { 'content-type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
         body: JSON.stringify({ model: config.model, max_tokens: 12000, stream: false,
           thinking: { type: 'enabled' }, output_config: { effort: config.reasoningEffort }, ...body })
       });
       if (!response.ok) {
-        const errors = { 400: 'AI 接口拒绝了请求，请检查模型和搜索配置。', 401: 'AI 密钥无效，请检查配置。', 402: 'AI 账户余额不足。', 403: 'AI 接口访问被拒绝。', 429: '请求过于频繁，请稍后重试。' };
+        const errors = { 400: 'AI 接口拒绝了请求，请检查模型和搜索配置。', 401: 'AI 密钥无效，请在弹窗中检查或更换 API Key。', 402: 'AI 账户余额不足。', 403: 'AI 接口访问被拒绝。', 429: '请求过于频繁，请稍后重试。' };
         fail(errors[response.status] || 'AI 服务暂时不可用，请稍后重试。');
       }
       const result = await readResponse(response, onBlock, controller.signal);
